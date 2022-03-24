@@ -1,0 +1,15 @@
+ISO3,Name,Year,Conflict Stock Displacement,Conflict New Displacements,Disaster New Displacements,Disaster Stock Displacement
+#country+code,#country+name,#date+year,#affected+idps+ind+stock+conflict,#affected+idps+ind+newdisp+conflict,#affected+idps+ind+newdisp+disaster,#affected+idps+ind+stock+disaster
+USA,United States,2008,,,2020000,
+USA,United States,2009,,,1300,
+USA,United States,2010,,,,
+USA,United States,2011,,,52000,
+USA,United States,2012,,,901000,
+USA,United States,2013,,,188000,
+USA,United States,2014,,,34000,
+USA,United States,2015,,,63000,
+USA,United States,2016,,,1107000,
+USA,United States,2017,,,1686000,
+USA,United States,2018,,,1247000,
+USA,United States,2019,,,916000,37000
+USA,United States,2020,,,1714000,126000

@@ -1,0 +1,958 @@
+ISO3,Name,Year,Start Date,Event Name,Hazard Category,Hazard Type,New Displacements
+#country+code,#country+name,#date+year,#date+start,#description,#crisis+category,#crisis+type,#affected+idps+ind+newdisp+disaster
+USA,United States,2008,2008-12-09,,Weather related,Storm,20000
+USA,United States,2008,2008-06-01,,Weather related,Flood,11000
+USA,United States,2008,2008-01-09,,Weather related,Storm,1900000
+USA,United States,2008,2008-11-13,,Weather related,Wildfire,50000
+USA,United States,2008,2008-04-01,,Weather related,Storm,38000
+USA,United States,2008,2008-11-12,,Weather related,Extreme temperature,
+USA,United States,2008,2008-12-26,,Weather related,Flood,473
+USA,United States,2008,2008-06-20,,Weather related,Wildfire,300
+USA,United States,2009,2009-01-01,,Weather related,Storm,
+USA,United States,2009,2009-01-01,,Weather related,Flood,
+USA,United States,2009,2009-01-01,Hurricane Bill,Weather related,Storm,
+USA,United States,2009,2009-01-01,,Weather related,Storm,
+USA,United States,2009,2009-01-01,,Weather related,Storm,
+USA,United States,2009,2009-01-01,,Weather related,Wildfire,234
+USA,United States,2009,2009-01-01,,Weather related,Flood,
+USA,United States,2009,2009-01-01,,Weather related,Storm,
+USA,United States,2009,2009-01-01,,Weather related,Flood,
+USA,United States,2009,2009-01-01,,Weather related,Flood,900
+USA,United States,2009,2009-01-01,,Weather related,Wildfire,192
+USA,United States,2010,2010-01-01,,Weather related,Storm,
+USA,United States,2010,2010-01-01,,Weather related,Storm,
+USA,United States,2010,2010-01-01,,Weather related,Storm,
+USA,United States,2010,2010-01-01,,Weather related,Storm,
+USA,United States,2010,2010-01-01,,Weather related,Storm,
+USA,United States,2010,2010-01-01,Tropical storm Hermine,Weather related,Storm,
+USA,United States,2010,2010-01-01,,Weather related,Flood,
+USA,United States,2010,2010-01-01,Hurricane Earl,Weather related,Storm,
+USA,United States,2010,2010-01-01,,Geophysical,Earthquake,
+USA,United States,2010,2010-01-01,,Weather related,Storm,
+USA,United States,2010,2010-01-01,,Weather related,Flood,
+USA,United States,2011,2011-01-01,,Weather related,Storm,
+USA,United States,2011,2011-01-01,,Weather related,Storm,
+USA,United States,2011,2011-01-01,,Weather related,Storm,
+USA,United States,2011,2011-01-01,,Weather related,Storm,
+USA,United States,2011,2011-01-01,,Weather related,Storm,
+USA,United States,2011,2011-01-01,,Weather related,Storm,
+USA,United States,2011,2011-01-01,Tropical storm 'Emily',Weather related,Storm,
+USA,United States,2011,2011-01-01,,Weather related,Storm,
+USA,United States,2011,2011-01-01,Hurricane Irene,Weather related,Storm,27154
+USA,United States,2011,2011-01-01,Hurricane Irene,Weather related,Storm,771
+USA,United States,2011,2011-01-01,,Weather related,Wildfire,1300
+USA,United States,2011,2011-01-01,,Weather related,Extreme temperature,
+USA,United States,2011,2011-01-01,Tropical Storm Lee,Weather related,Storm,
+USA,United States,2011,2011-01-01,,Weather related,Storm,
+USA,United States,2011,2011-01-01,,Weather related,Flood,5000
+USA,United States,2011,2011-01-01,,Weather related,Storm,15000
+USA,United States,2011,2011-01-01,,Weather related,Wildfire,3000
+USA,United States,2011,2011-01-01,,Weather related,Storm,
+USA,United States,2011,2011-01-01,,Weather related,Storm,
+USA,United States,2011,2011-01-01,,Weather related,Flood,
+USA,United States,2012,2012-01-01,,Weather related,Storm,775761
+USA,United States,2012,2012-01-01,,Weather related,Wildfire,39600
+USA,United States,2012,2012-01-01,,Weather related,Flood,30
+USA,United States,2012,2012-01-01,,Weather related,Wildfire,3000
+USA,United States,2012,2012-01-01,,Weather related,Storm,
+USA,United States,2012,2012-01-01,,Weather related,Storm,
+USA,United States,2012,2012-01-01,,Weather related,Storm,60000
+USA,United States,2012,2012-01-01,,Weather related,Wildfire,120
+USA,United States,2012,2012-01-01,,Weather related,Storm,115
+USA,United States,2012,2012-01-01,,Weather related,Flood,177
+USA,United States,2012,2012-01-01,,Weather related,Wildfire,1350
+USA,United States,2012,2012-01-01,,Weather related,Storm,20000
+USA,United States,2012,2012-01-01,,Weather related,Wildfire,145
+USA,United States,2012,2012-01-01,,Weather related,Flood,500
+USA,United States,2012,2012-01-01,,Weather related,Wet mass movement,8
+USA,United States,2012,2012-01-01,,Weather related,Storm,18
+USA,United States,2012,2012-01-01,,Weather related,Wildfire,75
+USA,United States,2012,2012-01-01,,Weather related,Wildfire,33
+USA,United States,2013,2013-01-08,Severe Storms and Flooding,Weather related,Storm,377
+USA,United States,2013,2013-06-16,Texas Rio Grande River flooding,Weather related,Flood,588
+USA,United States,2013,2013-07-04,Carpenter 1 Fire,Weather related,Wildfire,520
+USA,United States,2013,2013-02-10,"Nebraska storms, winter storms, tornadoes, and flooding",Weather related,Storm,10
+USA,United States,2013,2013-06-20,"Severe Storms, Flooding, and Mudslides",Weather related,Storm,2
+USA,United States,2013,2013-06-13,Severe Storms and Flooding,Weather related,Storm,270
+USA,United States,2013,2013-08-05,"California wildfires (Clover, Silver, Falls, Rim Fire, Springs fires)",Weather related,Wildfire,15807
+USA,United States,2013,2013-08-17,"Oregon wildfires (Government Flats Complex, Douglas Complex, Brimstone, and Pacifica fires)",Weather related,Wildfire,820
+USA,United States,2013,2013-06-26,"Severe Storms, Tornadoes, And Flooding",Weather related,Storm,195
+USA,United States,2013,2013-02-08,"Severe Storms, Straight-line Winds, and Flooding",Weather related,Storm,681
+USA,United States,2013,2013-08-13,Rockport Five Fire,Weather related,Wildfire,500
+USA,United States,2013,2013-05-31,Mississippi severe storms and flooding,Weather related,Storm,399
+USA,United States,2013,2013-06-05,"Colorado wildfires (Black Forest, East Peak, West Fork Complex fires)",Weather related,Wildfire,43416
+USA,United States,2013,2013-09-09,2013 Colorado Floods,Weather related,Flood,101470
+USA,United States,2013,2013-08-02,Severe Winter Storm,Weather related,Storm,1708
+USA,United States,2013,2013-05-18,Oklahoma Severe Storms and Tornadoes,Weather related,Storm,10141
+USA,United States,2013,2013-10-30,Severe Storms and Flooding,Weather related,Storm,2017
+USA,United States,2013,2013-07-24,"Washington wildfires (Eagle, Mile Post 10, Colockum Tarps & Mile Marker 28 fires)",Weather related,Wildfire,795
+USA,United States,2013,2013-07-22,"Severe Storms, Straight-line Winds, Tornadoes, and Flooding",Weather related,Storm,150
+USA,United States,2013,2013-08-02,"Severe Storms, Straight-line Winds, Tornadoes, and Flooding",Weather related,Storm,300
+USA,United States,2013,2013-06-18,Arizona wildfires (Doce fire; Dean Peak fire; Yanell Hill),Weather related,Wildfire,3040
+USA,United States,2013,2013-06-19,Stuart Creek 2 Fire,Weather related,Wildfire,1500
+USA,United States,2013,2013-07-08,Idaho wildfires (Beaver Creek and Elk fires),Weather related,Wildfire,2356
+USA,United States,2013,2013-07-14,Montana wildfires (Lolo Creek Complex fire and West Mullan fire),Weather related,Wildfire,803
+USA,United States,2014,2014-10-02,Storm across Texan territory,Weather related,Storm,11
+USA,United States,2014,2014-06-01,Verona tornado,Weather related,Storm,49
+USA,United States,2014,2014-07-13,Moccasin Hill Fire,Weather related,Wildfire,100
+USA,United States,2014,2014-12-11,Glendora storm ('Pineapple Express' effects),Weather related,Storm,1000
+USA,United States,2014,2014-08-11,Storms and flooding in South-East Michigan,Weather related,Flood,3208
+USA,United States,2014,2014-08-12,Happy Camp Complex fire,Weather related,Wildfire,274
+USA,United States,2014,2014-08-03,San Bernardino flash flood,Weather related,Flood,2000
+USA,United States,2014,2014-04-25,North Carolina storms and tornadoes,Weather related,Storm,868
+USA,United States,2014,2014-08-18,Kentucky flooding,Weather related,Flood,161
+USA,United States,2014,2014-07-18,Way Fire,Weather related,Wildfire,4250
+USA,United States,2014,2014-08-02,Snag Canyon Fire,Weather related,Wildfire,20
+USA,United States,2014,2014-06-13,Shirley Fire,Weather related,Wildfire,500
+USA,United States,2014,2014-07-31,Eiler Fire,Weather related,Wildfire,600
+USA,United States,2014,2014-07-30,Oregon Gulch Fire,Weather related,Wildfire,15
+USA,United States,2014,2014-07-30,Beaver Complex Fire,Weather related,Wildfire,61
+USA,United States,2014,2014-08-05,Rowena fire,Weather related,Wildfire,735
+USA,United States,2014,2014-04-28,Florida storms and flooding,Weather related,Flood,2917
+USA,United States,2014,2014-08-24,Oregon Fire,Weather related,Wildfire,375
+USA,United States,2014,2014-01-01,Typhoon Vongfong (locally: Typhoon no.19),Weather related,Storm,191
+USA,United States,2014,2014-09-05,Bridge Fire,Weather related,Wildfire,1300
+USA,United States,2014,2014-09-07,Tropical storm Iselle,Weather related,Storm,150
+USA,United States,2014,2014-09-08,Heavy rainfall in Arizona,Weather related,Flood,260
+USA,United States,2014,2014-09-15,Boles Fire,Weather related,Wildfire,2000
+USA,United States,2014,2014-08-24,South Napa quake,Geophysical,Earthquake,39
+USA,United States,2014,2014-09-08,Heavy rainfall in Nevada,Weather related,Flood,90
+USA,United States,2014,2014-04-30,TBC,Weather related,Storm,42
+USA,United States,2014,2014-04-22,Oso mudslide,Weather related,Wet mass movement,96
+USA,United States,2014,2014-12-01,Southern California flood ('Pineapple Express' effects),Weather related,Flood,46
+USA,United States,2014,2014-01-16,Colby fire,Weather related,Wildfire,3600
+USA,United States,2014,2014-03-22,Washington flooding and mudslides,Weather related,Flood,78
+USA,United States,2014,2014-04-29,Faulkner County tornado,Weather related,Storm,686
+USA,United States,2014,2014-09-13,King Fire,Weather related,Wildfire,2819
+USA,United States,2014,2014-06-16,Platteville tornado,Weather related,Storm,31
+USA,United States,2014,2014-09-14,Courtney Fire,Weather related,Wildfire,1000
+USA,United States,2014,2014-06-18,Twin tornadoes in Pilger,Weather related,Storm,130
+USA,United States,2014,2014-04-14,Chippewa Vista flood,Weather related,Flood,15
+USA,United States,2014,2014-06-10,Midwest floods,Weather related,Flood,400
+USA,United States,2014,2014-09-13,36 Pit Fire,Weather related,Wildfire,500
+USA,United States,2014,2014-04-07,Floods in the South of the US,Weather related,Flood,635
+USA,United States,2014,2014-08-02,Devil's Elbow Complex Fire,Weather related,Wildfire,66
+USA,United States,2014,2014-10-08,Applegate Fire,Weather related,Wildfire,800
+USA,United States,2014,2014-05-02,Local storm in Etowah County (Alabama State),Weather related,Storm,27
+USA,United States,2014,2014-07-18,Junction Fire,Weather related,Wildfire,1542
+USA,United States,2014,2014-07-09,Washington wildfires,Weather related,Wildfire,634
+USA,United States,2015,2015-02-27,Round Fire,Weather related,Wildfire,52
+USA,United States,2015,2015-03-15,Tropical Storm Bavi,Weather related,Storm,412
+USA,United States,2015,2015-06-17,Southern plains to Ohio valley floods,Weather related,Flood,113
+USA,United States,2015,2015-06-28,Sleepy Hollow Fire,Weather related,Wildfire,30
+USA,United States,2015,2015-08-12,Canyon Creek Complex,Weather related,Wildfire,600
+USA,United States,2015,2015-06-17,Kearny River Fire,Weather related,Wildfire,300
+USA,United States,2015,2015-05-14,Typhoon Dolphin,Weather related,Storm,775
+USA,United States,2015,2015-01-05,Western Washington floods,Weather related,Flood,60
+USA,United States,2015,2015-07-04,Tropical Storm Chan-Hom,Weather related,Storm,32
+USA,United States,2015,2015-06-22,Michigan tornadoes,Weather related,Storm,3
+USA,United States,2015,2015-10-04,South Carolina floods,Weather related,Storm,1000
+USA,United States,2015,2015-05-07,Arkansas storms and flooding,Weather related,Storm,718
+USA,United States,2015,2015-12-23,Storms in southern US,Weather related,Storm,707
+USA,United States,2015,2015-05-20,Southern plains severe weather,Weather related,Storm,29
+USA,United States,2015,2015-08-12,TeePee Springs Fire,Weather related,Wildfire,413
+USA,United States,2015,2015-04-02,Kentucky winter storms,Weather related,Storm,1342
+USA,United States,2015,2015-02-16,South Plains to Mid Atlantic winter storm,Weather related,Storm,240
+USA,United States,2015,2015-08-14,Renner Fire,Weather related,Wildfire,300
+USA,United States,2015,2015-08-13,Nine Mile Fire,Weather related,Wildfire,436
+USA,United States,2015,2015-08-08,Willow Fire,Weather related,Wildfire,700
+USA,United States,2015,2015-10-22,Hurricane Patricia,Weather related,Storm,5374
+USA,United States,2015,2015-07-11,Kentucky summer storms,Weather related,Storm,393
+USA,United States,2015,2015-09-09,Butte Fire,Weather related,Wildfire,11000
+USA,United States,2015,2015-09-12,Valley Fire,Weather related,Wildfire,13000
+USA,United States,2015,2015-07-29,Rocky Fire,Weather related,Wildfire,800
+USA,United States,2015,2015-05-15,Missouri storms,Weather related,Storm,848
+USA,United States,2015,2015-09-13,North Star Complex Fire,Weather related,Wildfire,3829
+USA,United States,2015,2015-08-19,Twisp River Fire,Weather related,Wildfire,2600
+USA,United States,2015,2015-08-13,Clear Water Complex-Lawyer Branch Fire,Weather related,Wildfire,1200
+USA,United States,2015,2015-07-30,Cyclone Soudelor,Weather related,Storm,350
+USA,United States,2015,2015-05-06,"Floods in Cleveland, Grady, and Oklahoma Counties",Weather related,Storm,1461
+USA,United States,2015,2015-02-20,Southern plains to Carolinas winter storm,Weather related,Storm,238
+USA,United States,2015,2015-08-14,Reach Complex Fire,Weather related,Wildfire,1898
+USA,United States,2015,2015-07-06,Cape Horn Fire,Weather related,Wildfire,600
+USA,United States,2015,2015-06-27,Northern Plains/Southeast and Mid-Atlantic storms,Weather related,Storm,5
+USA,United States,2015,2015-01-18,Meridian Fires,Weather related,Wildfire,156
+USA,United States,2015,2015-03-04,Winter storm in the Easter states,Weather related,Storm,42
+USA,United States,2015,2015-08-10,Goodell Fire,Weather related,Wildfire,200
+USA,United States,2015,2015-06-14,Sockeye Fire,Weather related,Wildfire,1700
+USA,United States,2015,2015-08-11,Stickpin Fire,Weather related,Wildfire,1352
+USA,United States,2015,2015-08-20,Grizzly Bear Fire,Weather related,Wildfire,200
+USA,United States,2015,2015-06-15,Card Street Fire,Weather related,Wildfire,300
+USA,United States,2015,2015-05-04,Texas floods,Weather related,Flood,4194
+USA,United States,2015,2015-06-23,Mid Atlantic and North East severe weather,Weather related,Storm,20
+USA,United States,2015,2015-08-01,Municipal Fire,Weather related,Wildfire,520
+USA,United States,2015,2015-08-01,Stevens County Complex Fire,Weather related,Wildfire,2600
+USA,United States,2015,2015-04-09,Plains to Mid-Atlantic Severe Weather,Weather related,Storm,195
+USA,United States,2016,2016-08-31,Gold Canyon Fire,Weather related,Wildfire,660
+USA,United States,2016,2016-08-27,Suncrest Fire,Weather related,Wildfire,286
+USA,United States,2016,2016-06-11,Baker city tornado,Weather related,Storm,16
+USA,United States,2016,2016-07-29,Rock Fire,Weather related,Wildfire,400
+USA,United States,2016,2016-04-21,Stoddard Fire,Weather related,Wildfire,44
+USA,United States,2016,2016-01-22,Delaware winter storm,Weather related,Storm,50
+USA,United States,2016,2016-07-07,Cold Spring Fire,Weather related,Wildfire,2000
+USA,United States,2016,2016-09-11,Maui island flash floods,Weather related,Flood,11
+USA,United States,2016,2016-07-11,Wisconsin heavy rains and flooding,Weather related,Flood,26
+USA,United States,2016,2016-07-30,South Ward Gap Fire,Weather related,Wildfire,130
+USA,United States,2016,2016-06-15,Dog Head Fire,Weather related,Wildfire,300
+USA,United States,2016,2016-06-20,Twin fires (former: Reservoir and Fish fires),Weather related,Wildfire,2600
+USA,United States,2016,2016-03-08,Arkansas storms (March),Weather related,Storm,751
+USA,United States,2016,2016-03-07,Texas floods (1st wave),Weather related,Flood,12500
+USA,United States,2016,2016-07-22,Soberanes Fire,Weather related,Wildfire,3500
+USA,United States,2016,2016-07-02,Kentucky storms,Weather related,Storm,315
+USA,United States,2016,2016-03-08,Louisiana  floods (March),Weather related,Flood,4255
+USA,United States,2016,2016-07-30,Maryland flash floods,Weather related,Flood,100
+USA,United States,2016,2016-07-09,Sage Fire,Weather related,Wildfire,1820
+USA,United States,2016,2016-08-31,Hurricane Hermine,Weather related,Storm,4449
+USA,United States,2016,2016-05-22,Texas floods (2nd wave),Weather related,Flood,4640
+USA,United States,2016,2016-09-28,Hurricane Matthew,Weather related,Storm,875000
+USA,United States,2016,2016-11-28,Tennessee wildfires,Weather related,Wildfire,4597
+USA,United States,2016,2016-08-11,Louisiana floods (August),Weather related,Flood,45373
+USA,United States,2016,2016-11-05,Party Rock Fire,Weather related,Wildfire,1000
+USA,United States,2016,2016-08-23,Iowa floods,Weather related,Flood,151
+USA,United States,2016,2016-07-22,Sand Fire,Weather related,Wildfire,10000
+USA,United States,2016,2016-06-23,Erskine Fire,Weather related,Wildfire,2000
+USA,United States,2016,2016-08-13,Clayton Fire,Weather related,Wildfire,4000
+USA,United States,2016,2016-04-17,Texas severe storms and flooding,Weather related,Flood,16762
+USA,United States,2016,2016-06-22,West Virginia floods,Weather related,Flood,3900
+USA,United States,2016,2016-06-04,Old Fire,Weather related,Wildfire,5000
+USA,United States,2016,2016-10-03,Beulah Hill Fire,Weather related,Wildfire,1950
+USA,United States,2016,2016-10-21,Pennsylvania floods,Weather related,Flood,100
+USA,United States,2016,2016-03-09,Mississippi floods,Weather related,Flood,1919
+USA,United States,2016,2016-01-29,Oak Grove Fire,Weather related,Wildfire,60
+USA,United States,2016,2016-08-16,Blue Cut Fire,Weather related,Wildfire,82000
+USA,United States,2016,2016-11-05,Flippers Bend Fire,Weather related,Wildfire,34
+USA,United States,2016,2016-10-17,Junkins Fire,Weather related,Wildfire,335
+USA,United States,2016,2016-08-21,Spokane Complex Fire,Weather related,Wildfire,50
+USA,United States,2016,2016-07-30,Goose Fire,Weather related,Wildfire,303
+USA,United States,2016,2016-09-21,Floods in the Upper Midwest,Weather related,Flood,13234
+USA,United States,2016,2016-08-16,Cedar Fire,Weather related,Wildfire,700
+USA,United States,2017,2017-03-29,United States: Floods - Idaho - 29/03/2017,Weather related,Flood,107
+USA,United States,2017,2017-08-25,United States: Tropical cyclone Harvey - Texas ; Louisiana - 25/08/2017,Weather related,Storm,848000
+USA,United States,2017,2017-02-27,United States : California floods (March) - 27/02/2017,Weather related,Flood,65
+USA,United States,2017,2017-06-08,United States : Cochise County - wildfire - Arizona - 08/06/2017,Weather related,Wildfire,78
+USA,United States,2017,2017-05-07,United States : West Mims Fire - Florida - 07/05/2017,Weather related,Wildfire,2000
+USA,United States,2017,2017-04-30,United States : Kansas city Storms - 30/04/2017,Weather related,Storm,100
+USA,United States,2017,2017-03-20,United States : Boulder wildfire - 20/03/2017,Weather related,Wildfire,1000
+USA,United States,2017,2017-02-23,United States : Wagoner Fire - Georgia - 23/02/2017,Weather related,Wildfire,250
+USA,United States,2017,2017-06-15,United States :El Cajete Fire - New Mexico - 15/06/2017,Weather related,Wildfire,390
+USA,United States,2017,2017-02-20,United States : Coyote Creek Floods - California - 20/02/2017,Weather related,Flood,14000
+USA,United States,2017,2017-06-17,United States : Brian Head Fire - Utah - 17/06/2017,Weather related,Wildfire,1562
+USA,United States,2017,2017-06-02,United States : Texas Floods - 02/06/2017,Weather related,Flood,39
+USA,United States,2017,2017-07-20,United States of America: Arcadia Flooding - Wisconsin - 20/07/2017,Weather related,Flood,200
+USA,United States,2017,2017-08-11,United States : Caribou Fire - Montana - 11/08/2017,Weather related,Wildfire,100
+USA,United States,2017,2017-07-12,United States: Chetco Bar (Curry) wildfire - July 2017,Weather related,Wildfire,4000
+USA,United States,2017,2017-09-25,United States: Canyon fire 1 - California - September 2017,Weather related,Wildfire,1500
+USA,United States,2017,2017-09-03,United States: Mission (Madera)  wildfire - California - September 2017,Weather related,Wildfire,520
+USA,United States,2017,2017-08-29,United States: Railroad (Mariposa) wildfire - California - August 2017,Weather related,Wildfire,600
+USA,United States,2017,2017-02-16,United States :  Worland flood - Wyoming - 16/02/2017,Weather related,Flood,260
+USA,United States,2017,2017-09-25,United States: Cascade Fire -  California -25/09/2017,Weather related,Wildfire,286
+USA,United States,2017,2017-01-21,United States:  Southern Georgia Tornado - 25/01/2017,Weather related,Storm,2860
+USA,United States,2017,2017-05-05,United States : Wildfire - Charlton County -Georgia - 06/05/2017,Weather related,Wildfire,156
+USA,United States,2017,2017-02-19,United States : California - Floods - 19/02/2017,Weather related,Flood,1500
+USA,United States,2017,2017-02-07,United States : Tornado - Louisiana - 07/02/2017,Weather related,Storm,419
+USA,United States,2017,2017-08-17,United States of America: Milli Fire  - 17/08/2017,Weather related,Wildfire,1625
+USA,United States,2017,2017-07-24,"United States: Wildfire - Rice Ridge, Montana - 24-07-2017",Weather related,Wildfire,2415
+USA,United States,2017,2017-07-07,United States of America: Wall Fire - Wildfire - California - 09/07/2017,Weather related,Wildfire,4000
+USA,United States,2017,2017-09-09,United States: Eagle Creek Fire - Oregon - 02/09/2017,Weather related,Wildfire,2000
+USA,United States,2017,2017-10-23,United States : North Carolina Tornado - 26/10/2017,Weather related,Storm,49
+USA,United States,2017,2017-01-04,United States :  California flood - 11/01/2017,Weather related,Flood,17056
+USA,United States,2017,2017-08-11,United States : Utah Uintah Fire - Utah - 05/09/2017,,,309
+USA,United States,2017,2017-12-11,United States : Legion Lake Fire - South Dakota - 11/12/2017,Weather related,Wildfire,235
+USA,United States,2017,2017-04-29,United States : Arkansas and Missouri Floods - 29/04/2017,Weather related,Flood,611
+USA,United States,2017,2017-04-27,United States : North Carolina Floods - 27/04/2017,Weather related,Flood,30
+USA,United States,2017,2017-07-15,United States: Lolo Peak wildfire - Montana - July 2017,Weather related,Wildfire,743
+USA,United States,2017,2017-04-21,United States : Golden Gate Estates fires- Florida - 21/04/2017,Weather related,Wildfire,7280
+USA,United States,2017,2017-07-14,United States of America: Cold Springs Fire – Nevada - 14/072017,Weather related,Wildfire,200
+USA,United States,2017,2017-07-17,United States of America : Oil Well Fire - Nevada- 17/07/2017,Weather related,Wildfire,1000
+USA,United States,2017,2017-06-23,United States :  Goodwin Fire - Arizona - 23/06/2017,Weather related,Wildfire,10000
+USA,United States,2017,2017-05-02,United States : Arkansas floods - 02/05/2017,Weather related,Flood,300
+USA,United States,2017,2017-01-23,United States :  Santa Clarita - Floods - California  - 23/01/2017,Weather related,Flood,273
+USA,United States,2017,2017-01-09,United States : California and Nevada  Floods - 09/01/2017,Weather related,Flood,4604
+USA,United States,2017,2017-12-04,"United States :   Southern California Wildfires (Thomas, Creek, Rye, Skirball, Lilac)  - California - 04/12/2017",Weather related,Wildfire,203700
+USA,United States,2017,2017-08-11,United States: Wildfire - Jolly Mountain (Kittitas) - 11/08/2017,Weather related,Wildfire,1680
+USA,United States,2017,2017-08-30,United States: Moose Peak wildfire - Montana - August 2017,Weather related,Wildfire,24
+USA,United States,2017,2017-08-28,United States: Wildfire - Highway 200 - Montana - 28-08-2017,Weather related,Wildfire,100
+USA,United States,2017,2017-07-25,United States : Preacher Fire - Nevada - 25/07/2017,Weather related,Wildfire,1350
+USA,United States,2017,2017-06-28,United States : South Wenas Fire - Washington - 28/06/2017,Weather related,Wildfire,40
+USA,United States,2017,2017-05-02,United States : Missouri Floods - 02/05/2017,Weather related,Flood,100
+USA,United States,2017,2017-07-17,United States of America: Detwiler Fire - 17/07/2017,Weather related,Wildfire,4968
+USA,United States,2017,2017-08-30,United States: Helena (Trinity) wildfire - California - August 2017,Weather related,Wildfire,2000
+USA,United States,2017,2017-08-30,United States: West Fork wildfire - Montana - August 2017,Weather related,Wildfire,182
+USA,United States,2017,2017-04-04,United States : Louisiana thunderstorms - 04/04/2017,Weather related,Storm,18
+USA,United States,2017,2017-03-07,United States : Kansas and Oklahoma  wildfires - 07/03/2017,Weather related,Wildfire,19300
+USA,United States,2017,2017-10-09,United States: Canyon fire 2 - California - October 2017,Weather related,Wildfire,62
+USA,United States,2017,2017-07-22,United States: Alice Creek Wildfire - Montana - July 2017,Weather related,Wildfire,30
+USA,United States,2017,2017-08-11,United States of America:  West Virginia Floods -  Virginia - 18/08/2017,Weather related,Flood,75
+USA,United States,2017,2017-10-08,United States: Wildfires - California - October 2017,Weather related,Wildfire,106000
+USA,United States,2017,2017-07-07,United States: Roach Fire - Wildfire - 08/07/2017,Weather related,Wildfire,800
+USA,United States,2017,2017-08-25,United States: Strawberry fire - Montana - August 2017,Weather related,Wildfire,87
+USA,United States,2017,2017-02-12,United States :  Oroville Dam release flood - California - 12/02/2017,Weather related,Flood,190000
+USA,United States,2017,2017-10-09,United States : Lobo Fire - California - 09/10/2017,Weather related,Wildfire,2000
+USA,United States,2017,2017-08-27,15 countries - Hurricane Irma - 27/08/2017,Weather related,Storm,201689
+USA,United States,2017,2017-01-08,United States:  Floods in California and Nevada- 08/01/2017,Weather related,Flood,4040
+USA,United States,2017,2017-02-22,United States : San José Floods - California - 22/02/2017,Weather related,Flood,14000
+USA,United States,2017,2017-07-24,"United States : South Vestal, New York- Floods - 24/07/2017",Weather related,Flood,29
+USA,United States,2017,2017-07-08,United States of America: Whittier Fire  - California - 08/07/2017,Weather related,Wildfire,800
+USA,United States,2018,2018-08-10,USA: Flooding - Mesa (Arizona) - 10/8/2018,Weather related,Flood,30
+USA,United States,2018,2018-08-20,"USA: Flooding - State-wide incl. Dane County, Kickapoo Riverm (Wisconsin) - 20/8/2018",Weather related,Storm,380
+USA,United States,2018,2018-02-26,United States :  Montgomery County Tornado - 26/02/2018,Weather related,Storm,10
+USA,United States,2018,2018-09-06,"USA: Wildfire (Pole Creek and Bald Mountain) - Utah, Juab counties (Utah) - 6/9/2018",Weather related,Wildfire,6000
+USA,United States,2018,2018-08-22,"USA: Flood - Martinsburg, Berkeley County (West Virginia) - 22/8/2018",Weather related,Flood,73
+USA,United States,2018,2018-10-17,USA: Grass Fire? - Contra Costa County (California) - 17/10/2018,Weather related,Wildfire,4000
+USA,United States,2018,2018-07-28,USA: Wildfire (Steele) - Lake Berryessa (California) - 28/7/2018,Weather related,Wildfire,200
+USA,United States,2018,2018-04-30,United States: Storm - Chicago; Cleaveland; Ohio; Erie; Pennsylvania; New York - 30/04/2018,Weather related,Storm,200
+USA,United States,2018,2018-08-08,USA: Tornado - Lincoln county (North Carolina) - 8/8/2018,Weather related,Storm,3
+USA,United States,2018,2018-08-06,USA: Flooding - Passaic County (New Jersey) - 10/8/2018,Weather related,Flood,80
+USA,United States,2018,2018-10-03,"USA: Flood - Manteca, San Joaquin County (California) - 3/10/2018",Weather related,Flood,19
+USA,United States,2018,2018-06-01,USA: Wildfire - Laguna Beach (California) - 1/6/2018,Weather related,Wildfire,5577
+USA,United States,2018,2018-05-07,USA: Flood - Missoula (Montana) - 10/5/2018,Weather related,Flood,156
+USA,United States,2018,2018-06-12,USA: Wildfire (Buffalo Mountain) - Summity County (Colorado) - 12/6/2018,Weather related,Wildfire,3640
+USA,United States,2018,2018-05-31,USA: Wildfire - Ute Park (New Mexico) - 31/5/2018,Weather related,Wildfire,2200
+USA,United States,2018,2018-06-11,USA: Wildfire (Milepost 81) - Grant County (Washington) - 11/6/2018,Weather related,Wildfire,8
+USA,United States,2018,2018-05-11,POSSIBLY HUMAN INDUCED United States: Viewpoint fire - Yavapai; Arizona - 11/05/2018,Weather related,Wildfire,400
+USA,United States,2018,2018-05-31,USA: Storm - Kentucky - 31/5/2018,Weather related,Storm,2
+USA,United States,2018,2018-10-10,"USA: Floods - Kingsland, Marble Falls - Llano County (Texas) - 10/10/2018",Weather related,Flood,108
+USA,United States,2018,2018-09-10,USA: Floods / Potential Dam Release - Westmoreland County (Pennsylvania) - 10/9/2018,Weather related,Flood,100
+USA,United States,2018,2018-10-17,"USA: Floods - Morongo Bay, San Bernadino County (California) - 10/10/2018",Weather related,Flood,5
+USA,United States,2018,2018-05-27,USA: Flood - Baltimore (Maryland) - 27/5/2018,Weather related,Flood,6
+USA,United States,2018,2018-07-15,USA: Wildfire (Garner Complex) - Josephine and Jackson Counties (Oregon) - 15/7/2018,Weather related,Wildfire,1000
+USA,United States,2018,2018-06-12,USA: Wildfire (Badger Creek) - Medicine Bow National Forest (Wyoming) - 12/6/2018,Weather related,Wildfire,1022
+USA,United States,2018,2018-06-12,USA: Wildfire - Moab (Utah) - 12/6/2018,Weather related,Wildfire,21
+USA,United States,2018,2018-06-07,USA: Wildfire (Soldier) - Mescalero Apache Reservation (New Mexico) - 5/6/2018,Weather related,Wildfire,260
+USA,United States,2018,2018-06-08,USA: Flood - Mason City (Iowa) - 8/6/2018,Weather related,Flood,32
+USA,United States,2018,2018-07-27,USA: Tornado - Whitemarsh Island (Georgia) - 27/7/2018,Weather related,Storm,3
+USA,United States,2018,2018-09-10,"USA: Floods - Greensburg, West Newton (Pennsylvania) - 10/9/2018",Weather related,Flood,65
+USA,United States,2018,2018-07-20,USA: Storm - Frankfort (Kentucky) - 20/7/2018,Weather related,Storm,17
+USA,United States,2018,2018-03-06,USA: Winter Storm - Northeast - 6/3/2018,Weather related,Storm,154
+USA,United States,2018,2018-03-01,USA: Winter Storm - Northeast - 1/3/2018,Weather related,Extreme temperature,269
+USA,United States,2018,2018-11-08,USA: Wildfire (Camp) - Butte County (California) - 8/11/2018,Weather related,Wildfire,53400
+USA,United States,2018,2018-02-17,"USA: Floods - Midwest, South, Central - 17/2/2018",Weather related,Flood,356
+USA,United States,2018,2018-11-05,USA: Tornado - Tennessee - 5/11/2018,Weather related,Storm,8
+USA,United States,2018,2018-11-05,USA: Tornado - Okaloosa (Florida) - 5/11/2018,Weather related,Storm,269
+USA,United States,2018,2018-11-30,USA: Tornado - Van Buren (Arkansas) - 30/11/2018,Weather related,Storm,13
+USA,United States,2018,2018-10-07,USA: Sink hole - Bristol (Florida) - October 2018,Weather related,Wet mass movement,5
+USA,United States,2018,2018-11-02,USA: Tornado - Baltimore (Maryland) - 2/11/2018,Weather related,Storm,64
+USA,United States,2018,2018-01-12,USA: Ice Jam Floods - Northeast USA - 12/1/2018,Weather related,Flood,280
+USA,United States,2018,2018-01-09,USA: Mudslides/Flooding - California - 9/1/2018,Weather related,Flood,260
+USA,United States,2018,2018-09-05,USA: Wildfire (Delta) - Shasta and Trinity Counties (California) - 6/9/2018,Weather related,Wildfire,62
+USA,United States,2018,2018-08-10,USA: Flooding - Bergen county (New Jersey) - 10/8/2018,Weather related,Flood,73
+USA,United States,2018,2018-09-03,"USA: Flood - Manhattan, Riley County (Kansas) - 3/9/2018",Weather related,Flood,300
+USA,United States,2018,2018-01-21,USA: Flood - Midwest - 21/1/2018,Weather related,Flood,24
+USA,United States,2018,2018-07-24,USA: Flood - Santa Fe (Albuquerque) - 23/7/2018,Weather related,Flood,3
+USA,United States,2018,2018-08-13,USA: Storms - Prince George county (Maryland) - 13/8/2018,Weather related,Storm,8
+USA,United States,2018,2018-07-17,USA: Wildfire (Upriver Beacon) - Upper Beacon (Washington) - 17/7/2018,Weather related,Wildfire,8
+USA,United States,2018,2018-07-19,USA: Thunderstorms - Bondurant (Iowa) - 19/7/2018,Weather related,Storm,31
+USA,United States,2018,2018-07-19,USA: Wildfire (Skyline) - Orchard Glen (California) - 19/7/2018,Weather related,Wildfire,390
+USA,United States,2018,2018-07-25,USA: Wildfire (Cranston) - Riverside County (California) - 25/7/2018,Weather related,Wildfire,6000
+USA,United States,2018,2018-07-29,USA: Wildfire (Park Road) - Burnet County (Texas) - 29/7/2018,Weather related,Wildfire,600
+USA,United States,2018,2018-07-26,USA: Wildfire (Grassy Ridge) - Clark County (Idaho) - 26/7/2018,Weather related,Wildfire,600
+USA,United States,2018,2018-07-27,USA: Wildfire (Chelan Hills) - Douglas County (Washington) - 27/7/2018,Weather related,Wildfire,252
+USA,United States,2018,2018-07-24,USA: Wildfire (259) - Brown County (Texas) - 23/7/2018,Weather related,Wildfire,3
+USA,United States,2018,2018-06-18,USA: Flood - Texas - 18/6/2018,Weather related,Flood,350
+USA,United States,2018,2018-04-13,"United States : Severe Weather Event ( Thunderstorms)  -  Florida, Georgia, South Carolina, North Carolina, Virginia, Ohio - 13/04/2018",Weather related,Storm,200
+USA,United States,2018,2018-06-18,USA: Storm - New Hampshire - 18/6/2018,Weather related,Storm,3
+USA,United States,2018,2018-07-19,USA: Wildfire (Buckshot) - Grant County (Washington) - 19/7/2018,Weather related,Wildfire,4200
+USA,United States,2018,2018-06-18,USA: Thunderstorm - Springfield (Massachusetts) - 18/6/2018,Weather related,Storm,100
+USA,United States,2018,2018-09-26,USA: Floods - Rankin County (Mississippi) - 26/9/2018,Weather related,Flood,260
+USA,United States,2018,2018-08-10,USA: Flooding - Ocean County (New Jersey) - 13/8/2018,Weather related,Flood,260
+USA,United States,2018,2018-07-17,USA: Wildfire (Substation) - Sherman and Wasco Counties (Oregon) - 17/7/2018,Weather related,Wildfire,200
+USA,United States,2018,2018-08-01,USA: Wildfire (Boyds) - Ferry (Washington) - 11/8/2018,Weather related,Wildfire,210
+USA,United States,2018,2018-08-02,USA: Flood - Lynchburg (Virginia) - 2/8/2018,Weather related,Flood,150
+USA,United States,2018,2018-08-04,"United States: Wildfire (Waianae and Makaha Valleys) - Leeward Coast, Oahu (Hawaii) - 04/05/2018",Weather related,Wildfire,40
+USA,United States,2018,2018-08-02,USA: Flood - Campbell County (Virginia) - 2/8/2018,Weather related,Flood,2
+USA,United States,2018,2018-07-29,USA: Wildfire (South Valley) - Wasco County (Oregon) - 29/7/2018,Weather related,Wildfire,400
+USA,United States,2018,2018-08-02,USA: Wildfire (Angel Springs) - Lincoln County (Washington) - 2/8/2018,Weather related,Wildfire,400
+USA,United States,2018,2018-08-06,USA: Wildfire (Hilltop) - Sanpete (Utah) - 6/8/2018,Weather related,Wildfire,350
+USA,United States,2018,2018-11-08,USA: Wildfire (Hill) - Ventura County (California) - 8/11/2018,Weather related,Wildfire,1200
+USA,United States,2018,2018-06-21,USA: Graham Wildfire - Jefferson County (Oregon) - 21/6/2018,Weather related,Wildfire,520
+USA,United States,2018,2018-06-16,"USA: Floods - Michigan, Minnesota, Wisconsin - 16/6/2018",Weather related,Flood,240
+USA,United States,2018,2018-04-13,United States: Wildfire - Oklahoma - 13/04/2018,Weather related,Wildfire,200
+USA,United States,2018,2018-09-15,USA: Wildfire (Roosevelt) - Sublette (Wyoming) - 15/9/2018,Weather related,Wildfire,500
+USA,United States,2018,2018-06-01,"USA: Wildfire (416) - San Juan County, La Plata County (Colorado) - 1/6/2018",Weather related,Wildfire,5200
+USA,United States,2018,2018-05-27,USA: Flood - Ellicott City (Maryland) - 27/5/2018,Weather related,Flood,60
+USA,United States,2018,2018-04-13,United States: Kauai - Floods - 13/04/2018,Weather related,Flood,475
+USA,United States,2018,2018-08-15,USA: Hurricane Lane - Hawaii - 21/8/2018,Weather related,Storm,1753
+USA,United States,2018,2018-08-22,USA: Wildfire (Ramsey Canyon) - Jackson (Oregon) - 22/8/2018,Weather related,Wildfire,120
+USA,United States,2018,2018-03-21,"United States: Severe Weather - Nor'easter -  New Jersey, Massachusetts - 22/03/2018",Weather related,Storm,9
+USA,United States,2018,2018-04-12,United States - Rhea fire - Dewey; Oklahoma - 12/04/2018,Weather related,Wildfire,83
+USA,United States,2018,2018-08-12,USA: Flooding - Schuylkill County (Pennsylvania) - 12/8/2018,Weather related,Flood,35
+USA,United States,2018,2018-04-13,United States: Severe Weather Event (Thunderstorms) - Arkansas - 14/04/2018,Weather related,Storm,30
+USA,United States,2018,2018-04-12,United States: 34 Fire Complex Fire - Woodward; Oklahoma - 12/04/2018,Weather related,Wildfire,91
+USA,United States,2018,2018-07-13,USA: Wildfire (Ferguson) - Yosemite (California) - 13/7/2018,Weather related,Wildfire,12
+USA,United States,2018,2018-07-06,USA: Thunderstorm - Durham (North Carolina) - 6/7/2018,Weather related,Storm,8
+USA,United States,2018,2018-09-08,USA: Floods - Jeffersonville (Indiana) - 8/9/2018,Weather related,Flood,5
+USA,United States,2018,2018-07-14,USA: Flood - Clayton County (Georgia) - 14/7/2018,Weather related,Flood,30
+USA,United States,2018,2018-08-12,USA: Flooding - Seneca (New York) - 12/8/2018,Weather related,Flood,55
+USA,United States,2018,2018-08-24,USA: Wildfire - Maui and Oahu Counties (Hawaii) - 21/8/2018,Weather related,Wildfire,500
+USA,United States,2018,2018-07-05,"USA: Wildfire (Klamathon) - California, Oregon - 5/7/2018",Weather related,Wildfire,500
+USA,United States,2018,2018-08-04,USA: Tornado - Worcester County (Massachusetts) - 4/8/2018,Weather related,Storm,43
+USA,United States,2018,2018-07-30,USA: Flooding - Cambria County (Pennsylvania) - 30/7/2018,Weather related,Flood,55
+USA,United States,2018,2018-09-20,USA: Storms - Rice County (Minnesota) - 21/9/2018,Weather related,Storm,31
+USA,United States,2018,2018-08-01,USA: Wildfire (Omega) - El Dorado County (California) - 1/8/2018,Weather related,Wildfire,3
+USA,United States,2018,2018-04-25,United States: Sinkhole - Lebanon; Pennsylvania - 25/04/2018,Weather related,Wet mass movement,12
+USA,United States,2018,2018-10-02,USA: Tornado - Conneautville - Crawford County (Pennsylvania) - 2/10/2018,Weather related,Storm,160
+USA,United States,2018,2018-07-06,USA: Wildfire (West) - San Diego (California) - 6/7/2018,Weather related,Wildfire,1000
+USA,United States,2018,2018-07-06,USA: Wildfire (Holiday) - Santa Barbara (California) - 6/7/2018,Weather related,Wildfire,3700
+USA,United States,2018,2018-06-20,USA: Flood - Bridgeville (Pennsylvania) - 20/6/2018,Weather related,Flood,5
+USA,United States,2018,2018-07-10,USA: Wildfire (Ryegrass Coulee) - Kittias (Washington) - 10/7/2018,Weather related,Wildfire,120
+USA,United States,2018,2018-10-02,USA: Dam Failure risk due to Flooding (post-Hurricane Rosa) - Tohono O'odham Nation (Arizona) - 2/10/2018,Weather related,Flood,192
+USA,United States,2018,2018-09-03,USA: Flood - Pratt County (Kansas) - 3/9/2018,Weather related,Flood,4
+USA,United States,2018,2018-08-11,USA: Wildfire (Grass Valley) - Douglas and Grant counties (Washington) - 11/8/2018,Weather related,Wildfire,980
+USA,United States,2018,2018-12-28,USA: Flood - Clarke County (Alabama) - 28/12/2018,Weather related,Flood,39
+USA,United States,2018,2018-12-28,USA: Flash Flood - Forrest County (Mississippi) - 28/12/2018,Weather related,Flood,65
+USA,United States,2018,2018-12-28,USA: Flood - St. Charles Parish (Louisiana) - 28/12/2018,Weather related,Flood,31
+USA,United States,2018,2018-07-10,USA: Tornado - Watford City (North Dakota) - 10/7/2018,Weather related,Storm,205
+USA,United States,2018,2018-05-28,"Cuba, USA: Subtropical storm Alberto - 28/05/2018",Weather related,Storm,200
+USA,United States,2018,2018-07-05,USA: Flood - Ohio Valley (Ohio) - 5/7/2018,Weather related,Storm,7
+USA,United States,2018,2018-07-06,USA: Wildfire (Valley) - San Bernadino (California) - 6/7/2018,Weather related,Wildfire,1000
+USA,United States,2018,2018-08-06,USA: Wildfire (Holy) - Riverside (California) - 6/8/2018,Weather related,Wildfire,21500
+USA,United States,2018,2018-08-12,USA: Flooding - Broome County (New York) - 12/8/2018,Weather related,Flood,90
+USA,United States,2018,2018-09-25,USA: Floods - Cranston (Rhode Island) - 25/9/2018,Weather related,Flood,16
+USA,United States,2018,2018-06-30,"USA: Flood - Des Moines and Pleasant Hill, Polk County (Iowa) - 30/6/2018",Weather related,Flood,200
+USA,United States,2018,2018-07-01,"USA: Wildfire (Conrad) - Selah, Naches (Washington) - 1/7/2018",Weather related,Wildfire,164
+USA,United States,2018,2018-12-28,USA: Flood - Washington Parish (Louisiana) - 28/12/2018,Weather related,Flood,31
+USA,United States,2018,2018-12-06,USA: Flooding - San Diego (California) - 6/12/2018,Weather related,Flood,50
+USA,United States,2018,2018-09-21,USA: Floods - Sonora (Texas) - 21/9/2018,Weather related,Flood,650
+USA,United States,2018,2018-06-21,USA: Flood - Rock Valley (Iowa) - 21/6/2018,Weather related,Flood,156
+USA,United States,2018,2018-12-06,USA: Flood risk - California - 6/12/2018,Weather related,Flood,520
+USA,United States,2018,2018-06-21,USA: Flood - Richmond (Virginia) - 21/6/2018,Weather related,Flood,40
+USA,United States,2018,2018-12-18,USA: Tornado - Kitsap County (Washington) - 18/12/2018,Weather related,Storm,125
+USA,United States,2018,2018-07-03,USA: Thunderstorm - Maryland - 3/7/2018,Weather related,Storm,5
+USA,United States,2018,2018-12-09,"USA: Severe Winter - North Carolina, South Carolina - 9/12/2018",Weather related,Extreme temperature,208
+USA,United States,2018,2018-12-03,USA: Storm - Lawrence county (MIssouri) - 3/12/2018,Weather related,Storm,18
+USA,United States,2018,2018-11-30,"USA: Tornado -  Muskogee, Cherokee, Sequoyah, Adair, Delaware counties (Oklahoma) - 30/11/2018",Weather related,Storm,390
+USA,United States,2018,2018-06-25,"USA: Sinkhole - Moon Lake, Pasco County (Florida) - 25/6/2018",Weather related,Wet mass movement,13
+USA,United States,2018,2018-11-29,USA: Mudslide - California - 29/11/2018,Weather related,Wet mass movement,2000
+USA,United States,2018,2018-06-23,USA: Pawnee Wildfire - Lake County (California) - 23/6/2018,Weather related,Wildfire,3000
+USA,United States,2018,2018-07-04,USA: Flood - Lyon County (Minnesota) - 4/7/2018,Weather related,Flood,13
+USA,United States,2018,2018-10-07,"USA, Cuba: Hurricane Michael - 07/10/2018",Weather related,Storm,375000
+USA,United States,2018,2018-10-11,USA: Storm - Virginia - 11/10/2018,Weather related,Storm,96
+USA,United States,2018,2018-11-30,USA: Earthquake - Anchorage (Alaska) - 30/11/2018,Geophysical,Earthquake,317
+USA,United States,2018,2018-11-08,USA: Wildfire (Woolsey) - Ventura and Los Angeles Counties (California) - 8/11/2018,Weather related,Wildfire,182000
+USA,United States,2018,2018-06-29,USA: Chateau Wildfire - Teller (Colorado) - 29/6/2018,Weather related,Wildfire,950
+USA,United States,2018,2018-07-19,USA: Wildfire (Silver Creek) - Grand County (Colorado) - 19/7/2018,Weather related,Wildfire,485
+USA,United States,2018,2018-06-27,USA: Wildfire (Spring Creek) - Costilla (Colorado) - 27/6/2018,Weather related,Wildfire,1000
+USA,United States,2018,2018-07-02,"USA: Wildfire (Mecca) - Warm Springs, Jefferson County (Oregon) - 2/7/2018",Weather related,Wildfire,104
+USA,United States,2018,2018-06-24,USA: Creek Wildfire - Shasta County (California) - 24/6/2018,Weather related,Wildfire,1000
+USA,United States,2018,2018-08-11,USA: Wildfire (Howe Ridge) - Lake MacDonald / Glacier National Park - 12/8/2018,Weather related,Wildfire,34
+USA,United States,2018,2018-08-09,USA: Lightning - Gwinnett County (Georgia) - 9/8/2018,Weather related,Storm,5
+USA,United States,2018,2018-06-29,USA: Wildfire (Stonemoor) - Pueblo (Colorado) - 29/6/2018,Weather related,Wildfire,9
+USA,United States,2018,2018-06-28,USA: Thunderstorm - Fairview Heights (Illinois) - 28/6/2018,Weather related,Storm,16
+USA,United States,2018,2018-06-27,"USA: Tornado - Eureka, Greenwood County (Kansas) - 27/6/2018",Weather related,Storm,57
+USA,United States,2018,2018-01-01,USA: Ice Jam Floods - Plattsburgh (New York) - 1/1/2018,Weather related,Flood,182
+USA,United States,2018,2018-06-25,USA: Flood - Lincoln County (Kentucky) - 25/6/2018,Weather related,Flood,10
+USA,United States,2018,2018-06-24,"USA: Wildfire - Eastpoint, Franklin County (Florida) - 24/6/2018",Weather related,Wildfire,94
+USA,United States,2018,2018-06-28,USA: Wildfire (Weston Pass) - Park County (Colorado) - 28/6/2018,Weather related,Wildfire,3
+USA,United States,2018,2018-12-20,USA: Storm - Tampa Bay (Florida) - 20/12/2018,Weather related,Storm,65
+USA,United States,2018,2018-12-02,USA: Flood - Crisp county (Georgia) - 3/12/2018,Weather related,Flood,80
+USA,United States,2018,2018-12-31,"USA: Flooding - Moundville, Hale county (Alabama) - 31/12/2018",Weather related,Flood,19
+USA,United States,2018,2018-08-31,USA: Storm - Harford county (Maryland) - 31/8/2018,Weather related,Flood,26
+USA,United States,2018,2018-08-10,USA: Wildfire (Hawk) - Yakima (Washington) - 10/8/2018,Weather related,Wildfire,800
+USA,United States,2018,2018-07-28,USA: Wildfire (Cougar Creek) - Chelan (Washington) - 28/7/2018,Weather related,Wildfire,705
+USA,United States,2018,2018-09-05,USA: Hurricane Olivia - Hawaii - 7/9/2018,Weather related,Storm,101
+USA,United States,2018,2018-08-11,USA: Wildfire (Vineyard) - Fall River (South Dakota) - 11/8/2018,Weather related,Wildfire,150
+USA,United States,2018,2018-07-04,USA: Wildfire (Lake Christine) - Eagle (Colorado) - 4/7/2018,Weather related,Wildfire,1793
+USA,United States,2018,2018-07-23,USA: Wildfire (Carr) - Shasta and Trinity Counties (California) - 23/7/2018,Weather related,Wildfire,39000
+USA,United States,2018,2018-07-01,USA: Wildfire (Dollar Ridge) - Wasatch/Duchesne (Utah) - 1/7/2018,Weather related,Wildfire,234
+USA,United States,2018,2018-06-23,"USA: Wildfire - Red Bluff, Tehama County (California) - 23/6/2018",Weather related,Wildfire,5
+USA,United States,2018,2018-07-27,USA: Wildfire (Mendocino Complex - River and Ranch fires) - Mendocino and Lake Counties (California) - 27/7/2018,Weather related,Wildfire,29988
+USA,United States,2018,2018-08-31,"USA: Hurricane Florence - South Carolina, North Carolina, Virginia, Kentucky, Tennessee - 31/8/2018",Weather related,Storm,463674
+USA,United States,2018,2018-05-04,United States: Volcano eruption - Mount Kilauea; Hawaii - 04/05/2018,Geophysical,Volcanic eruption,2800
+USA,United States,2018,2018-04-30,United States: McDannald Fire - Jeff Davis; Texas - 30/04/2018,Weather related,Wildfire,3
+USA,United States,2018,2018-04-27,POTENTIALLY HUMAN INDUCED United States: Tinder fire - Arizona; Coconino - 27/04/2018,Weather related,Wildfire,600
+USA,United States,2018,2018-09-26,USA: Flood - Alabama - 26/09/2018,Weather related,Flood,3
+USA,United States,2018,2018-09-05,USA: Floods - Marathon (Wisconsin) - 5/9/2018,Weather related,Flood,10
+USA,United States,2018,2018-09-22,"USA: Wildfire (Charlie) - Castaic, Los Angeles County (California) - 22/9/2018",Weather related,Wildfire,91
+USA,United States,2018,2018-12-28,USA: Flood - Henderson County (North Carolina) - 28/12/2018,Weather related,Flood,65
+USA,United States,2018,2018-09-03,"USA: Tropical Depression Gordon - Louisiana, Mississippi, Alabama - 3/9/2018",Weather related,Storm,359
+USA,United States,2018,2018-09-02,USA: Wildfire (Hugo Road) - Josephine (Oregon) - 2/9/2018,Weather related,Wildfire,520
+USA,United States,2019,2019-03-05,USA: Storm - Santa Barbara County (California) - 5/3/2019,Weather related,Storm,2935
+USA,United States,2019,2019-09-10,USA: Storm - Madison County (Alabama) - 11/9/2019,Weather related,Storm,31
+USA,United States,2019,2019-03-08,"USA: Flooding - Strathmore, Tulare County (California) - 8/3/2019",Weather related,Flood,21
+USA,United States,2019,2019-10-10,USA: Wildfire (Sandalwood) - California (Riverside County) - 10/10/2019,Weather related,Wildfire,1300
+USA,United States,2019,2019-09-11,USA: Flood - Davison County (South Dakota) - 11/9/2019,Weather related,Flood,18
+USA,United States,2019,2019-10-06,USA: Wildfire (Briceburg) - California (Mariposa County) - 6/10/2019,Weather related,Wildfire,130
+USA,United States,2019,2019-09-14,USA: Wildfire (Horseshoe) - Riverside County (California) - 14/9/2019,Weather related,Wildfire,200
+USA,United States,2019,2019-10-10,USA: Wildfire - California (Contra Costa County) - 10/10/2019,Weather related,Wildfire,364
+USA,United States,2019,2019-09-11,USA: Storm - Kent County (Michigan) - 11/9/2019,Weather related,Storm,12
+USA,United States,2019,2019-09-10,"USA: Tornado - Sioux Falls, Minnehaha County (South Dakota) - 10/9/2019",Weather related,Storm,96
+USA,United States,2019,2019-09-12,USA: Storm/Lightning - New Kent County (Virginia) - 12/9/2019,Weather related,Storm,4
+USA,United States,2019,2019-09-12,USA: Storm/Lightning - Waukesha County (Wisconsin) - 12/9/2019,Weather related,Storm,100
+USA,United States,2019,2019-02-25,USA: Landslide - Hawkins County (Tennessee) - 25/2/2019,Weather related,Wet mass movement,12
+USA,United States,2019,2019-10-22,USA: Wildfire (Kahana Ridge) - Hawaii (Maui) - 22/10/2019,Weather related,Wildfire,300
+USA,United States,2019,2019-09-08,USA: Storm - Pima County (Arizona) - 8/9/2019,Weather related,Storm,15
+USA,United States,2019,2019-09-07,USA: Wildfire (Swedes) - Butte County (California) - 7/9/2019,Weather related,Wildfire,15
+USA,United States,2019,2019-09-03,USA: Wildfire (Country) - El Dorado County (California) - 3/9/2019,Weather related,Wildfire,30
+USA,United States,2019,2019-10-28,USA: Wildfire (Getty) - California (Los Angeles County) - 28/10/2019,Weather related,Wildfire,19000
+USA,United States,2019,2019-10-30,USA: Wildfire (Easy) - California (Ventura County) - 30/10/2019,Weather related,Wildfire,25000
+USA,United States,2019,2019-10-30,USA: Wildfire (Hill) - California (Riverside County) - 31/10/2019,Weather related,Wildfire,7700
+USA,United States,2019,2019-10-31,USA: Wildfire (Maria) - California (Ventura County) - 31/10/2019,Weather related,Wildfire,10800
+USA,United States,2019,2019-12-07,USA: Floods - California (San Francisco) - 7/12/2019,Weather related,Flood,3
+USA,United States,2019,2019-02-23,USA: Flooding - Moore County (Tennessee) - 23/2/2019,Weather related,Flood,10
+USA,United States,2019,2019-09-12,USA: Flood - South Dakota (Yankton County) - 15/9/2019,Weather related,Flood,16
+USA,United States,2019,2019-09-17,USA: Hurricane Imelda - Texas - 17/9/2019,Weather related,Storm,1106
+USA,United States,2019,2019-12-16,USA: Storm - California (Ventura County) - 16/12/2019,Weather related,Storm,10
+USA,United States,2019,2019-07-24,USA: Wildfire (Mile Post 97) - Douglas County (Oregon) - 24/7/2019,Weather related,Wildfire,22
+USA,United States,2019,2019-07-21,USA: Wildfire (Museum) - Coconino County (Arizona) - 21/7/2019,Weather related,Wildfire,1700
+USA,United States,2019,2019-08-22,USA: Wildfire (Mountain) - Shasta County (California) - 22/8/2019,Weather related,Wildfire,3885
+USA,United States,2019,2019-08-24,"USA: Storm/Lightning - Savannah, Chatham County (Georgia) - 24/8/2019",Weather related,Storm,30
+USA,United States,2019,2019-08-07,USA: Wildfire (Williams Flat) - Colville Indian Reservation (Washington) - 7/8/2019,Weather related,Wildfire,60
+USA,United States,2019,2019-09-03,USA: Wildfire (Snoqulamie) - Davis County (Utah) - 3/9/2019,Weather related,Wildfire,325
+USA,United States,2019,2019-08-17,USA: Wildfire (McKinley) - Matanuska-Susitna (Alaska) - 17/8/2019,Weather related,Wildfire,2056
+USA,United States,2019,2019-02-19,USA: Storm - Mississippi - 18/2/2019,Weather related,Storm,780
+USA,United States,2019,2019-09-05,USA: Wildfire (Tenaja) - Riverside County (California) - 5/9/2019,Weather related,Wildfire,1118
+USA,United States,2019,2019-08-08,USA: Storm - Ardmore (Pennsylvania) - 8/8/2019,Weather related,Storm,47
+USA,United States,2019,2019-08-17,USA: Wildfire (Deshka Landing) - Matanuska-Susitna (Alaska) - 17/8/2019,Weather related,Wildfire,185
+USA,United States,2019,2019-08-13,"USA: Storm/Lightning - Xenia, Greene County (Ohio) -13/8/2019",Weather related,Storm,5
+USA,United States,2019,2019-11-28,USA: Storm - California (San Diego County) - 28/11/2019,Weather related,Storm,16
+USA,United States,2019,2019-02-18,"USA: Flooding - Sheffield, Colbert County (Alabama) - 18/2/2019",Weather related,Flood,8
+USA,United States,2019,2019-12-21,USA: Ice Jam Flood - Alaska (Matanuska-Susitna) - 21/12/2019,Weather related,Flood,34
+USA,United States,2019,2019-08-10,USA: Flash Flooding - Weston County (Wyoming) -10/8/2019,Weather related,Flood,3
+USA,United States,2019,2019-06-20,USA: Flood - Berks County (Pennsylvania) - 20/6/2019,Weather related,Flood,80
+USA,United States,2019,2019-08-22,USA: Flood - Taylor County (Florida) - 22/8/2019,Weather related,Flood,260
+USA,United States,2019,2019-08-20,USA: Storm - Scottsbluff county (Nebraska) - 20/8/2019,Weather related,Storm,3
+USA,United States,2019,2019-09-17,USA: Flood - Nebraska (Pottawattamie County) - 17/9/2019,Weather related,Flood,2
+USA,United States,2019,2019-08-19,USA: Storm/Lightning - South Jersey (New Jersey) - 19/8/2019,Weather related,Storm,1
+USA,United States,2019,2019-09-07,USA: Flood - Minnehaha County (South Dakota) - 7/9/2019,Weather related,Flood,25
+USA,United States,2019,2019-08-30,USA: Wildfire (Gun Range Fire) - Davis County (Utah) - 30/8/2019,Weather related,Wildfire,1040
+USA,United States,2019,2019-10-02,USA: Wildfire - Hawaii (Maui) - 2/10/2019,Weather related,Wildfire,220
+USA,United States,2019,2019-06-16,USA: Mudslide - Hamilton County (Ohio) - 16/6/2019,Weather related,Storm,30
+USA,United States,2019,2019-08-06,"USA: Tornado - Burke, Gregory County (South Dakota) - 6/8/2019",Weather related,Storm,5
+USA,United States,2019,2019-09-22,USA: Wildfire (Johnson) - Arizona (Yavapai County) - 22/9/2019,Weather related,Wildfire,91
+USA,United States,2019,2019-07-23,USA: Wildfire (Left Hand) - Wenatchee (Washington) - 23/7/2019,Weather related,Wildfire,68
+USA,United States,2019,2019-06-16,USA: Storm - Dallas (Texas) - 16/6/2019,Weather related,Storm,36
+USA,United States,2019,2019-06-18,"USA: Brush Fire - Laveen, Maricopa County (Arizona) - 18/6/2019",Weather related,Wildfire,15
+USA,United States,2019,2019-04-29,"USA: Flooding (Mississippi River) - Iowa, Missouri - 29/4/2019",Weather related,Flood,2478
+USA,United States,2019,2019-08-15,"USA: Wildfire - Moreno Valley, Riverside County (California) - 15/8/2019",Weather related,Wildfire,5
+USA,United States,2019,2019-10-06,USA: Flood - Alaska (Juneau) - 6/10/2019,Weather related,Flood,3
+USA,United States,2019,2019-10-06,USA: Grass Fire - Texas (Hutto) - 6/10/2019,Weather related,Wildfire,13
+USA,United States,2019,2019-03-13,USA: Flooding - Missouri - 13/3/2019,Weather related,Flood,2180
+USA,United States,2019,2019-06-24,USA: Thunderstorm - Universal City (Texas) - 24/6/2019,Weather related,Storm,6
+USA,United States,2019,2019-02-12,USA: Flooding - California - 12/2/2019,Weather related,Flood,200
+USA,United States,2019,2019-07-06,USA: Storm - Dauphin County (Pennsylvania) - 6/7/2019,Weather related,Storm,6
+USA,United States,2019,2019-08-24,USA: Wildfire (Long Valley) - Lassen (California) and Washoe (Nevada) - 24/8/2019,Weather related,Wildfire,150
+USA,United States,2019,2019-03-13,USA: Flooding - Nebraska - 13/3/2019,Weather related,Flood,2593
+USA,United States,2019,2019-05-28,"USA: Tornado - Caernarvon Township, Berks County (Pennsylvania) - 28/5/2019",Weather related,Storm,12
+USA,United States,2019,2019-07-22,USA: Wildfire (Canyon) - Napa County (California) - 22/7/2019,Weather related,Wildfire,23
+USA,United States,2019,2019-07-23,USA: Tornado - Barnstable County (Massachusetts) - 23/7/2019,Weather related,Wildfire,2
+USA,United States,2019,2019-07-07,USA: Wildfire (Malaspina and Montana Creek) - Alaska - 7/7/2019,Weather related,Wildfire,5
+USA,United States,2019,2019-02-22,"USA: Landslide - Santa Clarita, Los Angeles County (California) - 22/2/2019",Geophysical,Dry mass movement,10
+USA,United States,2019,2019-07-23,USA: Wildfire (Desert Canyon) - Douglas County (Washington) - 23/7/2019,Weather related,Wildfire,5
+USA,United States,2019,2019-07-23,"USA: Storm - Bishopville, Lee County (South Carolina) - 23/7/2019",Weather related,Storm,71
+USA,United States,2019,2019-05-24,"USA: Flood - Ponca City, Kay County (Oklahoma) - 24/5/2019",Weather related,Flood,31
+USA,United States,2019,2019-07-24,USA: Flood - Brown County (Wisconsin) - 22/7/2019,Weather related,Flood,5
+USA,United States,2019,2019-07-22,"USA: Flood - University City, St. Louis County (Missouri) - 22/7/2019",Weather related,Flood,52
+USA,United States,2019,2019-06-07,USA: Flooding - Tennessee - 7/6/2019,Weather related,Flood,132
+USA,United States,2019,2019-10-23,USA: Wildfire (Kincade) - California (Sonoma County) - 24/10/2019,Weather related,Wildfire,189980
+USA,United States,2019,2019-07-23,USA: Wildfire (Cheney Complex) - Spokane County (Washington) - 23/2019,Weather related,Wildfire,10
+USA,United States,2019,2019-07-20,USA: Flash Flood - Oktibbeha County (Mississippi) - 20/7/2019,Weather related,Flood,10
+USA,United States,2019,2019-06-27,"USA: Flash Floods - Steger Village, Cook County (Illinois) - 27/6/2019",Weather related,Flood,53
+USA,United States,2019,2019-07-08,USA: Flash Floods - Washington DC; Maryland - 8/7/2019,Weather related,Flood,5
+USA,United States,2019,2019-10-18,USA: Tornado - Florida (Polk County) - 18/10/2019,Weather related,Storm,130
+USA,United States,2019,2019-05-27,USA: Tornado - Montgomery County (Ohio) - 27/5/2019,Weather related,Storm,5814
+USA,United States,2019,2019-06-29,"USA: Flood - Bayard, Grant County (West Virginia) - 29/6/2019",Weather related,Flood,78
+USA,United States,2019,2019-06-21,USA: Wildfire (Shovel Creek) - North Star (Alaska) - 21/6/2019,Weather related,Wildfire,973
+USA,United States,2019,2019-07-21,USA: Storm - Montgomery County (Maryland) - 21/7/2019,Weather related,Storm,5
+USA,United States,2019,2019-03-13,USA: Flooding - Kansas - 13/3/2019,Weather related,Flood,20
+USA,United States,2019,2019-03-14,"USA: Ice Jam Flood - Jordan, Scott County (Minnesota) - 14/3/2019",Weather related,Flood,377
+USA,United States,2019,2019-06-04,"USA: Storm - Le Center, Le Sueur County County (Minnesota) - 4/6/2019",Weather related,Storm,6
+USA,United States,2019,2019-11-25,USA: Wildfire (Cave) - California (Santa Barbara County) - 25/11/2019,Weather related,Wildfire,5481
+USA,United States,2019,2019-05-07,USA: Flash Flood - Houston (Texas) - 7/5/2019,Weather related,Flood,23
+USA,United States,2019,2019-10-24,USA: Wildfire (Tick) - California (Los Angeles County) - 24/10/2019,Weather related,Wildfire,40000
+USA,United States,2019,2019-10-16,USA: Storm - Massachusetts (Hanover) - 16/10/2019,Weather related,Storm,3
+USA,United States,2019,2019-10-20,USA: Storm - Oklahoma (Wagoner and Tulsa counties) - 20/10/2019,Weather related,Storm,3
+USA,United States,2019,2019-05-28,"USA: Tornado - Linwood, Leavenworth County (Kansas) - 28/5/2019",Weather related,Storm,31
+USA,United States,2019,2019-05-28,"USA: Tornado - Lawrence, Douglas County (Kansas) - 28/5/2019",Weather related,Storm,31
+USA,United States,2019,2019-05-19,"USA: Storm - Stockton, San Joaquin County (California) - 19/5/2019",Weather related,Storm,143
+USA,United States,2019,2019-06-09,USA: Storm - Dallas county (Texas) - 9/6/2019,Weather related,Storm,534
+USA,United States,2019,2019-03-14,USA: Tornado - Shiawasses; Genesee (Michigan) - 14/3/2019,Weather related,Storm,34
+USA,United States,2019,2019-02-23,USA: Flooding - Metropolis (Illinois) - 23/2/2019,Weather related,Flood,16
+USA,United States,2019,2019-01-11,USA: Storms - Southern California - 11/1/2019,Weather related,Storm,780
+USA,United States,2019,2019-11-26,USA: Wildfire (Highway 50) - Oklahoma (Woodward County) - 26/11/2019,Weather related,Wildfire,5
+USA,United States,2019,2019-09-06,"USA: Storm/Lightning - Centennial, Arapahoe County (Colorado) - 6/9/2019",Weather related,Storm,3
+USA,United States,2019,2019-04-14,USA: Tornado - Richland County (Ohio) - 14/4/2019,Weather related,Storm,78
+USA,United States,2019,2019-02-18,USA: Flooding - Cherokee County (Alabama) - 18/2/2019,Weather related,Flood,29
+USA,United States,2019,2019-01-01,USA: Flooding - Perry county (Missouri) - 1/1/2019,Weather related,Flood,3
+USA,United States,2019,2019-05-18,"USA: Tornado - Geronimo, Comanche County (Oklahoma) - 18/5/2019",Weather related,Storm,5
+USA,United States,2019,2019-04-13,USA: Tornado - Robertson; Cherokee counties (Texas) - 13/4/2019,Weather related,Storm,330
+USA,United States,2019,2019-02-23,USA: Flooding - Washington County; Johnson City (Tennessee) - 23/2/2019,Weather related,Flood,22
+USA,United States,2019,2019-08-26,USA: Storm - Delaware County (Oklahoma) - 26/8/2019,Weather related,Storm,10
+USA,United States,2019,2019-10-25,USA: Wildfire (Sawday) - California (San Diego County) - 25/10/2019,Weather related,Wildfire,170
+USA,United States,2019,2019-05-27,USA: Tornado - Wright-Patterson Air Force Base (Ohio) - 27/5/2019,Weather related,Storm,23
+USA,United States,2019,2019-06-03,USA: Wildfire (243) - Grant County (Washington) - 3/6/2019,Weather related,Wildfire,65
+USA,United States,2019,2019-08-24,"USA: Tornado - El Reno, Canadian County (Oklahoma) - 24/8/2019",Weather related,Storm,39
+USA,United States,2019,2019-10-21,USA: Wildfire (Pacific Palisades) - California (Los Angeles County) - 21/10/2019,Weather related,Wildfire,520
+USA,United States,2019,2019-08-09,USA: Flood - Crawford County (Arkansas) - 9/8/2019,Weather related,Flood,3
+USA,United States,2019,2019-02-27,USA: Riverine Flooding - Guerneville; Sonoma County (California) - 27/2/2019,Weather related,Flood,1800
+USA,United States,2019,2019-07-15,USA: Wildfire - San Jose (California) - 15/7/2019,Weather related,Wildfire,5
+USA,United States,2019,2019-07-08,USA: Flood - Arlington (Virginia) - 8/7/2019,Weather related,Flood,3
+USA,United States,2019,2019-01-19,"USA: Tornado - Wetumpka, Elmore County (Alabama) - 19/1/2019",Weather related,Storm,65
+USA,United States,2019,2019-02-23,USA: Flooding - Hardin County (Tennessee) - 25/2/2019,Weather related,Flood,100
+USA,United States,2019,2019-07-14,USA: Wildfire (Pine Flat) - Yavapai County (Arizona) - 14/7/2019,Weather related,Wildfire,30
+USA,United States,2019,2019-05-11,USA: Flash Flood - Mississippi - 11/5/2019,Weather related,Flood,20
+USA,United States,2019,2019-05-08,"USA: Brush fire - La Pine, Deschutes County (Oregon) - 8/5/2019",Weather related,Wildfire,3
+USA,United States,2019,2019-07-11,"USA: Brush Fire - Maalaea; North Kihei, Maui (Hawaii) - 11/7/2019",Weather related,Wildfire,500
+USA,United States,2019,2019-07-11,USA: Wildfire (Kobe) - Denali Borough (Alaska) - 11/7/2019,Weather related,Wildfire,2
+USA,United States,2019,2019-08-25,"USA: Wildfire - Glendale, Los Angeles County (California) - 25/8/2019",Weather related,Wildfire,260
+USA,United States,2019,2019-03-03,USA: Tornado - Lee County (Alabama) - 3/3/2019,Weather related,Storm,1040
+USA,United States,2019,2019-03-13,USA: Blizzard / Severe Winter - Colorado - 13/3/2019,Weather related,Extreme temperature,620
+USA,United States,2019,2019-08-24,USA: Flood - Sebastian County (Arkansas) - 24/8/2019,Weather related,Flood,78
+USA,United States,2019,2019-03-13,USA: Blizzard / Severe Winter - Wyoming - 13/3/2019,Weather related,Extreme temperature,2
+USA,United States,2019,2019-05-08,"USA: Tornado - Pine Bluff, Jefferson County (Arkansas) - 8/5/2019",Weather related,Storm,192
+USA,United States,2019,2019-05-05,USA: Flood (Brazos River) - Parker County (Texas) - 5/5/2019,Weather related,Flood,18
+USA,United States,2019,2019-03-24,USA: Ice Jam Flooding (Yellowstone River) - McKenzie County (North Dakota) - 24/3/2019,Weather related,Flood,110
+USA,United States,2019,2019-03-30,USA: Wildfire - Bay County (Florida) - 30/3/2019,Weather related,Wildfire,52
+USA,United States,2019,2019-10-10,USA: Wildfire (Saddleridge) - California (Los Angeles County) - 10/10/2019,Weather related,Wildfire,100000
+USA,United States,2019,2019-03-13,USA: Flooding - Iowa - 13/3/2019,Weather related,Flood,2000
+USA,United States,2019,2019-11-26,USA: Wildfire (Gage) - Oklahoma (Ellis County) - 26/11/2019,Weather related,Wildfire,350
+USA,United States,2019,2019-05-22,USA: Flood - Muskogee County (Oklahoma) - 22/5/2019,Weather related,Flood,2400
+USA,United States,2019,2019-12-17,"USA: Tornado - Mississippi, Louisiana, Alabama - 17/12/2019",Weather related,Storm,42
+USA,United States,2019,2019-05-10,USA: Flood - Reno County (Kansas) - 10/5/2019,Weather related,Flood,13
+USA,United States,2019,2019-05-30,"USA: Flood - Rock Falls, Whiteside County (Illinois) - 30/5/2019",Weather related,Flood,3
+USA,United States,2019,2019-03-12,USA: Tornado - Chaves County (New Mexico) - 12/3/2019,Weather related,Storm,47
+USA,United States,2019,2019-03-14,USA: Storm - Blount County (Alabama) - 14/3/2019,Weather related,Storm,75
+USA,United States,2019,2019-05-09,USA: Flood - Bossier Parish (Louisiana) - 8/5/2019,Weather related,Flood,3
+USA,United States,2019,2019-02-23,USA: Tornado - Mississippi; Alabama - 23/2/2019,Weather related,Storm,13
+USA,United States,2019,2019-10-31,USA: Wildfire (46) - California (Riverside County) - 31/10/2019,Weather related,Wildfire,3600
+USA,United States,2019,2019-05-18,USA: Tornado - Comanche County (Oklahoma) - 18/5/2019,Weather related,Storm,3
+USA,United States,2019,2019-03-13,USA: Flooding - Wisconsin - 13/3/2019,Weather related,Flood,657
+USA,United States,2019,2019-02-07,USA: Flooding - Columbus (Indiana) - 7/2/2019,Weather related,Flood,20
+USA,United States,2019,2019-04-18,USA: Storm - Knoxville (Tennessee) - 18/4/2019,Weather related,Storm,70
+USA,United States,2019,2019-02-05,"USA: Ice Jam Flooding - West Seneca, Erie county (New York) - 6/2/2019",Weather related,Flood,5
+USA,United States,2019,2019-02-07,USA: Mudslide - Pittsburgh (Pennsylvania) - 7/2/2019,Weather related,Wet mass movement,10
+USA,United States,2019,2019-02-05,"USA: Ice Jam Floods - Portland, Ionia county (Michigan) - 6/2/2019",Weather related,Flood,50
+USA,United States,2019,2019-04-26,"USA: Tornado - Marbleton, Sublette County (Wyoming) - 26/4/2019",Weather related,Storm,7
+USA,United States,2019,2019-02-21,USA: Riverine Flooding - Cheatham County (Tennessee) - 21/2/2019,Weather related,Flood,2
+USA,United States,2019,2019-02-22,USA: Flooding - Calhoun County (Alabama) - 22/2/2019,Weather related,Flood,8
+USA,United States,2019,2019-03-03,USA: Tornado - Baum Community; Leon County (Florida) - 3/3/2019,Weather related,Storm,13
+USA,United States,2019,2019-04-18,USA: Storm - Morton (Mississippi) - 18/4/2019,Weather related,Storm,8
+USA,United States,2019,2019-05-24,"USA: Flood - Fall River, Greenwood County (Kansas) - 24/5/2019",Weather related,Flood,150
+USA,United States,2019,2019-03-20,USA: Wildfire - Cowlitz County (Washington) - 20/3/2019,Weather related,Wildfire,260
+USA,United States,2019,2019-04-19,USA: Storm - Winston-Salem (North Carolina) - 19/4/2018,Weather related,Storm,17
+USA,United States,2019,2019-10-31,USA: Wildfire (Hillside) - California (San Bernardino County) - 31/10/2019,Weather related,Wildfire,1300
+USA,United States,2019,2019-10-21,USA: Tornado - Tennessee (Memphis) - 21/10/2019,Weather related,Storm,700
+USA,United States,2019,2019-04-13,"USA: Flood - Canton, Madison County (Mississippi) - 13/4/2019",Weather related,Flood,31
+USA,United States,2019,2019-05-27,USA: Tornado - Greene County (Ohio) - 27/5/2019,Weather related,Storm,910
+USA,United States,2019,2019-07-17,USA: Storm/Lightning - Middletown (Pennsylvania) - 17/7/2019,Weather related,Storm,170
+USA,United States,2019,2019-10-31,USA: Tornado - Pennsylvania (Delaware County) - 31/10/2019,Weather related,Storm,21
+USA,United States,2019,2019-04-14,USA: Storm - Camden County (New Jersey) - 14/4/2018,Weather related,Storm,52
+USA,United States,2019,2019-01-24,"USA: Flooding - Whitesboro, Oneida County (New York) - 24/1/2019",Weather related,Flood,3
+USA,United States,2019,2019-04-30,USA: Storms - Oklahoma - 30/4/2019,Weather related,Storm,8
+USA,United States,2019,2019-01-24,"USA: Flooding - Wallingford, New Haven county (Connecticut) - 24/1/2019",Weather related,Flood,24
+USA,United States,2019,2019-05-25,USA: Flood - Arkansas - 25/5/2019,Weather related,Flood,1040
+USA,United States,2019,2019-01-23,"USA: Flooding - Eastlake, Lake county (Ohio) - 19/1/2019",Weather related,Flood,5
+USA,United States,2019,2019-06-20,"USA: Wildfire - Roosevelt area, Gila County (Arizona) - 20/6/2019",Weather related,Wildfire,200
+USA,United States,2019,2019-03-03,USA: Tornado - Talbotton; Talbot County (Georgia) - 3/3/2019,Weather related,Storm,39
+USA,United States,2019,2019-08-26,"Barbados, Canada, Grenada, Saint Lucia, St Vincent and the Grenadines, Bahamas, United States: Tropical storm / Hurricane Dorian - 26/08/2019",Weather related,Storm,453903
+USA,United States,2019,2019-05-11,USA: Tornado - Suffolk (Virginia) - 11/5/2019,Weather related,Storm,16
+USA,United States,2019,2019-04-29,USA: Flooding - Davenport (Iowa) - 29/4/2019,Weather related,Flood,25
+USA,United States,2019,2019-05-20,USA: Tornado - Texas - 20/5/2019,Weather related,Storm,14
+USA,United States,2019,2019-05-20,USA: Flood - Oklahoma - 20/5/2019,Weather related,Flood,50
+USA,United States,2019,2019-05-27,"USA: Flood - Coffeyville, Montgomery County (Kansas) - 27/5/2019",Weather related,Flood,6
+USA,United States,2019,2019-05-27,"USA: Tornado - Celina, Mercer County (Ohio) - 27/5/2019",Weather related,Storm,104
+USA,United States,2019,2019-07-21,USA: Storm - Jefferson City (Missouri) - 21/7/2019,Weather related,Storm,5
+USA,United States,2019,2019-04-25,"USA: Storm - Madden, Leake County (Mississippi) - 25/4/2019",Weather related,Storm,23
+USA,United States,2019,2019-04-12,USA: Tornado - Clarke County (Ohio) - 12/4/2019,Weather related,Storm,3
+USA,United States,2019,2019-02-25,USA: Flooding - Stewart County (Tennessee) - 25/2/2019,Weather related,Flood,52
+USA,United States,2019,2019-01-24,"USA: Flooding - Brattleboro, Windham county (Vermont) - 24/1/2019",Weather related,Flood,50
+USA,United States,2019,2019-05-27,USA: Tornado - Floyd County (Iowa) - 27/5/2019,Weather related,Storm,8
+USA,United States,2019,2019-07-21,"USA: Storm - Ocala, Marion County (Florida) - 21/7/2019",Weather related,Storm,6
+USA,United States,2019,2019-04-15,USA: Tornado - Lackawanna County (Pennsylvania) - 15/4/2019,Weather related,Storm,11
+USA,United States,2019,2019-07-20,"USA: Ohio - Kinsman Township, Trumbull County (Ohio) - 20/7/2019",Weather related,Flood,66
+USA,United States,2019,2019-04-13,"USA: Flood (McKay Creek) - Pendleton, Umatilla County (Oregon) - 15/4/2019",Weather related,Flood,35
+USA,United States,2019,2019-11-26,USA: Grass Fire - Kansas (Elk County) - 26/11/2019,Weather related,Wildfire,60
+USA,United States,2019,2019-11-21,USA: Brush Fire - Hawaii (Maui) - 21/11/2019,Weather related,Wildfire,31
+USA,United States,2019,2019-10-31,USA: Floods - New York State - 31/10/2019,Weather related,Flood,300
+USA,United States,2019,2019-07-19,USA: Extreme Heat - Philadelphia (Pennsylvania) - 19/7/2019,Weather related,Extreme temperature,250
+USA,United States,2019,2019-08-08,USA: Flash Floods - Utah County (Utah) - 8/8/2019,Weather related,Flood,31
+USA,United States,2019,2019-05-19,USA: Tornado - Lancaster County (Pennsylvania) - 19/5/2019,Weather related,Storm,10
+USA,United States,2019,2019-08-08,USA: Wildfire (Golf) - Lake County (California) - 8/8/2019,Weather related,Wildfire,650
+USA,United States,2019,2019-03-03,USA: Tornado - Cairo; Grady County (Georgia) - 3/3/2019,Weather related,Storm,57
+USA,United States,2019,2019-03-07,USA: Wildfire (Ironworks) - Valencia County (New Mexico) - 7/3/2019,Weather related,Wildfire,90
+USA,United States,2019,2019-06-07,"USA: Flood - Olive Branch, DeSoto County (Tennessee) - 7/6/2019",Weather related,Flood,8
+USA,United States,2019,2019-05-27,"USA: Tornado - Pendleton, Madison County (Indiana) - 27/5/2019",Weather related,Storm,20
+USA,United States,2019,2019-07-29,USA: Storm/Lightning - Orange County (Florida) - 29/7/2019,Weather related,Storm,2
+USA,United States,2019,2019-06-08,USA: Wildfire (Sand) - Yolo County (California) - 8/6/2019,Weather related,Wildfire,325
+USA,United States,2019,2019-12-29,USA: Storm - Tennessee - 29/12/2019,Weather related,Storm,1
+USA,United States,2019,2019-06-09,USA: Storm - Coryell county (Texas) - 9/6/2019,Weather related,Storm,8
+USA,United States,2019,2019-07-04,"USA: Earthquake - Ridgecrest, Kern County (California) - 4/7/2019",Geophysical,Earthquake,129
+USA,United States,2019,2019-06-08,USA: Flooding - Mecklenburg; Catawba; Caldwell; Gaston (North Carolina) - 9/6/2019,Weather related,Flood,260
+USA,United States,2019,2019-08-18,"USA: Storm - Grayville, White County (Illinois) - 18/8/2019",Weather related,Storm,3
+USA,United States,2019,2019-06-06,USA: Tornado - Baton Rouge (Louisiana) - 6/6/2019,Weather related,Storm,50
+USA,United States,2019,2019-08-02,USA: Wildfire (Eagle Canyon) - Lewis and Clark County (Montana) - 2/8/2019,Weather related,Wildfire,70
+USA,United States,2019,2019-07-26,USA: Wildfire (North Hills) - Lewis and Clark County (Montana) - 26/7/2019,Weather related,Wildfire,650
+USA,United States,2019,2019-09-23,USA: Tornado - Arizona (Cochise County) - 23/9/2019,Weather related,Storm,2
+USA,United States,2019,2019-10-20,USA: Tornado - Texas - 20/10/2019,Weather related,Storm,224
+USA,United States,2019,2019-08-15,USA: Storms - Indian River County (Florida) - 15/8/2019,Weather related,Storm,1
+USA,United States,2019,2019-09-29,USA: Brushfire - California (Sonoma County) - 29/9/2019,Weather related,Wildfire,200
+USA,United States,2019,2019-08-15,USA: Storms - Richmond area (Virginia) - 15/8/2019,Weather related,Storm,10
+USA,United States,2019,2019-07-10,USA: Hurricane Barry - 10/7/2019,Weather related,Storm,313
+USA,United States,2019,2019-08-15,"USA: Wildfire - Deer Creek Canyon, Jefferson County (Colorado) - 15/8/2019",Weather related,Wildfire,853
+USA,United States,2019,2019-02-23,"USA: Riverine Flood - Columbia, Maury County (Tennessee) - 23/2/2019",Weather related,Flood,15
+USA,United States,2019,2019-10-03,USA: Brushfire - California (San Diego County) - 3/10/2019,Weather related,Wildfire,8
+USA,United States,2019,2019-09-08,USA: Wildfire (Decker) - Colorado (Chaffee County) - 8/9/2019,Weather related,Wildfire,286
+USA,United States,2019,2019-07-27,USA: Wildfire (Meyer) - Nevada County (California) - 27/7/2019,Weather related,Wildfire,5
+USA,United States,2019,2019-08-14,"USA: Storm/Lightning - Savannah, Chatham County (Georgia) - 14/8/2019",Weather related,Storm,2
+USA,United States,2019,2019-10-16,USA: Wildfire (Elk) - Colorado (Larimer County) - 16/10/2019,Weather related,Wildfire,130
+USA,United States,2019,2019-05-25,"USA: Tornado - El  Reno, Canadian County (Oklahoma) - 25/5/2019",Weather related,Storm,41
+USA,United States,2019,2019-01-08,"USA: Sinkhole - Marion, McDowell county (North Carolina) - 8/1/2019",Geophysical,Dry mass movement,81
+USA,United States,2019,2019-03-13,USA: Flooding - South Dakota - 13/3/2019,Weather related,Flood,1860
+USA,United States,2019,2019-06-12,USA: Flood - Burlington; Camden; Gloucester counties (New Jersey) - 12/6/2019,Weather related,Flood,156
+USA,United States,2019,2019-07-08,"USA: Flooding - Kearney, Buffalo County (Nebraska) - 8/7/2019",Weather related,Flood,255
+USA,United States,2019,2019-06-15,USA: Tornadoes - Indiana - 15/6/2019,Weather related,Storm,91
+USA,United States,2020,2020-03-05,USA: Wildfire - Nebraska (Sarpy County) - 5/3/2020,Weather related,Wildfire,120
+USA,United States,2020,2020-04-12,USA: Tornado - Georgia (Walker County) - 12/04/2020,Weather related,Storm,29
+USA,United States,2020,2020-07-18,USA: Storm - North Carolina (Wake County) - 18/07/2020,Weather related,Storm,3
+USA,United States,2020,2020-07-21,USA: Storm - Florida (Pasco County) - 21/07/2020,Weather related,Storm,2
+USA,United States,2020,2020-07-21,USA: Storm - Virginia (Henrico County) - 21/07/2020,Weather related,Storm,10
+USA,United States,2020,2020-10-08,USA: Storm - New York (Herkimer County) - 08/10/2020,Weather related,Storm,5
+USA,United States,2020,2020-10-07,USA: Storm - New York (Schenectady County) - 07/10/2020,Weather related,Storm,6
+USA,United States,2020,2020-08-29,USA: Storm - Texas (Tarrant County) - 29/08/2020,Weather related,Storm,35
+USA,United States,2020,2020-08-22,USA: Storm - Texas (Tom Green County) - 22/08/2020,Weather related,Storm,95
+USA,United States,2020,2020-08-19,USA: Tornado - Florida (Volusia County) - 19/08/2020,Weather related,Storm,39
+USA,United States,2020,2020-08-15,USA: Storm - Virginia (Chesterfield County) - 15/08/2020,Weather related,Storm,390
+USA,United States,2020,2020-08-10,USA: Storm (Derecho) - Iowa - 10/08/2020,Weather related,Storm,21510
+USA,United States,2020,2020-11-15,USA: Wind Storm - New York (Chautauqua and Erie Counties) - 14/11/2020,Weather related,Storm,33
+USA,United States,2020,2020-10-23,USA: Lightning - Wisconsin (Appleton) - 23/10/2020,Weather related,Storm,16
+USA,United States,2020,2020-11-15,USA: Flooding - Connecticut (Middlesex county) - 15/11/2020,Weather related,Storm,5
+USA,United States,2020,2020-10-17,"USA: Brush Fire - California (Vacaville, Solano County) - 17/10/2020",Weather related,Wildfire,260
+USA,United States,2020,2020-11-07,USA: Grass fire - Idaho (Fort Hall Reservation) - 07/11/2020,Weather related,Wildfire,5
+USA,United States,2020,2020-12-23,USA: Wildfire (Creek) - California (San Diego County) - 23/12/2020,Weather related,Wildfire,7000
+USA,United States,2020,2020-09-05,USA: Wildfire (Valley) - California (San Diego County) - 05/09/2020,Weather related,Wildfire,12000
+USA,United States,2020,2020-08-16,USA: Wildfire (CZU Lightning Complex) - California (Santa Cruz and San Mateo) - 16/08/2020,Weather related,Wildfire,77833
+USA,United States,2020,2020-12-02,USA: Wildfire (Bond) - California (Orange County) - 02/12/2020,Weather related,Wildfire,61555
+USA,United States,2020,2020-08-16,"USA: Wildfire (Beachie Creek/Lionshead Complex) - Oregon (Marion, Clackamas, Linn and Jefferson counties) - 16/08/2020",Weather related,Wildfire,60779
+USA,United States,2020,2020-08-17,USA: Wildfire (LNU Lightning Complex) - California (Napa County) - 17/08/2020,Weather related,Wildfire,81400
+USA,United States,2020,2020-09-07,USA: Wildfire (Clackamas County Complex) - Oregon (Clackamas County) - 07/09/2020,Weather related,Wildfire,80000
+USA,United States,2020,2020-08-13,USA: Wildfire (Cameron Peak) - Colorado (Larimer County) - 13/08/2020,Weather related,Wildfire,42020
+USA,United States,2020,2020-10-26,USA: Wildfire (Silverado) - California (Orange County) - 26/10/2020,Weather related,Wildfire,60000
+USA,United States,2020,2020-10-26,"USA: Wildfire (Blue Ridge) - California (Orange, Riverside, San Bernardino) - 26/10/2020",Weather related,Wildfire,26162
+USA,United States,2020,2020-10-17,USA: Wildfire (Calwood) - Colorado (Boulder County) - 17/10/2020,Weather related,Wildfire,2984
+USA,United States,2020,2020-10-15,USA: Wildfire (Horse) - Arizona (Yavapai County) - 15/10/2020,Weather related,Wildfire,90
+USA,United States,2020,2020-10-17,"USA: Wildfire (Range) - Utah (Orem, Utah County) - 17/10/2020",Weather related,Wildfire,31
+USA,United States,2020,2020-09-09,USA: Wildfire (Almeda Drive) - Oregon (Jackson County) - 09/09/2020,Weather related,Wildfire,40408
+USA,United States,2020,2020-11-17,USA: Wildfire (Laura 2) - California (Lassen County) - 17/11/2020,Weather related,Wildfire,49
+USA,United States,2020,2020-11-17,USA: Wildfire (Pinehaven) - Nevada (Washoe County) - 17/11/2020,Weather related,Wildfire,1000
+USA,United States,2020,2020-11-17,USA: Wildfire (Mountain View) - California (Mono County) - 17/11/2020,Weather related,Wildfire,800
+USA,United States,2020,2020-10-12,USA: Wildfire (East Troublesome) - Colorado (Grand County) - 12/10/2020,Weather related,Wildfire,35087
+USA,United States,2020,2020-11-01,USA: Wildfire (Cypress) - California (San Bernardino County) - 01/11/2020,Weather related,Wildfire,338
+USA,United States,2020,2020-11-19,USA: Wildfire (Bear Creek) - Colorado (El Paso County) - 19/11/2020,Weather related,Wildfire,611
+USA,United States,2020,2020-09-07,USA: Wildfire (Apple Acres) - Washington (Chelan County) - 07/09/2020,Weather related,Wildfire,798
+USA,United States,2020,2020-09-07,USA: Wildfire (Ether Hollow) - Utah (Utah County) - 07/09/2020,Weather related,Wildfire,500
+USA,United States,2020,2020-08-12,USA: Wildfire (Lake) - California (Los Angeles County) - 12/08/2020,Weather related,Wildfire,260
+USA,United States,2020,2020-09-06,USA: Wildfire (Bobcat) - California (Los Angeles) - 06/09/2020,Weather related,Wildfire,8000
+USA,United States,2020,2020-09-08,USA: Wildfire (Holiday Farm/McKenzie) - Oregon (Lane County) - 08/09/2020,Weather related,Wildfire,1121
+USA,United States,2020,2020-08-19,USA: Wildfire (SQF Complex) - California (Tulare) - 19/08/2020,Weather related,Wildfire,6799
+USA,United States,2020,2020-09-07,USA: Wildfire (244th Command) - Washington (Pierce County) - 07/09/2020,Weather related,Wildfire,100
+USA,United States,2020,2020-07-23,"Mexico, USA: Tropical Storm Hanna - 23/07/2020",Weather related,Storm,1690
+USA,United States,2020,2020-06-02,USA; Mexico: Tropical Storm Cristobal - 7 States (SouthEast) - 02/06/2020,Weather related,Storm,1446
+USA,United States,2020,2020-09-27,USA: Wildfire (Zogg) - California (Shasta County) - 27/09/2020,Weather related,Wildfire,2500
+USA,United States,2020,2020-09-27,USA: Wildfire (Glass) - California (Napa and Sonoma Counties) - 27/09/2020,Weather related,Wildfire,61276
+USA,United States,2020,2020-09-17,USA: Wildfire (Mullen) - Wyoming (Albany and Carbon Counties) - 17/09/2020,Weather related,Wildfire,1440
+USA,United States,2020,2020-09-12,USA: Wildfire (Battle Creek 2) - Utah (Utah County) - 12/09/2020,Weather related,Wildfire,88
+USA,United States,2020,2020-09-28,"USA: Wildfire (Martindale) - California (Santa Clarita, Los Angeles County) - 28/09/2020",Weather related,Wildfire,31
+USA,United States,2020,2020-08-17,"USA: Wildfire (North Complex - includes Bear) - California (Butte, Plumas and Yuba counties) - 17/08/2020",Weather related,Wildfire,39450
+USA,United States,2020,2020-08-18,USA: Wildfire (Palmer) - Washington (Okanogan) - 18/08/2020,Weather related,Wildfire,398
+USA,United States,2020,2020-08-16,USA: Wildfire (River) - California (Monterey County) - 16/08/2020,Weather related,Wildfire,21564
+USA,United States,2020,2020-08-06,USA: Grass fire - Texas (Williamson County) - 06/08/2020,Weather related,Wildfire,208
+USA,United States,2020,2020-08-07,USA: Wildfire (Parleys) - Utah (Salt Lake County) - 07/08/2020,Weather related,Wildfire,500
+USA,United States,2020,2020-08-09,USA: Wildfire (6400) - Utah (Duchesne County) - 09/08/2020,Weather related,Wildfire,3
+USA,United States,2020,2020-08-03,USA: Wildfire (Stagecoach) - California (Kern County) - 03/08/2020,Weather related,Wildfire,60
+USA,United States,2020,2020-07-30,USA: Wildfire (45) - Colorado (Mesa County) - 30/07/2020,Weather related,Wildfire,52
+USA,United States,2020,2020-09-06,USA: Wildfire (Cold Springs/Pearl Hill) - Washington (Douglas and Okanogan County) - 06/09/2020,Weather related,Wildfire,1555
+USA,United States,2020,2020-09-05,USA: Wildfire (EL Dorado) - California (San Bernardino County) - 05/09/2020,Weather related,Wildfire,21000
+USA,United States,2020,2020-09-05,USA: Wildfire (Creek) - California (Fresno and Madera) - 05/09/2020,Weather related,Wildfire,25043
+USA,United States,2020,2020-09-02,USA: Wildfire (Bobcat) - Montana (Musselshell and Yellowstone) - 02/09/2020,Weather related,Wildfire,400
+USA,United States,2020,2020-09-02,"USA: Wildfire (Snider/Rice Complex) - Montana (Rosebud, Cluster and Powder River) - 02/09/2020",Weather related,Wildfire,3156
+USA,United States,2020,2020-09-07,USA: Wildfire (Brattain) - Oregon (Lake County) - 07/09/2020,Weather related,Wildfire,626
+USA,United States,2020,2020-09-08,"USA: Wildfire (Slater) - California (Siskiyou County), Oregon (Josephine County) - 08/09/2020",Weather related,Wildfire,4600
+USA,United States,2020,2020-01-11,USA: Tornado - Ohio (Miami County) - 11/1/2020,Weather related,Storm,10
+USA,United States,2020,2020-01-11,USA: Tornado - Texas (Nacogdoches County) - 11/1/2020,Weather related,Storm,1
+USA,United States,2020,2020-01-10,USA: Tornado - Arkansas (Logan County) - 10/1/2020,Weather related,Storm,13
+USA,United States,2020,2020-01-11,USA: Tornado - Alabama (Pickens County) - 11/1/2020,Weather related,Storm,25
+USA,United States,2020,2020-02-06,USA: Tornado - South Carolina (Spartanburg County) - 6/2/2020,Weather related,Storm,100
+USA,United States,2020,2020-01-10,USA: Tornado - Missouri (Polk County) - 10/1/2020,Weather related,Storm,13
+USA,United States,2020,2020-05-17,USA: Tornado - Louisiana (Acadia Parish) - 17/05/2020,Weather related,Storm,13
+USA,United States,2020,2020-03-03,USA: Tornadoes - Tennessee - 3/3/2020,Weather related,Storm,1508
+USA,United States,2020,2020-03-28,USA: Tornado - Arkansas (Craighead County) - 28/03/2020,Weather related,Storm,216
+USA,United States,2020,2020-02-05,USA: Tornado - Mississippi (Yazoo County) - 5/2/2020,Weather related,Storm,4
+USA,United States,2020,2020-02-07,USA: Tornado - Virginia (Loudoun County) - 7/2/2020,Weather related,Storm,14
+USA,United States,2020,2020-04-25,USA: Tornado - South Carolina (Greenville County) - 25/04/2020,Weather related,Storm,5
+USA,United States,2020,2020-04-13,USA: Tornado - Georgia (Coffee County) - 13/04/2020,Weather related,Storm,8
+USA,United States,2020,2020-04-12,USA: Tornado - Louisiana (Ouachita Parish) - 12/04/2020,Weather related,Storm,663
+USA,United States,2020,2020-04-12,USA: Tornado - Louisiana (DeSoto Parish) - 12/04/2020,Weather related,Storm,57
+USA,United States,2020,2020-04-12,USA: Tornado - Georgia (Murray County) - 12/04/2020,Weather related,Storm,91
+USA,United States,2020,2020-04-12,USA: Tornado - Tennessee (Hamilton County) - 12/04/2020,Weather related,Storm,1617
+USA,United States,2020,2020-04-08,USA: Tornado - Arkansas (Poinsett County) - 08/04/2020,Weather related,Storm,75
+USA,United States,2020,2020-04-08,USA: Tornado - Georgia (Berrien County) - 08/04/2020,Weather related,Storm,3
+USA,United States,2020,2020-03-28,USA: Tornado - Iowa (Fayette County) - 28/03/2020,Weather related,Storm,31
+USA,United States,2020,2020-04-22,USA: Tornadoes - Louisiana (DeSoto Parish) - 22/04/2020,Weather related,Storm,52
+USA,United States,2020,2020-04-22,USA: Tornadoes - Texas (Polk County) - 22/04/2020,Weather related,Storm,450
+USA,United States,2020,2020-04-22,USA: Tornadoes - Oklahoma (Marshall County) - 22/04/2020,Weather related,Storm,31
+USA,United States,2020,2020-04-12,USA: Tornadoes - South Carolina - 12/04/2020,Weather related,Storm,918
+USA,United States,2020,2020-04-12,USA: Tornado - Georgia (Dade County) - 12/04/2020,Weather related,Storm,13
+USA,United States,2020,2020-04-12,USA: Tornado - Georgia (Catoosa County) - 12/04/2020,Weather related,Storm,43
+USA,United States,2020,2020-04-12,USA: Tornado - Texas (Blanco and Gillespie counties) - 12/04/2020,Weather related,Storm,29
+USA,United States,2020,2020-09-03,USA: Tornado - Maryland (Anne Arundel County) - 03/09/2020,Weather related,Storm,2
+USA,United States,2020,2020-09-08,USA: Wildfire (Riverside) - Oregon (Clackamas County) - 08/09/2020,Weather related,Wildfire,122962
+USA,United States,2020,2020-05-03,USA: Landslide - New York (Saratoga County) - 03/05/2020,Weather related,Wet mass movement,12
+USA,United States,2020,2020-04-13,USA: Landslides/Flooding - North Carolina (Macon County) - 13/04/2020,Weather related,Wet mass movement,19
+USA,United States,2020,2020-04-26,USA: Mudslide - West Virginia (Wood County) - 26/04/2020,Weather related,Wet mass movement,3
+USA,United States,2020,2020-02-15,USA: Landslide - Tennessee (Hardin County) - 15/02/2020,Weather related,Wet mass movement,5
+USA,United States,2020,2020-02-15,USA: Ice Jam Flooding - Nebraska (Dodge County) - 15/2/2020,Weather related,Flood,4
+USA,United States,2020,2020-09-13,USA: Flash Floods - Tennessee (Maury County) - 13/09/2020,Weather related,Flood,15
+USA,United States,2020,2020-06-28,USA: Flash Floods - Massachusetts ( Norfolk County) - 28/06/2020,Weather related,Flood,90
+USA,United States,2020,2020-06-28,USA: Flash Floods - Wisconsin (St. Croix County) - 28/06/2020,Weather related,Flood,21
+USA,United States,2020,2020-04-13,USA: Flash Flood - Tennessee (Unicoi County) - 13/04/2020,Weather related,Flood,4
+USA,United States,2020,2020-01-14,USA: Flash Flooding - Mississippi (Hinds County) - 14/1/2020,Weather related,Flood,20
+USA,United States,2020,2020-12-02,USA: Floods - Alaska (Haines Borough) - 02/12/2020,Weather related,Flood,182
+USA,United States,2020,2020-10-28,"USA: Flood - Arkansas (Alma, Crawford County) - 28/10/2020",Weather related,Flood,25
+USA,United States,2020,2020-11-12,USA: Flooding - North Carolina (Forsyth County) - 12/11/2020,Weather related,Flood,71
+USA,United States,2020,2020-09-09,USA: Flood - Virginia (Wight County) - 09/09/2020,Weather related,Flood,10
+USA,United States,2020,2020-07-23,USA: Flooding - Colorado (Yuma County) - 23/07/2020,Weather related,Flood,25
+USA,United States,2020,2020-07-08,USA: Floods - South Carolina (Edgefield County) - 08/07/2020,Weather related,Flood,3
+USA,United States,2020,2020-07-15,"USA: Flood - Illinois (Roanoke, Woodford County) - 15/07/2020",Weather related,Flood,14
+USA,United States,2020,2020-07-19,"USA: Flooding - Missouri (Jefferson City, Cole County) - 19/07/2020",Weather related,Flood,9
+USA,United States,2020,2020-06-17,USA: Flood - North Carolina (Nash county) - 17/06/2020,Weather related,Flood,44
+USA,United States,2020,2020-06-17,USA: Flood - Virginia (Roanoke county) - 17/06/2020,Weather related,Flood,11
+USA,United States,2020,2020-06-17,USA: Flood - Virginia (Botetourt county) - 17/06/2020,Weather related,Flood,24
+USA,United States,2020,2020-05-18,"USA: Flood from Dam Failure - Michigan (Arenac, Gladwin, Iosco, Midland, Saginaw counties) - 19/05/2020",Weather related,Flood,12000
+USA,United States,2020,2020-03-16,USA: Flood - Hawaii (Kauai) - 16/03/2020,Weather related,Flood,150
+USA,United States,2020,2020-03-27,USA: Flood - Hawaii (Kauai) - 27/03/2020,Weather related,Flood,25
+USA,United States,2020,2020-03-28,USA: Flood - Ohio (Cuyahoga County) - 28/03/2020,Weather related,Flood,10
+USA,United States,2020,2020-03-02,USA: Flood - Georgia (Lee County) - 02/03/2020,Weather related,Flood,13
+USA,United States,2020,2020-03-20,USA: Flooding - Ohio (Franklin Township) - 20/03/2020,Weather related,Flood,40
+USA,United States,2020,2020-03-19,USA: Flooding - Ohio (Licking County) - 19/03/2020,Weather related,Flood,100
+USA,United States,2020,2020-04-14,USA: Flooding - California (San Diego County) - 14/04/2020,Weather related,Flood,8
+USA,United States,2020,2020-04-13,USA: Flooding - Virginia (Washington County) - 13/04/2020,Weather related,Flood,18
+USA,United States,2020,2020-05-28,USA: Flood - Virginia (Galax) - 28/05/2020,Weather related,Flood,5
+USA,United States,2020,2020-02-02,"USA: Flooding - Washington (Marietta, Whatcom County) - 2/2/2020",Weather related,Flood,16
+USA,United States,2020,2020-02-01,USA: Flood - Washington (Skagit County) - 1/2/2020,Weather related,Flood,26
+USA,United States,2020,2020-02-06,USA: Flooding - Virginia (Tazewell County) - 6/2/2020,Weather related,Flood,500
+USA,United States,2020,2020-02-06,USA: Flooding - Kentucky (Harlan County) - 6/2/2020,Weather related,Flood,62
+USA,United States,2020,2020-02-08,USA: Flooding - Oregon (Umatilla County) - 8/2/2020,Weather related,Flood,520
+USA,United States,2020,2020-02-04,USA: Flooding - Tennessee - 4/2/2020,Weather related,Flood,14
+USA,United States,2020,2020-02-06,USA: Flooding - Washington (King County) - 6/2/2020,Weather related,Flood,200
+USA,United States,2020,2020-02-12,USA: Flood - Washington (Walla Walla County) - 12/2/2020,Weather related,Flood,81
+USA,United States,2020,2020-02-10,USA: Flooding - Mississippi - 10/2/2020,Weather related,Flood,520
+USA,United States,2020,2020-02-10,USA: Storm - Alabama (Etowah County) - 10/2/2020,Weather related,Flood,3
+USA,United States,2020,2020-06-16,USA: Flood - North Carolina (Nash County) - 16/06/2020,Weather related,Flood,45
+USA,United States,2020,2020-05-20,USA: Flood - Virginia (Roanoke County) - 20/05/2020,Weather related,Flood,190
+USA,United States,2020,2020-05-18,USA: Flood - Illinois (Chicago) - 18/05/2020,Weather related,Flood,1167
+USA,United States,2020,2020-02-06,"USA: Flood - Washington (Nisqually delta, Thurston County) - 6/2/2020",Weather related,Flood,700
+USA,United States,2020,2020-02-09,USA: Flood - South Carolina (Lexington County) - 9/2/2020,Weather related,Flood,26
+USA,United States,2020,2020-06-10,USA: Flood - Pennsylvania (Schuylkill County) - 10/06/2020,Weather related,Flood,20
+USA,United States,2020,2020-05-18,USA: Flood - Illinois (Lyons) - 18/05/2020,Weather related,Flood,40
+USA,United States,2020,2020-05-14,USA: Flood - Louisiana (Livingston Parish) - 14/05/2020,Weather related,Flood,40
+USA,United States,2020,2020-06-03,USA: Flood - Florida (Martin County) - 03/06/2020,Weather related,Flood,31
+USA,United States,2020,2020-12-30,USA: Tornado - Texas (Navarro County) - 30/12/2020,Weather related,Storm,22
+USA,United States,2020,2020-12-24,USA: Tornado - Virginia (Suffolk) - 24/12/2020,Weather related,Storm,6
+USA,United States,2020,2020-12-24,USA: Tornado - Florida (Bradford County) - 24/12/2020,Weather related,Storm,4
+USA,United States,2020,2020-11-30,USA: Tornado - Pennsylvania (Montgomery County) - 30/11/2020,Weather related,Storm,3
+USA,United States,2020,2020-11-24,USA: Tornado - Texas (Tarrant County) - 24/11/2020,Weather related,Storm,208
+USA,United States,2020,2020-09-09,USA: Wildfire (Archie Creek) - Oregon (Douglas County) - 09/09/2020,Weather related,Wildfire,2500
+USA,United States,2020,2020-09-08,USA: Wildfire (Echo Mountain & Kimberling Road Complex) - Oregon (Lincoln County) - 08/09/2020,Weather related,Wildfire,8756
+USA,United States,2020,2020-09-08,USA: Wildfire (Sumner Grade) - Washington (Pierce County) - 08/09/2020,Weather related,Wildfire,9800
+USA,United States,2020,2020-09-08,USA: Wildfire (Powerline) - Oregon (Washington County) - 08/09/2020,Weather related,Wildfire,1560
+USA,United States,2020,2020-09-08,USA: Wildfire (Bordeaux Road) - Washington (Thurston County) - 08/09/2020,Weather related,Wildfire,475
+USA,United States,2020,2020-09-07,USA: Wildfire (Babb) - Washington (Spokane and Whitman) - 07/09/2020,Weather related,Wildfire,585
+USA,United States,2020,2020-09-07,USA: Wildfire (Two Four Two) - Oregon (Klamath County) - 07/09/2020,Weather related,Wildfire,1932
+USA,United States,2020,2020-07-21,USA: Wildfire (Rock Farm) - Nevada (Washoe County) - 21/07/2020,Weather related,Wildfire,650
+USA,United States,2020,2020-08-02,USA: Wildfire (North) - Nevada (Washoe County) - 02/08/2020,Weather related,Wildfire,250
+USA,United States,2020,2020-07-31,"USA: Wildfire (Apple) - California (Riverside and San Bernardino Counties, and Morongo Band of Mission Tribe) - 31/07/2020",Weather related,Wildfire,10487
+USA,United States,2020,2020-08-02,USA: Wildfire (Falling Star) - Montana (Stillwater and Yellowstone Counties) - 02/08/2020,Weather related,Wildfire,300
+USA,United States,2020,2020-07-24,USA: Wildfire (Colockum) - Washington (Chelan County) - 24/07/2020,Weather related,Wildfire,156
+USA,United States,2020,2020-08-18,USA: Wildfire (Carmel) - California (Monterey County) - 18/08/2020,Weather related,Wildfire,43761
+USA,United States,2020,2020-08-17,USA: Wildfire (Jones) - California (Nevada County) - 17/08/2020,Weather related,Wildfire,6000
+USA,United States,2020,2020-08-12,USA: Wildfire (Mosier Creek) - Oregon (Wasco County) - 12/08/2020,Weather related,Wildfire,1414
+USA,United States,2020,2020-08-16,USA: Wildfire (North Brownstone) - Washington (Yakima County) - 16/08/2020,Weather related,Wildfire,3
+USA,United States,2020,2020-08-14,USA: Wildfire (Loyalton) - Nevada (Washoe County) - 14/08/2020,Weather related,Wildfire,1050
+USA,United States,2020,2020-08-16,USA: Wildfire (SCU Lightning Complex) - California (Santa Clara and Sanislaus Counties) - 16/08/2020,Weather related,Wildfire,17845
+USA,United States,2020,2020-07-31,USA: Wildfire (Pine Gulch) - Colorado (Garfield and Mesa Counties) - 31/07/2020,Weather related,Wildfire,37
+USA,United States,2020,2020-08-10,USA: Wildfire (Grizzly Creek) - Colorado (Garfield and Eagle Counties) - 10/08/2020,Weather related,Wildfire,601
+USA,United States,2020,2020-08-31,USA: Wildfire (Evans Canyon) - Washington (Yakima County) - 31/08/2020,Weather related,Wildfire,65
+USA,United States,2020,2020-08-17,USA: Wildfire (White River) - Oregon (Wasco County) - 17/08/2020,Weather related,Wildfire,984
+USA,United States,2020,2020-08-17,USA: Wildfire (Griffin) - Arizona (Gila) - 17/08/2020,Weather related,Wildfire,400
+USA,United States,2020,2020-08-17,USA: Wildfire (Sheep) - California (Lassen) - 17/08/2020,Weather related,Wildfire,1000
+USA,United States,2020,2020-06-28,USA: Wildfire - California (Imperial County) - 28/06/2020,Weather related,Wildfire,550
+USA,United States,2020,2020-07-02,"USA: Wildfire - Hawaii (Waianae, Honolulu county) - 02/07/2020",Weather related,Wildfire,13
+USA,United States,2020,2020-06-28,USA: Wildfire (Knolls) - Utah (Utah County) - 28/06/2020,Weather related,Wildfire,13000
+USA,United States,2020,2020-06-25,USA: Wildfire (Canal) - Utah (Millard County) - 25/06/2020,Weather related,Wildfire,500
+USA,United States,2020,2020-06-17,USA: Wildfire (Nelson) - California (Butte County) - 17/06/2020,Weather related,Wildfire,10
+USA,United States,2020,2020-06-27,USA: Wildfire (Poeville Road) - Nevada (Washoe County) - 27/06/2020,Weather related,Wildfire,2600
+USA,United States,2020,2020-06-29,USA: Wildfire (Chatridge 2) - Colorado (Douglas County) - 29/06/2020,Weather related,Wildfire,706
+USA,United States,2020,2020-07-12,USA: Wildfire (Green Meadows) - Colorado (San Miguel County) - 12/07/2020,Weather related,Wildfire,36
+USA,United States,2020,2020-07-30,"Haiti, Dominican Republic, The Bahamas, Cuba, Puerto Rico, USA: Hurricane Isaias - 30/07/2020",Weather related,Storm,4327
+USA,United States,2020,2020-08-20,"Mexico, USA: Hurricane Marco - Caribbean - 20/08/2020",Weather related,Storm,49
+USA,United States,2020,2020-07-25,USA: Hurricane Douglas - Hawaii - 25/07/2020,Weather related,Storm,420
+USA,United States,2020,2020-08-21,"DOM, HTI, CUB, PRI, USA: Hurricane Laura - Caribbean - 21/08/2020",Weather related,Storm,585000
+USA,United States,2020,2020-10-06,"Mexico, Cuba, USA: Hurricane Delta - 06/10/2020",Weather related,Storm,1216
+USA,United States,2020,2020-09-11,USA: Hurricane Sally - 11/09/2020,Weather related,Storm,2214
+USA,United States,2020,2020-10-31,12 COUNTRIES: Hurricane Eta - 31/10/2020,Weather related,Storm,94
+USA,United States,2020,2020-07-13,USA: Wildfire (Vejo West) - Utah (Washington County) - 13/07/2020,Weather related,Wildfire,3000
+USA,United States,2020,2020-07-05,USA: Wildfire (Stockton) - California (San Joaquin County) - 05/07/2020,Weather related,Wildfire,21
+USA,United States,2020,2020-07-05,USA: Wildfire (Soledad) - California (Santa Clarita County) - 05/07/2020,Weather related,Wildfire,12
+USA,United States,2020,2020-07-08,USA: Wildfire (Mammoth) - Utah (Juab County) - 08/07/2020,Weather related,Wildfire,3
+USA,United States,2020,2020-07-11,USA: Wildfire (Power) - California (Madera County) - 11/07/2020,Weather related,Wildfire,3
+USA,United States,2020,2020-07-06,USA: Wildfire (Crews) - California (Santa Clara County) - 06/07/2020,Weather related,Wildfire,70
+USA,United States,2020,2020-07-13,USA: Wildfire (Elephant Butte) - Colorado (Jefferson County) - 13/07/2020,Weather related,Wildfire,2600
+USA,United States,2020,2020-07-11,USA: Wildfire (Road 11) - Washington (Douglas County) - 11/07/2020,Weather related,Wildfire,330
+USA,United States,2020,2020-07-13,USA: Wildfire (Mineral) - California (Fresno County) - 13/07/2020,Weather related,Wildfire,13
+USA,United States,2020,2020-06-27,"USA: Wildfire (Traverse) - Utah (Traverse Mountain, Utah County) - 27/06/2020",Weather related,Wildfire,109
+USA,United States,2020,2020-05-04,USA: Wildfire (Five Mile Swamp) - Florida (Santa Rosa County) - 04/05/2020,Weather related,Wildfire,2860
+USA,United States,2020,2020-05-06,USA: Wildfire (Mussett Bayou) - Florida (Walton County) - 06/05/2020,Weather related,Wildfire,500
+USA,United States,2020,2020-07-06,USA: Wildfire - California (Solano County) - 06/07/2020,Weather related,Wildfire,78
+USA,United States,2020,2020-07-05,USA: Wildfire (Park) - California (Santa Clara) - 05/07/2020,Weather related,Wildfire,26
+USA,United States,2020,2020-07-04,USA: Wildfire - Idaho (North Bannock County) - 04/07/2020,Weather related,Wildfire,10
+USA,United States,2020,2020-06-27,USA: Wildfire (Avondale) - Arizona (Maricopa County) - 27/06/2020,Weather related,Wildfire,390
+USA,United States,2020,2020-07-06,USA: Wildfire (Numbers) - Nevada (Douglas County) - 06/07/2020,Weather related,Wildfire,4000
+USA,United States,2020,2020-03-07,USA: Wildfire (412 Complex) - Oklahoma (Beaver County) - 7/3/2020,Weather related,Wildfire,26
+USA,United States,2020,2020-06-14,USA: Wildfire (Bush) - Arizona (Gila and Maricopa counties) - 14/06/2020,Weather related,Wildfire,1926
+USA,United States,2020,2020-05-30,USA: Wildfire (Ocotillo) - Arizona (Maricopa County) - 30/05/2020,Weather related,Wildfire,1000
+USA,United States,2020,2020-09-07,USA: Wildfire (Pike Road) - Oregon (Tillamook County) - 07/09/2020,Weather related,Wildfire,838
+USA,United States,2020,2020-09-05,USA: Wildfire (316) - Wyoming (Carbon County) - 05/09/2020,Weather related,Wildfire,1000
+USA,United States,2020,2020-06-30,USA: Wildfire - Colorado (Arapahoe County) - 30/06/2020,Weather related,Wildfire,100
+USA,United States,2020,2020-09-08,USA: Wildfire (South Obenchain) - Oregon (Jackson County) - 10/09/2020,Weather related,Wildfire,4805
+USA,United States,2020,2020-09-08,USA: Wildfire (Chehalem Mountain Bald Peak) - Oregon (Washington and Yamhill) - 08/09/2020,Weather related,Wildfire,450
+USA,United States,2020,2020-07-13,USA: Wildfire (Big Summit) - Utah (Iron County) - 13/07/2020,Weather related,Wildfire,52
+USA,United States,2020,2020-06-07,USA: Wildfire (Hunter) - California (Mariposa County) - 07/06/2020,Weather related,Wildfire,16
+USA,United States,2020,2020-06-12,USA: Wildfire (Hog) - California (Fresno county) - 12/06/2020,Weather related,Wildfire,5
+USA,United States,2020,2020-06-05,USA: Wildfire (Big Horn) - Arizona (Pima County) - 05/06/2020,Weather related,Wildfire,480
+USA,United States,2020,2020-06-06,USA: Wildfire (Quail) - California (Solano County) - 06/06/2020,Weather related,Wildfire,260
+USA,United States,2020,2020-01-11,USA: Thunderstorm - South Carolina (Richland County) - 11/1/2020,Weather related,Storm,3
+USA,United States,2020,2020-05-13,USA: Wildfire (36th Ave SE) - Florida (Collier County) - 13/05/2020,Weather related,Wildfire,31
+USA,United States,2020,2020-05-17,USA: Wildfire (East Desert Fire ) - Arizona (Maricopa County) - 17/05/2020,Weather related,Wildfire,150
+USA,United States,2020,2020-07-27,USA: Wildfire (Anglin) - Washington (Okanogan County) - 27/07/2020,Weather related,Wildfire,450
+USA,United States,2020,2020-05-10,USA: Wildfire (Lumberton) - New Mexico (Rio Arriba County) - 10/05/2020,Weather related,Wildfire,5
+USA,United States,2020,2020-05-12,USA: Wildfire (Saddle) - Utah (Wasatch County) - 12/05/2020,Weather related,Wildfire,23
+USA,United States,2020,2020-06-13,USA: Wildfire (East Canyon) - Colorado (La Plata and Montezum counties) - 14/06/2020,Weather related,Wildfire,60
+USA,United States,2020,2020-06-25,USA: Wildfire (Brush) - Nevada (White Pine County) - 25/06/2020,Weather related,Wildfire,30
+USA,United States,2020,2020-06-03,USA: Wildfire - California (Solano County) - 03/06/2020,Weather related,Wildfire,21
+USA,United States,2020,2020-06-23,USA: Wildfire (Aquila) - Arizona (Maricopa County) - 23/06/2020,Weather related,Wildfire,1000
+USA,United States,2020,2020-06-13,USA: Wildfire (Lump Gulch Fire) - Montana (Jeffersen County) - 13/06/2020,Weather related,Wildfire,60
+USA,United States,2020,2020-09-04,USA: Wildfire (Bridger Foothills) - Montana (Gallatin) - 04/09/2020,Weather related,Wildfire,83
+USA,United States,2020,2020-11-08,"USA: Earthquake - Massachusetts (New Bedford, Bristol County) - 08/11/2020",Geophysical,Earthquake,22
+USA,United States,2020,2020-08-09,USA: Earthquake - North Carolina (Alleghany County) - 09/08/2020,Geophysical,Earthquake,26
+USA,United States,2020,2020-03-18,USA: Earthquake - Utah (Salt Lake County) - 18/03/2020,Geophysical,Earthquake,150
+USA,United States,2020,2020-10-22,USA: Sinkhole - Florida (Alachua County) - 22/10/2020,Geophysical,Dry mass movement,16
+USA,United States,2020,2020-06-01,USA: Land Subsidence - Pennsylvania (Fayette County) - 01/06/2020,Geophysical,Dry mass movement,23
+USA,United States,2020,2020-11-24,"USA: Sink Hole - Florida (Fort Myers, Lee County) - 24/11/2020",Geophysical,Dry mass movement,3
+USA,United States,2020,2020-04-27,USA: Sinkhole - South Dakota (Meade County) - 27/04/2020,Geophysical,Dry mass movement,33
+USA,United States,2020,2020-06-03,USA: Storms (Derecho) - Pennsylvania (Montgomery County) - 03/06/2020,Weather related,Storm,265
+USA,United States,2020,2020-06-23,USA: Lightning/Storm - Maryland (Montgomery County) - 23/06/2020,Weather related,Storm,3
+USA,United States,2020,2020-05-15,USA: Storms - Massachesetts and New Hampshire - 15/05/2020,Weather related,Storm,141
+USA,United States,2020,2020-01-14,USA: Risk of Dam collapse from heavy rain - Mississippi (Oktibbeha County) - 14/1/2020,Weather related,Storm,1
+USA,United States,2020,2020-02-06,USA: Storm - Florida (Seminole County) - 7/2/2020,Weather related,Storm,7
+USA,United States,2020,2020-01-10,USA: Storm - Texas (Harris County) - 10/1/2020,Weather related,Storm,3
+USA,United States,2020,2020-01-11,USA: Storm - Kentucky (Jefferson County) - 11/1/2020,Weather related,Storm,2
+USA,United States,2020,2020-05-30,USA: Storm - Oregon (Morrow County) - 30/05/2020,Weather related,Storm,18
+USA,United States,2020,2020-02-06,USA: Storm - Alabama (Marengo County) - 6/2/2020,Weather related,Storm,4
+USA,United States,2020,2020-02-06,USA: Storm - Mississippi (Holmes County) - 6/2/2020,Weather related,Storm,5
+USA,United States,2020,2020-05-27,USA: Storm - Texas (Kerr County) - 27/05/2020,Weather related,Storm,5
+USA,United States,2020,2020-04-12,USA: Storm/Lightning - Texas (Smith County) - 12/04/2020,Weather related,Storm,5
+USA,United States,2020,2020-04-07,USA: Storm - North Carolina (Winston-Salem) - 07/04/2020,Weather related,Storm,2
+USA,United States,2020,2020-04-12,USA: Storm - Alabama (Cullman County) - 12/04/2020,Weather related,Storm,5
+USA,United States,2020,2020-04-12,USA: Severe Storm - Mississippi - 12/04/2020,Weather related,Storm,609
+USA,United States,2020,2020-03-18,USA: Storm/Tornado - Texas (Young County) - 18/03/2020,Weather related,Storm,31
+USA,United States,2020,2020-04-28,USA: Storm (triggering gas leak) - Arkansas (Cross County) - 28/04/2020,Weather related,Storm,520
+USA,United States,2020,2020-04-12,USA: Storm - Tennessee (Bradley County) - 12/04/2020,Weather related,Storm,78
