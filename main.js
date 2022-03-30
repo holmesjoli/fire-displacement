@@ -33,6 +33,6 @@ function drawVis(stateBoundaries) {
 
     console.log(stateBoundaries);
 
-    Map.build("#chart");
+    Map.build("#chart", stateBoundaries);
     
 }
