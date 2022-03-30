@@ -1,11 +1,14 @@
 // Main map function
 export function build(selector, stateBoundaries) {
 
+    const width = window.innerWidth*.55;
+    const height = window.innerHeight*.85;
+
     // make the SVG and viewbox
     const svg = d3.select(selector)
         .append("svg")
-        .attr("width", window.innerWidth*.55)
-        .attr("height", window.innerHeight)
+        .attr("width", width)
+        .attr("height", height)
         // .attr("preserveAspectRatio", "xMinYMin meet")
         .style("background-color", "#fff")
         // .attr("viewBox", "0 0 " + window.innerWidth + " " + window.innerHeight)
@@ -15,9 +18,10 @@ export function build(selector, stateBoundaries) {
 
     // define the settings for map projection
     const projection = d3.geoAlbers()
-        // .translate([window.innerWidth / 2, window.innerHeight / 2])
-        .scale(800)
-        // .center([0, 0]);
+        .translate([width / 2, height / 2])
+        // .center([0, 5 ])
+        .scale(2000)
+        .center([-15, 44]);
 
     // create the geo path generator
     let geoPathGenerator = d3.geoPath().projection(projection);
