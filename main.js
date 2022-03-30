@@ -1,4 +1,5 @@
 import * as Helper from './modules/helper_functions.js';
+import * as Map from './modules/map.js';
 
 const files = {
     stateBoundaries: {
@@ -31,5 +32,7 @@ Promise.all(promises).then(function (values) {
 function drawVis(stateBoundaries) {
 
     console.log(stateBoundaries);
+
+    Map.build("#chart");
     
 }
