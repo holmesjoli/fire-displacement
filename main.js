@@ -29,6 +29,8 @@ Promise.all(promises).then(function (values) {
     drawVis(values[0])
 });
 
+Helper.collapsibleTable();
+
 function drawVis(stateBoundaries) {
 
     console.log(stateBoundaries);
