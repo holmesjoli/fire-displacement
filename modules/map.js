@@ -32,14 +32,14 @@ export function build(selector, stateBoundaries) {
         .attr("country", function (d) { return d.id })
         // set the color of each country
         .attr("stroke", "#FFFFFF")
+        .attr("stroke-width", .25)
         .attr("fill", "#D7D7D7");
 
     var zoom = d3.zoom()
-        .scaleExtent([1, 8])
+        .scaleExtent([1, 100])
         .on('zoom', function (event) {
             // console.log(event)
             g.attr("transform", "translate(" + event.transform.x + "," + event.transform.y + ")scale(" + event.transform.k + ")");
-            // updateCircles(data, event.transform.k)
         });
 
     // call zoom so it is "listening" for an event on our SVG
