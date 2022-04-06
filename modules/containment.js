@@ -1,69 +1,79 @@
-// Title Build containment visual
-// Param selector the id for the contaiment container
-// Param data the 
-export function build(selector, data) {
+export class ContainmentClass {
+    constructor(selector) {
+        this.selector = selector
+        this.width = window.innerWidth*.2
+        this.height= 50
+        this.margin = {top: 0, right: 10, bottom: 20, left: 10}
 
-    const width = window.innerWidth*.2;
-    const height = 50;
+    }
 
-    let filteredData = [data[0]];
-    console.log(filteredData);
+    // Initialize SVG canvas
+    createSVG() {
+        this.svg = d3.select(this.selector)
+            .append("svg")
+            .attr("width", this.width)
+            .attr("height", this.height);
+    }
 
-    let svg = d3.select(selector)
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height);
+    // Build the initial visualization
+    draw(data) {
+        this.createSVG();
+        this.createScales();
+        this.createAxes();
 
-    var margin = {top: 0, right: 10, bottom: 20, left: 10}
+        this.svg
+            .selectAll("rect")
+            .data(data)
+            .enter()
+            .append("rect")
+                .attr("x", this.xScale(0))
+                .attr("y", 5)
+                .attr("width", this.xScale(0))
+                .attr("height", 20)
+                .attr("fill", "#EE2724");
+    }
 
-    var xScale = d3.scaleLinear()
-        .domain([0, d3.max(data, function(d) {
-            return d.containment;
-        })])
-        .range([margin.left, width - margin.right]);
+    createScales() {
+        this.xScale = d3.scaleLinear()
+            .domain([0, 100])
+            .range([this.margin.left, this.width - this.margin.right]);
+    }
 
-    const xAxis = svg.append("g")
-        .attr("class","axis")
-        .attr("transform",`translate(0, ${height-margin.bottom})`)
-        .call(d3.axisBottom().scale(xScale).ticks(2));
+    createAxes() {
+        this.xAxis = this.svg
+            .append("g")
+            .attr("class","axis")
+            .attr("transform",`translate(0, ${this.height-this.margin.bottom})`)
+            .call(d3.axisBottom().scale(this.xScale).ticks(2));
+    }
 
-    svg.selectAll("rect")
-        .data(filteredData)
-        .enter()
-        .append("rect")
-            .attr("x", xScale(0))
-            .attr("y", 5)
-            .attr("width", function(d) { return xScale(d.containment); })
-            .attr("height", 20)
-            .attr("fill", "#EE2724");
+    // Update the visualization with a new date
+    // update(data, date) {
 
-    return svg
-}
-
-export function update(svg, data, xScale, date) {
-
-    let filteredData = data.filter(function(d) {
-        return d.date === date;
-    })
-
-    let b = svg.selectAll("rect")
-        .data(filteredData, function(d) { return d.date; });
-
-    b.enter().append("rect")
-    .attr("x", xScale(0))
-    .attr("y", 5)
-    .attr("width", function(d) { return xScale(d.containment); })
-    .attr("height", 20)
-    .attr("fill", "#EE2724")
-    .merge(b)   
-        .transition() // a transition makes the changes visible...
-        .duration(1000)
-        .attr("x", xScale(0))
-        .attr("y", 5)
-        .attr("width", function(d) { return xScale(d.containment); })
-        .attr("height", 20)
-        .attr("fill", "#EE2724");
-
-    b.exit()
-    .remove();
+    //     let filteredData = data.filter(function(d) {
+    //         return d.date === date;
+    //     })
+    
+    //     let b = this.svg.selectAll("rect")
+    //         .data(filteredData, function(d) { return d.date; });
+    
+    //     b.enter()
+    //     .append("rect")
+    //     .attr("x", this.xScale(0))
+    //     .attr("y", 5)
+    //     .attr("width", function(d) { return this.xScale(d.containment); })
+    //     .attr("height", 20)
+    //     .attr("fill", "#EE2724")
+    //     .merge(b)   
+    //         .transition() // a transition makes the changes visible...
+    //         .duration(1000)
+    //         .attr("x", this.xScale(0))
+    //         .attr("y", 5)
+    //         // .attr("width", function(d) { return this.xScale(d.containment); })
+    //         .attr("height", 20)
+    //         .attr("fill", "#EE2724");
+    
+    //     b.exit()
+    //     .remove();
+    // }
 }
