@@ -94,11 +94,9 @@ function drawVis(stateBoundaries, data) {
             .attr("x", xScale(0))
             .attr("y", 5)
             .attr("width", function(d) { return xScale(d.containment); })
-            .attr("height", 20)
+            .attr("height", 20 )
             .attr("fill", "#EE2724");
 
-    // let svgContainment = Containment.build("#containment", data);
-    
     Helper.setDate(params, function (date) {
         Containment.update(svg, data, xScale, date)
     });
