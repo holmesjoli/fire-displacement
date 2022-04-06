@@ -26,7 +26,10 @@ const files = {
                 n_structures: +j.n_structures,
                 overhead_personnel: +j.overhead_personnel,
                 size: +j.size,
-                total_personnel: +j.total_personnel
+                total_personnel: +j.total_personnel,
+                scale: +j.scale,
+                centerX: +j.centerX,
+                centerY: +j.centerY
             }
         }
     }
@@ -101,5 +104,5 @@ function drawVis(stateBoundaries, data) {
         Containment.update(svg, data, xScale, date)
     });
 
-    Map.build("#chart", stateBoundaries);
+    Map.build("#chart", stateBoundaries, data);
 }
