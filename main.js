@@ -19,6 +19,7 @@ const files = {
                 i: +j.i,
                 month: +j.month,
                 month_name: j.month_name,
+                date: +j.date,
                 n_homes: +j.n_homes,
                 n_structures: +j.n_structures,
                 overhead_personnel: +j.overhead_personnel,
@@ -59,7 +60,6 @@ function drawVis(stateBoundaries, data) {
                 i: i,
                 speed: 500
             }
-
 
     Helper.setDate(params, function (x) {
         console.log(x)
