@@ -1,22 +1,43 @@
-// Main map function
-export function build(selector, stateBoundaries, data) {
+export class MapClass {
+    constructor(selector) {
+        this.selector = selector
+        this.width = window.innerWidth*.55
+        this.height= window.innerHeight*.85
+        this.margin = {top: 0, right: 10, bottom: 20, left: 10}
+        this.initialScale = 7000
+        this.initialCenterX = -25
+        this.initialCenterY = 46
+    }
 
-    const width = window.innerWidth*.55;
-    const height = window.innerHeight*.85;
-
-    let filteredData = data[0];
-
-    // make the SVG and viewbox
-    const svg = d3.select(selector)
+    // Initialize SVG canvas
+    createSVG() {
+        this.svg = d3.select(this.selector)
         .append("svg")
-        .attr("width", width)
-        .attr("height", height)
+        .attr("width", this.width)
+        .attr("height", this.height)
         // .attr("preserveAspectRatio", "xMinYMin meet")
         .style("background-color", "#fff")
         // .attr("viewBox", "0 0 " + window.innerWidth + " " + window.innerHeight)
         // .attr("viewBox", "0 0 " + window.innerWidth + " " + window.innerHeight)
         .attr("id", "map-svg")
         .classed("svg-content", true);
+    }
+
+    createProjection() {
+        this.projection = d3.geoAlbers()
+        .translate([this.width / 2, this.height / 2])
+        .scale(this.initialScale)
+        .center([this.initialCenterX, this.initialCenterY]);
+    }
+
+    
+
+}
+
+// Main map function
+export function build(selector, stateBoundaries, data) {
+
+    let filteredData = data[0];
 
     // define the settings for map projection
     const projection = d3.geoAlbers()

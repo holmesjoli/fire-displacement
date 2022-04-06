@@ -4,7 +4,6 @@ export class ContainmentClass {
         this.width = window.innerWidth*.2
         this.height= 50
         this.margin = {top: 0, right: 10, bottom: 20, left: 10}
-
     }
 
     // Initialize SVG canvas
@@ -48,7 +47,7 @@ export class ContainmentClass {
     }
 
     // Update the visualization with a new date
-    // update(data, date) {
+    update(data, date) {
 
     //     let filteredData = data.filter(function(d) {
     //         return d.date === date;
@@ -75,5 +74,5 @@ export class ContainmentClass {
     
     //     b.exit()
     //     .remove();
-    // }
+    }
 }
