@@ -60,6 +60,8 @@ p {
     max-width: 25%;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    padding: 100px 20px;
 }
 
 .main {
@@ -114,10 +116,6 @@ p {
 
 .collapsible.country-button:hover {
     border: 3px solid rgba(246, 134, 31, .6);
-}
-
-.sidebar-right {
-    width: 100%;
 }
 
 /* Style the button that is used to open and close the collapsible content */
