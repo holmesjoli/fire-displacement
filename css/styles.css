@@ -66,42 +66,62 @@ p {
     max-width: 55%;
 }
 
-.local-button {
-
+.collapsible.local-button {
+    /* background-color: #3D328B; */
+    background-color: rgba(61, 50, 139, .5);
 }
 
-.local-content {
-
+.content.local-content {
+    background-color: rgba(61, 50, 139, .4);
 }
 
-.regional-button {
-
+.collapsible.local-button:hover {
+    border: 3px solid rgba(61, 50, 139, .6);
 }
 
-.regional-content {
-
+.collapsible.regional-button {
+    /* background-color: #764091; */
+    background-color: rgba(118, 64, 145, .5);
 }
 
-.state-button {
-
+.content.regional-content {
+    background-color: rgba(118, 64, 145, .4);
 }
 
-.state-content {
+.collapsible.regional-button:hover {
+    border: 3px solid rgba(118, 64, 145, .6);
 }
 
-.country-button {
-
+.collapsible.state-button {
+    background-color: rgba(224, 89, 38, .5);
 }
 
-.country-content {
-    
+.content.state-content {
+    background-color: rgba(224, 89, 38, .4);
 }
 
+.collapsible.state-button:hover {
+    border: 3px solid rgba(224, 89, 38, .6);
+}
+
+.collapsible.country-button {
+    background-color: rgba(246, 134, 31, .5);
+}
+
+.content.country-content {
+    background-color: rgba(246, 134, 31, .4);
+}
+
+.collapsible.country-button:hover {
+    border: 3px solid rgba(246, 134, 31, .6);
+}
+
+.sidebar-right {
+    width: 100%;
+}
 
 /* Style the button that is used to open and close the collapsible content */
 .collapsible {
-    background-color: #eee;
-    color: #444;
     cursor: pointer;
     padding: 18px;
     width: 100%;
@@ -109,11 +129,7 @@ p {
     text-align: left;
     outline: none;
     font-size: 15px;
-}
-
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active, .collapsible:hover {
-    background-color: #ccc;
+    font-weight: 600;
 }
 
 /* Style the collapsible content. Note: hidden by default */
@@ -121,6 +137,5 @@ p {
     padding: 0 18px;
     display: none;
     overflow: hidden;
-    background-color: #f1f1f1;
 }
 
