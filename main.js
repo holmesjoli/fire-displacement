@@ -1,5 +1,7 @@
 import * as Helper from './modules/helper_functions.js';
 import * as Map from './modules/map.js';
+import * as Containment from "./modules/containment.js"
+
 
 const files = {
     stateBoundaries: {
@@ -19,7 +21,7 @@ const files = {
                 i: +j.i,
                 month: +j.month,
                 month_name: j.month_name,
-                date: +j.date,
+                date: j.date,
                 n_homes: +j.n_homes,
                 n_structures: +j.n_structures,
                 overhead_personnel: +j.overhead_personnel,
@@ -58,12 +60,47 @@ function drawVis(stateBoundaries, data) {
                 limit: limit, 
                 play: play, 
                 i: i,
-                speed: 500
+                speed: 1000
             }
 
-    Helper.setDate(params, function (x) {
-        console.log(x)
-        return x;
+    const width = window.innerWidth*.2;
+    const height = 50;
+
+    let filteredData = [data[0]];
+    console.log(filteredData);
+
+    let svg = d3.select("#containment")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    var margin = {top: 0, right: 10, bottom: 20, left: 10}
+
+    var xScale = d3.scaleLinear()
+        .domain([0, d3.max(data, function(d) {
+            return d.containment;
+        })])
+        .range([margin.left, width - margin.right]);
+
+    const xAxis = svg.append("g")
+        .attr("class","axis")
+        .attr("transform",`translate(0, ${height-margin.bottom})`)
+        .call(d3.axisBottom().scale(xScale).ticks(2));
+
+    svg.selectAll("rect")
+        .data(filteredData)
+        .enter()
+        .append("rect")
+            .attr("x", xScale(0))
+            .attr("y", 5)
+            .attr("width", function(d) { return xScale(d.containment); })
+            .attr("height", 20)
+            .attr("fill", "#EE2724");
+
+    // let svgContainment = Containment.build("#containment", data);
+    
+    Helper.setDate(params, function (date) {
+        Containment.update(svg, data, xScale, date)
     });
 
     Map.build("#chart", stateBoundaries);
