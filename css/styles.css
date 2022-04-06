@@ -144,3 +144,22 @@ p {
     overflow: hidden;
 }
 
+.impacts-icon-container {
+    margin: 5px;
+}
+
+.impact {
+    display: flex;
+    align-items: center;
+    margin: 3px;
+}
+
+.impact span {
+    font-size: 10pt;
+    padding-left: 5px;
+}
+
+.icon {
+    max-width: 40px;
+}
+
