@@ -4,17 +4,28 @@ import * as Map from './modules/map.js';
 const files = {
     stateBoundaries: {
         pth: "./data/state_boundaries.geojson",
+        parse: null
+    },
+
+    complex: {
+        pth: "./data/complex_data.csv",
         parse: function(j) {
             return {
-                AD: j.AD,
-                data: j.date,
-                reconstructed: j.reconstructed,
-                data_type_code: j.data_type_code,
-                century: +j.century,
-                temp_bin: j.temp_bin,
-                date_as_date: j.date_as_date
+                air_support: +j.air_support,
+                containment: +j.containment,
+                day: +j.day,
+                engines: +j.engines,
+                home_place: +j.home_place,
+                i: +j.i,
+                month: +j.month,
+                month_name: j.month_name,
+                n_homes: +j.n_homes,
+                n_structures: +j.n_structures,
+                overhead_personnel: +j.overhead_personnel,
+                size: +j.size,
+                total_personnel: +j.total_personnel
             }
-        },
+        }
     }
 };
 
@@ -26,15 +37,34 @@ for (var key of Object.keys(files)) {
 }
 
 Promise.all(promises).then(function (values) {
-    drawVis(values[0])
+    drawVis(values[0], values[1])
 });
 
 Helper.collapsibleTable();
 
-function drawVis(stateBoundaries) {
+function drawVis(stateBoundaries, data) {
 
     console.log(stateBoundaries);
+    console.log(data)
+
+    let start = d3.min(data, function(d) {return +d.i});
+    let limit = d3.max(data, function(d) {return +d.i});
+    let i = start;
+    let play = true;
+
+    let params = {
+                dates: data, 
+                limit: limit, 
+                play: play, 
+                i: i,
+                speed: 500
+            }
+
+
+    Helper.setDate(params, function (x) {
+        console.log(x)
+        return x;
+    });
 
     Map.build("#chart", stateBoundaries);
-    
 }
