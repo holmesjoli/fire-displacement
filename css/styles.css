@@ -10,6 +10,21 @@ h1 {
     margin: 20px
 }
 
+#timer {
+    min-width: 150px;
+    min-height: 150px;
+    max-width: 200px;
+    max-height: 200px;
+    font-size: 26pt;
+    background-color: #473F41;
+    color: #FFFFFF;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
 .container {
     display: flex;
     flex-direction: row;
