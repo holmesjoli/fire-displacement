@@ -65,12 +65,26 @@ export class StoryClass {
 
     // Add effects to the storyline
     effects(date) {
+        this.lightning(date);
         this.darkeffect(date);
+    }
+
+    // Lightning
+
+    lightning(date) {
+        if (date == "714") {
+            function func() {
+                var elem = document.createElement("img");
+                elem.src = 'assets/lightning.svg';
+                document.getElementById("effect").appendChild(elem);
+            }
+            setTimeout(func, 2000);
+        }
     }
 
     // Changes the body to a dark color to show power blackout
     darkeffect(date) {
-        if (date == "715") {
+        if (date == "718") {
             document.getElementById('map-svg').style.backgroundColor = '#473F41';
             document.getElementById('map-svg').style.color = '#FFFFFF';
             // document.getElementsByClassName("state").style.backgroundColor = '#473F41';
