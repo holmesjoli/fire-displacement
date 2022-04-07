@@ -15,10 +15,10 @@ export const storyData = [
     {date: "727", story: ""},
     {date: "728", story: ""},
     {date: "729", story: ""},
-    {date: "730", story: ""},
-    {date: "731", story: ""},
+    {date: "730", story: "Firefighters started to turn a corner on containing the fire. At this point the fire is approximately 60%-70% contained."},
+    {date: "731", story: "Life started to return to some sense of normaly. Residents had electricity, phone, and Internet services restored."},
     {date: "801", story: ""},
-    {date: "802", story: ""},
+    {date: "802", story: "A windstorm with gusts up to 58 miles per hour blew through the valley threatening residents who had recently returned home."},
     {date: "803", story: ""},
     {date: "804", story: ""},
     {date: "805", story: ""},
@@ -42,7 +42,7 @@ export const storyData = [
     {date: "823", story: ""},
     {date: "824", story: ""},
     {date: "825", story: ""},
-    {date: "826", story: ""}];
+    {date: "826", story: "The fire reached 100% containment."}];
 
 export class StoryClass {
 
