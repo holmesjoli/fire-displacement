@@ -1,5 +1,5 @@
 export const storyData = [
-    {date: "714", story: "Officially, the disastor event started on July 15th, 2014 and ended on August 14th, 2014. However, impacts from the fire were felt much longer than the timeline of the official event."},
+    {date: "714", story: "Officially, the disastor event started from a lightning strike on July 15th, 2014 and ended on August 14th, 2014. However, impacts from the fire were felt much longer than the timeline of the official event."},
     {date: "715", story: ""},
     {date: "716", story: ""},
     {date: "717", story: ""},
