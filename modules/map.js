@@ -27,7 +27,7 @@ export class MapClass {
             .data(stateBoundaries.features)
             .enter()
             .append("path")
-            .attr("class", 'continent')
+            .attr("class", 'state')
             .attr("d", this.geoPathGenerator)
             .attr("country", function (d) { return d.id })
             .attr("stroke", "#FFFFFF")
