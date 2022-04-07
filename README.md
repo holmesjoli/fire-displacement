@@ -37,9 +37,11 @@ Stories
 
 
 Data
+
 * https://methowvalleynews.com/2014/07/16/wednesday-update-more-evacuation-orders-as-fires-smoke-spread/
 * https://methowvalleynews.com/2014/07/17/thursday-update-fires-and-evacuations-grow-public-info-meeting-tonight-in-twisp/
 * https://methowvalleynews.com/2014/07/19/saturday-update-719-evacuations-continue-pud-looking-at-extensive-repair-efforts/
+* https://methowvalleynews.com/2014/07/19/state-updates-fires-and-complexes-keep-state-blazing/
 * https://methowvalleynews.com/2014/07/19/state-updates-fires-and-complexes-keep-state-blazing/
 * https://methowvalleynews.com/2014/07/24/wet-weather-slows-fire-spread-helps-crews-with-containment/
 * https://methowvalleynews.com/2014/07/25/carlton-complex-fire-an-information-roundup/
@@ -51,6 +53,14 @@ Data
 * https://methowvalleynews.com/2014/08/14/little-bridgeupper-fallscarlton-complex-fire-updates-aug-14/
 * https://methowvalleynews.com/2014/08/15/little-bridge-creekupper-fallscarlton-complex-fire-update-aug-15/
 * https://www.facebook.com/hashtag/carltoncomplex/
+* https://methowvalleynews.com/2014/07/24/wet-weather-slows-fire-spread-helps-crews-with-containment/
+* https://methowvalleynews.com/2014/07/25/red-cross-provides-shelter-relief-support-in-winthrop/
+* https://methowvalleynews.com/2014/07/25/carlton-complex-fire-an-information-roundup/
+* https://www.wenatcheeworld.com/news/local/fire-plows-through-pateros-methow-valley/article_b441ec18-e93f-56e7-bdeb-ad1de31fd780.html
+* https://www.wenatcheeworld.com/news/local/amid-the-ashes-victims-survey-pateros-devastation/article_b449c4a0-0a4a-5c89-a910-d66841b6b239.html
+* https://methowvalleynews.com/2014/07/31/managing-help-for-victims-is-a-huge-task/
+* https://methowvalleynews.com/2014/07/31/pud-works-to-restore-full-power-to-lower-valley/
+* https://methowvalleynews.com/2014/07/31/methow-valley-slowly-returns-to-normal-but-long-recovery-looms-for-victims-of-carlton-complex/
 
 07/19/214
 * Firefighters came from New Mexico, Utah and Wyoming
