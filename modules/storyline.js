@@ -3,7 +3,7 @@ export const storyData = [
     {date: "715", story: ""},
     {date: "716", story: ""},
     {date: "717", story: ""},
-    {date: "718", story: ""},
+    {date: "718", story: "On the morning of the 18th, an estimated 95 homes were lost to the fire. Residents of the Methow Valley lost power. Carlton, Pateros, and Brewster residents were ordered to evacuate."},
     {date: "719", story: ""},
     {date: "720", story: ""},
     {date: "721", story: ""},
@@ -57,7 +57,9 @@ export class StoryClass {
             return d.date === date;
         });
 
-        let id = document.getElementById(this.selector);
-        id.innerHTML =  `${filteredData[0].story}`;
+        if (filteredData[0].story != "") {
+            let id = document.getElementById(this.selector);
+            id.innerHTML =  `${filteredData[0].story}`;
+        }
     }
 }
