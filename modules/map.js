@@ -9,13 +9,14 @@ export class MapClass {
         this.initialCenterY = 47
     }
 
-    draw(stateBoundaries, data, date = 1) {
+    draw(stateBoundaries, data, date) {
     
         this.createSVG();
 
         let filteredData = data.filter(function(d) {
-            return d.i === date;
+            return d.date === date;
         });
+        console.log(filteredData);
 
         this.createProjection(filteredData[0]);
 
@@ -43,20 +44,20 @@ export class MapClass {
         // svg.call(zoom);
     }
 
-    update(data, date) {
+    // update(data, date) {
 
-        this.projection = d3.geoAlbers()
-            .translate([this.width / 2, this.height / 2])
-            .scale(7000)
-            .center([-25, 46]);
+    //     this.projection = d3.geoAlbers()
+    //         .translate([this.width / 2, this.height / 2])
+    //         .scale(7000)
+    //         .center([-25, 46]);
 
-        this.geoPathGenerator = d3.geoPath()
-            .projection(this.projection);
+    //     this.geoPathGenerator = d3.geoPath()
+    //         .projection(this.projection);
 
-        this.g
-            .transition()
-            .attr("d", this.geoPathGenerator)
-    }
+    //     this.g
+    //         .transition()
+    //         .attr("d", this.geoPathGenerator)
+    // }
 
     // Initialize SVG canvas
     createSVG() {

@@ -70,11 +70,11 @@ function drawVis(stateBoundaries, data) {
             }
 
     cc.draw([data[0]]);
-    mc.draw(stateBoundaries, data);
+    mc.draw(stateBoundaries, data, "714");
 
     Helper.setDate(params, function (date) {
-        // console.log(date)
+        console.log(date)
         cc.update(data, date);
-        mc.update(data, date);
+        mc.draw(stateBoundaries, data, date);
     });
 }
