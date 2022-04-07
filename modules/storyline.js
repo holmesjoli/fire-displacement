@@ -44,13 +44,20 @@ export const storyData = [
     {date: "825", story: ""},
     {date: "826", story: ""}];
 
-// Update storyline
-export function storyUpdate(selector, data, date) {
+export class StoryClass {
 
-    let filteredData = data.filter(function(d) {
-        return d.date === date;
-    });
+    constructor(selector) {
+        this.data = storyData;
+        this.selector = selector;
+    }
 
-    let id = document.getElementById(selector);
-    id.innerHTML =  `${filteredData[0].story}`;
+    update(date) {
+
+        let filteredData = this.data.filter(function(d) {
+            return d.date === date;
+        });
+
+        let id = document.getElementById(this.selector);
+        id.innerHTML =  `${filteredData[0].story}`;
+    }
 }
