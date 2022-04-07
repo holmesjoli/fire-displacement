@@ -49,18 +49,18 @@ export class ContainmentClass {
     // Update the visualization with a new date
     update(data, date) {
 
-        console.log(this.xScale(10))
+        // console.log(this.xScale(10))
         let filteredData = data.filter(function(d) {
             return d.date === date;
         });
 
-        let b = this.svg.selectAll("rect")
-            .data(filteredData, function(d) { return d.date; });
+        // let b = this.svg.selectAll("rect")
+        //     .data(filteredData, function(d) { return d.date; });
 
-        b.transition() // a transition makes the changes visible...
-        .duration(1500)
-        .attr("width", function(d) {this.xScale(d.containment); })
+        // b.transition() // a transition makes the changes visible...
+        // .duration(1500)
+        // .attr("width", function(d) {this.xScale(d.containment); })
 
-        b.exit().remove();
+        // b.exit().remove();
     }
 }

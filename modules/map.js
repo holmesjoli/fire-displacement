@@ -9,10 +9,15 @@ export class MapClass {
         this.initialCenterY = 47
     }
 
-    draw(stateBoundaries) {
+    draw(stateBoundaries, data, date = 1) {
     
         this.createSVG();
-        this.createProjection();
+
+        let filteredData = data.filter(function(d) {
+            return d.i === date;
+        });
+
+        this.createProjection(filteredData[0]);
 
         this.g = this.svg.append("g");
 
@@ -45,12 +50,12 @@ export class MapClass {
             .scale(7000)
             .center([-25, 46]);
 
-        // create the geo path generator
-        let geoPathGenerator = d3.geoPath().projection(projection);
+        this.geoPathGenerator = d3.geoPath()
+            .projection(this.projection);
 
         this.g
             .transition()
-            .attr("d", geoPathGenerator)
+            .attr("d", this.geoPathGenerator)
     }
 
     // Initialize SVG canvas
@@ -67,13 +72,13 @@ export class MapClass {
         .classed("svg-content", true);
     }
 
-    createProjection(data, date) {
+    createProjection(data) {
+
         this.projection = d3.geoAlbers()
             .translate([this.width / 2, this.height / 2])
-            .scale(this.initialScale)
-            .center([this.initialCenterX, this.initialCenterY]);
+            .scale(data.scale)
+            .center([data.centerX, data.centerY]);
 
         this.geoPathGenerator = d3.geoPath().projection(this.projection);
     }
-
 }

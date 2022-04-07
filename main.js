@@ -70,10 +70,10 @@ function drawVis(stateBoundaries, data) {
             }
 
     cc.draw([data[0]]);
-    mc.draw(stateBoundaries);
+    mc.draw(stateBoundaries, data);
 
     Helper.setDate(params, function (date) {
-        console.log(date)
+        // console.log(date)
         cc.update(data, date);
         mc.update(data, date);
     });
