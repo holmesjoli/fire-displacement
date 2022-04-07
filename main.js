@@ -72,8 +72,10 @@ function drawVis(stateBoundaries, data) {
                 speed: 2000
             }
 
+    // Set initial parameters before they enter loop
     cc.draw([data[0]]);
     mc.draw(stateBoundaries, data, "714");
+    sc.update("714"); // set initial storyline
 
     Helper.setDate(params, function (date) {
         console.log(date)
