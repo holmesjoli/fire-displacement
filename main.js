@@ -75,6 +75,7 @@ function drawVis(stateBoundaries, data) {
     Helper.setDate(params, function (date) {
         console.log(date)
         cc.update(data, date);
-        mc.draw(stateBoundaries, data, date);
+        mc.update(data, date);
+
     });
 }

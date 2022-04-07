@@ -2,7 +2,7 @@ export class MapClass {
     constructor(selector) {
         this.selector = selector
         this.width = window.innerWidth*.55
-        this.height= window.innerHeight*.85
+        this.height= window.innerHeight*.97
         this.margin = {top: 0, right: 10, bottom: 20, left: 10}
         this.initialScale = 7000
         this.initialCenterX = -25
@@ -44,20 +44,21 @@ export class MapClass {
         // svg.call(zoom);
     }
 
-    // update(data, date) {
+    update(data, date) {
 
-    //     this.projection = d3.geoAlbers()
-    //         .translate([this.width / 2, this.height / 2])
-    //         .scale(7000)
-    //         .center([-25, 46]);
+        let filteredData = data.filter(function(d) {
+            return d.date === date;
+        });
 
-    //     this.geoPathGenerator = d3.geoPath()
-    //         .projection(this.projection);
+        this.createProjection(filteredData[0]);
 
-    //     this.g
-    //         .transition()
-    //         .attr("d", this.geoPathGenerator)
-    // }
+        this.geoPathGenerator = d3.geoPath()
+            .projection(this.projection);
+
+        this.g
+            .transition()
+            .attr("d", this.geoPathGenerator)
+    }
 
     // Initialize SVG canvas
     createSVG() {
