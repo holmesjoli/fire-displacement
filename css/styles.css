@@ -47,6 +47,10 @@ p {
     margin: 20px;
 }
 
+#effect {
+    position: absolute;
+}
+
 #containment {
     border: 1px solid #473F41;
 }
