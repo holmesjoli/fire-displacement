@@ -53,13 +53,32 @@ export class StoryClass {
 
     update(date) {
 
-        let filteredData = this.data.filter(function(d) {
+        this.filteredData = this.data.filter(function(d) {
             return d.date === date;
         });
 
-        if (filteredData[0].story != "") {
+        if (this.filteredData[0].story != "") {
             let id = document.getElementById(this.selector);
-            id.innerHTML =  `${filteredData[0].story}`;
+            id.innerHTML =  `${this.filteredData[0].story}`;
+        }
+    }
+
+    // Add effects to the storyline
+    effects(date) {
+        this.darkeffect(date);
+    }
+
+    // Changes the body to a dark color to show power blackout
+    darkeffect(date) {
+        if (date == "718") {
+            document.getElementsByTagName('body')[0].style.backgroundColor = '#473F41';
+            document.getElementsByTagName('body')[0].style.color = 'WHITE';
+
+            function func() {
+                document.getElementsByTagName('body')[0].style.backgroundColor = 'WHITE';
+                document.getElementsByTagName('body')[0].style.color = '#473F41';
+            }
+            setTimeout(func, 2000);
         }
     }
 }

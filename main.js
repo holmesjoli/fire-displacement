@@ -69,7 +69,7 @@ function drawVis(stateBoundaries, data) {
                 limit: limit, 
                 play: play, 
                 i: i,
-                speed: 3000
+                speed: 4000
             }
 
     // Set initial parameters before they enter loop
@@ -82,6 +82,6 @@ function drawVis(stateBoundaries, data) {
         cc.update(data, date);
         mc.update(data, date);
         sc.update(date);
-
+        sc.effects(date);
     });
 }
