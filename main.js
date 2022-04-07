@@ -53,10 +53,8 @@ const mc = new Map.MapClass("#chart");
 
 function drawVis(stateBoundaries, data) {
 
-    cc.draw([data[0]]);
-
-    // console.log(stateBoundaries);
-    // console.log(data)
+    console.log(stateBoundaries);
+    console.log(data)
 
     let start = d3.min(data, function(d) {return +d.i});
     let limit = d3.max(data, function(d) {return +d.i});
@@ -71,9 +69,12 @@ function drawVis(stateBoundaries, data) {
                 speed: 1000
             }
 
-    // Map.build("#chart", stateBoundaries, data);
+    cc.draw([data[0]]);
+    mc.draw(stateBoundaries);
+
     Helper.setDate(params, function (date) {
-        cc.update(data, date)
-    //     // Map.update()
+        console.log(date)
+        cc.update(data, date);
+        mc.update(data, date);
     });
 }
