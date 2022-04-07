@@ -1,4 +1,4 @@
-const story = [
+export const storyData = [
     {date: "714", story: "Officially, the disastor event started on July 15th, 2014 and ended on August 14th, 2014. However, impacts from the fire were felt much longer than the timeline of the official event."},
     {date: "715", story: ""},
     {date: "716", story: ""},
@@ -44,4 +44,13 @@ const story = [
     {date: "825", story: ""},
     {date: "826", story: ""}];
 
-export default story;
+// Update storyline
+export function storyUpdate(selector, data, date) {
+
+    let filteredData = data.filter(function(d) {
+        return d.date === date;
+    });
+
+    let id = document.getElementById(selector);
+    id.innerHTML =  `${filteredData[0].story}`;
+}
