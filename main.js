@@ -69,7 +69,7 @@ function drawVis(stateBoundaries, data) {
                 limit: limit, 
                 play: play, 
                 i: i,
-                speed: 2000
+                speed: 3000
             }
 
     // Set initial parameters before they enter loop
