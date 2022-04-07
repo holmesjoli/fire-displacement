@@ -1,16 +1,16 @@
 export const storyData = [
-    {date: "714", story: "Officially, the disastor event started from a lightning strike on July 15th, 2014 and ended on August 14th, 2014. However, impacts from the fire were felt much longer than the timeline of the official event."},
+    {date: "714", story: "Officially, the disastor event and state of emergency is declared. The fire started from a lightning strike on July 15th, 2014 and ended on August 14th, 2014. However, impacts from the fire were felt much longer than the timeline of the official event."},
     {date: "715", story: ""},
-    {date: "716", story: ""},
+    {date: "716", story: "High temperatures of 100 degrees, winds and dry fuels fed the fires. Officials warned that the rapidly changing situation could result in evacuations, road closures, and potential power outages."},
     {date: "717", story: ""},
-    {date: "718", story: "On the morning of the 18th, an estimated 95 homes were lost to the fire. Residents of the Methow Valley lost power. Carlton, Pateros, and Brewster residents were ordered to evacuate."},
+    {date: "718", story: "On the morning of the 18th, an estimated 95 homes were lost to the fire. Residents of the Methow Valley lost power. Carlton, Pateros, and Brewster residents were ordered to evacuate. The threat level jumped from a Level 1 to Level 3 alerts in less than 10 minutes, leaving no time to pack."},
     {date: "719", story: ""},
     {date: "720", story: ""},
     {date: "721", story: ""},
-    {date: "722", story: ""},
+    {date: "722", story: "The fire reached 250,000 acrews making it the largest fire in Washington State history."},
     {date: "723", story: ""},
     {date: "724", story: ""},
-    {date: "725", story: ""},
+    {date: "725", story: "Power was restored to part of the valley."},
     {date: "726", story: ""},
     {date: "727", story: ""},
     {date: "728", story: ""},
@@ -65,7 +65,7 @@ export class StoryClass {
 
     // Add effects to the storyline
     effects(date) {
-        this.lightning(date);
+        // this.lightning(date);
         this.darkeffect(date);
     }
 
@@ -87,14 +87,11 @@ export class StoryClass {
         if (date == "718") {
             document.getElementById('map-svg').style.backgroundColor = '#473F41';
             document.getElementById('map-svg').style.color = '#FFFFFF';
-            // document.getElementsByClassName("state").style.backgroundColor = '#473F41';
+        }
 
-            function func() {
-                document.getElementById('map-svg').style.backgroundColor = '#FFFFFF';
-                document.getElementById('map-svg').style.color = '#473F41';
-                // document.getElementsByClassName("state").style.backgroundColor = '#FFFFFF';
-            }
-            setTimeout(func, 2000);
+        if (date == "725") {
+            document.getElementById('map-svg').style.backgroundColor = '#FFFFFF';
+            document.getElementById('map-svg').style.color = '#473F41';
         }
     }
 }
