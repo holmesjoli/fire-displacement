@@ -49,30 +49,18 @@ export class ContainmentClass {
     // Update the visualization with a new date
     update(data, date) {
 
-    //     let filteredData = data.filter(function(d) {
-    //         return d.date === date;
-    //     })
-    
-    //     let b = this.svg.selectAll("rect")
-    //         .data(filteredData, function(d) { return d.date; });
-    
-    //     b.enter()
-    //     .append("rect")
-    //     .attr("x", this.xScale(0))
-    //     .attr("y", 5)
-    //     .attr("width", function(d) { return this.xScale(d.containment); })
-    //     .attr("height", 20)
-    //     .attr("fill", "#EE2724")
-    //     .merge(b)   
-    //         .transition() // a transition makes the changes visible...
-    //         .duration(1000)
-    //         .attr("x", this.xScale(0))
-    //         .attr("y", 5)
-    //         // .attr("width", function(d) { return this.xScale(d.containment); })
-    //         .attr("height", 20)
-    //         .attr("fill", "#EE2724");
-    
-    //     b.exit()
-    //     .remove();
+        console.log(this.xScale(10))
+        let filteredData = data.filter(function(d) {
+            return d.date === date;
+        });
+
+        let b = this.svg.selectAll("rect")
+            .data(filteredData, function(d) { return d.date; });
+
+        b.transition() // a transition makes the changes visible...
+        .duration(1500)
+        .attr("width", function(d) {this.xScale(d.containment); })
+
+        b.exit().remove();
     }
 }

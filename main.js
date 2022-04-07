@@ -48,10 +48,15 @@ Promise.all(promises).then(function (values) {
 
 Helper.collapsibleTable();
 
+const cc = new Containment.ContainmentClass("#containment");
+const mc = new Map.MapClass("#chart");
+
 function drawVis(stateBoundaries, data) {
 
-    console.log(stateBoundaries);
-    console.log(data)
+    cc.draw([data[0]]);
+
+    // console.log(stateBoundaries);
+    // console.log(data)
 
     let start = d3.min(data, function(d) {return +d.i});
     let limit = d3.max(data, function(d) {return +d.i});
@@ -66,43 +71,9 @@ function drawVis(stateBoundaries, data) {
                 speed: 1000
             }
 
-    const width = window.innerWidth*.2;
-    const height = 50;
-
-    let filteredData = [data[0]];
-    console.log(filteredData);
-
-    let svg = d3.select("#containment")
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height);
-
-    var margin = {top: 0, right: 10, bottom: 20, left: 10}
-
-    var xScale = d3.scaleLinear()
-        .domain([0, d3.max(data, function(d) {
-            return d.containment;
-        })])
-        .range([margin.left, width - margin.right]);
-
-    const xAxis = svg.append("g")
-        .attr("class","axis")
-        .attr("transform",`translate(0, ${height-margin.bottom})`)
-        .call(d3.axisBottom().scale(xScale).ticks(2));
-
-    svg.selectAll("rect")
-        .data(filteredData)
-        .enter()
-        .append("rect")
-            .attr("x", xScale(0))
-            .attr("y", 5)
-            .attr("width", function(d) { return xScale(d.containment); })
-            .attr("height", 20 )
-            .attr("fill", "#EE2724");
-
+    // Map.build("#chart", stateBoundaries, data);
     Helper.setDate(params, function (date) {
-        Containment.update(svg, data, xScale, date)
+        cc.update(data, date)
+    //     // Map.update()
     });
-
-    Map.build("#chart", stateBoundaries, data);
 }
