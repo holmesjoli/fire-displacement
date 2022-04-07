@@ -11,13 +11,13 @@ html, body {
 
 h1 {
     font-style: italic;
-    margin: 20px;
+    margin: 10px;
     font-size: 60pt;
     font-weight: 300;
 }
 
 h2 {
-    font-size: 26pt;
+    font-size: 20pt;
     font-weight: 300;
 }
 
@@ -68,7 +68,7 @@ p {
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 100px 20px;
+    padding: 10px 20px;
 }
 
 .main {
