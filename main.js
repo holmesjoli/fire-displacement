@@ -1,7 +1,7 @@
 import * as Helper from './modules/helper_functions.js';
 import * as Map from './modules/map.js';
-import * as Containment from "./modules/containment.js"
-
+import * as Containment from "./modules/containment.js";
+import story from "./data/storyline.js";
 
 const files = {
     stateBoundaries: {
@@ -43,7 +43,7 @@ for (var key of Object.keys(files)) {
 }
 
 Promise.all(promises).then(function (values) {
-    drawVis(values[0], values[1])
+    drawVis(values[0], values[1], story)
 });
 
 Helper.collapsibleTable();
@@ -51,10 +51,11 @@ Helper.collapsibleTable();
 const cc = new Containment.ContainmentClass("#containment");
 const mc = new Map.MapClass("#chart");
 
-function drawVis(stateBoundaries, data) {
+function drawVis(stateBoundaries, data, story) {
 
     console.log(stateBoundaries);
     console.log(data)
+    console.log(story)
 
     let start = d3.min(data, function(d) {return +d.i});
     let limit = d3.max(data, function(d) {return +d.i});
