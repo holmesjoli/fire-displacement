@@ -11,8 +11,6 @@ export class MapClass {
 
     draw(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, shelters, cities) {
 
-
-        console.log(countyHouses);
         let tooltip = this.tooltip = d3.select("#chart")
             .append("div")
             .attr("class", "tooltip");
@@ -24,15 +22,40 @@ export class MapClass {
 
         this.geoPathGenerator = d3.geoPath().projection(projection);
 
-        this.createSVG();
-        this.drawBasemap(stateBoundaries.features);
-        this.drawBasemap(countyBoundaries.features);
-        this.drawBasemap(okBigStreets.features, "#000000", 3);
-        this.drawBasemap(okMedStreets.features, "#000000", 2);
-        this.drawBasemap(okSmallStreets.features, "#000000", .5);
-        this.createPoints(countyHouses, tooltip, projection, "houses", "#6CBE45", 2, .2);
-        this.createPoints(cities, tooltip, projection, "cities", "#00AEEF", 5);
-        this.createPoints(shelters, tooltip, projection, "shelters", "#EE2724", 4);
+        let svg = d3.select(this.selector)
+            .append("svg")
+            .attr("width", this.width)
+            .attr("height", this.height)
+            // .attr("preserveAspectRatio", "xMinYMin meet")
+            // .attr("viewBox", "0 0 " + window.innerWidth + " " + window.innerHeight)
+            // .attr("viewBox", "0 0 " + window.innerWidth + " " + window.innerHeight)
+            .attr("id", "map-svg")
+            .classed("svg-content", true);
+
+        let g = svg.append("g");
+
+        // this.createSVG();
+        this.drawBasemap(g, stateBoundaries.features);
+        this.drawBasemap(g, countyBoundaries.features);
+        this.drawBasemap(g, okBigStreets.features, "#000000", 3);
+        this.drawBasemap(g, okMedStreets.features, "#000000", 2);
+        this.drawBasemap(g, okSmallStreets.features, "#000000", .5);
+        this.createPoints(g, countyHouses, tooltip, projection, "houses", "#6CBE45", 2, .2);
+        this.createPoints(g, cities, tooltip, projection, "cities", "#00AEEF", 5);
+        this.createPoints(g, shelters, tooltip, projection, "shelters", "#EE2724", 4);
+
+
+        // create a zoom function
+        var zoom = d3.zoom()
+        .scaleExtent([1, 8])
+        .on("zoom", function(event) {
+            g
+            .attr("transform", `scale(${event.transform.k}) translate(${event.transform.x}, ${event.transform.y})`);
+
+        })
+
+        // call zoom so it is "listening" for an event on our SVG
+        svg.call(zoom);
     }
 
     // update(data, date) {
@@ -52,32 +75,34 @@ export class MapClass {
     // }
 
     // Initialize SVG canvas
-    createSVG() {
-        this.svg = d3.select(this.selector)
-        .append("svg")
-        .attr("width", this.width)
-        .attr("height", this.height)
-        // .attr("preserveAspectRatio", "xMinYMin meet")
-        // .attr("viewBox", "0 0 " + window.innerWidth + " " + window.innerHeight)
-        // .attr("viewBox", "0 0 " + window.innerWidth + " " + window.innerHeight)
-        .attr("id", "map-svg")
-        .classed("svg-content", true);
-    }
+    // createSVG() {
+    //     this.svg = d3.select(this.selector)
+    //     .append("svg")
+    //     .attr("width", this.width)
+    //     .attr("height", this.height)
+    //     // .attr("preserveAspectRatio", "xMinYMin meet")
+    //     // .attr("viewBox", "0 0 " + window.innerWidth + " " + window.innerHeight)
+    //     // .attr("viewBox", "0 0 " + window.innerWidth + " " + window.innerHeight)
+    //     .attr("id", "map-svg")
+    //     .classed("svg-content", true);
 
-    drawBasemap(data, stroke = "#FFFFFF", strokeWidth = 1) {
-        this.svg
-            .append("g")
-            .selectAll("path")
-            .data(data)
-            .enter()
-            .append("path")
-            .attr("class", 'state')
-            .attr("d", this.geoPathGenerator)
-            .attr("country", function (d) { return d.id })
-            .attr("stroke", stroke)
-            .attr("stroke-width", strokeWidth)
-            .attr("fill", "#D7D7D7")
-            .attr("opacity", .5);
+    //     this.g = this.svg.append("g");
+    // }
+
+    drawBasemap(g, data, stroke = "#FFFFFF", strokeWidth = 1) {
+        g
+        .append("g")
+        .selectAll("path")
+        .data(data)
+        .enter()
+        .append("path")
+        .attr("class", 'state')
+        .attr("d", this.geoPathGenerator)
+        .attr("country", function (d) { return d.id })
+        .attr("stroke", stroke)
+        .attr("stroke-width", strokeWidth)
+        .attr("fill", "#D7D7D7")
+        .attr("opacity", .5);
     }
 
     mouseoverPoints(points, tooltip) {
@@ -97,8 +122,8 @@ export class MapClass {
         });
     }
 
-    createPoints(data, tooltip, projection, className, fill, r, fillOpacity = 1) {
-        let points = this.svg
+    createPoints(g, data, tooltip, projection, className, fill, r, fillOpacity = 1) {
+        let points = g
             .append("g")
             .selectAll("circle")
             .data(data)
