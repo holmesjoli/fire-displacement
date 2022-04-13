@@ -98,6 +98,7 @@ export class MapClass {
     createShelters(data, tooltip, projection) {
 
         let points = this.svg
+            .append("g")
             .selectAll("circle")
             .data(data)
             .enter()
@@ -114,6 +115,7 @@ export class MapClass {
     createCities(data, tooltip, projection) {
 
         let points = this.svg
+            .append("g")
             .selectAll("circle")
             .data(data)
             .enter()
