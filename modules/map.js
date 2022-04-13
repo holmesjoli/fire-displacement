@@ -7,18 +7,19 @@ export class MapClass {
         this.initialScale = 7000
         this.initialCenterX = -25
         this.initialCenterY = 47
+        this.projection = d3.geoAlbers()
+            .translate([this.width / 2, this.height / 2])
+            .scale(this.initialScale)
+            .center([this.initialCenterX, this.initialCenterY]);
+
+        this.geoPathGenerator = d3.geoPath().projection(this.projection);
     }
 
     draw(stateBoundaries, data, shelters, date) {
 
         this.createSVG();
-
-        this.createProjection();
-
         this.drawBasemap(stateBoundaries.features)
-
         this.createShelters(shelters)
-
     }
 
     // update(data, date) {
@@ -51,16 +52,6 @@ export class MapClass {
         .classed("svg-content", true);
     }
 
-    createProjection() {
-
-        this.projection = d3.geoAlbers()
-            .translate([this.width / 2, this.height / 2])
-            .scale(this.initialScale)
-            .center([this.initialCenterX, this.initialCenterY]);
-
-        this.geoPathGenerator = d3.geoPath().projection(this.projection);
-    }
-
     drawBasemap(data) {
         this.svg
             .append("g")
@@ -83,7 +74,25 @@ export class MapClass {
             .scale(this.initialScale)
             .center([this.initialCenterX, this.initialCenterY]);
 
-        var points = this.svg
+        this.svg
+            .selectAll("circle")
+            .data(data)
+            .enter()
+            .append("circle")
+            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
+            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
+            .attr("r", 5)
+            .attr("fill", "#EE2724");
+    }
+
+    createCities(data) {
+
+        let projection = d3.geoAlbers()
+            .translate([this.width / 2, this.height / 2])
+            .scale(this.initialScale)
+            .center([this.initialCenterX, this.initialCenterY]);
+
+        this.svg
             .selectAll("circle")
             .data(data)
             .enter()
