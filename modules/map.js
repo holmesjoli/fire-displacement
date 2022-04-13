@@ -90,7 +90,7 @@ export class MapClass {
             tooltip.style("visibility", "visible")
                 .style("top", `${y}px`)
                 .style("left", `${x}px`)
-                .html(`<b>${d.name}</b>`);
+                .html(`${d.name}`);
 
         }).on("mouseout", function() {
             tooltip.style("visibility", "hidden");

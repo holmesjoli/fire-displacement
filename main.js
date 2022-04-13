@@ -35,7 +35,7 @@ const files = {
             return {
                 long: +j.X,
                 lat: +j.Y,
-                name: "house"
+                name: "household"
             }
         }
     },
@@ -71,7 +71,7 @@ const files = {
         parse: function(j) {
             if (j.keep === "TRUE") {
                 return {
-                    name: j.name,
+                    name: "<b>Municipality: </b>" + j.name,
                     population: +j.population,
                     lat: +j.lat,
                     long: +j.long
@@ -84,7 +84,7 @@ const files = {
         pth: "./data/shelters.csv",
         parse: function(j) {
             return {
-                name: j.name,
+                name: "<b>Shelter: </b>" + j.name,
                 lat: +j.lat,
                 long: +j.long
             }
