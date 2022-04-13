@@ -13,13 +13,21 @@ export class MapClass {
             .center([this.initialCenterX, this.initialCenterY]);
 
         this.geoPathGenerator = d3.geoPath().projection(this.projection);
+
+        this.tooltip = d3.select("#chart")
+                        .append("div")
+                        .attr("class", "tooltip");
     }
 
-    draw(stateBoundaries, data, shelters, date) {
+    draw(stateBoundaries, shelters, cities) {
+
+        console.log(shelters)
+        console.log(cities)
 
         this.createSVG();
         this.drawBasemap(stateBoundaries.features)
         this.createShelters(shelters)
+        // this.createCities(cities)
     }
 
     // update(data, date) {
@@ -67,6 +75,23 @@ export class MapClass {
             .attr("fill", "#D7D7D7");
     }
 
+    mouseoverPoints(tooltip, points) {
+
+        points.on("mouseover", function(e, d) {
+
+            let x = +d3.select(this).attr("cx") + 20;
+            let y = +d3.select(this).attr("cy") - 10;
+    
+            tooltip.style("visibility", "visible")
+                .style("top", `${y}px`)
+                .style("left", `${x}px`)
+                .html(`<b>${d.name}</b>`);
+
+        }).on("mouseout", function() {
+            tooltip.style("visibility", "hidden");
+        });
+    }
+
     createShelters(data) {
 
         let projection = d3.geoAlbers()
@@ -74,7 +99,7 @@ export class MapClass {
             .scale(this.initialScale)
             .center([this.initialCenterX, this.initialCenterY]);
 
-        this.svg
+        let points = this.svg
             .selectAll("circle")
             .data(data)
             .enter()
@@ -83,6 +108,12 @@ export class MapClass {
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
             .attr("r", 5)
             .attr("fill", "#EE2724");
+
+        let tooltip = d3.select("#chart")
+            .append("div")
+            .attr("class", "tooltip");
+
+        this.mouseoverPoints(tooltip, points);
     }
 
     createCities(data) {
@@ -92,14 +123,20 @@ export class MapClass {
             .scale(this.initialScale)
             .center([this.initialCenterX, this.initialCenterY]);
 
-        this.svg
+        let points = this.svg
             .selectAll("circle")
             .data(data)
             .enter()
             .append("circle")
             .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("r", 5)
-            .attr("fill", "#EE2724");
+            .attr("r", 2)
+            .attr("fill", "#000000");
+
+        let tooltip = d3.select("#chart")
+            .append("div")
+            .attr("class", "tooltip");
+
+        this.mouseoverPoints(tooltip, points);
     }
 }

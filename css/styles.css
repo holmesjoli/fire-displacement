@@ -60,6 +60,10 @@ p {
     border: 1px solid #473F41;
 }
 
+#chart {
+    position: relative;
+}
+
 .container {
     display: flex;
     flex-direction: row;
@@ -185,3 +189,17 @@ p {
     width: 40px;
 }
 
+.tooltip {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    visibility: hidden;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    padding: 2px;
+    pointer-events: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+  }
