@@ -62,25 +62,27 @@ p {
 .container {
     display: flex;
     flex-direction: row;
+    width: 100%;
 }
 
 .sidebar-left {
-    max-width: 20%;
+    width: 15%;
+    flex: 1 0 15%;
     display: flex;
     flex-direction: column;
     margin: 20px
 }
 
 .sidebar-right {
-    max-width: 25%;
+    width: 15%;
+    flex: 1 0 15%;
     display: flex;
     flex-direction: column;
-    width: 100%;
     padding: 10px 20px;
 }
 
 .main {
-    max-width: 55%;
+    max-width: 70%;
 }
 
 .collapsible.local-button {
