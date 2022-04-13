@@ -14,6 +14,21 @@ const files = {
         parse: null
     },
 
+    countyBigStreets: {
+        pth: "./data/ok_bigstreets.geojson",
+        parse: null
+    },
+
+    countyMedStreets: {
+        pth: "./data/ok_medstreets.geojson",
+        parse: null
+    },
+
+    countySmallStreets: {
+        pth: "./data/ok_smallstreets.geojson",
+        parse: null
+    },
+
     complex: {
         pth: "./data/complex_data.csv",
         parse: function(j) {
@@ -72,7 +87,7 @@ for (var key of Object.keys(files)) {
 }
 
 Promise.all(promises).then(function (values) {
-    drawVis(values[0], values[1], values[2], values[3], values[4])
+    drawVis(values[0], values[1], values[2], values[3], values[4], values[5],values[6], values[7])
 });
 
 Helper.collapsibleTable();
@@ -83,10 +98,13 @@ const sc = new Story.StoryClass("story");
 
 console.log(sc);
 
-function drawVis(stateBoundaries, countyBoundaries, data, cities, shelters) {
+function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, data, cities, shelters) {
 
     console.log(stateBoundaries);
     console.log(countyBoundaries);
+    console.log(okBigStreets)
+    console.log(okMedStreets)
+    console.log(okSmallStreets)
     console.log(data)
     console.log(cities)
     console.log(shelters)
