@@ -54,7 +54,6 @@ export class MapClass {
         .attr("width", this.width)
         .attr("height", this.height)
         // .attr("preserveAspectRatio", "xMinYMin meet")
-        .style("background-color", "#fff")
         // .attr("viewBox", "0 0 " + window.innerWidth + " " + window.innerHeight)
         // .attr("viewBox", "0 0 " + window.innerWidth + " " + window.innerHeight)
         .attr("id", "map-svg")
