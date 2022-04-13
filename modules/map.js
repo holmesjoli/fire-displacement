@@ -9,10 +9,7 @@ export class MapClass {
         this.initialCenterY = 47
     }
 
-    draw(stateBoundaries, countyBoundaries, okBigStreets, shelters, cities) {
-
-        console.log(shelters)
-        console.log(cities)
+    draw(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, shelters, cities) {
 
         let tooltip = this.tooltip = d3.select("#chart")
             .append("div")
@@ -29,7 +26,9 @@ export class MapClass {
 
         this.drawBasemap(stateBoundaries.features);
         this.drawBasemap(countyBoundaries.features);
-        this.drawBasemap(okBigStreets.features);
+        this.drawBasemap(okBigStreets.features, "#000000", 3);
+        this.drawBasemap(okMedStreets.features, "#000000", 2);
+        this.drawBasemap(okSmallStreets.features, "#000000", .5);
         this.createShelters(shelters, tooltip, projection);
         this.createCities(cities, tooltip, projection);
     }
@@ -63,7 +62,7 @@ export class MapClass {
         .classed("svg-content", true);
     }
 
-    drawBasemap(data) {
+    drawBasemap(data, stroke = "#FFFFFF", strokeWidth = 1) {
         this.svg
             .append("g")
             .selectAll("path")
@@ -73,9 +72,10 @@ export class MapClass {
             .attr("class", 'state')
             .attr("d", this.geoPathGenerator)
             .attr("country", function (d) { return d.id })
-            .attr("stroke", "#FFFFFF")
-            .attr("stroke-width", 1)
-            .attr("fill", "#D7D7D7");
+            .attr("stroke", stroke)
+            .attr("stroke-width", strokeWidth)
+            .attr("fill", "#D7D7D7")
+            .attr("opacity", .5);
     }
 
     mouseoverPoints(p, tooltip) {
