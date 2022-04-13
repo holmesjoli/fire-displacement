@@ -32,6 +32,27 @@ const files = {
                 centerX: +j.centerX,
                 centerY: +j.centerY
             }
+        },
+        cities: {
+            pth: "./data/ok_places.csv",
+            parse: function(j) {
+                return {
+                    name: j.name,
+                    population: +j.population,
+                    lat: + j.lat,
+                    long: +j.long
+                }
+            }
+        },
+        shelters: {
+            pth: "./data/shelters.csv",
+            parse: function(j) {
+                return {
+                    name: j.name,
+                    lat: +j.lat,
+                    long: +j.long
+                }
+            }
         }
     }
 };
@@ -44,7 +65,7 @@ for (var key of Object.keys(files)) {
 }
 
 Promise.all(promises).then(function (values) {
-    drawVis(values[0], values[1])
+    drawVis(values[0], values[1], values[2], values[3])
 });
 
 Helper.collapsibleTable();
