@@ -27,7 +27,7 @@ export class MapClass {
         this.createSVG();
         this.drawBasemap(stateBoundaries.features)
         this.createShelters(shelters)
-        // this.createCities(cities)
+        this.createCities(cities)
     }
 
     // update(data, date) {
@@ -75,9 +75,11 @@ export class MapClass {
             .attr("fill", "#D7D7D7");
     }
 
-    mouseoverPoints(tooltip, points) {
+    mouseoverPoints(tooltip, p) {
 
-        points.on("mouseover", function(e, d) {
+        console.log(p)
+
+        p.on("mouseover", function(e, d) {
 
             let x = +d3.select(this).attr("cx") + 20;
             let y = +d3.select(this).attr("cy") - 10;
@@ -104,6 +106,7 @@ export class MapClass {
             .data(data)
             .enter()
             .append("circle")
+            .attr("class", "shelters")
             .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
             .attr("r", 5)
@@ -113,7 +116,7 @@ export class MapClass {
             .append("div")
             .attr("class", "tooltip");
 
-        this.mouseoverPoints(tooltip, points);
+        this.mouseoverPoints(tooltip, p);
     }
 
     createCities(data) {
@@ -128,6 +131,7 @@ export class MapClass {
             .data(data)
             .enter()
             .append("circle")
+            .attr("class", "cities")
             .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
             .attr("r", 2)
