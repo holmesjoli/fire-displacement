@@ -9,7 +9,7 @@ export class MapClass {
         this.initialCenterY = 47
     }
 
-    draw(stateBoundaries, countyBoundaries, shelters, cities) {
+    draw(stateBoundaries, countyBoundaries, okBigStreets, shelters, cities) {
 
         console.log(shelters)
         console.log(cities)
@@ -23,10 +23,13 @@ export class MapClass {
             .scale(this.initialScale)
             .center([this.initialCenterX, this.initialCenterY]);
 
+        this.geoPathGenerator = d3.geoPath().projection(projection);
+
         this.createSVG();
 
-        this.drawBasemap(stateBoundaries.features, projection);
-        this.drawBasemap(countyBoundaries.features, projection);
+        this.drawBasemap(stateBoundaries.features);
+        this.drawBasemap(countyBoundaries.features);
+        this.drawBasemap(okBigStreets.features);
         this.createShelters(shelters, tooltip, projection);
         this.createCities(cities, tooltip, projection);
     }
@@ -60,10 +63,7 @@ export class MapClass {
         .classed("svg-content", true);
     }
 
-    drawBasemap(data, projection) {
-
-        let geoPathGenerator = d3.geoPath().projection(projection);
-    
+    drawBasemap(data) {
         this.svg
             .append("g")
             .selectAll("path")
@@ -71,7 +71,7 @@ export class MapClass {
             .enter()
             .append("path")
             .attr("class", 'state')
-            .attr("d", geoPathGenerator)
+            .attr("d", this.geoPathGenerator)
             .attr("country", function (d) { return d.id })
             .attr("stroke", "#FFFFFF")
             .attr("stroke-width", 1)

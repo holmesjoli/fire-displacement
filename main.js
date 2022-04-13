@@ -126,7 +126,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
     // Set initial parameters before they enter loop
     cc.draw(data, "714");
-    mc.draw(stateBoundaries, countyBoundaries, shelters, cities);
+    mc.draw(stateBoundaries, countyBoundaries, okBigStreets, shelters, cities);
     sc.update("714"); // set initial storyline
 
     Helper.setDate(params, function (date) {
