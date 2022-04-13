@@ -11,6 +11,8 @@ export class MapClass {
 
     draw(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, shelters, cities) {
 
+
+        console.log(countyHouses);
         let tooltip = this.tooltip = d3.select("#chart")
             .append("div")
             .attr("class", "tooltip");
@@ -23,15 +25,14 @@ export class MapClass {
         this.geoPathGenerator = d3.geoPath().projection(projection);
 
         this.createSVG();
-
         this.drawBasemap(stateBoundaries.features);
         this.drawBasemap(countyBoundaries.features);
         this.drawBasemap(okBigStreets.features, "#000000", 3);
         this.drawBasemap(okMedStreets.features, "#000000", 2);
         this.drawBasemap(okSmallStreets.features, "#000000", .5);
-        this.createPoints(shelters, tooltip, projection, "shelters", "#EE2724", 5);
-        this.createPoints(cities, tooltip, projection, "cities", "#000000", 2);
-        this.createPoints(countyHouses, tooltip, projection, "homes", "#00AEEF", 2);
+        this.createPoints(countyHouses, tooltip, projection, "houses", "#6CBE45", 2, .2);
+        this.createPoints(cities, tooltip, projection, "cities", "#00AEEF", 5);
+        this.createPoints(shelters, tooltip, projection, "shelters", "#EE2724", 4);
     }
 
     // update(data, date) {
@@ -79,9 +80,9 @@ export class MapClass {
             .attr("opacity", .5);
     }
 
-    mouseoverPoints(p, tooltip) {
+    mouseoverPoints(points, tooltip) {
 
-        p.on("mouseover", function(e, d) {
+        points.on("mouseover", function(e, d) {
 
             let x = +d3.select(this).attr("cx") + 20;
             let y = +d3.select(this).attr("cy") - 10;
@@ -96,7 +97,7 @@ export class MapClass {
         });
     }
 
-    createPoints(data, tooltip, projection, className, fill, r) {
+    createPoints(data, tooltip, projection, className, fill, r, fillOpacity = 1) {
         let points = this.svg
             .append("g")
             .selectAll("circle")
@@ -107,7 +108,8 @@ export class MapClass {
             .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
             .attr("r", r)
-            .attr("fill", fill);
+            .attr("fill", fill)
+            .attr("fill-opacity", fillOpacity);
 
         this.mouseoverPoints(points, tooltip);
     }

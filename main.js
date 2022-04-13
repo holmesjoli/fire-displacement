@@ -30,8 +30,14 @@ const files = {
     },
 
     countyHouses: {
-        pth: "./data/county_houses.geojson",
-        parse: null
+        pth: "./data/county_houses.csv",
+        parse: function(j) {
+            return {
+                long: +j.X,
+                lat: +j.Y,
+                name: "house"
+            }
+        }
     },
 
     complex: {
