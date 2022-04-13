@@ -85,13 +85,13 @@ export class StoryClass {
     // Changes the body to a dark color to show power blackout
     darkeffect(date) {
         if (date == "718") {
-            document.getElementById('map-svg').style.backgroundColor = '#473F41';
-            document.getElementById('map-svg').style.color = '#FFFFFF';
+            document.getElementsByTagName('body').style.backgroundColor = '#473F41';
+            document.getElementsByTagName('body').style.color = '#FFFFFF';
         }
 
         if (date == "725") {
-            document.getElementById('map-svg').style.backgroundColor = '#FFFFFF';
-            document.getElementById('map-svg').style.color = '#473F41';
+            document.getElementsByTagName('body').style.backgroundColor = '#FFFFFF';
+            document.getElementsByTagName('body').style.color = '#473F41';
         }
     }
 }
