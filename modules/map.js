@@ -1,7 +1,7 @@
 export class MapClass {
     constructor(selector) {
         this.selector = selector
-        this.width = window.innerWidth*.55
+        this.width = window.innerWidth*.7
         this.height= window.innerHeight*.97
         this.margin = {top: 0, right: 10, bottom: 20, left: 10}
         this.initialScale = 7000
@@ -9,30 +9,20 @@ export class MapClass {
         this.initialCenterY = 47
     }
 
-    draw(stateBoundaries, data, date) {
-    
+    draw(stateBoundaries, data, shelters, date) {
+
+        // let filteredData = data.filter(function(d) {
+        //     return d.date === date;
+        // });
+        // console.log(filteredData);
+
         this.createSVG();
 
-        let filteredData = data.filter(function(d) {
-            return d.date === date;
-        });
-        console.log(filteredData);
+        this.createProjection();
 
-        this.createProjection(filteredData[0]);
+        this.drawBasemap(stateBoundaries.features)
 
-        this.g = this.svg.append("g");
-
-        this.g
-            .selectAll("path")
-            .data(stateBoundaries.features)
-            .enter()
-            .append("path")
-            .attr("class", 'state')
-            .attr("d", this.geoPathGenerator)
-            .attr("country", function (d) { return d.id })
-            .attr("stroke", "#FFFFFF")
-            .attr("stroke-width", 1)
-            .attr("fill", "#D7D7D7");
+        this.createShelters(shelters)
 
         // var zoom = d3.zoom()
         //     .scaleExtent([1, 1000])
@@ -44,21 +34,21 @@ export class MapClass {
         // svg.call(zoom);
     }
 
-    update(data, date) {
+    // update(data, date) {
 
-        let filteredData = data.filter(function(d) {
-            return d.date === date;
-        });
+    //     let filteredData = data.filter(function(d) {
+    //         return d.date === date;
+    //     });
 
-        this.createProjection(filteredData[0]);
+    //     this.createProjection(filteredData[0]);
 
-        this.geoPathGenerator = d3.geoPath()
-            .projection(this.projection);
+    //     this.geoPathGenerator = d3.geoPath()
+    //         .projection(this.projection);
 
-        this.g
-            .transition()
-            .attr("d", this.geoPathGenerator)
-    }
+    //     this.g
+    //         .transition()
+    //         .attr("d", this.geoPathGenerator)
+    // }
 
     // Initialize SVG canvas
     createSVG() {
@@ -78,9 +68,46 @@ export class MapClass {
 
         this.projection = d3.geoAlbers()
             .translate([this.width / 2, this.height / 2])
-            .scale(data.scale)
-            .center([data.centerX, data.centerY]);
+            .scale(this.initialScale)
+            .center([this.initialCenterX, this.initialCenterY]);
 
         this.geoPathGenerator = d3.geoPath().projection(this.projection);
+    }
+
+    drawBasemap(data) {
+        this.svg
+            .append("g")
+            .selectAll("path")
+            .data(data)
+            .enter()
+            .append("path")
+            .attr("class", 'state')
+            .attr("d", this.geoPathGenerator)
+            .attr("country", function (d) { return d.id })
+            .attr("stroke", "#FFFFFF")
+            .attr("stroke-width", 1)
+            .attr("fill", "#D7D7D7");
+    }
+
+    createShelters(data) {
+
+        let projection = d3.geoAlbers()
+            .translate([this.width / 2, this.height / 2])
+            .scale(this.initialScale)
+            .center([this.initialCenterX, this.initialCenterY]);
+
+        console.log(data);
+
+        var points = this.svg
+            .selectAll("circle")
+            .data(data)
+            .enter()
+            .append("circle")
+            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
+            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
+            .attr("r", 5)
+            .attr("fill", "orange")
+            .attr("fill-opacity", 1)
+            .attr("stroke", "grey");
     }
 }
