@@ -15,17 +15,17 @@ const files = {
     },
 
     countyBigStreets: {
-        pth: "./data/ok_bigstreets.geojson",
+        pth: "./data/county_bigstreets_simp.geojson",
         parse: null
     },
 
     countyMedStreets: {
-        pth: "./data/ok_medstreets.geojson",
+        pth: "./data/county_medstreets_simp.geojson",
         parse: null
     },
 
     countySmallStreets: {
-        pth: "./data/ok_smallstreets.geojson",
+        pth: "./data/county_smallstreets_simp.geojson",
         parse: null
     },
 
