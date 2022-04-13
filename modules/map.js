@@ -11,11 +11,6 @@ export class MapClass {
 
     draw(stateBoundaries, data, shelters, date) {
 
-        // let filteredData = data.filter(function(d) {
-        //     return d.date === date;
-        // });
-        // console.log(filteredData);
-
         this.createSVG();
 
         this.createProjection();
@@ -24,14 +19,6 @@ export class MapClass {
 
         this.createShelters(shelters)
 
-        // var zoom = d3.zoom()
-        //     .scaleExtent([1, 1000])
-        //     .on('zoom', function (event) {
-        //         g.attr("transform", "translate(" + event.transform.x + "," + event.transform.y + ")scale(" + event.transform.k + ")");
-        //     });
-
-        // // call zoom so it is "listening" for an event on our SVG
-        // svg.call(zoom);
     }
 
     // update(data, date) {
@@ -64,7 +51,7 @@ export class MapClass {
         .classed("svg-content", true);
     }
 
-    createProjection(data) {
+    createProjection() {
 
         this.projection = d3.geoAlbers()
             .translate([this.width / 2, this.height / 2])
@@ -96,8 +83,6 @@ export class MapClass {
             .scale(this.initialScale)
             .center([this.initialCenterX, this.initialCenterY]);
 
-        console.log(data);
-
         var points = this.svg
             .selectAll("circle")
             .data(data)
@@ -106,8 +91,6 @@ export class MapClass {
             .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
             .attr("r", 5)
-            .attr("fill", "orange")
-            .attr("fill-opacity", 1)
-            .attr("stroke", "grey");
+            .attr("fill", "#EE2724");
     }
 }
