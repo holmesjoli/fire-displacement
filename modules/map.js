@@ -4,12 +4,12 @@ export class MapClass {
         this.width = window.innerWidth*.7
         this.height= window.innerHeight*.97
         this.margin = {top: 0, right: 10, bottom: 20, left: 10}
-        this.initialScale = 7000
-        this.initialCenterX = -25
-        this.initialCenterY = 47
+        this.initialScale = 40000
+        this.initialCenterX = -23.5
+        this.initialCenterY = 48.5
     }
 
-    draw(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, shelters, cities) {
+    draw(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, shelters, cities) {
 
         let tooltip = this.tooltip = d3.select("#chart")
             .append("div")
@@ -29,8 +29,9 @@ export class MapClass {
         this.drawBasemap(okBigStreets.features, "#000000", 3);
         this.drawBasemap(okMedStreets.features, "#000000", 2);
         this.drawBasemap(okSmallStreets.features, "#000000", .5);
-        this.createShelters(shelters, tooltip, projection);
-        this.createCities(cities, tooltip, projection);
+        this.createPoints(shelters, tooltip, projection, "shelters", "#EE2724", 5);
+        this.createPoints(cities, tooltip, projection, "cities", "#000000", 2);
+        this.createPoints(countyHouses, tooltip, projection, "homes", "#00AEEF", 2);
     }
 
     // update(data, date) {
@@ -95,36 +96,18 @@ export class MapClass {
         });
     }
 
-    createShelters(data, tooltip, projection) {
-
+    createPoints(data, tooltip, projection, className, fill, r) {
         let points = this.svg
             .append("g")
             .selectAll("circle")
             .data(data)
             .enter()
             .append("circle")
-            .attr("class", "shelters")
+            .attr("class", className)
             .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("r", 5)
-            .attr("fill", "#EE2724");
-
-        this.mouseoverPoints(points, tooltip);
-    }
-
-    createCities(data, tooltip, projection) {
-
-        let points = this.svg
-            .append("g")
-            .selectAll("circle")
-            .data(data)
-            .enter()
-            .append("circle")
-            .attr("class", "cities")
-            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
-            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("r", 2)
-            .attr("fill", "#000000");
+            .attr("r", r)
+            .attr("fill", fill);
 
         this.mouseoverPoints(points, tooltip);
     }
