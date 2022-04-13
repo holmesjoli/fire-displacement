@@ -1,7 +1,7 @@
 export class ContainmentClass {
     constructor(selector) {
         this.selector = selector
-        this.width = window.innerWidth
+        this.width = 350
         this.height = 50
         this.margin = {top: 0, right: 10, bottom: 20, left: 10}
         this.fill = "#EE2724";
@@ -18,10 +18,10 @@ export class ContainmentClass {
     // Build the initial visualization
     draw(data, date) {
 
-        this.svg = d3.select(this.selector)
+        this.svg = d3.select("#containment")
             .append("svg")
-            .attr("width", this.width)
-            .attr("height", this.height);
+            .attr("viewBox", `0 0 ${this.width} ${this.height}`)
+            .attr("preserveAspectRatio", "xMidYMid meet");
 
         this.xScale = d3.scaleLinear()
             .domain([0, 100])
