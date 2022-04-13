@@ -7,16 +7,6 @@ export class MapClass {
         this.initialScale = 7000
         this.initialCenterX = -25
         this.initialCenterY = 47
-        this.projection = d3.geoAlbers()
-            .translate([this.width / 2, this.height / 2])
-            .scale(this.initialScale)
-            .center([this.initialCenterX, this.initialCenterY]);
-
-        this.geoPathGenerator = d3.geoPath().projection(this.projection);
-
-        this.tooltip = d3.select("#chart")
-                        .append("div")
-                        .attr("class", "tooltip");
     }
 
     draw(stateBoundaries, shelters, cities) {
@@ -24,10 +14,20 @@ export class MapClass {
         console.log(shelters)
         console.log(cities)
 
+        let tooltip = this.tooltip = d3.select("#chart")
+            .append("div")
+            .attr("class", "tooltip");
+
+        let projection = d3.geoAlbers()
+            .translate([this.width / 2, this.height / 2])
+            .scale(this.initialScale)
+            .center([this.initialCenterX, this.initialCenterY]);
+
         this.createSVG();
-        this.drawBasemap(stateBoundaries.features)
-        this.createShelters(shelters)
-        this.createCities(cities)
+
+        this.drawBasemap(stateBoundaries.features, projection)
+        this.createShelters(shelters, tooltip, projection)
+        this.createCities(cities, tooltip, projection)
     }
 
     // update(data, date) {
@@ -60,7 +60,10 @@ export class MapClass {
         .classed("svg-content", true);
     }
 
-    drawBasemap(data) {
+    drawBasemap(data, projection) {
+
+        let geoPathGenerator = d3.geoPath().projection(projection);
+    
         this.svg
             .append("g")
             .selectAll("path")
@@ -68,16 +71,14 @@ export class MapClass {
             .enter()
             .append("path")
             .attr("class", 'state')
-            .attr("d", this.geoPathGenerator)
+            .attr("d", geoPathGenerator)
             .attr("country", function (d) { return d.id })
             .attr("stroke", "#FFFFFF")
             .attr("stroke-width", 1)
             .attr("fill", "#D7D7D7");
     }
 
-    mouseoverPoints(tooltip, p) {
-
-        console.log(p)
+    mouseoverPoints(p, tooltip) {
 
         p.on("mouseover", function(e, d) {
 
@@ -94,12 +95,7 @@ export class MapClass {
         });
     }
 
-    createShelters(data) {
-
-        let projection = d3.geoAlbers()
-            .translate([this.width / 2, this.height / 2])
-            .scale(this.initialScale)
-            .center([this.initialCenterX, this.initialCenterY]);
+    createShelters(data, tooltip, projection) {
 
         let points = this.svg
             .selectAll("circle")
@@ -112,19 +108,10 @@ export class MapClass {
             .attr("r", 5)
             .attr("fill", "#EE2724");
 
-        let tooltip = d3.select("#chart")
-            .append("div")
-            .attr("class", "tooltip");
-
-        this.mouseoverPoints(tooltip, p);
+        this.mouseoverPoints(points, tooltip);
     }
 
-    createCities(data) {
-
-        let projection = d3.geoAlbers()
-            .translate([this.width / 2, this.height / 2])
-            .scale(this.initialScale)
-            .center([this.initialCenterX, this.initialCenterY]);
+    createCities(data, tooltip, projection) {
 
         let points = this.svg
             .selectAll("circle")
@@ -137,10 +124,6 @@ export class MapClass {
             .attr("r", 2)
             .attr("fill", "#000000");
 
-        let tooltip = d3.select("#chart")
-            .append("div")
-            .attr("class", "tooltip");
-
-        this.mouseoverPoints(tooltip, points);
+        this.mouseoverPoints(points, tooltip);
     }
 }
