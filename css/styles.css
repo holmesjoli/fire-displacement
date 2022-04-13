@@ -14,10 +14,11 @@ h1 {
     margin: 10px;
     font-size: 60pt;
     font-weight: 300;
+    line-height: 1;
 }
 
 h2 {
-    font-size: 20pt;
+    font-size: 16pt;
     font-weight: 300;
     margin: 10px;
 }
@@ -71,6 +72,13 @@ p {
     display: flex;
     flex-direction: column;
     margin: 20px
+}
+
+.main {
+    width: 70%;
+    flex: 1 0 70%;
+    /* max-height: 70vh; */
+    /* position: relative; */
 }
 
 .sidebar-right {
