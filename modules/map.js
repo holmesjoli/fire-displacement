@@ -9,7 +9,7 @@ export class MapClass {
         this.initialCenterY = 47
     }
 
-    draw(stateBoundaries, shelters, cities) {
+    draw(stateBoundaries, countyBoundaries, shelters, cities) {
 
         console.log(shelters)
         console.log(cities)
@@ -25,9 +25,10 @@ export class MapClass {
 
         this.createSVG();
 
-        this.drawBasemap(stateBoundaries.features, projection)
-        this.createShelters(shelters, tooltip, projection)
-        this.createCities(cities, tooltip, projection)
+        this.drawBasemap(stateBoundaries.features, projection);
+        this.drawBasemap(countyBoundaries.features, projection);
+        this.createShelters(shelters, tooltip, projection);
+        this.createCities(cities, tooltip, projection);
     }
 
     // update(data, date) {

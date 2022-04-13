@@ -9,6 +9,11 @@ const files = {
         parse: null
     },
 
+    countyBoundaries: {
+        pth: "./data/counties_geo.geojson",
+        parse: null
+    },
+
     complex: {
         pth: "./data/complex_data.csv",
         parse: function(j) {
@@ -67,7 +72,7 @@ for (var key of Object.keys(files)) {
 }
 
 Promise.all(promises).then(function (values) {
-    drawVis(values[0], values[1], values[2], values[3])
+    drawVis(values[0], values[1], values[2], values[3], values[4])
 });
 
 Helper.collapsibleTable();
@@ -78,12 +83,15 @@ const sc = new Story.StoryClass("story");
 
 console.log(sc);
 
-function drawVis(stateBoundaries, data, cities, shelters) {
+function drawVis(stateBoundaries, countyBoundaries, data, cities, shelters) {
 
     console.log(stateBoundaries);
+    console.log(countyBoundaries);
     console.log(data)
     console.log(cities)
     console.log(shelters)
+
+    let cntyCodes = ["53047", "53007", "53017"]
 
     let start = d3.min(data, function(d) {return +d.i});
     let limit = d3.max(data, function(d) {return +d.i});
@@ -100,7 +108,7 @@ function drawVis(stateBoundaries, data, cities, shelters) {
 
     // Set initial parameters before they enter loop
     cc.draw(data, "714");
-    mc.draw(stateBoundaries, shelters, cities);
+    mc.draw(stateBoundaries, countyBoundaries, shelters, cities);
     sc.update("714"); // set initial storyline
 
     Helper.setDate(params, function (date) {
