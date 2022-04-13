@@ -7,14 +7,6 @@ export class ContainmentClass {
         this.fill = "#EE2724";
     }
 
-    // // Initialize SVG canvas
-    // createSVG() {
-    //     this.svg = d3.select(this.selector)
-    //         .append("svg")
-    //         .attr("width", this.width)
-    //         .attr("height", this.height);
-    // }
-
     // Build the initial visualization
     draw(data, date) {
 
@@ -23,15 +15,11 @@ export class ContainmentClass {
             .attr("viewBox", `0 0 ${this.width} ${this.height}`)
             .attr("preserveAspectRatio", "xMidYMid meet");
 
-        this.xScale = d3.scaleLinear()
+        let xScale = d3.scaleLinear()
             .domain([0, 100])
             .range([this.margin.left, this.width - this.margin.right]);
 
-        this.xAxis = this.svg
-            .append("g")
-            .attr("class","axis")
-            .attr("transform",`translate(0, ${this.height-this.margin.bottom})`)
-            .call(d3.axisBottom().scale(this.xScale).ticks(2));
+        this.createAxes(xScale);
 
         this.filterData(data, date);
 
@@ -40,9 +28,9 @@ export class ContainmentClass {
             .data(this.filteredData)
             .enter()
             .append("rect")
-                .attr("x", this.xScale(0))
+                .attr("x", xScale(0))
                 .attr("y", 5)
-                .attr("width", this.xScale(0))
+                .attr("width", xScale(0))
                 .attr("height", 20)
                 .attr("fill", this.fill);
     }
@@ -53,7 +41,7 @@ export class ContainmentClass {
         });
     }
 
-    createAxes() {
+    createAxes(xScale) {
         this.xAxis = this.svg
             .append("g")
             .attr("class","axis")
@@ -72,9 +60,9 @@ export class ContainmentClass {
         //     .selectAll("rect")
         //     .data(this.filteredData, function(d) { return d.date; });
 
-        let xScale = d3.scaleLinear()
-            .domain([0, 100])
-            .range([this.margin.left, this.width - this.margin.right]);
+        // let xScale = d3.scaleLinear()
+        //     .domain([0, 100])
+        //     .range([this.margin.left, this.width - this.margin.right]);
 
         this.svg.append("rect")
             // .attr("x", function(d) {return xScale(d.containment); })
