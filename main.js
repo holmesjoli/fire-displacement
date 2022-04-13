@@ -29,6 +29,11 @@ const files = {
         parse: null
     },
 
+    countyHouses: {
+        pth: "./data/county_houses.geojson",
+        parse: null
+    },
+
     complex: {
         pth: "./data/complex_data.csv",
         parse: function(j) {
@@ -58,11 +63,13 @@ const files = {
     cities: {
         pth: "./data/ok_places.csv",
         parse: function(j) {
-            return {
-                name: j.name,
-                population: +j.population,
-                lat: +j.lat,
-                long: +j.long
+            if (j.keep === "TRUE") {
+                return {
+                    name: j.name,
+                    population: +j.population,
+                    lat: +j.lat,
+                    long: +j.long
+                }
             }
         }
     },
@@ -87,7 +94,7 @@ for (var key of Object.keys(files)) {
 }
 
 Promise.all(promises).then(function (values) {
-    drawVis(values[0], values[1], values[2], values[3], values[4], values[5],values[6], values[7])
+    drawVis(values[0], values[1], values[2], values[3], values[4], values[5],values[6], values[7], values[8])
 });
 
 Helper.collapsibleTable();
@@ -98,18 +105,19 @@ const sc = new Story.StoryClass("story");
 
 console.log(sc);
 
-function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, data, cities, shelters) {
+function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, data, cities, shelters) {
 
     console.log(stateBoundaries);
     console.log(countyBoundaries);
     console.log(okBigStreets)
     console.log(okMedStreets)
     console.log(okSmallStreets)
+    console.log(countyHouses)
     console.log(data)
     console.log(cities)
     console.log(shelters)
 
-    let cntyCodes = ["53047", "53007", "53017"]
+    // let cntyCodes = ["53047", "53007", "53017"]
 
     let start = d3.min(data, function(d) {return +d.i});
     let limit = d3.max(data, function(d) {return +d.i});
@@ -126,7 +134,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
     // Set initial parameters before they enter loop
     cc.draw(data, "714");
-    mc.draw(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, shelters, cities);
+    mc.draw(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, shelters, cities);
     sc.update("714"); // set initial storyline
 
     Helper.setDate(params, function (date) {
