@@ -15,6 +15,7 @@ const files = {
             return {
                 air_support: +j.air_support,
                 containment: +j.containment,
+                containment_previous: + j.containment_previous,
                 day: +j.day,
                 engines: +j.engines,
                 home_place: +j.home_place,
@@ -79,8 +80,9 @@ function drawVis(stateBoundaries, data) {
 
     Helper.setDate(params, function (date) {
         // console.log(date)
-        cc.update(data, date);
+        // cc.update(data, date);
         mc.update(data, date);
+        sc.update(date);
         sc.effects(data, date);
     });
 }

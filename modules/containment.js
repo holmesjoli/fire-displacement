@@ -68,24 +68,25 @@ export class ContainmentClass {
 
         // console.log(this.filteredData[0].containment)
 
-        let b = this.svg
-            .selectAll("rect")
-            .data(this.filteredData, function(d) { return d.date; });
+        // let b = this.svg
+        //     .selectAll("rect")
+        //     .data(this.filteredData, function(d) { return d.date; });
 
         let xScale = d3.scaleLinear()
             .domain([0, 100])
             .range([this.margin.left, this.width - this.margin.right]);
 
-        b.enter().append("rect")
-            .attr("x", this.xScale(0))
-            .attr("y", 5)
-            .attr("width", this.xScale(0))
-            .attr("height", 20)
-            .attr("fill", this.fill)
-        .merge(b)   
-            .transition()
-            .attr("width", function(d) {return xScale(d.containment); })
+        this.svg.append("rect")
+            // .attr("x", function(d) {return xScale(d.containment); })
+        //     .attr("y", 5)
+        //     .attr("width", xScale(0))
+        //     .attr("height", 20)
+        //     .attr("fill", this.fill)
+        // .merge(b)   
+            // .transition()
+            // .attr("x", function(d) {return xScale(d.containment_previous); })
+            // .attr("width", function(d) {return xScale(d.containment); })
 
-        b.exit().remove();
+        // b.exit().remove();
     }
 }

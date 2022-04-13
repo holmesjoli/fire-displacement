@@ -65,7 +65,7 @@ export class StoryClass {
 
     // Add effects to the storyline
     effects(date) {
-        // this.lightning(date);
+        this.lightning(date);
         this.darkeffect(date);
     }
 
