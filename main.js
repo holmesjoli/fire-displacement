@@ -32,26 +32,28 @@ const files = {
                 centerX: +j.centerX,
                 centerY: +j.centerY
             }
-        },
-        cities: {
-            pth: "./data/ok_places.csv",
-            parse: function(j) {
-                return {
-                    name: j.name,
-                    population: +j.population,
-                    lat: + j.lat,
-                    long: +j.long
-                }
+        }
+    },
+
+    cities: {
+        pth: "./data/ok_places.csv",
+        parse: function(j) {
+            return {
+                name: j.name,
+                population: +j.population,
+                lat: +j.lat,
+                long: +j.long
             }
-        },
-        shelters: {
-            pth: "./data/shelters.csv",
-            parse: function(j) {
-                return {
-                    name: j.name,
-                    lat: +j.lat,
-                    long: +j.long
-                }
+        }
+    },
+
+    shelters: {
+        pth: "./data/shelters.csv",
+        parse: function(j) {
+            return {
+                name: j.name,
+                lat: +j.lat,
+                long: +j.long
             }
         }
     }
@@ -76,10 +78,12 @@ const sc = new Story.StoryClass("story");
 
 console.log(sc);
 
-function drawVis(stateBoundaries, data) {
+function drawVis(stateBoundaries, data, cities, shelters) {
 
     console.log(stateBoundaries);
     console.log(data)
+    console.log(cities)
+    console.log(shelters)
 
     let start = d3.min(data, function(d) {return +d.i});
     let limit = d3.max(data, function(d) {return +d.i});
