@@ -100,7 +100,7 @@ function drawVis(stateBoundaries, data, cities, shelters) {
 
     // Set initial parameters before they enter loop
     cc.draw(data, "714");
-    mc.draw(stateBoundaries, data, shelters, "714");
+    mc.draw(stateBoundaries, shelters, cities);
     sc.update("714"); // set initial storyline
 
     Helper.setDate(params, function (date) {
