@@ -108,8 +108,8 @@ Promise.all(promises).then(function (values) {
 
 Helper.collapsibleTable();
 
-const width = window.innerWidth*.7;
-const height= window.innerHeight*.95;
+const width = window.innerWidth;
+const height = window.innerHeight;
 const margin = {top: 0, right: 10, bottom: 20, left: 10};
 const initialScale = 30000;
 const initialCenterX = -23.5;
@@ -166,7 +166,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
             }
 
     // Set initial parameters before they enter loop
-    cc.draw(data, 714);
+    // cc.draw(data, 714);
     sc.update(714); // set initial storyline
 
     Helper.setDate(params, function (date) {
