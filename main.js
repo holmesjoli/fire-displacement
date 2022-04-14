@@ -108,8 +108,8 @@ Promise.all(promises).then(function (values) {
 
 Helper.collapsibleTable();
 
-const width = window.innerWidth*.7;
-const height= window.innerHeight*.95;
+const width = 250;
+const height= 175;
 const margin = {top: 0, right: 10, bottom: 20, left: 10};
 const initialScale = 30000;
 const initialCenterX = -23.5;
