@@ -61,6 +61,8 @@ Data
 * https://methowvalleynews.com/2014/07/31/managing-help-for-victims-is-a-huge-task/
 * https://methowvalleynews.com/2014/07/31/pud-works-to-restore-full-power-to-lower-valley/
 * https://methowvalleynews.com/2014/07/31/methow-valley-slowly-returns-to-normal-but-long-recovery-looms-for-victims-of-carlton-complex/
+* https://methowvalleynews.com/2014/07/17/thursday-update-fires-and-evacuations-grow-public-info-meeting-tonight-in-twisp/
+
 
 07/19/214
 * Firefighters came from New Mexico, Utah and Wyoming
