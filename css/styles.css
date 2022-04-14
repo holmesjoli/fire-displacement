@@ -49,10 +49,17 @@ p {
 }
 
 #chart {
-    width: 80%;
-    flex: 1 0 80%;
+    width: 70%;
+    flex: 1 0 70%;
     max-height: 100vh;
     position: relative;
+}
+
+#sidebar-right {
+    width: 10%;
+    flex: 1 0 10%;
+    display: flex;
+    flex-direction: column;
 }
 
 #timer {
@@ -83,11 +90,6 @@ p {
     border: 1px solid #473F41;
     max-width: 80%;
     margin: 0 auto;
-}
-
-#chart {
-    position: relative;
-    height: 100vh;
 }
 
 .tooltip {
