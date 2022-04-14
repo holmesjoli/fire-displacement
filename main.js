@@ -135,7 +135,6 @@ const svg = d3.select("#chart")
 let g = svg.append("g");
 
 const cc = new Containment.ContainmentClass("#containment");
-const mc = new Map.MapClass("#chart");
 const sc = new Story.StoryClass("story");
 
 function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, data, cities, shelters) {
@@ -167,7 +166,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
     // Set initial parameters before they enter loop
     cc.draw(data, 714);
-    mc.draw(svg, g, tooltip, projection, geoPathGenerator, stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities);
+    Map.draw(svg, g, tooltip, projection, geoPathGenerator, stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities);
     sc.update(714); // set initial storyline
 
     Helper.setDate(params, function (date) {
