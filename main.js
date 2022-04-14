@@ -92,6 +92,16 @@ const files = {
                 long: +j.long
             }
         }
+    },
+    fires: {
+        pth: "./data/fire_points.csv",
+        parse: function(j) {
+            return {
+                date: +j.date,
+                lat: +j.Lat,
+                long: +j.Lon
+            }
+        }
     }
 };
 
@@ -103,7 +113,7 @@ for (var key of Object.keys(files)) {
 }
 
 Promise.all(promises).then(function (values) {
-    drawVis(values[0], values[1], values[2], values[3], values[4], values[5],values[6], values[7], values[8])
+    drawVis(values[0], values[1], values[2], values[3], values[4], values[5],values[6], values[7], values[8], values[9])
 });
 
 Helper.collapsibleTable();
@@ -138,7 +148,7 @@ let g = svg.append("g");
 const cc = new Containment.ContainmentClass("#containment");
 const sc = new Story.StoryClass("story");
 
-function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, data, cities, shelters) {
+function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, data, cities, shelters, fires) {
 
     console.log(stateBoundaries);
     console.log(countyBoundaries);
@@ -149,6 +159,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     console.log(data)
     console.log(cities)
     console.log(shelters)
+    console.log(fires)
 
     // let cntyCodes = ["53047", "53007", "53017"]
 
@@ -175,7 +186,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         Map.openShelter(g, tooltip, projection, shelters, date);
         // Map.closeShelter(g, tooltip, projection, shelters, date)
         sc.update(date);
-        sc.effects(data, date);
+        // sc.effects(data, date);
     });
 
     Map.draw(svg, g, tooltip, projection, geoPathGenerator, stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities, shelters);
