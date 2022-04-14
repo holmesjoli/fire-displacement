@@ -98,10 +98,12 @@ p {
     max-height: 35%
 }
 
-#containment {
+.containment-container,
+.burn-container {
+    margin: 10px;
     border: 1px solid #473F41;
-    max-width: 80%;
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    width: 90%;
 }
 
 
