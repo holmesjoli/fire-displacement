@@ -84,9 +84,10 @@ const files = {
         pth: "./data/shelters.csv",
         parse: function(j) {
             return {
+                id: j.id,
                 name: "<b>Shelter: </b>" + j.name,
-                openDate: +j.open_date,
-                closeDate: + j.close_date,
+                openDate: +j.openDate,
+                closeDate: +j.closeDate,
                 lat: +j.lat,
                 long: +j.long
             }
@@ -166,13 +167,16 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
     // Set initial parameters before they enter loop
     cc.draw(data, 714);
-    Map.draw(svg, g, tooltip, projection, geoPathGenerator, stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities);
     sc.update(714); // set initial storyline
 
     Helper.setDate(params, function (date) {
 
         date = parseInt(date);
+        Map.openShelter(g, tooltip, projection, shelters, date);
+        // Map.closeShelter(g, tooltip, projection, shelters, date)
         sc.update(date);
         sc.effects(data, date);
     });
+
+    Map.draw(svg, g, tooltip, projection, geoPathGenerator, stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities, shelters);
 }
