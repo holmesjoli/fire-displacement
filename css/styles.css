@@ -52,10 +52,11 @@ p {
     margin: 20px 0;
     width: 70%;
     flex: 1 0 70%;
+    max-height: 100vh;
 }
 
 #chart {
-    max-width: 75vw;
+    max-width: 100vw;
     max-height: 75vh;
     position: relative;
 }
@@ -66,8 +67,8 @@ p {
 
 #sidebar-right {
     margin: 20px 0;
-    width: 15%;
-    flex: 1 0 15%;
+    width: 10%;
+    flex: 1 0 10%;
     display: flex;
     flex-direction: column;
 }
