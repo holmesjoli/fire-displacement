@@ -39,7 +39,7 @@ export class MapClass {
         this.drawBasemap(g, okSmallStreets.features, "#000000", .5);
         this.createPoints(g, countyHouses, tooltip, projection, "houses", "#6CBE45", 2, .2);
         this.createPoints(g, cities, tooltip, projection, "cities", "#00AEEF", 5);
-        this.createPoints(g, shelters, tooltip, projection, "shelters", "#EE2724", 4);
+        this.createPoints(g, shelters, tooltip, projection, "shelters", "#EE2724", 20, .3);
 
 
         // create a zoom function

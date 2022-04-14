@@ -53,7 +53,7 @@ const files = {
                 i: +j.i,
                 month: +j.month,
                 month_name: j.month_name,
-                date: j.date,
+                date: +j.date,
                 n_homes: +j.n_homes,
                 n_structures: +j.n_structures,
                 overhead_personnel: +j.overhead_personnel,
@@ -85,6 +85,8 @@ const files = {
         parse: function(j) {
             return {
                 name: "<b>Shelter: </b>" + j.name,
+                openDate: +j.open_date,
+                closeDate: + j.close_date,
                 lat: +j.lat,
                 long: +j.long
             }
