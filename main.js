@@ -15,12 +15,12 @@ const files = {
     },
 
     countyBigStreets: {
-        pth: "./data/county_bigstreets_simp.geojson",
+        pth: "./data/county_bigstreets_reg.geojson",
         parse: null
     },
 
     countyMedStreets: {
-        pth: "./data/county_medstreets_simp.geojson",
+        pth: "./data/county_medstreets_reg.geojson",
         parse: null
     },
 
