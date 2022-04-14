@@ -34,10 +34,28 @@ p {
     margin: 10px;
 }
 
+
+#chart--container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#sidebar-left {
+    width: 20%;
+    flex: 1 0 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+#chart {
+    width: 80%;
+    flex: 1 0 80%;
+    max-height: 100vh;
+    position: relative;
+}
+
 #timer {
-    /* position: absolute;
-    bottom: 0;
-    left: 0; */
     min-width: 150px;
     min-height: 150px;
     max-width: 200px;
@@ -63,11 +81,31 @@ p {
 
 #containment {
     border: 1px solid #473F41;
+    max-width: 80%;
+    margin: 0 auto;
 }
 
 #chart {
     position: relative;
 }
+
+.tooltip {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    visibility: hidden;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    padding: 2px;
+    pointer-events: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+}
+
+/*
+
 
 .container {
     display: flex;
@@ -86,8 +124,6 @@ p {
 .main {
     width: 70%;
     flex: 1 0 70%;
-    /* max-height: 70vh; */
-    /* position: relative; */
 }
 
 .sidebar-right {
@@ -103,7 +139,6 @@ p {
 }
 
 .collapsible.local-button {
-    /* background-color: #3D328B; */
     background-color: rgba(61, 50, 139, .5);
 }
 
@@ -116,7 +151,6 @@ p {
 }
 
 .collapsible.regional-button {
-    /* background-color: #764091; */
     background-color: rgba(118, 64, 145, .5);
 }
 
@@ -152,7 +186,6 @@ p {
     border: 3px solid rgba(246, 134, 31, .6);
 }
 
-/* Style the button that is used to open and close the collapsible content */
 .collapsible {
     cursor: pointer;
     padding: 18px;
@@ -164,7 +197,6 @@ p {
     font-weight: 600;
 }
 
-/* Style the collapsible content. Note: hidden by default */
 .content {
     padding: 0 18px;
     display: none;
@@ -192,19 +224,4 @@ p {
     max-height: 40px;
     max-width: 40px;
     width: 40px;
-}
-
-.tooltip {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    visibility: hidden;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: normal;
-    font-size: 16px;
-    padding: 2px;
-    pointer-events: none;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 10px 20px 10px 20px;
-    border-radius: 10px;
-}
+} */
