@@ -72,7 +72,7 @@ export class StoryClass {
     // Lightning
 
     lightning(date) {
-        if (date == "714") {
+        if (date === 714) {
             function func() {
                 var elem = document.createElement("img");
                 elem.src = 'assets/lightning.svg';
@@ -84,12 +84,12 @@ export class StoryClass {
 
     // Changes the body to a dark color to show power blackout
     darkeffect(date) {
-        if (date == "718") {
+        if (date === 718) {
             document.getElementsByTagName('body').style.backgroundColor = '#473F41';
             document.getElementsByTagName('body').style.color = '#FFFFFF';
         }
 
-        if (date == "725") {
+        if (date === 725) {
             document.getElementsByTagName('body').style.backgroundColor = '#FFFFFF';
             document.getElementsByTagName('body').style.color = '#473F41';
         }
