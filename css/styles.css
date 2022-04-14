@@ -24,9 +24,9 @@ h2 {
 }
 
 h3 {
-    font-size: 20pt;
-    font-weight: 600;
-    margin: 5px;
+    font-size: 16pt;
+    font-weight: 400;
+    margin: 0;
 }
 
 p {
@@ -65,6 +65,7 @@ p {
 }
 
 #sidebar-right {
+    margin: 20px 0;
     width: 15%;
     flex: 1 0 15%;
     display: flex;
