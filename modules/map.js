@@ -22,15 +22,23 @@ export class MapClass {
 
         this.geoPathGenerator = d3.geoPath().projection(projection);
 
-        let svg = d3.select(this.selector)
-            .append("svg")
-            .attr("width", this.width)
-            .attr("height", this.height)
-            // .attr("preserveAspectRatio", "xMinYMin meet")
-            // .attr("viewBox", "0 0 " + window.innerWidth + " " + window.innerHeight)
-            // .attr("viewBox", "0 0 " + window.innerWidth + " " + window.innerHeight)
-            .attr("id", "map-svg")
+        const svg = d3.select("#chart")
+        .append("svg")
+        .attr("viewBox", `0 0 ${this.width} ${this.height}`)
+        .attr("preserveAspectRatio", "xMidYMid meet")
+        .attr("id", "map-svg")
             .classed("svg-content", true);
+
+
+        // let svg = d3.select(this.selector)
+        //     .append("svg")
+        //     .attr("width", this.width)
+        //     .attr("height", this.height)
+        //     // .attr("preserveAspectRatio", "xMinYMin meet")
+        //     // .attr("viewBox", "0 0 " + window.innerWidth + " " + window.innerHeight)
+        //     // .attr("viewBox", "0 0 " + window.innerWidth + " " + window.innerHeight)
+        //     .attr("id", "map-svg")
+        //     .classed("svg-content", true);
 
         let g = svg.append("g");
 

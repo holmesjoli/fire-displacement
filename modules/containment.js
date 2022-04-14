@@ -1,7 +1,7 @@
 export class ContainmentClass {
     constructor(selector) {
         this.selector = selector
-        this.width = 350
+        this.width = 300
         this.height = 50
         this.margin = {top: 0, right: 10, bottom: 20, left: 10}
         this.fill = "#EE2724";
