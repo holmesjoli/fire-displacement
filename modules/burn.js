@@ -1,28 +1,67 @@
-export function createSVG(width, height, data) {
-    const svg = d3.select("#burn")
-        .append("svg")
-        .attr("viewBox", `0 0 ${width} ${height}`)
-        .attr("preserveAspectRatio", "xMidYMid meet");
+// export function setupSVG(width = 100, margin, sizeExtent, rScale) {
+//     const svg = d3.select("#burn")
+//         .append("svg")
+//         .attr("viewBox", `0 0 ${width} ${width}`)
+//         .attr("preserveAspectRatio", "xMidYMid meet");
 
-    const margin = 10;
+//     svg
+//         .append("rect")
+//         .attr("x", margin)
+//         .attr("y", margin)
+//         .attr("width", rScale(sizeExtent[1]) - margin)
+//         .attr("height", rScale(sizeExtent[1])- margin)
+//         .attr("fill", "#FFFFFF")
+//         .attr("stroke", "#473F41");
+// }
 
-    const extent = d3.extent(data, function(d) {return d.date;})
+export function updateBurn(svg, width, margin, rScale, dataInitial, dataUpdate) {
 
-    let scaleR = d3.scaleSqrt()
-        .domain([extent[0], extent[1]])
-        .range([margin, width - margin])
-
-    svg
+    let rect = svg.selectAll("rect")
+        .data(dataInitial)
+        .enter()
         .append("rect")
-        .attr("x", margin)
-        .attr("y", margin)
-        .attr("width", scaleR(extent[1]) - margin)
-        .attr("height", scaleR(extent[1])- margin)
-        .attr("fill", "#FFFFFF")
-        .attr("stroke", "#473F41")
+            .attr("x", margin)
+            .attr("y", margin)
+            .attr("class", "burn")
+            .attr("width", function(d) { return rScale(d.size) - margin; })
+            .attr("height", function(d) { return rScale(d.size) - margin; })
+            .attr("fill", "#EE2724");
 
-}
+    let r = svg.selectAll(".burn")
+        .data(dataUpdate, function(d) {return d.date;});
+    
+        r
+        .enter()
+        .append("rect")
+            .attr("x", margin)
+            .attr("y", margin)
+            .attr("height", function(d) { return rScale(d.size); })
+            .attr("width", function(d) { return rScale(d.size); })
+            .attr("fill", "#EE2724")
+        .merge(r)
+            .transition()
+            .duration(1000)
+            .delay(1000)
+            .attr("x", margin)
+            .attr("y", margin)
+            .attr("height", function(d) { return rScale(d.size); })
+            .attr("width", function(d) { return rScale(d.size); })
+            .attr("fill", "#EE2724");
+    
+        r.exit()
+            .transition()
+            .duration(1000)
+            .delay(1000)
+            .attr("width", 0)
+            .attr("height", 0)
+            .remove();
 
-export function initialSize(data) {
-
+//     svg
+//         .append("rect")
+//         .attr("x", margin)
+//         .attr("y", margin)
+//         .attr("width", rScale(data[0].size) - margin)
+//         .attr("height", rScale(data[0].size) - margin)
+//         .attr("fill", "#FFFFFF")
+//         .attr("stroke", "#473F41")
 }
