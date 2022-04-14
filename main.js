@@ -168,6 +168,30 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     let limit = d3.max(data, function(d) {return +d.i});
     let i = start;
     let play = true;
+    let startDay = 715;
+
+    // Burn
+    const sizeExtent = d3.extent(data, function(d) {return d.date;});
+    const margin = 10;
+    const sizeWidth = 100;
+    const rScale = d3.scaleSqrt()
+        .domain([sizeExtent[0], sizeExtent[1]])
+        .range([margin, sizeWidth - margin]);
+
+    const svgSize = d3.select("#burn")
+        .append("svg")
+        .attr("viewBox", `0 0 ${width} ${width}`)
+        .attr("preserveAspectRatio", "xMidYMid meet");
+
+    svgSize
+        .append("rect")
+        .attr("x", margin)
+        .attr("y", margin)
+        .attr("width", rScale(sizeExtent[1]) - margin)
+        .attr("height", rScale(sizeExtent[1])- margin)
+        .attr("fill", "#FFFFFF")
+        .attr("stroke", "#473F41");
+
 
     let params = {
                 dates: data, 
@@ -178,16 +202,26 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
             }
 
     // Set initial parameters before they enter loop
-    // cc.draw(data, 714);
-    sc.update(714); // set initial storyline
-    Burn.createSVG(100, 100, data)
+    // cc.draw(data, startDay);
+    sc.update(startDay); // set initial storyline
+    // Burn.setupSVG(sizeWidth, margin, sizeExtent, rScale)
+
+    let dataInitial = data.filter(function(d) {
+        return d.date === startDay;
+    });
 
     Helper.setDate(params, function (date) {
+
+        let dataUpdate = data.filter(function(d) {
+            return d.date === date;
+        });
+
+        Burn.updateBurn(svgSize, sizeWidth, margin, rScale, dataInitial, dataUpdate);
 
         date = parseInt(date);
         Map.openShelter(g, tooltip, projection, shelters, date);
         // Map.closeShelter(g, tooltip, projection, shelters, date)
-        sc.update(date);
+        // sc.update(date);
         // sc.effects(data, date);
     });
 
