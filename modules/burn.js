@@ -18,7 +18,7 @@ export function createSVG(width, height, data) {
         .attr("y", margin)
         .attr("width", scaleR(extent[1]) - margin)
         .attr("height", scaleR(extent[1])- margin)
-        .attr("fill", "#EE2724")
+        .attr("fill", "#FFFFFF")
         .attr("stroke", "#473F41")
 
 }
