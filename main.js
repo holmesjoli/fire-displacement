@@ -2,6 +2,7 @@ import * as Helper from './modules/helper_functions.js';
 import * as Map from './modules/map.js';
 import * as Containment from "./modules/containment.js";
 import * as Story from "./modules/storyline.js";
+import * as Burn from "./modules/size.js"
 
 const files = {
     stateBoundaries: {
@@ -57,7 +58,7 @@ const files = {
                 n_homes: +j.n_homes,
                 n_structures: +j.n_structures,
                 overhead_personnel: +j.overhead_personnel,
-                size: +j.size,
+                size: +j.size2,
                 total_personnel: +j.total_personnel,
                 scale: +j.scale,
                 centerX: +j.centerX,
@@ -179,6 +180,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     // Set initial parameters before they enter loop
     // cc.draw(data, 714);
     sc.update(714); // set initial storyline
+    Burn.createSVG(100, 100, data)
 
     Helper.setDate(params, function (date) {
 
