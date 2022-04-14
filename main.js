@@ -109,11 +109,11 @@ Promise.all(promises).then(function (values) {
 Helper.collapsibleTable();
 
 const width = window.innerWidth*.7;
-const height= window.innerHeight*.97;
+const height= window.innerHeight*.95;
 const margin = {top: 0, right: 10, bottom: 20, left: 10};
-const initialScale = 40000;
+const initialScale = 30000;
 const initialCenterX = -23.5;
-const initialCenterY = 48.5;
+const initialCenterY = 48.25;
 
 let tooltip = d3.select("#chart")
             .append("div")
@@ -162,7 +162,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
                 limit: limit, 
                 play: play, 
                 i: i,
-                speed: 500
+                speed: 1500
             }
 
     // Set initial parameters before they enter loop

@@ -91,12 +91,12 @@ export function closeShelter(g, tooltip, projection, shelters, date) {
 
         c
         .enter()
-        .append("circle")
-            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
-            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("r", 10)
-            .attr("fill", "#EE2724")
-            .attr("fill-opacity", .3)
+        // .append("circle")
+        //     .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
+        //     .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
+        //     .attr("r", 10)
+        //     .attr("fill", "#EE2724")
+        //     .attr("fill-opacity", .3)
         .merge(c)
             .transition()
             .duration(1000)
