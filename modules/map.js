@@ -41,21 +41,34 @@ function drawBasemap(g, data, geoPathGenerator, stroke = "#FFFFFF", strokeWidth 
     .append("path")
     .attr("class", 'state')
     .attr("d", geoPathGenerator)
-    .attr("country", function (d) { return d.id })
     .attr("stroke", stroke)
     .attr("stroke-width", strokeWidth)
     .attr("fill", "#D7D7D7")
     .attr("opacity", .5);
 }
 
+function drawRoad(g, data, geoPathGenerator, stroke = "#FFFFFF", strokeWidth = 1, opacity = .5) {
+    g
+    .append("g")
+    .selectAll("path")
+    .data(data)
+    .enter()
+    .append("path")
+    .attr("class", 'state')
+    .attr("d", geoPathGenerator)
+    .attr("stroke", stroke)
+    .attr("stroke-width", strokeWidth)
+    .attr("fill", "none")
+    .attr("opacity", opacity);
+}
 
 export function draw(svg, g, tooltip, projection, geoPathGenerator, stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities, shelters) {
 
     drawBasemap(g, stateBoundaries.features, geoPathGenerator);
     drawBasemap(g, countyBoundaries.features, geoPathGenerator);
-    drawBasemap(g, okBigStreets.features, geoPathGenerator, "#000000", 3);
-    drawBasemap(g, okMedStreets.features, geoPathGenerator, "#000000", 2);
-    drawBasemap(g, okSmallStreets.features, geoPathGenerator, "#000000", .5);
+    drawRoad(g, okBigStreets.features, geoPathGenerator, "#000000", 3);
+    drawRoad(g, okMedStreets.features, geoPathGenerator, "#000000", 2);
+    // drawBasemap(g, okSmallStreets.features, geoPathGenerator, "#000000", .5);
     createPoints(g, countyHouses, tooltip, projection, "houses", "#6CBE45", 2, .2);
     createPoints(g, cities, tooltip, projection, "cities", "#00AEEF", 5);
     // createPoints(g, shelters, tooltip, projection, "shelters", "#EE2724", 40, .3);
