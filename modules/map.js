@@ -9,7 +9,7 @@ export class MapClass {
         this.initialCenterY = 48.5
     }
 
-    draw(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, shelters, cities) {
+    draw(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities) {
 
         let tooltip = this.tooltip = d3.select("#chart")
             .append("div")
@@ -23,15 +23,19 @@ export class MapClass {
         this.geoPathGenerator = d3.geoPath().projection(projection);
 
         const svg = d3.select("#chart")
-        .append("svg")
-        .attr("viewBox", `0 0 ${this.width} ${this.height}`)
-        .attr("preserveAspectRatio", "xMidYMid meet")
-        .attr("id", "map-svg")
-        .classed("svg-content", true);
+            .append("svg")
+            .attr("viewBox", `0 0 ${this.width} ${this.height}`)
+            .attr("preserveAspectRatio", "xMidYMid meet")
+            .attr("id", "map-svg")
+            .classed("svg-content", true);
 
         let g = svg.append("g");
 
-        // this.createSVG();
+        this.drawAttributes(svg, g, tooltip, projection, stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities);
+    }
+
+    drawAttributes(svg, g, tooltip, projection, stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities) {
+
         this.drawBasemap(g, stateBoundaries.features);
         this.drawBasemap(g, countyBoundaries.features);
         this.drawBasemap(g, okBigStreets.features, "#000000", 3);
@@ -39,8 +43,6 @@ export class MapClass {
         this.drawBasemap(g, okSmallStreets.features, "#000000", .5);
         this.createPoints(g, countyHouses, tooltip, projection, "houses", "#6CBE45", 2, .2);
         this.createPoints(g, cities, tooltip, projection, "cities", "#00AEEF", 5);
-        this.createPoints(g, shelters, tooltip, projection, "shelters", "#EE2724", 20, .3);
-
 
         // create a zoom function
         var zoom = d3.zoom()
@@ -48,28 +50,20 @@ export class MapClass {
         .on("zoom", function(event) {
             g
             .attr("transform", `scale(${event.transform.k}) translate(${event.transform.x}, ${event.transform.y})`);
-
         })
 
         // call zoom so it is "listening" for an event on our SVG
         svg.call(zoom);
     }
 
-    // update(data, date) {
+    updateShelter(shelters, date) {
 
-    //     let filteredData = data.filter(function(d) {
-    //         return d.date === date;
-    //     });
+        let shelterData = shelters.filter(function(d) {
+            return d.date <= date;
+        });
 
-    //     this.createProjection(filteredData[0]);
-
-    //     this.geoPathGenerator = d3.geoPath()
-    //         .projection(this.projection);
-
-    //     this.g
-    //         .transition()
-    //         .attr("d", this.geoPathGenerator)
-    // }
+        this.createPoints(g, shelterData, tooltip, projection, "shelters", "#EE2724", 20, .3);
+    }
 
     drawBasemap(g, data, stroke = "#FFFFFF", strokeWidth = 1) {
         g
