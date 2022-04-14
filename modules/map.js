@@ -27,18 +27,7 @@ export class MapClass {
         .attr("viewBox", `0 0 ${this.width} ${this.height}`)
         .attr("preserveAspectRatio", "xMidYMid meet")
         .attr("id", "map-svg")
-            .classed("svg-content", true);
-
-
-        // let svg = d3.select(this.selector)
-        //     .append("svg")
-        //     .attr("width", this.width)
-        //     .attr("height", this.height)
-        //     // .attr("preserveAspectRatio", "xMinYMin meet")
-        //     // .attr("viewBox", "0 0 " + window.innerWidth + " " + window.innerHeight)
-        //     // .attr("viewBox", "0 0 " + window.innerWidth + " " + window.innerHeight)
-        //     .attr("id", "map-svg")
-        //     .classed("svg-content", true);
+        .classed("svg-content", true);
 
         let g = svg.append("g");
 
@@ -80,21 +69,6 @@ export class MapClass {
     //     this.g
     //         .transition()
     //         .attr("d", this.geoPathGenerator)
-    // }
-
-    // Initialize SVG canvas
-    // createSVG() {
-    //     this.svg = d3.select(this.selector)
-    //     .append("svg")
-    //     .attr("width", this.width)
-    //     .attr("height", this.height)
-    //     // .attr("preserveAspectRatio", "xMinYMin meet")
-    //     // .attr("viewBox", "0 0 " + window.innerWidth + " " + window.innerHeight)
-    //     // .attr("viewBox", "0 0 " + window.innerWidth + " " + window.innerHeight)
-    //     .attr("id", "map-svg")
-    //     .classed("svg-content", true);
-
-    //     this.g = this.svg.append("g");
     // }
 
     drawBasemap(g, data, stroke = "#FFFFFF", strokeWidth = 1) {
