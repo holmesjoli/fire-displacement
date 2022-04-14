@@ -2,7 +2,7 @@ import * as Helper from './modules/helper_functions.js';
 import * as Map from './modules/map.js';
 import * as Containment from "./modules/containment.js";
 import * as Story from "./modules/storyline.js";
-import * as Burn from "./modules/size.js"
+import * as Burn from "./modules/burn.js"
 
 const files = {
     stateBoundaries: {
