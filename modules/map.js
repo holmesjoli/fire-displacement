@@ -9,30 +9,34 @@ export class MapClass {
         this.initialCenterY = 48.5
     }
 
-    draw(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities) {
+    draw(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities, date) {
 
-        let tooltip = this.tooltip = d3.select("#chart")
+        if (date === 714) {
+            let tooltip = this.tooltip = d3.select("#chart")
             .append("div")
             .attr("class", "tooltip");
 
-        let projection = d3.geoAlbers()
-            .translate([this.width / 2, this.height / 2])
-            .scale(this.initialScale)
-            .center([this.initialCenterX, this.initialCenterY]);
+            let projection = d3.geoAlbers()
+                .translate([this.width / 2, this.height / 2])
+                .scale(this.initialScale)
+                .center([this.initialCenterX, this.initialCenterY]);
 
-        this.geoPathGenerator = d3.geoPath().projection(projection);
+            this.geoPathGenerator = d3.geoPath().projection(projection);
 
-        const svg = d3.select("#chart")
-            .append("svg")
-            .attr("viewBox", `0 0 ${this.width} ${this.height}`)
-            .attr("preserveAspectRatio", "xMidYMid meet")
-            .attr("id", "map-svg")
-            .classed("svg-content", true);
+            const svg = d3.select("#chart")
+                .append("svg")
+                .attr("viewBox", `0 0 ${this.width} ${this.height}`)
+                .attr("preserveAspectRatio", "xMidYMid meet")
+                .attr("id", "map-svg")
+                .classed("svg-content", true);
 
-        let g = svg.append("g");
+            let g = svg.append("g");
 
-        this.drawAttributes(svg, g, tooltip, projection, stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities);
-    }
+            this.drawAttributes(svg, g, tooltip, projection, stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities);
+
+            }
+
+        }
 
     drawAttributes(svg, g, tooltip, projection, stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities) {
 

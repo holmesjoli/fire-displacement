@@ -142,13 +142,13 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
     // Set initial parameters before they enter loop
     cc.draw(data, "714");
-    mc.draw(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, shelters, cities);
-    sc.update("714"); // set initial storyline
+    // mc.draw(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities, date);
+    sc.update(714); // set initial storyline
 
     Helper.setDate(params, function (date) {
-        // console.log(date)
-        // cc.update(data, date);
-        // mc.update(data, date);
+
+        date = parseInt(date);
+        mc.draw(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities, date);
         sc.update(date);
         sc.effects(data, date);
     });
