@@ -1,7 +1,6 @@
-open,close,name,address,city,state,zip,lat,long
-7/17/2014,7/17/2014,,,Pateros,,,,
-7/21/2014,7/24/2014,Twisp Valley Grange,344 W 2nd Ave,Twisp,WA,98856,48.3655114,-120.1264168
-7/17/2014,,Chelan High School,215 Webster Ave,Chelan,WA,98816,47.8350729,-120.0229256
-7/17/2014,,Omak Corner Stone Church,328 Riverside Dr,Omak,WA,98841,48.4154885,-119.5249234
-7/17/2014,,Brewster High School,503 S 7th St,Brewster,WA,98812,48.0938878,-119.7881553
-7/25/2014,,Red Barn,51 State Rte 20,Winthrop,WA,98862,48.4769116,-120.1880758
+openDate,closeDate,name,id,lat,long
+717,720,Chelan High School,chelan,47.8350729,-120.0229256
+717,720,Omak Corner Stone Church,omak,48.4154885,-119.5249234
+717,720,Brewster High School,brewster,48.0938878,-119.7881553
+721,724,Twisp Valley Grange,twisp,48.3655114,-120.1264168
+725,730,Red Barn,winthrop,48.4769116,-120.1880758
