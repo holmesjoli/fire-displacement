@@ -107,11 +107,36 @@ Promise.all(promises).then(function (values) {
 
 Helper.collapsibleTable();
 
+const width = window.innerWidth*.7;
+const height= window.innerHeight*.97;
+const margin = {top: 0, right: 10, bottom: 20, left: 10};
+const initialScale = 40000;
+const initialCenterX = -23.5;
+const initialCenterY = 48.5;
+
+let tooltip = d3.select("#chart")
+            .append("div")
+            .attr("class", "tooltip");
+
+let projection = d3.geoAlbers()
+    .translate([width / 2, height / 2])
+    .scale(initialScale)
+    .center([initialCenterX, initialCenterY]);
+
+let geoPathGenerator = d3.geoPath().projection(projection);
+
+const svg = d3.select("#chart")
+    .append("svg")
+    .attr("viewBox", `0 0 ${width} ${height}`)
+    .attr("preserveAspectRatio", "xMidYMid meet")
+    .attr("id", "map-svg")
+    .classed("svg-content", true);
+
+let g = svg.append("g");
+
 const cc = new Containment.ContainmentClass("#containment");
 const mc = new Map.MapClass("#chart");
 const sc = new Story.StoryClass("story");
-
-console.log(sc);
 
 function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, data, cities, shelters) {
 
@@ -142,13 +167,12 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
     // Set initial parameters before they enter loop
     cc.draw(data, 714);
-    // mc.draw(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities, date);
+    mc.draw(svg, g, tooltip, projection, geoPathGenerator, stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities);
     sc.update(714); // set initial storyline
 
     Helper.setDate(params, function (date) {
 
         date = parseInt(date);
-        mc.draw(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities, date);
         sc.update(date);
         sc.effects(data, date);
     });

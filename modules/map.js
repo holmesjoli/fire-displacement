@@ -9,42 +9,14 @@ export class MapClass {
         this.initialCenterY = 48.5
     }
 
-    draw(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities, date) {
 
-        if (date === 714) {
-            let tooltip = this.tooltip = d3.select("#chart")
-            .append("div")
-            .attr("class", "tooltip");
+    draw(svg, g, tooltip, projection, geoPathGenerator, stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities) {
 
-            let projection = d3.geoAlbers()
-                .translate([this.width / 2, this.height / 2])
-                .scale(this.initialScale)
-                .center([this.initialCenterX, this.initialCenterY]);
-
-            this.geoPathGenerator = d3.geoPath().projection(projection);
-
-            const svg = d3.select("#chart")
-                .append("svg")
-                .attr("viewBox", `0 0 ${this.width} ${this.height}`)
-                .attr("preserveAspectRatio", "xMidYMid meet")
-                .attr("id", "map-svg")
-                .classed("svg-content", true);
-
-            let g = svg.append("g");
-
-            this.drawAttributes(svg, g, tooltip, projection, stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities);
-
-            }
-
-        }
-
-    drawAttributes(svg, g, tooltip, projection, stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities) {
-
-        this.drawBasemap(g, stateBoundaries.features);
-        this.drawBasemap(g, countyBoundaries.features);
-        this.drawBasemap(g, okBigStreets.features, "#000000", 3);
-        this.drawBasemap(g, okMedStreets.features, "#000000", 2);
-        this.drawBasemap(g, okSmallStreets.features, "#000000", .5);
+        this.drawBasemap(g, stateBoundaries.features, geoPathGenerator);
+        this.drawBasemap(g, countyBoundaries.features, geoPathGenerator);
+        this.drawBasemap(g, okBigStreets.features, geoPathGenerator, "#000000", 3);
+        this.drawBasemap(g, okMedStreets.features, geoPathGenerator, "#000000", 2);
+        this.drawBasemap(g, okSmallStreets.features, geoPathGenerator, "#000000", .5);
         this.createPoints(g, countyHouses, tooltip, projection, "houses", "#6CBE45", 2, .2);
         this.createPoints(g, cities, tooltip, projection, "cities", "#00AEEF", 5);
 
@@ -60,7 +32,7 @@ export class MapClass {
         svg.call(zoom);
     }
 
-    updateShelter(shelters, date) {
+    updateShelter(g, tooltip, projection, shelters, date) {
 
         let shelterData = shelters.filter(function(d) {
             return d.date <= date;
@@ -69,7 +41,7 @@ export class MapClass {
         this.createPoints(g, shelterData, tooltip, projection, "shelters", "#EE2724", 20, .3);
     }
 
-    drawBasemap(g, data, stroke = "#FFFFFF", strokeWidth = 1) {
+    drawBasemap(g, data, geoPathGenerator, stroke = "#FFFFFF", strokeWidth = 1) {
         g
         .append("g")
         .selectAll("path")
@@ -77,7 +49,7 @@ export class MapClass {
         .enter()
         .append("path")
         .attr("class", 'state')
-        .attr("d", this.geoPathGenerator)
+        .attr("d", geoPathGenerator)
         .attr("country", function (d) { return d.id })
         .attr("stroke", stroke)
         .attr("stroke-width", strokeWidth)
