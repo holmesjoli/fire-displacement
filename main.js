@@ -254,14 +254,13 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     // sc.update(startDay); // set initial storyline
 
     Timer.setDate(params, function (date) {
-        // console.log(date)
 
         date = parseInt(date);
         let dataUpdate = data.filter(function(d) {
             return d.date === date;
         });
 
-        console.log(dataUpdate)
+        // console.log(dataUpdate)
 
         Burn.draw(svgBurn, paramsBurn, xScaleBurn, yScaleBurn, dataUpdate);
         Containment.draw(svgContainment, paramsContainment, xScaleContainment, dataUpdate)
