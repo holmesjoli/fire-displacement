@@ -66,11 +66,11 @@ export function draw(svg, g, tooltip, projection, geoPathGenerator, stateBoundar
 
     drawBasemap(g, stateBoundaries.features, geoPathGenerator);
     drawBasemap(g, countyBoundaries.features, geoPathGenerator);
-    drawRoad(g, okBigStreets.features, geoPathGenerator, "#000000", 3);
-    drawRoad(g, okMedStreets.features, geoPathGenerator, "#000000", 2);
+    drawRoad(g, okBigStreets.features, geoPathGenerator, "#000000", 1.5);
+    drawRoad(g, okMedStreets.features, geoPathGenerator, "#000000", 1);
     // drawBasemap(g, okSmallStreets.features, geoPathGenerator, "#000000", .5);
-    createPoints(g, countyHouses, tooltip, projection, "houses", "#6CBE45", 2, .2);
-    createPoints(g, cities, tooltip, projection, "cities", "#00AEEF", 5);
+    createPoints(g, countyHouses, tooltip, projection, "houses", "#6CBE45", 1, .2);
+    createPoints(g, cities, tooltip, projection, "cities", "#00AEEF", 2.5);
     // createPoints(g, shelters, tooltip, projection, "shelters", "#EE2724", 40, .3);
 
     // create a zoom function

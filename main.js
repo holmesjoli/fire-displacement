@@ -154,39 +154,37 @@ const paramsStory = {
 
 //Map
 const paramsMap = {
-    selector: "chart"
+    selector: "chart",
+    width: 500,
+    height: 300,
+    margin: {top: 0, right: 10, bottom: 20, left: 10},
+    initialScale: 10000,
+    initialCenterX: -23.5,
+    initialCenterY: 48.25
 }
+
+const svgMap = d3.select(`#${paramsMap.selector}`)
+    .append("svg")
+    .attr("viewBox", `0 0 ${paramsMap.width} ${paramsMap.height}`)
+    .attr("preserveAspectRatio", "xMidYMid meet");
+    // .attr("id", "map-svg")
+    // .classed("svg-content", true);
+
+let g = svgMap.append("g");
+
+let tooltip = d3.select(`#${paramsMap.selector}`)
+            .append("div")
+            .attr("class", "tooltip");
+
+let projection = d3.geoAlbers()
+    .translate([paramsMap.width / 2, paramsMap.height / 2])
+    .scale(paramsMap.initialScale)
+    .center([paramsMap.initialCenterX, paramsMap.initialCenterY]);
+
+let geoPathGenerator = d3.geoPath().projection(projection);
 
 
 // Helper.collapsibleTable();
-
-// const width = window.innerWidth*.65;
-// const height = window.innerHeight;
-// const margin = {top: 0, right: 10, bottom: 20, left: 10};
-// const initialScale = 30000;
-// const initialCenterX = -23.5;
-// const initialCenterY = 48.25;
-
-// let tooltip = d3.select("#chart")
-//             .append("div")
-//             .attr("class", "tooltip");
-
-// let projection = d3.geoAlbers()
-//     .translate([width / 2, height / 2])
-//     .scale(initialScale)
-//     .center([initialCenterX, initialCenterY]);
-
-// let geoPathGenerator = d3.geoPath().projection(projection);
-
-// const svg = d3.select("#chart")
-//     .append("svg")
-//     .attr("viewBox", `0 0 ${width} ${height}`)
-//     .attr("preserveAspectRatio", "xMidYMid meet")
-//     .attr("id", "map-svg")
-//     .classed("svg-content", true);
-
-// let g = svg.append("g");
-
 // let cntyCodes = ["53047", "53007", "53017"]
 
 function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, data, cities, shelters, fires) {
@@ -273,5 +271,5 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         // Map.closeShelter(g, tooltip, projection, shelters, date)
     });
 
-    // Map.draw(svg, g, tooltip, projection, geoPathGenerator, stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities, shelters);
+    Map.draw(svgMap, g, tooltip, projection, geoPathGenerator, stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities, shelters);
 }
