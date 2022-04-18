@@ -299,7 +299,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         // geoPathGenerator = d3.geoPath().projection(projection);
         // svgMap.selectAll("path").attr("d", geoPathGenerator);
 
-        Map.updateShelter(shelterArea, projection, sheltersUpdate);
+        Map.updatePoints(shelterArea, projection, sheltersUpdate, "#EE2C25", 15)
 
     });
 

@@ -98,7 +98,7 @@ export function openShelter(g, tooltip, projection, shelters, date) {
         .attr("fill", "#EE2724");
 }
 
-export function updateShelter(circle, projection, data) {
+export function updatePoints(circle, projection, data, fill, r) {
 
     let c = circle.selectAll("circle")
         .data(data, function(d) {return d.id;});
@@ -109,13 +109,13 @@ export function updateShelter(circle, projection, data) {
             .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
             .attr("r", 0)
-            .attr("fill","#EE2C25")
+            .attr("fill", fill)
         .merge(c)
             .transition()
             .duration(1000)
             .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("r", 15)
+            .attr("r", r)
             .attr("opacity", .3);
     
         c.exit()
