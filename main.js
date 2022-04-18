@@ -63,7 +63,8 @@ const files = {
                 total_personnel: +j.total_personnel,
                 scale: +j.scale,
                 centerX: +j.centerX,
-                centerY: +j.centerY
+                centerY: +j.centerY,
+                story: j.story
             }
         }
     },
@@ -118,6 +119,7 @@ Promise.all(promises).then(function (values) {
     drawVis(values[0], values[1], values[2], values[3], values[4], values[5],values[6], values[7], values[8], values[9])
 });
 
+// Burn
 const paramsBurn = {
     selector: "#burn",
     margin: 0,
@@ -129,6 +131,7 @@ const svgBurn = d3.select(paramsBurn.selector)
     .attr("viewBox", `0 0 ${paramsBurn.width} ${paramsBurn.width}`)
     .attr("preserveAspectRatio", "xMidYMid meet");
 
+// Containment
 const paramsContainment = {
     selector: "#containment",
     margin: {top: 0, right: 10, bottom: 20, left: 10},
@@ -143,6 +146,13 @@ const svgContainment = d3.select(paramsContainment.selector)
     .append("svg")
     .attr("viewBox", `0 0 ${paramsContainment.width} ${paramsContainment.height}`)
     .attr("preserveAspectRatio", "xMidYMid meet");
+
+// Story
+const paramsStory = {
+    selector: "story"
+}
+
+//Map
 
 // Helper.collapsibleTable();
 
@@ -173,8 +183,6 @@ const svgContainment = d3.select(paramsContainment.selector)
 
 // let g = svg.append("g");
 
-// const sc = new Story.StoryClass("story");
-
 // let cntyCodes = ["53047", "53007", "53017"]
 
 function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, data, cities, shelters, fires) {
@@ -193,17 +201,12 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     let start = d3.min(data, function(d) {return +d.i});
     let limit = d3.max(data, function(d) {return +d.i});
     let i = start;
-    let startDay = d3.min(data, function(d) {return +d.date});
-    let endDay = d3.max(data, function(d) {return +d.date});
-    let dataInitial = data.filter(function(d) {
-        return d.date === startDay;
-    });
 
     let params = {
         dates: data, 
         limit: limit,
         i: i,
-        speed: 1500
+        speed: 3000
     }
 
     // Burn
@@ -250,9 +253,6 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         .attr("transform",`translate(0, ${paramsContainment.height-paramsContainment.margin.bottom})`)
         .call(d3.axisBottom().scale(xScaleContainment).ticks(2));
 
-    // // Set initial parameters before they enter loop
-    // sc.update(startDay); // set initial storyline
-
     Timer.setDate(params, function (date) {
 
         date = parseInt(date);
@@ -260,15 +260,12 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
             return d.date === date;
         });
 
-        // console.log(dataUpdate)
-
         Burn.draw(svgBurn, paramsBurn, xScaleBurn, yScaleBurn, dataUpdate);
         Containment.draw(svgContainment, paramsContainment, xScaleContainment, dataUpdate)
+        Story.update(paramsStory.selector, dataUpdate)
 
         // Map.openShelter(g, tooltip, projection, shelters, date);
         // Map.closeShelter(g, tooltip, projection, shelters, date)
-        // sc.update(date);
-        // sc.effects(data, date);
     });
 
     // Map.draw(svg, g, tooltip, projection, geoPathGenerator, stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities, shelters);
