@@ -222,6 +222,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         .append("rect")
         .attr("x", 0)
         .attr("y", 0)
+        .attr("class", "burn")
         .attr("width", xBurnScale(paramsBurn.min))
         .attr("height", yBurnScale(paramsBurn.max))
         .attr("fill", "#FFFFFF")
@@ -229,6 +230,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     
     // Containment
     paramsContainment["speed"] = params.speed
+
     let xScaleContainment = d3.scaleLinear()
         .domain([paramsContainment.min, paramsContainment.max])
         .range([paramsContainment.margin.left, paramsContainment.width - paramsContainment.margin.right]);
@@ -238,6 +240,15 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         .attr("class","axis")
         .attr("transform",`translate(0, ${paramsContainment.height-paramsContainment.margin.bottom})`)
         .call(d3.axisBottom().scale(xScaleContainment).ticks(2));
+
+    // svg.selectAll("myRect")
+    //     .data(data)
+    //     .join("rect")
+    //     .attr("x", x(0) )
+    //     .attr("y", d => y(d.Country))
+    //     .attr("width", d => x(d.Value))
+    //     .attr("height", y.bandwidth())
+    //     .attr("fill", "#69b3a2")
 
     // // Set initial parameters before they enter loop
     // sc.update(startDay); // set initial storyline

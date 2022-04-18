@@ -6,6 +6,7 @@ export function draw(svg, params, data, xScale, yScale) {
         .enter()
         .attr("x", 0)
         .attr("y", 0)
+        .attr("class", "burn")
         .attr("width", function(d) {return xScale(d.size)} )
         .attr("height",  function(d) {return xScale(d.size)})
         .attr("fill", "#EE2724");
@@ -17,6 +18,7 @@ export function draw(svg, params, data, xScale, yScale) {
         .duration(params.speed)
         .attr("x", 0)
         .attr("y", 0)
+        .attr("class", "burn")
         .attr("width",  function(d) {return xScale(d.size)})
         .attr("height",  function(d) {return xScale(d.size)})
         .attr("fill", "#EE2724");
