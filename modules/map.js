@@ -85,6 +85,25 @@ export function draw(svg, g, tooltip, projection, geoPathGenerator, stateBoundar
     svg.call(zoom);
 }
 
+export function createHouses(g, data, tooltip, projection, className, fill, r, fillOpacity = 1) {
+    let points = g
+        .append("g")
+        .selectAll("path")
+        .data(data)
+        .enter()
+        .append("path")
+            .attr("class", className)
+            .attr("transform", d => "translate(" + [
+                projection([d.long, d.lat])[0],
+                projection([d.long, d.lat])[1]] + ")")
+            .attr("d", d3.symbol().type(d3.symbolSquare).size("10"))
+            .attr("fill", fill)
+            .attr("fill-opacity", fillOpacity);
+
+    mouseoverPoints(points, tooltip);
+}
+
+
 export function updateShelter(symbol, projection, data, fill, r, opacity) {
 
     let c = symbol.selectAll("circle")
@@ -139,7 +158,15 @@ export function updateShelter(symbol, projection, data, fill, r, opacity) {
 }
 
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
 export function updateFire(circle, projection, data, fill, r, opacity) {
+
+    const colors = ["#E82B25", "#F6891F", "#F9C94A", "#F15523", "#B62025", "#FAA51A", "#F5841F", "#FCCC4D"]
+
+    console.log(getRandomInt(3));
 
     let c = circle.selectAll("circle")
         .data(data, function(d) {return d.id;});
@@ -149,7 +176,14 @@ export function updateFire(circle, projection, data, fill, r, opacity) {
         .append("circle")
             .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("fill", fill)
+            .attr("r", 0)
+            .attr("opacity", 0)
+        .merge(c)
+            .transition()
+            .duration(3000)
+            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
+            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
+            .attr("fill", function(d) {return colors[getRandomInt(colors.length - 1)]})
             .attr("r", r)
-            .attr("opacity", opacity)
+            .attr("opacity", opacity);
 }

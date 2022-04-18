@@ -306,7 +306,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     Map.drawBasemap(g, countyBoundaries.features, geoPathGenerator);
     Map.drawRoad(g, okBigStreets.features, geoPathGenerator, "#000000", 1.5);
     Map.drawRoad(g, okMedStreets.features, geoPathGenerator, "#000000", 1);
-    Map.createPoints(g, countyHouses, tooltip, projection, "houses", "#6CBE45", 1, .2);
+    Map.createHouses(g, countyHouses, tooltip, projection, "houses", "#6CBE45", 1, .2);
     Map.createPoints(g, cities, tooltip, projection, "cities", "#00AEEF", 15, .2);
 
     let shelterArea = g
@@ -375,7 +375,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         // svgMap.selectAll("path").attr("d", geoPathGenerator);
 
         Map.updateShelter(shelterArea, projection, sheltersUpdate, "#EE2C25", 8, 1)
-        Map.updateFire(firePoints, projection, firesUpdate, "orange", 1, .5)
+        Map.updateFire(firePoints, projection, firesUpdate, "orange", 1, .8)
 
     });
 
