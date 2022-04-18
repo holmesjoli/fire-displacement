@@ -105,10 +105,6 @@ const files = {
                 long: +j.Lon
             }
         }
-    },
-    fire_icon: {
-        pth: "./svg/fire.svg",
-        parse: null
     }
 };
 
@@ -340,8 +336,8 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
             .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
             .attr("r", 1)
-            .attr("fill", "orange")
-            .attr("fill-opacity", .3)
+            .attr("fill", "#FFFFFF")
+            .attr("fill-opacity", 0)
 
 
     // Timer
@@ -349,6 +345,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
         date = parseInt(date);
         let dataUpdate = data.filter((d) => d.date === date);
+        let firesUpdate = fires.filter((d) => d.date <= date);
         let sheltersUpdate = shelters.filter((d) => date >= d.openDate && date <= d.closeDate);
 
         Burn.draw(svgBurn, paramsBurn, xScaleBurn, yScaleBurn, dataUpdate);
@@ -364,7 +361,8 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         // geoPathGenerator = d3.geoPath().projection(projection);
         // svgMap.selectAll("path").attr("d", geoPathGenerator);
 
-        Map.updatePoints(shelterArea, projection, sheltersUpdate, "#EE2C25", 15)
+        Map.updatePoints(shelterArea, projection, sheltersUpdate, "#EE2C25", 15, .3)
+        Map.updatePoints(shelterArea, projection, firesUpdate, "orange", 1, .3, false)
 
     });
 
