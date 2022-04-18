@@ -227,7 +227,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         dates: data, 
         limit: limit,
         i: i,
-        speed: 3000
+        speed: 500
     }
 
     // Timeline
@@ -382,7 +382,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         Map.updateFire(firePoints, projection, firesUpdate, 1, .8)
 
         if (date === 825) {
-            Map.drawPath(g, fireBoundary.features, geoPathGenerator, "#EE2C25", 1.5);
+            Map.drawPath(g, fireBoundary.features, geoPathGenerator, "#EE2C25", 1.5, 1);
         }
 
     });
