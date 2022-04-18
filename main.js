@@ -195,9 +195,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
     // Burn
     burnParams["min"] = d3.min(data, function(d) {return d.size;});
-    burnParams["max"] = data.filter(function(d) {
-        return d.date === endDay;
-    })[0].size;
+    burnParams["max"] = d3.max(data, function(d) {return +d.size});
     burnParams["speed"] = params.speed
 
     const xBurnScale = d3.scaleSqrt()
