@@ -1,4 +1,4 @@
-function mouseoverPoints(points, tooltip) {
+export function mouseoverPoints(points, tooltip) {
 
     points.on("mouseover", function(e, d) {
 
@@ -15,7 +15,7 @@ function mouseoverPoints(points, tooltip) {
     });
 }
 
-function createPoints(g, data, tooltip, projection, className, fill, r, fillOpacity = 1) {
+export function createPoints(g, data, tooltip, projection, className, fill, r, fillOpacity = 1) {
     let points = g
         .append("g")
         .selectAll("circle")
@@ -32,7 +32,7 @@ function createPoints(g, data, tooltip, projection, className, fill, r, fillOpac
     mouseoverPoints(points, tooltip);
 }
 
-function drawBasemap(g, data, geoPathGenerator, stroke = "#FFFFFF", strokeWidth = 1) {
+export function drawBasemap(g, data, geoPathGenerator, stroke = "#FFFFFF", strokeWidth = 1) {
     g
     .append("g")
     .selectAll("path")
@@ -44,10 +44,10 @@ function drawBasemap(g, data, geoPathGenerator, stroke = "#FFFFFF", strokeWidth 
     .attr("stroke", stroke)
     .attr("stroke-width", strokeWidth)
     .attr("fill", "#D7D7D7")
-    .attr("opacity", .5);
+    // .attr("opacity", .5);
 }
 
-function drawRoad(g, data, geoPathGenerator, stroke = "#FFFFFF", strokeWidth = 1, opacity = .5) {
+export function drawRoad(g, data, geoPathGenerator, stroke = "#FFFFFF", strokeWidth = 1, opacity = .5) {
     g
     .append("g")
     .selectAll("path")
