@@ -234,20 +234,20 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         .domain([paramsContainment.min, paramsContainment.max])
         .range([paramsContainment.margin.left, paramsContainment.width - paramsContainment.margin.right]);
 
+    svgContainment
+        .append("rect")
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("class", "containment")
+        .attr("width", xScaleContainment(paramsBurn.min))
+        .attr("height", 50)
+        .attr("fill", "#FFFFFF")
+
     let xAxisContainment = svgContainment
         .append("g")
         .attr("class","axis")
         .attr("transform",`translate(0, ${paramsContainment.height-paramsContainment.margin.bottom})`)
         .call(d3.axisBottom().scale(xScaleContainment).ticks(2));
-
-        // svgBurn
-        //     .append("rect")
-        //     .attr("x", 0)
-        //     .attr("y", 0)
-        //     .attr("class", "containment")
-        //     .attr("width", xScaleContainment(paramsBurn.min))
-        //     .attr("height", 50)
-        //     .attr("fill", "#FFFFFF")
 
     // // Set initial parameters before they enter loop
     // sc.update(startDay); // set initial storyline
@@ -264,7 +264,6 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
         Burn.draw(svgBurn, paramsBurn, dataUpdate, xScaleBurn, yScaleBurn)
 
-        // Burn.draw(svgBurn, margin, rScale, dataInitial, dataUpdate);
         // Map.openShelter(g, tooltip, projection, shelters, date);
         // Map.closeShelter(g, tooltip, projection, shelters, date)
         // sc.update(date);
