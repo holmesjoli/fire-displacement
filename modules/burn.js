@@ -1,51 +1,22 @@
-export function updateBurn(svg, margin, rScale, dataInitial, dataUpdate) {
+export function draw(svgBurn, burnParams, data, xBurnScale, yBurnScale) {
 
-    let rect = svg.selectAll("rect")
-        .data(dataInitial)
+    let bar = svgBurn.selectAll("rect")
+        .data(data)
         .enter()
-        .append("rect")
-            .attr("x", margin)
-            .attr("y", margin)
-            .attr("class", "burn")
-            .attr("width", function(d) { return rScale(d.size); })
-            .attr("height", function(d) { return rScale(d.size); })
-            .attr("fill", "#EE2724");
+        .attr("x", burnParams.margin)
+        .attr("y", burnParams.margin)
+        .attr("width", function(d) {return xBurnScale(d.size)} )
+        .attr("height",  function(d) {return xBurnScale(d.size)})
+        .attr("fill", "#EE2724")
 
-    let r = svg.selectAll(".burn")
-        .data(dataUpdate, function(d) {return d.date;});
-    
-        r
-        .enter()
-        .append("rect")
-            .attr("x", margin)
-            .attr("y", margin)
-            .attr("height", function(d) { return rScale(d.size); })
-            .attr("width", function(d) { return rScale(d.size); })
-            .attr("fill", "#EE2724")
-        .merge(r)
-            .transition()
-            .duration(1000)
-            .delay(1000)
-            .attr("x", margin)
-            .attr("y", margin)
-            .attr("height", function(d) { return rScale(d.size); })
-            .attr("width", function(d) { return rScale(d.size); })
-            .attr("fill", "#EE2724");
-    
-        r.exit()
-            .transition()
-            .duration(1000)
-            .delay(1000)
-            .attr("width", 0)
-            .attr("height", 0)
-            .remove();
+    let b = svgBurn.selectAll("rect")
+            .data(data, function(d) { return d.date; });
 
-//     svg
-//         .append("rect")
-//         .attr("x", margin)
-//         .attr("y", margin)
-//         .attr("width", rScale(data[0].size) - margin)
-//         .attr("height", rScale(data[0].size) - margin)
-//         .attr("fill", "#FFFFFF")
-//         .attr("stroke", "#473F41")
+    b.transition() // a transition makes the changes visible...
+        .duration(1500)
+        .attr("x", burnParams.margin)
+        .attr("y", burnParams.margin)
+        .attr("width",  function(d) {return xBurnScale(d.size)})
+        .attr("height",  function(d) {return xBurnScale(d.size)})
+        .attr("fill", "#EE2724");
 }
