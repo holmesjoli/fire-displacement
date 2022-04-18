@@ -105,6 +105,10 @@ const files = {
                 long: +j.Lon
             }
         }
+    },
+    fire_icon: {
+        pth: "./svg/fire.svg",
+        parse: null
     }
 };
 
@@ -118,6 +122,21 @@ for (var key of Object.keys(files)) {
 Promise.all(promises).then(function (values) {
     drawVis(values[0], values[1], values[2], values[3], values[4], values[5],values[6], values[7], values[8], values[9])
 });
+
+// Timeline
+const paramsTimeline = {
+    selector: "timeline",
+    margin: {top: 0, right: 10, bottom: 50, left: 10},
+    width: 1000,
+    height: 100,
+    barHeight: 50,
+    barWidth: 10
+}
+
+const svgTimeline = d3.select(`#${paramsTimeline.selector}`)
+    .append("svg")
+    .attr("viewBox", `0 0 ${paramsTimeline.width} ${paramsTimeline.height}`)
+    .attr("preserveAspectRatio", "xMidYMid meet");
 
 // Burn
 const paramsBurn = {
@@ -157,7 +176,7 @@ const paramsMap = {
     selector: "chart",
     width: 500,
     height: 300,
-    margin: {top: 0, right: 10, bottom: 20, left: 10},
+    margin: {top: 0, right: 10, bottom: 50, left: 10},
     initialScale: 12000,
     initialCenterX: -23.5,
     initialCenterY: 48.25
@@ -211,9 +230,40 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         speed: 3000
     }
 
+    // Timeline
+    paramsTimeline["min"] = d3.min(data, function(d) {return d.date;});
+    paramsTimeline["max"] = d3.max(data, function(d) {return d.date});
+    paramsTimeline["speed"] = params.speed
+
+    let days = Helper.uniqueArray(data, "date").sort(function(a, b) {return a - b});
+    let days2 = Timer.daysLabel(days, data);
+    let xWidth = (paramsTimeline.width - paramsTimeline.margin.left - paramsTimeline.margin.right)/days.length;
+
+    const july = svgTimeline.append("text")
+        .attr("class","axis--label")
+        .attr("x", paramsTimeline.margin.left + xWidth*17/2)
+        .attr("y", paramsTimeline.height-paramsTimeline.margin.bottom/4)
+        .text("July");
+
+    const august = svgTimeline.append("text")
+        .attr("class","axis--label")
+        .attr("x", paramsTimeline.margin.left + xWidth*17 + xWidth*27/2)
+        .attr("y", paramsTimeline.height-paramsTimeline.margin.bottom/4)
+        .text("August");
+
+    let xScaleTimeline = d3.scaleBand()
+        .domain(days)
+        .range([paramsTimeline.margin.left, paramsTimeline.width - paramsTimeline.margin.right]);
+
+    let xAxisTimeline = svgTimeline
+        .append("g")
+        .attr("class","axis")
+        .attr("transform",`translate(0, ${paramsTimeline.height-paramsTimeline.margin.bottom})`)
+        .call(d3.axisBottom().scale(xScaleTimeline).tickValues(days).tickFormat((d, i) => days2[i]));
+
     // Burn
     paramsBurn["min"] = d3.min(data, function(d) {return d.size;});
-    paramsBurn["max"] = d3.max(data, function(d) {return +d.size});
+    paramsBurn["max"] = d3.max(data, function(d) {return d.size});
     paramsBurn["speed"] = params.speed
 
     const xScaleBurn = d3.scaleSqrt()
@@ -254,7 +304,6 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         .attr("class","axis")
         .attr("transform",`translate(0, ${paramsContainment.height-paramsContainment.margin.bottom})`)
         .call(d3.axisBottom().scale(xScaleContainment).ticks(2));
-
 
     //Map
     Map.drawBasemap(g, stateBoundaries.features, geoPathGenerator);
@@ -306,6 +355,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         Containment.draw(svgContainment, paramsContainment, xScaleContainment, dataUpdate);
         Story.update(paramsStory.selector, dataUpdate);
         Story.effects(dataUpdate);
+        // Timer.draw(svgTimeline, paramsTimeline, xScaleTimeline, data)
 
         // Update the projection
         // let k = dataUpdate[0].scale;
