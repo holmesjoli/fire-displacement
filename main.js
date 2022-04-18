@@ -206,7 +206,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         dates: data, 
         limit: limit,
         i: i,
-        speed: 3000
+        speed: 500
     }
 
     // Burn
@@ -261,8 +261,9 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         });
 
         Burn.draw(svgBurn, paramsBurn, xScaleBurn, yScaleBurn, dataUpdate);
-        Containment.draw(svgContainment, paramsContainment, xScaleContainment, dataUpdate)
-        Story.update(paramsStory.selector, dataUpdate)
+        Containment.draw(svgContainment, paramsContainment, xScaleContainment, dataUpdate);
+        Story.update(paramsStory.selector, dataUpdate);
+        Story.effects(dataUpdate);
 
         // Map.openShelter(g, tooltip, projection, shelters, date);
         // Map.closeShelter(g, tooltip, projection, shelters, date)
