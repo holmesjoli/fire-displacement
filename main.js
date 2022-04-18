@@ -258,13 +258,36 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
     //Map
     Map.drawBasemap(g, stateBoundaries.features, geoPathGenerator);
+    Map.drawBasemap(g, countyBoundaries.features, geoPathGenerator);
+    Map.drawRoad(g, okBigStreets.features, geoPathGenerator, "#000000", 1.5);
+    Map.drawRoad(g, okMedStreets.features, geoPathGenerator, "#000000", 1);
+    Map.createPoints(g, countyHouses, tooltip, projection, "houses", "#6CBE45", 1, .2);
+    Map.createPoints(g, cities, tooltip, projection, "cities", "#00AEEF", 2.5);
 
+    let circle = g
+        .append("g")
+
+    circle
+        .selectAll("circle")
+        .data(shelters)
+        .enter()
+        .append("circle")
+            .attr("class", "shelters")
+            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
+            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
+            .attr("r", 15)
+            .attr("fill", "#FFFFFF")
+            .attr("fill-opacity", 0)
+
+
+    // Timer
     Timer.setDate(params, function (date) {
 
         date = parseInt(date);
-        let dataUpdate = data.filter(function(d) {
-            return d.date === date;
-        });
+        let dataUpdate = data.filter((d) => d.date === date);
+        let sheltersUpdate = shelters.filter((d) => date >= d.openDate && date <= d.closeDate);
+        // console.log(sheltersUpdate)
+        // console.log(date)
 
         Burn.draw(svgBurn, paramsBurn, xScaleBurn, yScaleBurn, dataUpdate);
         Containment.draw(svgContainment, paramsContainment, xScaleContainment, dataUpdate);
@@ -274,23 +297,37 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         // Update the projection
         let k = dataUpdate[0].scale;
         projection.scale(k);
+
         geoPathGenerator = d3.geoPath().projection(projection);
         svgMap.selectAll("path").attr("d", geoPathGenerator);
 
-        if (date === 716) {
-            Map.drawBasemap(g, countyBoundaries.features, geoPathGenerator);
-        }
 
-        if (date === 717) {
-            Map.drawRoad(g, okBigStreets.features, geoPathGenerator, "#000000", 1.5);
-            Map.drawRoad(g, okMedStreets.features, geoPathGenerator, "#000000", 1);
-            Map.createPoints(g, countyHouses, tooltip, projection, "houses", "#6CBE45", 1, .2);
-            Map.createPoints(g, cities, tooltip, projection, "cities", "#00AEEF", 2.5);
-        }
+        let c = circle.selectAll("circle")
+        .data(sheltersUpdate, function(d) {return d.id;});
+    
+        c
+        .enter()
+        .append("circle")
+            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
+            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
+            .attr("r", 0)
+            .attr("fill","#EE2C25")
+        .merge(c)
+            .transition()
+            .duration(1000)
+            .delay(1000)
+            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
+            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
+            .attr("r", 15)
+            .attr("opacity", .3);
+    
+        c.exit()
+            .transition()
+            .duration(1000)
+            .delay(1000)
+            .attr("r", 0)
+            .remove();
 
-
-        // Map.openShelter(g, tooltip, projection, shelters, date);
-        // Map.closeShelter(g, tooltip, projection, shelters, date)
     });
 
     var zoom = d3.zoom()

@@ -9,7 +9,7 @@ export function draw(svg, params, xScale, data) {
         .attr("class", "containment")
         .attr("width", function(d) {return xScale(d.containment)} )
         .attr("height", params.barHeight)
-        .attr("fill", "#EE2724");
+        .attr("fill", "#E05926");
 
     let b = svg.selectAll(".containment")
             .data(data, function(d) { return d.date; });
@@ -21,5 +21,5 @@ export function draw(svg, params, xScale, data) {
         .attr("class", "containment")
         .attr("width", function(d) {return xScale(d.containment)} )
         .attr("height", params.barHeight)
-        .attr("fill", "#EE2724");
+        .attr("fill", "#E05926");
 }
