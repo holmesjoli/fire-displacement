@@ -118,15 +118,15 @@ Promise.all(promises).then(function (values) {
     drawVis(values[0], values[1], values[2], values[3], values[4], values[5],values[6], values[7], values[8], values[9])
 });
 
-const burnParams = {
+const paramsBurn = {
     selector: "#burn",
     margin: 0,
     width: 400
 }
 
-const svgBurn = d3.select(burnParams.selector)
+const svgBurn = d3.select(paramsBurn.selector)
     .append("svg")
-    .attr("viewBox", `0 0 ${burnParams.width} ${burnParams.width}`)
+    .attr("viewBox", `0 0 ${paramsBurn.width} ${paramsBurn.width}`)
     .attr("preserveAspectRatio", "xMidYMid meet");
 
 const paramsContainment = {
@@ -206,24 +206,24 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     }
 
     // Burn
-    burnParams["min"] = d3.min(data, function(d) {return d.size;});
-    burnParams["max"] = d3.max(data, function(d) {return +d.size});
-    burnParams["speed"] = params.speed
+    paramsBurn["min"] = d3.min(data, function(d) {return d.size;});
+    paramsBurn["max"] = d3.max(data, function(d) {return +d.size});
+    paramsBurn["speed"] = params.speed
 
     const xBurnScale = d3.scaleSqrt()
-        .domain([burnParams.min, burnParams.max])
-        .range([burnParams.margin, burnParams.width - burnParams.margin]);
+        .domain([paramsBurn.min, paramsBurn.max])
+        .range([paramsBurn.margin, paramsBurn.width - paramsBurn.margin]);
 
     const yBurnScale = d3.scaleSqrt()
-        .domain([burnParams.min, burnParams.max])
-        .range([burnParams.width - burnParams.margin, burnParams.margin]);
+        .domain([paramsBurn.min, paramsBurn.max])
+        .range([paramsBurn.width - paramsBurn.margin, paramsBurn.margin]);
 
     svgBurn
         .append("rect")
         .attr("x", 0)
         .attr("y", 0)
-        .attr("width", xBurnScale(burnParams.min))
-        .attr("height", yBurnScale(burnParams.max))
+        .attr("width", xBurnScale(paramsBurn.min))
+        .attr("height", yBurnScale(paramsBurn.max))
         .attr("fill", "#FFFFFF")
 
     
@@ -252,7 +252,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
         console.log(dataUpdate)
 
-        Burn.draw(svgBurn, burnParams, dataUpdate, xBurnScale, yBurnScale)
+        Burn.draw(svgBurn, paramsBurn, dataUpdate, xBurnScale, yBurnScale)
 
         // Burn.draw(svgBurn, margin, rScale, dataInitial, dataUpdate);
         // Map.openShelter(g, tooltip, projection, shelters, date);
