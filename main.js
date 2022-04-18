@@ -237,7 +237,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
     svgContainment
         .append("rect")
-        .attr("x", 0)
+        .attr("x", paramsContainment.margin.left)
         .attr("y", 0)
         .attr("class", "containment")
         .attr("width", xScaleContainment(paramsContainment.min))
