@@ -75,7 +75,7 @@ export function draw(svg, g, tooltip, projection, geoPathGenerator, stateBoundar
 
     // create a zoom function
     var zoom = d3.zoom()
-    .scaleExtent([0, 8])
+    .scaleExtent([0, 15])
     .on("zoom", function(event) {
         g
         .attr("transform", `scale(${event.transform.k}) translate(${event.transform.x}, ${event.transform.y})`);
