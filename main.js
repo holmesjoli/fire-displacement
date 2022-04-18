@@ -48,7 +48,6 @@ const files = {
             return {
                 air_support: +j.air_support,
                 containment: +j.containment,
-                containment_previous: + j.containment_previous,
                 day: +j.day,
                 engines: +j.engines,
                 home_place: +j.home_place,
@@ -105,6 +104,10 @@ const files = {
                 long: +j.Lon
             }
         }
+    },
+    firesBoundary: {
+        pth: "./data/fire_boundary.geojson",
+        parse: null
     }
 };
 
@@ -116,7 +119,7 @@ for (var key of Object.keys(files)) {
 }
 
 Promise.all(promises).then(function (values) {
-    drawVis(values[0], values[1], values[2], values[3], values[4], values[5],values[6], values[7], values[8], values[9])
+    drawVis(values[0], values[1], values[2], values[3], values[4], values[5],values[6], values[7], values[8], values[9], values[10])
 });
 
 // Timeline
@@ -202,7 +205,7 @@ let geoPathGenerator = d3.geoPath().projection(projection);
 // Helper.collapsibleTable();
 // let cntyCodes = ["53047", "53007", "53017"]
 
-function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, data, cities, shelters, fires) {
+function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, data, cities, shelters, fires, fireBoundary) {
 
     console.log(stateBoundaries);
     console.log(countyBoundaries);
@@ -214,6 +217,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     console.log(cities)
     console.log(shelters)
     console.log(fires)
+    console.log(fireBoundary)
 
     let start = d3.min(data, function(d) {return +d.i});
     let limit = d3.max(data, function(d) {return +d.i});
@@ -304,8 +308,8 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     //Map
     Map.drawBasemap(g, stateBoundaries.features, geoPathGenerator);
     Map.drawBasemap(g, countyBoundaries.features, geoPathGenerator);
-    Map.drawRoad(g, okBigStreets.features, geoPathGenerator, "#000000", 1.5);
-    Map.drawRoad(g, okMedStreets.features, geoPathGenerator, "#000000", 1);
+    Map.drawPath(g, okBigStreets.features, geoPathGenerator, "#000000", 1.5);
+    Map.drawPath(g, okMedStreets.features, geoPathGenerator, "#000000", 1);
     Map.createHouses(g, countyHouses, tooltip, projection, "houses", "#382767", 1, .2);
     Map.createPoints(g, cities, tooltip, projection, "cities", "#8B4B6A", 15, .2);
 
@@ -376,6 +380,10 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
         Map.updateShelter(shelterArea, projection, sheltersUpdate, "#EE2C25", 8, 1)
         Map.updateFire(firePoints, projection, firesUpdate, 1, .8)
+
+        if (date === 825) {
+            Map.drawPath(g, fireBoundary.features, geoPathGenerator, "#EE2C25", 1.5);
+        }
 
     });
 

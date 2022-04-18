@@ -47,7 +47,7 @@ export function drawBasemap(g, data, geoPathGenerator, stroke = "#FFFFFF", strok
     // .attr("opacity", .5);
 }
 
-export function drawRoad(g, data, geoPathGenerator, stroke = "#FFFFFF", strokeWidth = 1, opacity = .5) {
+export function drawPath(g, data, geoPathGenerator, stroke = "#FFFFFF", strokeWidth = 1, opacity = .5) {
     g
     .append("g")
     .selectAll("path")
@@ -165,8 +165,6 @@ function getRandomInt(max) {
 export function updateFire(circle, projection, data, r, opacity) {
 
     const colors = ["#E82B25", "#F6891F", "#F9C94A", "#F15523", "#B62025", "#FAA51A", "#F5841F", "#FCCC4D"]
-
-    console.log(getRandomInt(3));
 
     let c = circle.selectAll("circle")
         .data(data, function(d) {return d.id;});
