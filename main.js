@@ -121,19 +121,19 @@ Promise.all(promises).then(function (values) {
 
 // Burn
 const paramsBurn = {
-    selector: "#burn",
+    selector: "burn",
     margin: 0,
     width: 400
 }
 
-const svgBurn = d3.select(paramsBurn.selector)
+const svgBurn = d3.select(`#${paramsBurn.selector}`)
     .append("svg")
     .attr("viewBox", `0 0 ${paramsBurn.width} ${paramsBurn.width}`)
     .attr("preserveAspectRatio", "xMidYMid meet");
 
 // Containment
 const paramsContainment = {
-    selector: "#containment",
+    selector: "containment",
     margin: {top: 0, right: 10, bottom: 20, left: 10},
     width: 400,
     height: 100,
@@ -142,7 +142,7 @@ const paramsContainment = {
     max: 100
 }
 
-const svgContainment = d3.select(paramsContainment.selector)
+const svgContainment = d3.select(`#${paramsContainment.selector}`)
     .append("svg")
     .attr("viewBox", `0 0 ${paramsContainment.width} ${paramsContainment.height}`)
     .attr("preserveAspectRatio", "xMidYMid meet");
@@ -153,6 +153,10 @@ const paramsStory = {
 }
 
 //Map
+const paramsMap = {
+    selector: "chart"
+}
+
 
 // Helper.collapsibleTable();
 
