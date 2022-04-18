@@ -264,10 +264,10 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     Map.createPoints(g, countyHouses, tooltip, projection, "houses", "#6CBE45", 1, .2);
     Map.createPoints(g, cities, tooltip, projection, "cities", "#00AEEF", 2.5);
 
-    let circle = g
+    let shelterArea = g
         .append("g")
 
-    circle
+    shelterArea
         .selectAll("circle")
         .data(shelters)
         .enter()
@@ -299,7 +299,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         // geoPathGenerator = d3.geoPath().projection(projection);
         // svgMap.selectAll("path").attr("d", geoPathGenerator);
 
-        Map.updateShelter(circle, projection, sheltersUpdate);
+        Map.updateShelter(shelterArea, projection, sheltersUpdate);
 
     });
 

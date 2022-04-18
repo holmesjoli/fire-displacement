@@ -98,35 +98,29 @@ export function openShelter(g, tooltip, projection, shelters, date) {
         .attr("fill", "#EE2724");
 }
 
-export function closeShelter(points, tooltip, projection, className, fill, r, data) {
+export function updateShelter(circle, projection, data) {
 
-    console.log(data)
+    let c = circle.selectAll("circle")
+        .data(data, function(d) {return d.id;});
 
-    let point = points
-        .data(data)
+        c
         .enter()
-        .attr("class", className)
-        .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
-        .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-        .attr("r", r)
-        .attr("fill", fill)
-        .attr("fill-opacity", 1);
-
-    // let b = g.selectAll(".shelter")
-    //         .data(data, function(d) { return d.id; });
-
-    // b.transition()
-    //     .duration(3000)
-    //     .attr("class", className)
-    //     .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
-    //     .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-    //     .attr("r", r)
-    //     .attr("fill", fill)
-    //     .attr("fill-opacity", 1);
-
-    // b.exit()
-    //     .transition()
-    //     .duration(1000)
-    //     .attr("r", 0)
-    //     .remove();
+        .append("circle")
+            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
+            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
+            .attr("r", 0)
+            .attr("fill","#EE2C25")
+        .merge(c)
+            .transition()
+            .duration(1000)
+            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
+            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
+            .attr("r", 15)
+            .attr("opacity", .3);
+    
+        c.exit()
+            .transition()
+            .duration(1000)
+            .attr("r", 0)
+            .remove();
 }
