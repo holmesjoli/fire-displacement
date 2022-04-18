@@ -345,7 +345,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
         date = parseInt(date);
         let dataUpdate = data.filter((d) => d.date === date);
-        let firesUpdate = fires.filter((d) => d.date <= date);
+        let firesUpdate = fires.filter((d) => d.date === date);
         let sheltersUpdate = shelters.filter((d) => date >= d.openDate && date <= d.closeDate);
 
         Burn.draw(svgBurn, paramsBurn, xScaleBurn, yScaleBurn, dataUpdate);
@@ -362,7 +362,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         // svgMap.selectAll("path").attr("d", geoPathGenerator);
 
         Map.updatePoints(shelterArea, projection, sheltersUpdate, "#EE2C25", 15, .3)
-        Map.updatePoints(shelterArea, projection, firesUpdate, "orange", 1, .3, false)
+        Map.updateFire(firePoints, projection, firesUpdate, "orange", 1, .3)
 
     });
 

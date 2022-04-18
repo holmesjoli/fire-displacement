@@ -98,7 +98,7 @@ export function openShelter(g, tooltip, projection, shelters, date) {
         .attr("fill", "#EE2724");
 }
 
-export function updatePoints(circle, projection, data, fill, r, opacity, transitionOut = true) {
+export function updatePoints(circle, projection, data, fill, r, opacity) {
 
     let c = circle.selectAll("circle")
         .data(data, function(d) {return d.id;});
@@ -119,11 +119,25 @@ export function updatePoints(circle, projection, data, fill, r, opacity, transit
             .attr("r", r)
             .attr("opacity", opacity);
 
-    if (transitionOut) {
-        c.exit()
-            .transition()
-            .duration(1000)
-            .attr("r", 0)
-            .remove();
-    }
+    c.exit()
+        .transition()
+        .duration(1000)
+        .attr("r", 0)
+        .remove();
+}
+
+
+export function updateFire(circle, projection, data, fill, r, opacity) {
+
+    let c = circle.selectAll("circle")
+        .data(data, function(d) {return d.id;});
+
+        c
+        .enter()
+        .append("circle")
+            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
+            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
+            .attr("fill", fill)
+            .attr("r", r)
+            .attr("opacity", opacity)
 }
