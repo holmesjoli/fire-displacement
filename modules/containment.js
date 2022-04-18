@@ -1,24 +1,26 @@
-// Draw burnt area
-export function draw(svg, params, data, xBurnScale, yBurnScale) {
+// Draw containment percentage
+export function draw(svg, params, xScale, data) {
 
     let bar = svg.selectAll("rect")
         .data(data)
         .enter()
         .attr("x", 0)
         .attr("y", 0)
-        .attr("width", function(d) {return xBurnScale(d.size)} )
-        .attr("height",  function(d) {return xBurnScale(d.size)})
+        .attr("class", "containment")
+        .attr("width", function(d) {return xScale(d.containment)} )
+        .attr("height", params.barHeight)
         .attr("fill", "#EE2724");
 
-    let b = svg.selectAll("rect")
+    let b = svg.selectAll(".containment")
             .data(data, function(d) { return d.date; });
 
     b.transition()
-        .duration(burnParams.speed)
+        .duration(params.speed)
         .attr("x", 0)
         .attr("y", 0)
-        .attr("width",  function(d) {return xBurnScale(d.size)})
-        .attr("height",  function(d) {return xBurnScale(d.size)})
+        .attr("class", "containment")
+        .attr("width", function(d) {return xScale(d.containment)} )
+        .attr("height", params.barHeight)
         .attr("fill", "#EE2724");
 }
 

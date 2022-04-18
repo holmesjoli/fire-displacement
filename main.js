@@ -134,6 +134,7 @@ const paramsContainment = {
     margin: {top: 0, right: 10, bottom: 20, left: 10},
     width: 400,
     height: 100,
+    barHeight: 50,
     min: 0,
     max: 100
 }
@@ -239,8 +240,8 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         .attr("x", 0)
         .attr("y", 0)
         .attr("class", "containment")
-        .attr("width", xScaleContainment(paramsBurn.min))
-        .attr("height", 50)
+        .attr("width", xScaleContainment(paramsContainment.min))
+        .attr("height", paramsContainment.barHeight)
         .attr("fill", "#FFFFFF")
 
     let xAxisContainment = svgContainment
@@ -262,7 +263,8 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
         console.log(dataUpdate)
 
-        Burn.draw(svgBurn, paramsBurn, dataUpdate, xScaleBurn, yScaleBurn)
+        Burn.draw(svgBurn, paramsBurn, xScaleBurn, yScaleBurn, dataUpdate);
+        Containment.draw(svgContainment, paramsContainment, xScaleContainment, dataUpdate)
 
         // Map.openShelter(g, tooltip, projection, shelters, date);
         // Map.closeShelter(g, tooltip, projection, shelters, date)

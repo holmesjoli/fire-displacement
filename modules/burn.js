@@ -1,5 +1,5 @@
 // Draw burnt area
-export function draw(svg, params, data, xScale, yScale) {
+export function draw(svg, params, xScale, yScale, data) {
 
     let bar = svg.selectAll("rect")
         .data(data)
