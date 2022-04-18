@@ -1,6 +1,6 @@
 // Title Set Date
 // param params
-// param callbaxk
+// param callback
 export function setDate(params, callback) {
 
     let monthId = document.getElementById('month');
@@ -19,7 +19,6 @@ export function setDate(params, callback) {
             dayId.innerHTML = `${filteredDates[0].day}`;
             monthId.innerHTML =  `${filteredDates[0].month_name}`;
 
-            // console.log(filteredDates[0].date);
             callback(`${filteredDates[0].date}`);
             
         } else {
