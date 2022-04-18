@@ -277,16 +277,16 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         geoPathGenerator = d3.geoPath().projection(projection);
         svgMap.selectAll("path").attr("d", geoPathGenerator);
 
-        // if (date === 716) {
-        //     Map.drawBasemap(g, countyBoundaries.features, geoPathGenerator);
-        // }
+        if (date === 716) {
+            Map.drawBasemap(g, countyBoundaries.features, geoPathGenerator);
+        }
 
-        // if (date === 717) {
-        //     Map.drawRoad(g, okBigStreets.features, geoPathGenerator, "#000000", 1.5);
-        //     Map.drawRoad(g, okMedStreets.features, geoPathGenerator, "#000000", 1);
-        //     Map.createPoints(g, countyHouses, tooltip, projection, "houses", "#6CBE45", 1, .2);
-        //     Map.createPoints(g, cities, tooltip, projection, "cities", "#00AEEF", 2.5);
-        // }
+        if (date === 717) {
+            Map.drawRoad(g, okBigStreets.features, geoPathGenerator, "#000000", 1.5);
+            Map.drawRoad(g, okMedStreets.features, geoPathGenerator, "#000000", 1);
+            Map.createPoints(g, countyHouses, tooltip, projection, "houses", "#6CBE45", 1, .2);
+            Map.createPoints(g, cities, tooltip, projection, "cities", "#00AEEF", 2.5);
+        }
 
 
         // Map.openShelter(g, tooltip, projection, shelters, date);
