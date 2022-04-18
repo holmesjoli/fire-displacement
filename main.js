@@ -124,10 +124,23 @@ const burnParams = {
     width: 400
 }
 
-const margin = 10;
 const svgBurn = d3.select(burnParams.selector)
     .append("svg")
     .attr("viewBox", `0 0 ${burnParams.width} ${burnParams.width}`)
+    .attr("preserveAspectRatio", "xMidYMid meet");
+
+const paramsContainment = {
+    selector: "#containment",
+    margin: {top: 0, right: 10, bottom: 20, left: 10},
+    width: 400,
+    height: 100,
+    min: 0,
+    max: 100
+}
+
+const svgContainment = d3.select(paramsContainment.selector)
+    .append("svg")
+    .attr("viewBox", `0 0 ${paramsContainment.width} ${paramsContainment.height}`)
     .attr("preserveAspectRatio", "xMidYMid meet");
 
 // Helper.collapsibleTable();
@@ -159,8 +172,9 @@ const svgBurn = d3.select(burnParams.selector)
 
 // let g = svg.append("g");
 
-// const cc = new Containment.ContainmentClass("#containment");
 // const sc = new Story.StoryClass("story");
+
+// let cntyCodes = ["53047", "53007", "53017"]
 
 function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, data, cities, shelters, fires) {
 
@@ -174,8 +188,6 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     console.log(cities)
     console.log(shelters)
     console.log(fires)
-
-    // // let cntyCodes = ["53047", "53007", "53017"]
 
     let start = d3.min(data, function(d) {return +d.i});
     let limit = d3.max(data, function(d) {return +d.i});
@@ -214,10 +226,21 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         .attr("height", yBurnScale(burnParams.max))
         .attr("fill", "#FFFFFF")
 
+    
+    // Containment
+    paramsContainment["speed"] = params.speed
+    let xScaleContainment = d3.scaleLinear()
+        .domain([paramsContainment.min, paramsContainment.max])
+        .range([paramsContainment.margin.left, paramsContainment.width - paramsContainment.margin.right]);
+
+    let xAxisContainment = svgContainment
+        .append("g")
+        .attr("class","axis")
+        .attr("transform",`translate(0, ${paramsContainment.height-paramsContainment.margin.bottom})`)
+        .call(d3.axisBottom().scale(xScaleContainment).ticks(2));
+
     // // Set initial parameters before they enter loop
-    // // cc.draw(data, startDay);
     // sc.update(startDay); // set initial storyline
-    // Burn.setupSVG(sizeWidth, margin, sizeExtent, rScale)
 
     Timer.setDate(params, function (date) {
         // console.log(date)
