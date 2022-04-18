@@ -176,7 +176,7 @@ const paramsMap = {
     width: 500,
     height: 300,
     margin: {top: 0, right: 10, bottom: 50, left: 10},
-    initialScale: 12000,
+    initialScale: 14000,
     initialCenterX: -23.5,
     initialCenterY: 48.25
 }
@@ -310,8 +310,8 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     Map.drawBasemap(g, countyBoundaries.features, geoPathGenerator);
     Map.drawPath(g, okBigStreets.features, geoPathGenerator, "#000000", 1.5);
     Map.drawPath(g, okMedStreets.features, geoPathGenerator, "#000000", 1);
-    Map.createHouses(g, countyHouses, tooltip, projection, "houses", "#382767", 1, .2);
-    Map.createPoints(g, cities, tooltip, projection, "cities", "#8B4B6A", 15, .2);
+    Map.createHouses(g, countyHouses, tooltip, projection, "houses", "#8B4B6A", 1, .2);
+    Map.createPoints(g, cities, tooltip, projection, "cities", "#382767", 5, 1);
 
     let shelterArea = g
         .append("g")

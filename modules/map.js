@@ -43,11 +43,11 @@ export function drawBasemap(g, data, geoPathGenerator, stroke = "#FFFFFF", strok
     .attr("d", geoPathGenerator)
     .attr("stroke", stroke)
     .attr("stroke-width", strokeWidth)
-    .attr("fill", "#D7D7D7")
+    .attr("fill", "#E0E0E0")
     // .attr("opacity", .5);
 }
 
-export function drawPath(g, data, geoPathGenerator, stroke = "#FFFFFF", strokeWidth = 1, opacity = .5) {
+export function drawPath(g, data, geoPathGenerator, stroke = "#D7D7D7", strokeWidth = 1, opacity = .5) {
     g
     .append("g")
     .selectAll("path")
