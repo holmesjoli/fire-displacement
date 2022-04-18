@@ -11,7 +11,7 @@ export function draw(svg, params, data, xScale, yScale) {
         .attr("height",  function(d) {return xScale(d.size)})
         .attr("fill", "#EE2724");
 
-    let b = svg.selectAll("rect")
+    let b = svg.selectAll(".burn")
             .data(data, function(d) { return d.date; });
 
     b.transition()
