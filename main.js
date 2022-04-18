@@ -279,6 +279,21 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
             .attr("fill", "#FFFFFF")
             .attr("fill-opacity", 0)
 
+    let firePoints = g
+            .append("g")
+
+    firePoints
+        .selectAll("circle")
+        .data(fires)
+        .enter()
+        .append("circle")
+            .attr("class", "shelters")
+            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
+            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
+            .attr("r", 1)
+            .attr("fill", "orange")
+            .attr("fill-opacity", .3)
+
 
     // Timer
     Timer.setDate(params, function (date) {
