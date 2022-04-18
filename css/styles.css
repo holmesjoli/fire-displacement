@@ -102,6 +102,11 @@ p {
     padding: 20px;
 }
 
+#burn svg,
+#containment svg {
+    border: 1px solid #473F41;
+}
+
 .tooltip {
     position: absolute;
     left: 0px;

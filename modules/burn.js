@@ -12,8 +12,8 @@ export function draw(svgBurn, burnParams, data, xBurnScale, yBurnScale) {
     let b = svgBurn.selectAll("rect")
             .data(data, function(d) { return d.date; });
 
-    b.transition() // a transition makes the changes visible...
-        .duration(1500)
+    b.transition()
+        .duration(burnParams.speed)
         .attr("x", burnParams.margin)
         .attr("y", burnParams.margin)
         .attr("width",  function(d) {return xBurnScale(d.size)})
