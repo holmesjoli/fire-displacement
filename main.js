@@ -63,7 +63,8 @@ const files = {
                 total_personnel: +j.total_personnel,
                 scale: +j.scale,
                 centerX: +j.centerX,
-                centerY: +j.centerY
+                centerY: +j.centerY,
+                story: j.story
             }
         }
     },
@@ -118,19 +119,21 @@ Promise.all(promises).then(function (values) {
     drawVis(values[0], values[1], values[2], values[3], values[4], values[5],values[6], values[7], values[8], values[9])
 });
 
+// Burn
 const paramsBurn = {
-    selector: "#burn",
+    selector: "burn",
     margin: 0,
     width: 400
 }
 
-const svgBurn = d3.select(paramsBurn.selector)
+const svgBurn = d3.select(`#${paramsBurn.selector}`)
     .append("svg")
     .attr("viewBox", `0 0 ${paramsBurn.width} ${paramsBurn.width}`)
     .attr("preserveAspectRatio", "xMidYMid meet");
 
+// Containment
 const paramsContainment = {
-    selector: "#containment",
+    selector: "containment",
     margin: {top: 0, right: 10, bottom: 20, left: 10},
     width: 400,
     height: 100,
@@ -139,42 +142,49 @@ const paramsContainment = {
     max: 100
 }
 
-const svgContainment = d3.select(paramsContainment.selector)
+const svgContainment = d3.select(`#${paramsContainment.selector}`)
     .append("svg")
     .attr("viewBox", `0 0 ${paramsContainment.width} ${paramsContainment.height}`)
     .attr("preserveAspectRatio", "xMidYMid meet");
 
+// Story
+const paramsStory = {
+    selector: "story"
+}
+
+//Map
+const paramsMap = {
+    selector: "chart",
+    width: 500,
+    height: 300,
+    margin: {top: 0, right: 10, bottom: 20, left: 10},
+    initialScale: 12000,
+    initialCenterX: -23.5,
+    initialCenterY: 48.25
+}
+
+const svgMap = d3.select(`#${paramsMap.selector}`)
+    .append("svg")
+    .attr("viewBox", `0 0 ${paramsMap.width} ${paramsMap.height}`)
+    .attr("preserveAspectRatio", "xMidYMid meet");
+    // .attr("id", "map-svg")
+    // .classed("svg-content", true);
+
+let g = svgMap.append("g");
+
+let tooltip = d3.select(`#${paramsMap.selector}`)
+            .append("div")
+            .attr("class", "tooltip");
+
+let projection = d3.geoAlbers()
+    .translate([paramsMap.width / 2, paramsMap.height / 2])
+    .scale(paramsMap.initialScale)
+    .center([paramsMap.initialCenterX, paramsMap.initialCenterY]);
+
+let geoPathGenerator = d3.geoPath().projection(projection);
+
+
 // Helper.collapsibleTable();
-
-// const width = window.innerWidth*.65;
-// const height = window.innerHeight;
-// const margin = {top: 0, right: 10, bottom: 20, left: 10};
-// const initialScale = 30000;
-// const initialCenterX = -23.5;
-// const initialCenterY = 48.25;
-
-// let tooltip = d3.select("#chart")
-//             .append("div")
-//             .attr("class", "tooltip");
-
-// let projection = d3.geoAlbers()
-//     .translate([width / 2, height / 2])
-//     .scale(initialScale)
-//     .center([initialCenterX, initialCenterY]);
-
-// let geoPathGenerator = d3.geoPath().projection(projection);
-
-// const svg = d3.select("#chart")
-//     .append("svg")
-//     .attr("viewBox", `0 0 ${width} ${height}`)
-//     .attr("preserveAspectRatio", "xMidYMid meet")
-//     .attr("id", "map-svg")
-//     .classed("svg-content", true);
-
-// let g = svg.append("g");
-
-// const sc = new Story.StoryClass("story");
-
 // let cntyCodes = ["53047", "53007", "53017"]
 
 function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, data, cities, shelters, fires) {
@@ -193,17 +203,12 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     let start = d3.min(data, function(d) {return +d.i});
     let limit = d3.max(data, function(d) {return +d.i});
     let i = start;
-    let startDay = d3.min(data, function(d) {return +d.date});
-    let endDay = d3.max(data, function(d) {return +d.date});
-    let dataInitial = data.filter(function(d) {
-        return d.date === startDay;
-    });
 
     let params = {
         dates: data, 
         limit: limit,
         i: i,
-        speed: 1500
+        speed: 3000
     }
 
     // Burn
@@ -250,26 +255,60 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         .attr("transform",`translate(0, ${paramsContainment.height-paramsContainment.margin.bottom})`)
         .call(d3.axisBottom().scale(xScaleContainment).ticks(2));
 
-    // // Set initial parameters before they enter loop
-    // sc.update(startDay); // set initial storyline
 
+    //Map
+    Map.drawBasemap(g, stateBoundaries.features, geoPathGenerator);
+    Map.drawBasemap(g, countyBoundaries.features, geoPathGenerator);
+    Map.drawRoad(g, okBigStreets.features, geoPathGenerator, "#000000", 1.5);
+    Map.drawRoad(g, okMedStreets.features, geoPathGenerator, "#000000", 1);
+    Map.createPoints(g, countyHouses, tooltip, projection, "houses", "#6CBE45", 1, .2);
+    Map.createPoints(g, cities, tooltip, projection, "cities", "#00AEEF", 2.5);
+
+    let shelterArea = g
+        .append("g")
+
+    shelterArea
+        .selectAll("circle")
+        .data(shelters)
+        .enter()
+        .append("circle")
+            .attr("class", "shelters")
+            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
+            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
+            .attr("r", 15)
+            .attr("fill", "#FFFFFF")
+            .attr("fill-opacity", 0)
+
+
+    // Timer
     Timer.setDate(params, function (date) {
 
         date = parseInt(date);
-        let dataUpdate = data.filter(function(d) {
-            return d.date === date;
-        });
-
-        // console.log(dataUpdate)
+        let dataUpdate = data.filter((d) => d.date === date);
+        let sheltersUpdate = shelters.filter((d) => date >= d.openDate && date <= d.closeDate);
 
         Burn.draw(svgBurn, paramsBurn, xScaleBurn, yScaleBurn, dataUpdate);
-        Containment.draw(svgContainment, paramsContainment, xScaleContainment, dataUpdate)
+        Containment.draw(svgContainment, paramsContainment, xScaleContainment, dataUpdate);
+        Story.update(paramsStory.selector, dataUpdate);
+        Story.effects(dataUpdate);
 
-        // Map.openShelter(g, tooltip, projection, shelters, date);
-        // Map.closeShelter(g, tooltip, projection, shelters, date)
-        // sc.update(date);
-        // sc.effects(data, date);
+        // Update the projection
+        // let k = dataUpdate[0].scale;
+        // projection.scale(k);
+
+        // geoPathGenerator = d3.geoPath().projection(projection);
+        // svgMap.selectAll("path").attr("d", geoPathGenerator);
+
+        Map.updateShelter(shelterArea, projection, sheltersUpdate);
+
     });
 
-    // Map.draw(svg, g, tooltip, projection, geoPathGenerator, stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities, shelters);
+    var zoom = d3.zoom()
+    .scaleExtent([0, 15])
+    .on("zoom", function(event) {
+        g
+        .attr("transform", `scale(${event.transform.k}) translate(${event.transform.x}, ${event.transform.y})`);
+    })
+
+    svgMap.call(zoom);
 }
