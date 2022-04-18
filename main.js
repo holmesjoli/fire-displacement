@@ -198,18 +198,18 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
     const xBurnScale = d3.scaleSqrt()
         .domain([burnParams.min, burnParams.max])
-        .range([0, burnParams.width]);
+        .range([burnParams.margin, burnParams.width - burnParams.margin]);
 
     const yBurnScale = d3.scaleSqrt()
-        .domain([burnParams.min, burnParams.max])
-        .range([burnParams.width, 0]);
+        .domain([burnParams.max, burnParams.min])
+        .range([burnParams.width - burnParams.margin, burnParams.margin]);
 
     svgBurn
         .append("rect")
-        .attr("x", 0)
+        .attr("x", burnParams.margin)
         .attr("y", burnParams.margin)
         .attr("width", xBurnScale(burnParams.max))
-        .attr("height", xBurnScale(burnParams.max))
+        .attr("height", yBurnScale(burnParams.max))
         .attr("fill", "#FFFFFF")
         .attr("stroke", "#473F41");
 
@@ -219,7 +219,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     // Burn.setupSVG(sizeWidth, margin, sizeExtent, rScale)
 
     Timer.setDate(params, function (date) {
-        console.log(date)
+        // console.log(date)
         let dataUpdate = data.filter(function(d) {
             return d.date === date;
         });
