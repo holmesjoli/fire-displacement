@@ -85,20 +85,88 @@ export function draw(svg, g, tooltip, projection, geoPathGenerator, stateBoundar
     svg.call(zoom);
 }
 
-export function openShelter(g, tooltip, projection, shelters, date) {
-
-    svg.selectAll("circle")
+export function createHouses(g, data, tooltip, projection, className, fill, r, fillOpacity = 1) {
+    let points = g
+        .append("g")
+        .selectAll("path")
         .data(data)
         .enter()
-        .attr("cx", params.margin.left)
-        .attr("cy", 0)
-        .attr("class", "containment")
-        .attr("width", function(d) {return xScale(d.containment)} )
-        .attr("height", params.barHeight)
-        .attr("fill", "#EE2724");
+        .append("path")
+            .attr("class", className)
+            .attr("transform", d => "translate(" + [
+                projection([d.long, d.lat])[0],
+                projection([d.long, d.lat])[1]] + ")")
+            .attr("d", d3.symbol().type(d3.symbolSquare).size("10"))
+            .attr("fill", fill)
+            .attr("fill-opacity", fillOpacity);
+
+    mouseoverPoints(points, tooltip);
 }
 
-export function updateShelter(circle, projection, data) {
+
+export function updateShelter(symbol, projection, data, fill, r, opacity) {
+
+    let c = symbol.selectAll("circle")
+        .data(data, function(d) {return d.id;});
+
+        c
+        .enter()
+        .append("circle")
+            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
+            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
+            .attr("fill","#FFFFFF")
+            .attr("r", r)
+            .attr("opacity", opacity)
+        .merge(c)
+            .transition()
+            .duration(1000)
+            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
+            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
+            .attr("r", r)
+            .attr("opacity", opacity);
+
+    c.exit()
+        .transition()
+        .duration(1000)
+        .remove();
+
+    let s = symbol.selectAll("path")
+        .data(data, function(d) {return d.id;});
+
+    s
+    .enter()
+    .append("path")
+        .attr("transform", d => "translate(" + [
+        projection([d.long, d.lat])[0],
+        projection([d.long, d.lat])[1]] + ")")
+        .attr("d", d3.symbol().type(d3.symbolCross).size("75"))
+        .attr("fill", fill)
+        .attr("opacity", opacity)
+    .merge(s)
+        .transition()
+        .duration(1000)
+        .attr("transform", d => "translate(" + [
+            projection([d.long, d.lat])[0],
+            projection([d.long, d.lat])[1]] + ")")
+        .attr("d", d3.symbol().type(d3.symbolCross).size("75"))
+
+    s.exit()
+        .transition()
+        .duration(1000)
+        .remove();
+
+}
+
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
+export function updateFire(circle, projection, data, r, opacity) {
+
+    const colors = ["#E82B25", "#F6891F", "#F9C94A", "#F15523", "#B62025", "#FAA51A", "#F5841F", "#FCCC4D"]
+
+    console.log(getRandomInt(3));
 
     let c = circle.selectAll("circle")
         .data(data, function(d) {return d.id;});
@@ -109,18 +177,13 @@ export function updateShelter(circle, projection, data) {
             .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
             .attr("r", 0)
-            .attr("fill","#EE2C25")
+            .attr("opacity", 0)
         .merge(c)
             .transition()
-            .duration(1000)
+            .duration(3000)
             .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("r", 15)
-            .attr("opacity", .3);
-    
-        c.exit()
-            .transition()
-            .duration(1000)
-            .attr("r", 0)
-            .remove();
+            .attr("fill", function(d) {return colors[getRandomInt(colors.length - 1)]})
+            .attr("r", r)
+            .attr("opacity", opacity);
 }
