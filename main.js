@@ -158,7 +158,7 @@ const paramsMap = {
     width: 500,
     height: 300,
     margin: {top: 0, right: 10, bottom: 20, left: 10},
-    initialScale: 2000,
+    initialScale: 12000,
     initialCenterX: -23.5,
     initialCenterY: 48.25
 }
@@ -295,11 +295,11 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         Story.effects(dataUpdate);
 
         // Update the projection
-        let k = dataUpdate[0].scale;
-        projection.scale(k);
+        // let k = dataUpdate[0].scale;
+        // projection.scale(k);
 
-        geoPathGenerator = d3.geoPath().projection(projection);
-        svgMap.selectAll("path").attr("d", geoPathGenerator);
+        // geoPathGenerator = d3.geoPath().projection(projection);
+        // svgMap.selectAll("path").attr("d", geoPathGenerator);
 
 
         let c = circle.selectAll("circle")
@@ -315,7 +315,6 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         .merge(c)
             .transition()
             .duration(1000)
-            .delay(1000)
             .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
             .attr("r", 15)
@@ -324,7 +323,6 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         c.exit()
             .transition()
             .duration(1000)
-            .delay(1000)
             .attr("r", 0)
             .remove();
 
