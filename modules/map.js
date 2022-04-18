@@ -85,22 +85,9 @@ export function draw(svg, g, tooltip, projection, geoPathGenerator, stateBoundar
     svg.call(zoom);
 }
 
-export function openShelter(g, tooltip, projection, shelters, date) {
+export function updateShelter(symbol, projection, data, fill, r, opacity) {
 
-    svg.selectAll("circle")
-        .data(data)
-        .enter()
-        .attr("cx", params.margin.left)
-        .attr("cy", 0)
-        .attr("class", "containment")
-        .attr("width", function(d) {return xScale(d.containment)} )
-        .attr("height", params.barHeight)
-        .attr("fill", "#EE2724");
-}
-
-export function updatePoints(circle, projection, data, fill, r, opacity) {
-
-    let c = circle.selectAll("circle")
+    let c = symbol.selectAll("circle")
         .data(data, function(d) {return d.id;});
 
         c
@@ -108,7 +95,7 @@ export function updatePoints(circle, projection, data, fill, r, opacity) {
         .append("circle")
             .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("fill", fill)
+            .attr("fill","#FFFFFF")
             .attr("r", r)
             .attr("opacity", opacity)
         .merge(c)
@@ -122,8 +109,33 @@ export function updatePoints(circle, projection, data, fill, r, opacity) {
     c.exit()
         .transition()
         .duration(1000)
-        .attr("r", 0)
         .remove();
+
+    let s = symbol.selectAll("path")
+        .data(data, function(d) {return d.id;});
+
+    s
+    .enter()
+    .append("path")
+        .attr("transform", d => "translate(" + [
+        projection([d.long, d.lat])[0],
+        projection([d.long, d.lat])[1]] + ")")
+        .attr("d", d3.symbol().type(d3.symbolCross).size("75"))
+        .attr("fill", fill)
+        .attr("opacity", opacity)
+    .merge(s)
+        .transition()
+        .duration(1000)
+        .attr("transform", d => "translate(" + [
+            projection([d.long, d.lat])[0],
+            projection([d.long, d.lat])[1]] + ")")
+        .attr("d", d3.symbol().type(d3.symbolCross).size("75"))
+
+    s.exit()
+        .transition()
+        .duration(1000)
+        .remove();
+
 }
 
 

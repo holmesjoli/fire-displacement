@@ -307,10 +307,23 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     Map.drawRoad(g, okBigStreets.features, geoPathGenerator, "#000000", 1.5);
     Map.drawRoad(g, okMedStreets.features, geoPathGenerator, "#000000", 1);
     Map.createPoints(g, countyHouses, tooltip, projection, "houses", "#6CBE45", 1, .2);
-    Map.createPoints(g, cities, tooltip, projection, "cities", "#00AEEF", 2.5);
+    Map.createPoints(g, cities, tooltip, projection, "cities", "#00AEEF", 15, .2);
 
     let shelterArea = g
         .append("g")
+
+    shelterArea
+        .selectAll("path")
+        .data(shelters)
+        .enter()
+        .append("path")
+            .attr("class", "shelters")
+            .attr("transform", d => "translate(" + [
+            projection([d.long, d.lat])[0],
+            projection([d.long, d.lat])[1]] + ")")
+            .attr("d", d3.symbol().type(d3.symbolCross).size("200"))
+            .attr("fill", "#FFFFFF")
+            .attr("fill-opacity", 0)
 
     shelterArea
         .selectAll("circle")
@@ -320,7 +333,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
             .attr("class", "shelters")
             .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("r", 15)
+            .attr("r", 8)
             .attr("fill", "#FFFFFF")
             .attr("fill-opacity", 0)
 
@@ -361,8 +374,8 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         // geoPathGenerator = d3.geoPath().projection(projection);
         // svgMap.selectAll("path").attr("d", geoPathGenerator);
 
-        Map.updatePoints(shelterArea, projection, sheltersUpdate, "#EE2C25", 15, .3)
-        Map.updateFire(firePoints, projection, firesUpdate, "orange", 1, .3)
+        Map.updateShelter(shelterArea, projection, sheltersUpdate, "#EE2C25", 8, 1)
+        Map.updateFire(firePoints, projection, firesUpdate, "orange", 1, .5)
 
     });
 
