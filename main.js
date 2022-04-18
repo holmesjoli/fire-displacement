@@ -171,26 +171,26 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     let startDay = 715;
 
     // Burn
-    const sizeExtent = d3.extent(data, function(d) {return d.date;});
-    const margin = 10;
-    const sizeWidth = 100;
-    const rScale = d3.scaleSqrt()
-        .domain([sizeExtent[0], sizeExtent[1]])
-        .range([margin, sizeWidth - margin]);
+    // const sizeExtent = d3.extent(data, function(d) {return d.date;});
+    // const margin = 10;
+    // const sizeWidth = 400;
+    // const rScale = d3.scaleSqrt()
+    //     .domain([sizeExtent[0], sizeExtent[1]])
+    //     .range([margin, sizeWidth - margin]);
 
-    const svgSize = d3.select("#burn")
-        .append("svg")
-        .attr("viewBox", `0 0 ${width} ${width}`)
-        .attr("preserveAspectRatio", "xMidYMid meet");
+    // const svgSize = d3.select("#burn")
+    //     .append("svg")
+    //     .attr("viewBox", `0 0 ${width} ${width}`)
+    //     .attr("preserveAspectRatio", "xMidYMid meet");
 
-    svgSize
-        .append("rect")
-        .attr("x", margin)
-        .attr("y", margin)
-        .attr("width", rScale(sizeExtent[1]) - margin)
-        .attr("height", rScale(sizeExtent[1])- margin)
-        .attr("fill", "#FFFFFF")
-        .attr("stroke", "#473F41");
+    // svgSize
+    //     .append("rect")
+    //     .attr("x", margin)
+    //     .attr("y", margin)
+    //     .attr("width", rScale(sizeExtent[1]) - margin)
+    //     .attr("height", rScale(sizeExtent[1])- margin)
+    //     .attr("fill", "#FFFFFF")
+    //     .attr("stroke", "#473F41");
 
 
     let params = {
@@ -216,7 +216,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
             return d.date === date;
         });
 
-        Burn.updateBurn(svgSize, sizeWidth, margin, rScale, dataInitial, dataUpdate);
+        // Burn.updateBurn(svgSize, sizeWidth, margin, rScale, dataInitial, dataUpdate);
 
         date = parseInt(date);
         Map.openShelter(g, tooltip, projection, shelters, date);
