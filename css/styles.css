@@ -73,7 +73,6 @@ p {
     flex-direction: column;
 }
 
-
 #timer {
     min-width: 150px;
     min-height: 150px;
@@ -98,14 +97,10 @@ p {
     max-height: 35%
 }
 
-.containment-container,
-.burn-container {
-    margin: 10px;
-    border: 1px solid #473F41;
-    /* margin: 0 auto; */
-    width: 90%;
+#burn,
+#containment {
+    padding: 20px;
 }
-
 
 .tooltip {
     position: absolute;
@@ -122,6 +117,13 @@ p {
     border-radius: 10px;
 }
 
+.shelters {
+    z-index: 0
+}
+
+.cities {
+    z-index: 1
+}
 /*
 
 
