@@ -158,7 +158,7 @@ const paramsMap = {
     width: 500,
     height: 300,
     margin: {top: 0, right: 10, bottom: 20, left: 10},
-    initialScale: 10000,
+    initialScale: 2000,
     initialCenterX: -23.5,
     initialCenterY: 48.25
 }
@@ -208,7 +208,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         dates: data, 
         limit: limit,
         i: i,
-        speed: 500
+        speed: 3000
     }
 
     // Burn
@@ -255,6 +255,10 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         .attr("transform",`translate(0, ${paramsContainment.height-paramsContainment.margin.bottom})`)
         .call(d3.axisBottom().scale(xScaleContainment).ticks(2));
 
+
+    //Map
+    Map.drawBasemap(g, stateBoundaries.features, geoPathGenerator);
+
     Timer.setDate(params, function (date) {
 
         date = parseInt(date);
@@ -267,9 +271,41 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         Story.update(paramsStory.selector, dataUpdate);
         Story.effects(dataUpdate);
 
+        if (date === 716) {
+            let k = dataUpdate[0].scale;
+            projection.scale(k);
+            geoPathGenerator = d3.geoPath().projection(projection);
+            svgMap.selectAll("path").attr("d", geoPathGenerator);
+
+            Map.drawBasemap(g, countyBoundaries.features, geoPathGenerator);
+        }
+
+        if (date === 717) {
+            let k = dataUpdate[0].scale;
+            projection.scale(k);
+            geoPathGenerator = d3.geoPath().projection(projection);
+            svgMap.selectAll("path").attr("d", geoPathGenerator);
+
+            Map.drawRoad(g, okBigStreets.features, geoPathGenerator, "#000000", 1.5);
+            Map.drawRoad(g, okMedStreets.features, geoPathGenerator, "#000000", 1);
+            Map.createPoints(g, countyHouses, tooltip, projection, "houses", "#6CBE45", 1, .2);
+            Map.createPoints(g, cities, tooltip, projection, "cities", "#00AEEF", 2.5);
+        }
+
+
         // Map.openShelter(g, tooltip, projection, shelters, date);
         // Map.closeShelter(g, tooltip, projection, shelters, date)
     });
 
-    Map.draw(svgMap, g, tooltip, projection, geoPathGenerator, stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities, shelters);
+    // Map.draw(svgMap, g, tooltip, projection, geoPathGenerator, stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities, shelters);
+
+    var zoom = d3.zoom()
+    .scaleExtent([0, 15])
+    .on("zoom", function(event) {
+        g
+        .attr("transform", `scale(${event.transform.k}) translate(${event.transform.x}, ${event.transform.y})`);
+    })
+
+    // call zoom so it is "listening" for an event on our SVG
+    svgMap.call(zoom);
 }
