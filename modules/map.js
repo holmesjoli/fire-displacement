@@ -162,7 +162,7 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
-export function updateFire(circle, projection, data, fill, r, opacity) {
+export function updateFire(circle, projection, data, r, opacity) {
 
     const colors = ["#E82B25", "#F6891F", "#F9C94A", "#F15523", "#B62025", "#FAA51A", "#F5841F", "#FCCC4D"]
 

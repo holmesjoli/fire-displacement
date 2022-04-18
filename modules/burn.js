@@ -9,7 +9,7 @@ export function draw(svg, params, xScale, yScale, data) {
         .attr("class", "burn")
         .attr("width", function(d) {return xScale(d.size)} )
         .attr("height",  function(d) {return xScale(d.size)})
-        .attr("fill", "#E05926");
+        .attr("fill", "#F6891F");
 
     let b = svg.selectAll(".burn")
             .data(data, function(d) { return d.date; });
@@ -21,5 +21,5 @@ export function draw(svg, params, xScale, yScale, data) {
         .attr("class", "burn")
         .attr("width",  function(d) {return xScale(d.size)})
         .attr("height",  function(d) {return xScale(d.size)})
-        .attr("fill", "#E05926");
+        .attr("fill", "#F6891F");
 }
