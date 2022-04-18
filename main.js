@@ -227,7 +227,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         dates: data, 
         limit: limit,
         i: i,
-        speed: 500
+        speed: 3000
     }
 
     // Timeline
