@@ -1,4 +1,5 @@
 import * as Helper from './modules/helper_functions.js';
+import * as Timer from './modules/timer.js'
 import * as Map from './modules/map.js';
 import * as Containment from "./modules/containment.js";
 import * as Story from "./modules/storyline.js";
@@ -217,8 +218,8 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     // sc.update(startDay); // set initial storyline
     // Burn.setupSVG(sizeWidth, margin, sizeExtent, rScale)
 
-    Helper.setDate(params, function (date) {
-
+    Timer.setDate(params, function (date) {
+        console.log(date)
         let dataUpdate = data.filter(function(d) {
             return d.date === date;
         });

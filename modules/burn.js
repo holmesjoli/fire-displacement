@@ -1,20 +1,4 @@
-// export function setupSVG(width = 100, margin, sizeExtent, rScale) {
-//     const svg = d3.select("#burn")
-//         .append("svg")
-//         .attr("viewBox", `0 0 ${width} ${width}`)
-//         .attr("preserveAspectRatio", "xMidYMid meet");
-
-//     svg
-//         .append("rect")
-//         .attr("x", margin)
-//         .attr("y", margin)
-//         .attr("width", rScale(sizeExtent[1]) - margin)
-//         .attr("height", rScale(sizeExtent[1])- margin)
-//         .attr("fill", "#FFFFFF")
-//         .attr("stroke", "#473F41");
-// }
-
-export function updateBurn(svg, width, margin, rScale, dataInitial, dataUpdate) {
+export function updateBurn(svg, margin, rScale, dataInitial, dataUpdate) {
 
     let rect = svg.selectAll("rect")
         .data(dataInitial)
@@ -23,8 +7,8 @@ export function updateBurn(svg, width, margin, rScale, dataInitial, dataUpdate) 
             .attr("x", margin)
             .attr("y", margin)
             .attr("class", "burn")
-            .attr("width", function(d) { return rScale(d.size) - margin; })
-            .attr("height", function(d) { return rScale(d.size) - margin; })
+            .attr("width", function(d) { return rScale(d.size); })
+            .attr("height", function(d) { return rScale(d.size); })
             .attr("fill", "#EE2724");
 
     let r = svg.selectAll(".burn")
