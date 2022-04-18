@@ -286,8 +286,6 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         date = parseInt(date);
         let dataUpdate = data.filter((d) => d.date === date);
         let sheltersUpdate = shelters.filter((d) => date >= d.openDate && date <= d.closeDate);
-        // console.log(sheltersUpdate)
-        // console.log(date)
 
         Burn.draw(svgBurn, paramsBurn, xScaleBurn, yScaleBurn, dataUpdate);
         Containment.draw(svgContainment, paramsContainment, xScaleContainment, dataUpdate);
@@ -301,30 +299,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         // geoPathGenerator = d3.geoPath().projection(projection);
         // svgMap.selectAll("path").attr("d", geoPathGenerator);
 
-
-        let c = circle.selectAll("circle")
-        .data(sheltersUpdate, function(d) {return d.id;});
-    
-        c
-        .enter()
-        .append("circle")
-            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
-            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("r", 0)
-            .attr("fill","#EE2C25")
-        .merge(c)
-            .transition()
-            .duration(1000)
-            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
-            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("r", 15)
-            .attr("opacity", .3);
-    
-        c.exit()
-            .transition()
-            .duration(1000)
-            .attr("r", 0)
-            .remove();
+        Map.updateShelter(circle, projection, sheltersUpdate);
 
     });
 
