@@ -117,6 +117,18 @@ Promise.all(promises).then(function (values) {
     drawVis(values[0], values[1], values[2], values[3], values[4], values[5],values[6], values[7], values[8], values[9])
 });
 
+const burnParams = {
+    selector: "#burn",
+    margin: 25,
+    width: 400
+}
+
+const margin = 10;
+const svgBurn = d3.select(burnParams.selector)
+    .append("svg")
+    .attr("viewBox", `0 0 ${burnParams.width} ${burnParams.width}`)
+    .attr("preserveAspectRatio", "xMidYMid meet");
+
 // Helper.collapsibleTable();
 
 // const width = window.innerWidth*.65;
@@ -126,9 +138,9 @@ Promise.all(promises).then(function (values) {
 // const initialCenterX = -23.5;
 // const initialCenterY = 48.25;
 
-let tooltip = d3.select("#chart")
-            .append("div")
-            .attr("class", "tooltip");
+// let tooltip = d3.select("#chart")
+//             .append("div")
+//             .attr("class", "tooltip");
 
 // let projection = d3.geoAlbers()
 //     .translate([width / 2, height / 2])
@@ -164,51 +176,46 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
     // // let cntyCodes = ["53047", "53007", "53017"]
 
-    // let start = d3.min(data, function(d) {return +d.i});
-    // let limit = d3.max(data, function(d) {return +d.i});
-    // let i = start;
-    // let play = true;
-    // let startDay = 715;
+    let start = d3.min(data, function(d) {return +d.i});
+    let limit = d3.max(data, function(d) {return +d.i});
+    let i = start;
+    let startDay = d3.min(data, function(d) {return +d.date});;
+    let dataInitial = data.filter(function(d) {
+        return d.date === startDay;
+    });
 
-    // // Burn
-    // const sizeExtent = d3.extent(data, function(d) {return d.date;});
-    // const margin = 10;
-    // const sizeWidth = 400;
-    // const rScale = d3.scaleSqrt()
-    //     .domain([sizeExtent[0], sizeExtent[1]])
-    //     .range([margin, sizeWidth - margin]);
+    let params = {
+        dates: data, 
+        limit: limit,
+        i: i,
+        speed: 1500
+    }
 
-    // const svgSize = d3.select("#burn")
-    //     .append("svg")
-    //     .attr("viewBox", `0 0 ${width} ${width}`)
-    //     .attr("preserveAspectRatio", "xMidYMid meet");
+    // Burn
+    burnParams["min"] = d3.min(data, function(d) {return d.size;});
+    burnParams["max"] = d3.max(data, function(d) {return d.size;});
 
-    // svgSize
-    //     .append("rect")
-    //     .attr("x", margin)
-    //     .attr("y", margin)
-    //     .attr("width", rScale(sizeExtent[1]) - margin)
-    //     .attr("height", rScale(sizeExtent[1])- margin)
-    //     .attr("fill", "#FFFFFF")
-    //     .attr("stroke", "#473F41");
+    const xBurnScale = d3.scaleSqrt()
+        .domain([burnParams.min, burnParams.max])
+        .range([0, burnParams.width]);
 
+    const yBurnScale = d3.scaleSqrt()
+        .domain([burnParams.min, burnParams.max])
+        .range([burnParams.width, 0]);
 
-    // let params = {
-    //             dates: data, 
-    //             limit: limit, 
-    //             play: play, 
-    //             i: i,
-    //             speed: 1500
-    //         }
+    svgBurn
+        .append("rect")
+        .attr("x", 0)
+        .attr("y", burnParams.margin)
+        .attr("width", xBurnScale(burnParams.max))
+        .attr("height", xBurnScale(burnParams.max))
+        .attr("fill", "#FFFFFF")
+        .attr("stroke", "#473F41");
 
     // // Set initial parameters before they enter loop
     // // cc.draw(data, startDay);
     // sc.update(startDay); // set initial storyline
-    // // Burn.setupSVG(sizeWidth, margin, sizeExtent, rScale)
-
-    // let dataInitial = data.filter(function(d) {
-    //     return d.date === startDay;
-    // });
+    // Burn.setupSVG(sizeWidth, margin, sizeExtent, rScale)
 
     Helper.setDate(params, function (date) {
 
@@ -216,7 +223,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
             return d.date === date;
         });
 
-        // Burn.updateBurn(svgSize, margin, rScale, dataInitial, dataUpdate);
+        // Burn.updateBurn(svgBurn, margin, rScale, dataInitial, dataUpdate);
 
         // date = parseInt(date);
         // Map.openShelter(g, tooltip, projection, shelters, date);
