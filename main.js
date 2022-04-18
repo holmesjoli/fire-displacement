@@ -59,7 +59,7 @@ const files = {
                 n_homes: +j.n_homes,
                 n_structures: +j.n_structures,
                 overhead_personnel: +j.overhead_personnel,
-                size: +j.size2,
+                size: +j.size,
                 total_personnel: +j.total_personnel,
                 scale: +j.scale,
                 centerX: +j.centerX,
@@ -120,7 +120,7 @@ Promise.all(promises).then(function (values) {
 
 const burnParams = {
     selector: "#burn",
-    margin: 5,
+    margin: 0,
     width: 400
 }
 
@@ -208,12 +208,11 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
     svgBurn
         .append("rect")
-        .attr("x", burnParams.margin)
-        .attr("y", burnParams.margin)
+        .attr("x", 0)
+        .attr("y", 0)
         .attr("width", xBurnScale(burnParams.min))
         .attr("height", yBurnScale(burnParams.max))
         .attr("fill", "#FFFFFF")
-        // .attr("stroke", "#473F41");
 
     // // Set initial parameters before they enter loop
     // // cc.draw(data, startDay);

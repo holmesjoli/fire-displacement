@@ -97,13 +97,14 @@ p {
     max-height: 35%
 }
 
-#burn,
-#containment {
-    padding: 20px;
+.burn-container,
+.containment-container {
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid #473F41;
 }
 
-#burn svg,
-#containment svg {
+#burn svg {
     border: 1px solid #473F41;
 }
 
