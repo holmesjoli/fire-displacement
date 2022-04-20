@@ -380,13 +380,6 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         Story.effects(dataUpdate);
         Timer.draw(svgTimeline, paramsTimeline, xScaleTimeline, dataUpdate)
 
-        // Update the projection
-        // let k = dataUpdate[0].scale;
-        // projection.scale(k);
-
-        // geoPathGenerator = d3.geoPath().projection(projection);
-        // svgMap.selectAll("path").attr("d", geoPathGenerator);
-
         Map.updateShelter(shelterArea, projection, sheltersUpdate, "#EE2C25", 8, 1)
         Map.updateFire(firePoints, projection, firesUpdate, 1, .8)
 
