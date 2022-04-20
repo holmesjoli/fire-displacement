@@ -72,14 +72,39 @@ export function createHouses(g, data, projection, className, fill, r, fillOpacit
             .attr("transform", d => "translate(" + [
                 projection([d.long, d.lat])[0],
                 projection([d.long, d.lat])[1]] + ")")
-            .attr("d", d3.symbol().type(d3.symbolSquare).size("10"))
+            .attr("d", d3.symbol().type(d3.symbolSquare).size(r))
             .attr("fill", fill)
             .attr("fill-opacity", fillOpacity);
 
     return houses
 }
 
-export function updateHouses(house, projection, data, fill, r, opacity) {
+export function updateHouses(house, projection, data) {
+
+    let s = house.selectAll("path")
+        .data(data, function(d) {return d.id;});
+
+    s
+    .enter()
+    .append("path")
+        .attr("transform", d => "translate(" + [
+        projection([d.long, d.lat])[0],
+        projection([d.long, d.lat])[1]] + ")")
+        .attr("d", d3.symbol().type(d3.symbolCross).size("75"))
+        .attr("fill", "#000000")
+        .attr("opacity", .5)
+    .merge(s)
+        .transition()
+        .duration(1000)
+        .attr("transform", d => "translate(" + [
+            projection([d.long, d.lat])[0],
+            projection([d.long, d.lat])[1]] + ")")
+        .attr("d", d3.symbol().type(d3.symbolCross).size("75"))
+
+    s.exit()
+        .transition()
+        .duration(1000)
+        .remove();
 
 }
 
