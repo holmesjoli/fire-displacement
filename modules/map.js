@@ -145,8 +145,6 @@ export function updateShelter(shelter, projection, data, fill, r, opacity) {
         .merge(c)
             .transition()
             .duration(1000)
-            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
-            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
 
     c.exit()
         .transition()
@@ -170,10 +168,6 @@ export function updateShelter(shelter, projection, data, fill, r, opacity) {
     .merge(s)
         .transition()
         .duration(1000)
-        .attr("transform", d => "translate(" + [
-            projection([d.long, d.lat])[0],
-            projection([d.long, d.lat])[1]] + ")")
-        .attr("d", d3.symbol().type(d3.symbolCross).size("75"))
 
     s.exit()
         .transition()
@@ -221,8 +215,6 @@ export function updateFire(fire, projection, data, r, opacity, date) {
         .merge(c)
             .transition()
             .duration(3000)
-            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
-            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
             .attr("fill", function(d) {
                 
                 if (d.endDate <= date) {
