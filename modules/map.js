@@ -61,7 +61,7 @@ export function drawPath(g, data, geoPathGenerator, stroke = "#D7D7D7", strokeWi
     .attr("opacity", opacity);
 }
 
-export function createHouses(g, data, projection, className, fill, r, fillOpacity = 1) {
+export function createHouses(g, projection, data, className, fill, r, fillOpacity = 1) {
     // let houses = g
     //     .append("g")
     //     .selectAll("path")
@@ -77,7 +77,9 @@ export function createHouses(g, data, projection, className, fill, r, fillOpacit
     //         .attr("fill-opacity", fillOpacity);
 
     let houses = g
-        .append("g")
+            .append("g")
+
+    houses
         .selectAll("circle")
         .data(data)
         .enter()
@@ -94,7 +96,6 @@ export function createHouses(g, data, projection, className, fill, r, fillOpacit
 
 export function updateHouses(houses, projection, data) {
 
-    // console.log(data)
     let c = houses.selectAll("circle")
         .data(data, function(d) {return d.id;});
 
@@ -103,21 +104,16 @@ export function updateHouses(houses, projection, data) {
         .append("circle")
             .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("fill", "#000000")
-            .attr("r", 1)
-            .attr("opacity", .5)
+            .attr("r", 0)
+            .attr("opacity", 0)
         .merge(c)
             .transition()
-            .duration(1000)
-            .attr("cx", function(d) {return projection([d.shelterLong, d.shelterLat])[0];})
-            .attr("cy", function(d) {return projection([d.shelterLong, d.shelterLat])[1];})
-
-    c.exit()
-        .transition()
-        .attr("r", 0)
-        .attr("opacity", 0)
-        .duration(1000)
-        .remove();
+            .duration(3000)
+            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
+            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
+            .attr("fill", "purple")
+            .attr("r", 5)
+            .attr("opacity", 1);
 }
 
 export function createShelter(g, projection, data) {

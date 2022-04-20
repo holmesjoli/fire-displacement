@@ -338,9 +338,25 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     Map.drawPath(g, okMedStreets.features, geoPathGenerator, "#000000", 1);
     Map.createCities(g, cities, tooltip, projection, "cities", "#382767", 15, .25, svgMap, paramsMap.width, paramsMap.height);
 
-    let housePoints = Map.createHouses(g, houses, projection, "houses", "#000000", 1, .5);
+    // let housePoints = Map.createFire(g, projection, houses);
     let shelterArea = Map.createShelter(g, projection, shelters);
     let firePoints = Map.createFire(g, projection, fires);
+
+
+    let housePoints = g
+            .append("g")
+
+    housePoints
+        .selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+            .attr("class", "shelters")
+            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
+            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
+            .attr("r", 1)
+            .attr("fill", "#FFFFFF")
+            .attr("fill-opacity", 0)
 
     // Timer
     Timer.setDate(params, function (date) {
@@ -352,7 +368,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         let sheltersUpdate = shelters.filter((d) => date >= d.openDate && date <= d.closeDate);
         let housesUpdate = houses.filter((d) => d.evacDate === date);
 
-        // console.log(housesUpdate)
+        console.log(housesUpdate)
 
         Burn.draw(svgBurn, paramsBurn, xScaleBurn, yScaleBurn, dataUpdate);
         Containment.draw(svgContainment, paramsContainment, xScaleContainment, dataUpdate);
