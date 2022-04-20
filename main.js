@@ -253,13 +253,24 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
     let xScaleTimeline = d3.scaleBand()
         .domain(days)
-        .range([paramsTimeline.margin.left, paramsTimeline.width - paramsTimeline.margin.right]);
+        .range([paramsTimeline.margin.left, paramsTimeline.width - paramsTimeline.margin.right])
+        .paddingInner(0.2)
+        .paddingOuter(0.2);
 
     let xAxisTimeline = svgTimeline
         .append("g")
         .attr("class","axis")
         .attr("transform",`translate(0, ${paramsTimeline.height-paramsTimeline.margin.bottom})`)
         .call(d3.axisBottom().scale(xScaleTimeline).tickValues(days).tickFormat((d, i) => days2[i]));
+
+    svgTimeline
+        .append("rect")
+        .attr("x", xScaleTimeline(paramsTimeline.min))
+        .attr("y", 0)
+        .attr("class", "timeline")
+        .attr("width", xScaleTimeline.bandwidth())
+        .attr("height", paramsTimeline.barHeight)
+        .attr("fill", "#000000")
 
     // Burn
     paramsBurn["min"] = d3.min(data, function(d) {return d.size;});
@@ -356,7 +367,6 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
             .attr("fill", "#FFFFFF")
             .attr("fill-opacity", 0)
 
-
     // Timer
     Timer.setDate(params, function (date) {
 
@@ -369,7 +379,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         Containment.draw(svgContainment, paramsContainment, xScaleContainment, dataUpdate);
         Story.update(paramsStory.selector, dataUpdate);
         Story.effects(dataUpdate);
-        // Timer.draw(svgTimeline, paramsTimeline, xScaleTimeline, data)
+        Timer.draw(svgTimeline, paramsTimeline, xScaleTimeline, dataUpdate)
 
         // Update the projection
         // let k = dataUpdate[0].scale;

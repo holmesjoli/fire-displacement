@@ -55,19 +55,18 @@ export function draw(svg, params, xScale, data) {
         .attr("x", function(d) {return xScale(d.date)})
         .attr("y", 0)
         .attr("class", "timeline")
-        .attr("width", params.barWidth)
+        .attr("width", xScale.bandwidth())
         .attr("height", params.barHeight)
-        .attr("fill", "#E05926");
+        .attr("fill", "#000000");
 
-    let b = svg.selectAll(".burn")
+    let b = svg.selectAll(".timeline")
             .data(data, function(d) { return d.date; });
 
     b.transition()
-        .duration(params.speed)
         .attr("x", function(d) {return xScale(d.date)})
         .attr("y", 0)
         .attr("class", "timeline")
-        .attr("width",  params.barWidth)
-        .attr("height",  params.barHeight)
-        .attr("fill", "#E05926");
+        .attr("width", xScale.bandwidth())
+        .attr("height", params.barHeight)
+        .attr("fill", "#000000");
 }
