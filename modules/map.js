@@ -62,7 +62,7 @@ export function drawPath(g, data, geoPathGenerator, stroke = "#D7D7D7", strokeWi
 }
 
 export function createHouses(g, data, projection, className, fill, r, fillOpacity = 1) {
-    g
+    let houses = g
         .append("g")
         .selectAll("path")
         .data(data)
@@ -75,12 +75,46 @@ export function createHouses(g, data, projection, className, fill, r, fillOpacit
             .attr("d", d3.symbol().type(d3.symbolSquare).size("10"))
             .attr("fill", fill)
             .attr("fill-opacity", fillOpacity);
+
+    return houses
 }
 
+export function createShelter(g, data, projection) {
 
-export function updateShelter(symbol, projection, data, fill, r, opacity) {
+    let shelters = g
+        .append("g")
 
-    let c = symbol.selectAll("circle")
+    shelters
+        .selectAll("path")
+        .data(data)
+        .enter()
+        .append("path")
+            .attr("class", "shelters")
+            .attr("transform", d => "translate(" + [
+            projection([d.long, d.lat])[0],
+            projection([d.long, d.lat])[1]] + ")")
+            .attr("d", d3.symbol().type(d3.symbolCross).size("200"))
+            .attr("fill", "#FFFFFF")
+            .attr("fill-opacity", 0)
+
+    shelters
+        .selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+            .attr("class", "shelters")
+            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
+            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
+            .attr("r", 8)
+            .attr("fill", "#FFFFFF")
+            .attr("fill-opacity", 0);
+
+    return shelters;
+}
+
+export function updateShelter(shelter, projection, data, fill, r, opacity) {
+
+    let c = shelter.selectAll("circle")
         .data(data, function(d) {return d.id;});
 
         c
@@ -104,7 +138,7 @@ export function updateShelter(symbol, projection, data, fill, r, opacity) {
         .duration(1000)
         .remove();
 
-    let s = symbol.selectAll("path")
+    let s = shelter.selectAll("path")
         .data(data, function(d) {return d.id;});
 
     s
@@ -128,7 +162,6 @@ export function updateShelter(symbol, projection, data, fill, r, opacity) {
         .transition()
         .duration(1000)
         .remove();
-
 }
 
 
@@ -158,4 +191,8 @@ export function updateFire(circle, projection, data, r, opacity) {
             .attr("fill", function(d) {return colors[getRandomInt(colors.length - 1)]})
             .attr("r", r)
             .attr("opacity", opacity);
+}
+
+export function updateHouses(house, projection, data, fill, r, opacity) {
+
 }
