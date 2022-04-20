@@ -101,12 +101,15 @@ const files = {
         }
     },
     fires: {
-        pth: "./data/fire_points.csv",
+        pth: "./data/fire_points2.csv",
         parse: function(j) {
             return {
                 date: +j.date,
                 lat: +j.Lat,
-                long: +j.Lon
+                long: +j.Lon,
+                startDate: +j.startDate,
+                endDate: +j.endDate,
+                nDays: +j.nDays
             }
         }
     },
@@ -344,7 +347,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
         date = parseInt(date);
         let dataUpdate = data.filter((d) => d.date === date);
-        let firesUpdate = fires.filter((d) => d.date === date);
+        let firesUpdate = fires.filter((d) =>  date >= d.startDate && date <= d.endDate);
         let sheltersUpdate = shelters.filter((d) => date >= d.openDate && date <= d.closeDate);
         let housesUpdate = houses.filter((d) => d.evacDate === date);
 
@@ -359,10 +362,11 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
         Map.updateHouses(housePoints, projection, housesUpdate);
         Map.updateShelter(shelterArea, projection, sheltersUpdate, "#EE2C25", 8, 1);
-        Map.updateFire(firePoints, projection, firesUpdate, 1, .8);
+        Map.updateFire(firePoints, projection, firesUpdate, 1, 1);
 
         if (date === 825) {
             Map.drawPath(g, fireBoundary.features, geoPathGenerator, "#EE2C25", 1.5, 1);
+            // let firePoints = Map.createFire(g, projection, fires);
         }
 
     });

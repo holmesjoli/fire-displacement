@@ -226,14 +226,15 @@ export function createFire(g, projection, data) {
     return fire
 }
 
-
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-}
-
 export function updateFire(fire, projection, data, r, opacity) {
 
-    const colors = ["#E82B25", "#F6891F", "#F9C94A", "#F15523", "#B62025", "#FAA51A", "#F5841F", "#FCCC4D"]
+    // const colors = ['#ffcc55', '#fdb947', '#fba63b', '#f99332', '#f57e2b', '#f26826', '#ee4f24', '#ea2c24']
+
+    console.log(data)
+
+    const colorScale = d3.scaleOrdinal()
+        .domain([1, 8])
+        .range(['#ffcc55', '#fdb947', '#fba63b', '#f99332', '#f57e2b', '#f26826', '#ee4f24', '#ea2c24']);
 
     let c = fire.selectAll("circle")
         .data(data, function(d) {return d.id;});
@@ -250,7 +251,14 @@ export function updateFire(fire, projection, data, r, opacity) {
             .duration(3000)
             .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("fill", function(d) {return colors[getRandomInt(colors.length - 1)]})
+            .attr("fill", function(d) {return colorScale(d.nDays)})
             .attr("r", r)
             .attr("opacity", opacity);
+    
+        c.exit()
+        .transition()
+        .attr("opacity", 0)
+        .attr("r", 0)
+        .duration(1000)
+        .remove();
 }
