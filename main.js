@@ -128,8 +128,7 @@ const paramsTimeline = {
     margin: {top: 0, right: 10, bottom: 50, left: 10},
     width: 1000,
     height: 100,
-    barHeight: 50,
-    barWidth: 10
+    barHeight: 50
 }
 
 const svgTimeline = d3.select(`#${paramsTimeline.selector}`)
@@ -254,7 +253,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     let xScaleTimeline = d3.scaleBand()
         .domain(days)
         .range([paramsTimeline.margin.left, paramsTimeline.width - paramsTimeline.margin.right])
-        .paddingInner(0.2)
+        .paddingInner(0.5)
         .paddingOuter(0.2);
 
     let xAxisTimeline = svgTimeline
