@@ -31,14 +31,16 @@ const files = {
         parse: null
     },
 
-    countyHouses: {
+    houses: {
         pth: "./data/houses.csv",
         parse: function(j) {
             return {
                 long: +j.X,
                 lat: +j.Y,
                 name: "household",
-                place: j.place
+                place: j.place,
+                shelterLat: +j.shelterLat,
+                shelterLong: +j.shelterLong
             }
         }
     },
@@ -211,14 +213,14 @@ let geoPathGenerator = d3.geoPath().projection(projection);
 // Helper.collapsibleTable();
 // let cntyCodes = ["53047", "53007", "53017"]
 
-function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, data, cities, shelters, fires, fireBoundary, cityBoundaries) {
+function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, houses, data, cities, shelters, fires, fireBoundary, cityBoundaries) {
 
     console.log(stateBoundaries);
     console.log(countyBoundaries);
     console.log(okBigStreets)
     console.log(okMedStreets)
     console.log(okSmallStreets)
-    console.log(countyHouses)
+    console.log(houses)
     console.log(data)
     console.log(cities)
     console.log(shelters)
@@ -330,8 +332,8 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     Map.drawPath(g, okBigStreets.features, geoPathGenerator, "#000000", 1.5);
     Map.drawPath(g, okMedStreets.features, geoPathGenerator, "#000000", 1);
     Map.createCities(g, cities, tooltip, projection, "cities", "#382767", 15, .25, svgMap, paramsMap.width, paramsMap.height);
-    Map.createHouses(g, countyHouses, projection, "houses", "#000000", 1, .5);
 
+    let housePoints = Map.createHouses(g, houses, projection, "houses", "#000000", 1, .5);
     let shelterArea = Map.createShelter(g, projection, shelters);
     let firePoints = Map.createFire(g, projection, fires);
 
@@ -342,15 +344,18 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         let dataUpdate = data.filter((d) => d.date === date);
         let firesUpdate = fires.filter((d) => d.date === date);
         let sheltersUpdate = shelters.filter((d) => date >= d.openDate && date <= d.closeDate);
+        let housesUpdate = houses.filter((d) => d.evacDate === date);
 
         Burn.draw(svgBurn, paramsBurn, xScaleBurn, yScaleBurn, dataUpdate);
         Containment.draw(svgContainment, paramsContainment, xScaleContainment, dataUpdate);
         Story.update(paramsStory.selector, dataUpdate);
         Story.effects(dataUpdate);
-        Timer.draw(svgTimeline, paramsTimeline, xScaleTimeline, dataUpdate)
+        Timer.draw(svgTimeline, paramsTimeline, xScaleTimeline, dataUpdate);
 
-        Map.updateShelter(shelterArea, projection, sheltersUpdate, "#EE2C25", 8, 1)
-        Map.updateFire(firePoints, projection, firesUpdate, 1, .8)
+
+        Map.updateHouses(housePoints, projection, housesUpdate);
+        Map.updateShelter(shelterArea, projection, sheltersUpdate, "#EE2C25", 8, 1);
+        Map.updateFire(firePoints, projection, firesUpdate, 1, .8);
 
         if (date === 825) {
             Map.drawPath(g, fireBoundary.features, geoPathGenerator, "#EE2C25", 1.5, 1);
