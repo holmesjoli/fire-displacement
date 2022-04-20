@@ -189,8 +189,8 @@ const paramsMap = {
     width: 500,
     height: 300,
     margin: {top: 0, right: 10, bottom: 50, left: 10},
-    initialScale: 14000,
-    initialCenterX: -23.5,
+    initialScale: 20000,
+    initialCenterX: -24,
     initialCenterY: 48.25
 }
 
@@ -347,11 +347,12 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
         date = parseInt(date);
         let dataUpdate = data.filter((d) => d.date === date);
-        let firesUpdate = fires.filter((d) =>  date >= d.startDate && date <= d.endDate);
+        let firesUpdate = fires.filter((d) => date >= d.startDate);
+
         let sheltersUpdate = shelters.filter((d) => date >= d.openDate && date <= d.closeDate);
         let housesUpdate = houses.filter((d) => d.evacDate === date);
 
-        console.log(housesUpdate)
+        // console.log(housesUpdate)
 
         Burn.draw(svgBurn, paramsBurn, xScaleBurn, yScaleBurn, dataUpdate);
         Containment.draw(svgContainment, paramsContainment, xScaleContainment, dataUpdate);
@@ -362,11 +363,10 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
         Map.updateHouses(housePoints, projection, housesUpdate);
         Map.updateShelter(shelterArea, projection, sheltersUpdate, "#EE2C25", 8, 1);
-        Map.updateFire(firePoints, projection, firesUpdate, 1, 1);
+        Map.updateFire(firePoints, projection, firesUpdate, 1, 1, date);
 
         if (date === 825) {
             Map.drawPath(g, fireBoundary.features, geoPathGenerator, "#EE2C25", 1.5, 1);
-            // let firePoints = Map.createFire(g, projection, fires);
         }
 
     });
