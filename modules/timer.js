@@ -19,9 +19,6 @@ export function daysLabel(days, dates) {
 // param callback
 export function setDate(params, callback) {
 
-    let monthId = document.getElementById('month');
-    let dayId = document.getElementById('days');
-
     var git = setInterval(function () {
 
         if (params.i < params.limit + 1) {
@@ -30,14 +27,9 @@ export function setDate(params, callback) {
                 return d.i === params.i;
             });
 
-            // dayId.innerHTML = `${filteredDates[0].day}`;
-            // monthId.innerHTML =  `${filteredDates[0].month_name}`;
-
             callback(`${filteredDates[0].date}`);
-            
+
         } else {
-            // clearInterval(monthId);
-            // clearInterval(dayId);
             clearInterval(git);
         }
 
