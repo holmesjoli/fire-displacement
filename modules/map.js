@@ -1,4 +1,16 @@
-export function mouseoverPoints(points, tooltip) {
+export function createCities(g, data, tooltip, projection, className, fill, r, fillOpacity = 1) {
+    let points = g
+        .append("g")
+        .selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr("class", className)
+        .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
+        .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
+        .attr("r", r)
+        .attr("fill", fill)
+        .attr("fill-opacity", fillOpacity);
 
     points.on("mouseover", function(e, d) {
 
@@ -13,23 +25,6 @@ export function mouseoverPoints(points, tooltip) {
     }).on("mouseout", function() {
         tooltip.style("visibility", "hidden");
     });
-}
-
-export function createPoints(g, data, tooltip, projection, className, fill, r, fillOpacity = 1) {
-    let points = g
-        .append("g")
-        .selectAll("circle")
-        .data(data)
-        .enter()
-        .append("circle")
-        .attr("class", className)
-        .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
-        .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-        .attr("r", r)
-        .attr("fill", fill)
-        .attr("fill-opacity", fillOpacity);
-
-    mouseoverPoints(points, tooltip);
 }
 
 export function drawBasemap(g, data, geoPathGenerator, stroke = "#FFFFFF", strokeWidth = 1) {
@@ -85,8 +80,8 @@ export function draw(svg, g, tooltip, projection, geoPathGenerator, stateBoundar
     svg.call(zoom);
 }
 
-export function createHouses(g, data, tooltip, projection, className, fill, r, fillOpacity = 1) {
-    let points = g
+export function createHouses(g, data, projection, className, fill, r, fillOpacity = 1) {
+    g
         .append("g")
         .selectAll("path")
         .data(data)
@@ -99,8 +94,6 @@ export function createHouses(g, data, tooltip, projection, className, fill, r, f
             .attr("d", d3.symbol().type(d3.symbolSquare).size("10"))
             .attr("fill", fill)
             .attr("fill-opacity", fillOpacity);
-
-    mouseoverPoints(points, tooltip);
 }
 
 
