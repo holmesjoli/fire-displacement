@@ -94,6 +94,8 @@ export function createHouses(g, data, projection, className, fill, r, fillOpacit
 
 export function updateHouses(houses, projection, data) {
 
+
+    console.log(data)
     let c = houses.selectAll("circle")
         .data(data, function(d) {return d.id;});
 

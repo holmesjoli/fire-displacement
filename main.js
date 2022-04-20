@@ -40,7 +40,9 @@ const files = {
                 name: "household",
                 place: j.place,
                 shelterLat: +j.shelterLat,
-                shelterLong: +j.shelterLong
+                shelterLong: +j.shelterLong,
+                id: +j.id,
+                evacDate: +j.evacDate
             }
         }
     },
@@ -215,18 +217,18 @@ let geoPathGenerator = d3.geoPath().projection(projection);
 
 function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, houses, data, cities, shelters, fires, fireBoundary, cityBoundaries) {
 
-    console.log(stateBoundaries);
-    console.log(countyBoundaries);
-    console.log(okBigStreets)
-    console.log(okMedStreets)
-    console.log(okSmallStreets)
+    // console.log(stateBoundaries);
+    // console.log(countyBoundaries);
+    // console.log(okBigStreets)
+    // console.log(okMedStreets)
+    // console.log(okSmallStreets)
     console.log(houses)
-    console.log(data)
-    console.log(cities)
-    console.log(shelters)
-    console.log(fires)
-    console.log(fireBoundary)
-    console.log(cityBoundaries)
+    // console.log(data)
+    // console.log(cities)
+    // console.log(shelters)
+    // console.log(fires)
+    // console.log(fireBoundary)
+    // console.log(cityBoundaries)
 
     let start = d3.min(data, function(d) {return +d.i});
     let limit = d3.max(data, function(d) {return +d.i});
@@ -345,6 +347,8 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         let firesUpdate = fires.filter((d) => d.date === date);
         let sheltersUpdate = shelters.filter((d) => date >= d.openDate && date <= d.closeDate);
         let housesUpdate = houses.filter((d) => d.evacDate === date);
+
+        console.log(housesUpdate)
 
         Burn.draw(svgBurn, paramsBurn, xScaleBurn, yScaleBurn, dataUpdate);
         Containment.draw(svgContainment, paramsContainment, xScaleContainment, dataUpdate);
