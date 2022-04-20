@@ -32,12 +32,13 @@ const files = {
     },
 
     countyHouses: {
-        pth: "./data/county_houses.csv",
+        pth: "./data/houses.csv",
         parse: function(j) {
             return {
                 long: +j.X,
                 lat: +j.Y,
-                name: "household"
+                name: "household",
+                place: j.place
             }
         }
     },
@@ -108,6 +109,10 @@ const files = {
     firesBoundary: {
         pth: "./data/fire_boundary.geojson",
         parse: null
+    },
+    cityBoundaries: {
+        pth: "./data/city_poly.geojson",
+        parse: null
     }
 };
 
@@ -119,7 +124,9 @@ for (var key of Object.keys(files)) {
 }
 
 Promise.all(promises).then(function (values) {
-    drawVis(values[0], values[1], values[2], values[3], values[4], values[5],values[6], values[7], values[8], values[9], values[10])
+    drawVis(values[0], values[1], values[2], values[3], values[4], 
+        values[5],values[6], values[7], values[8], values[9], 
+        values[10], values[11])
 });
 
 // Timeline
@@ -204,7 +211,7 @@ let geoPathGenerator = d3.geoPath().projection(projection);
 // Helper.collapsibleTable();
 // let cntyCodes = ["53047", "53007", "53017"]
 
-function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, data, cities, shelters, fires, fireBoundary) {
+function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, data, cities, shelters, fires, fireBoundary, cityBoundaries) {
 
     console.log(stateBoundaries);
     console.log(countyBoundaries);
@@ -217,6 +224,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     console.log(shelters)
     console.log(fires)
     console.log(fireBoundary)
+    console.log(cityBoundaries)
 
     let start = d3.min(data, function(d) {return +d.i});
     let limit = d3.max(data, function(d) {return +d.i});
@@ -316,12 +324,13 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         .call(d3.axisBottom().scale(xScaleContainment).ticks(2));
 
     //Map
-    Map.drawBasemap(g, stateBoundaries.features, geoPathGenerator);
-    Map.drawBasemap(g, countyBoundaries.features, geoPathGenerator);
+    Map.drawBasemap(g, stateBoundaries.features, geoPathGenerator, "state");
+    Map.drawBasemap(g, countyBoundaries.features, geoPathGenerator, "county");
+    // Map.drawBasemap(g, cityBoundaries.features, geoPathGenerator, "city");
     Map.drawPath(g, okBigStreets.features, geoPathGenerator, "#000000", 1.5);
     Map.drawPath(g, okMedStreets.features, geoPathGenerator, "#000000", 1);
-    Map.createHouses(g, countyHouses, projection, "houses", "#8B4B6A", 1, .2);
-    Map.createCities(g, cities, tooltip, projection, "cities", "#382767", 5, 1, svgMap, paramsMap.width, paramsMap.height);
+    Map.createCities(g, cities, tooltip, projection, "cities", "#382767", 15, .25, svgMap, paramsMap.width, paramsMap.height);
+    Map.createHouses(g, countyHouses, projection, "houses", "#000000", 1, .5);
 
     let shelterArea = g
         .append("g")

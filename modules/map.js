@@ -32,19 +32,18 @@ export function createCities(g, data, tooltip, projection, className, fill, r, f
     });
 }
 
-export function drawBasemap(g, data, geoPathGenerator, stroke = "#FFFFFF", strokeWidth = 1) {
+export function drawBasemap(g, data, geoPathGenerator, className, stroke = "#FFFFFF", strokeWidth = 1, fill = "#E0E0E0") {
     g
     .append("g")
     .selectAll("path")
     .data(data)
     .enter()
     .append("path")
-    .attr("class", 'state')
+    .attr("class", className)
     .attr("d", geoPathGenerator)
     .attr("stroke", stroke)
     .attr("stroke-width", strokeWidth)
-    .attr("fill", "#E0E0E0")
-    // .attr("opacity", .5);
+    .attr("fill", fill)
 }
 
 export function drawPath(g, data, geoPathGenerator, stroke = "#D7D7D7", strokeWidth = 1, opacity = .5) {
