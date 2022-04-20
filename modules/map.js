@@ -94,8 +94,7 @@ export function createHouses(g, data, projection, className, fill, r, fillOpacit
 
 export function updateHouses(houses, projection, data) {
 
-
-    console.log(data)
+    // console.log(data)
     let c = houses.selectAll("circle")
         .data(data, function(d) {return d.id;});
 
@@ -226,14 +225,11 @@ export function createFire(g, projection, data) {
     return fire
 }
 
-export function updateFire(fire, projection, data, r, opacity) {
+export function updateFire(fire, projection, data, r, opacity, date) {
 
-    // const colors = ['#ffcc55', '#fdb947', '#fba63b', '#f99332', '#f57e2b', '#f26826', '#ee4f24', '#ea2c24']
-
-    console.log(data)
-
+    //https://gka.github.io/palettes/#/8|s|ffcc55,f68c1f,ea2c24|ffffe0,ff005e,93003a|1|1
     const colorScale = d3.scaleOrdinal()
-        .domain([1, 8])
+        .domain([1, 9])
         .range(['#ffcc55', '#fdb947', '#fba63b', '#f99332', '#f57e2b', '#f26826', '#ee4f24', '#ea2c24']);
 
     let c = fire.selectAll("circle")
@@ -251,14 +247,21 @@ export function updateFire(fire, projection, data, r, opacity) {
             .duration(3000)
             .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("fill", function(d) {return colorScale(d.nDays)})
+            .attr("fill", function(d) {
+                
+                if (d.endDate <= date) {
+                    return "#473F41";
+                } else {
+                    return colorScale(d.nDays)
+                }
+            })
             .attr("r", r)
             .attr("opacity", opacity);
     
-        c.exit()
-        .transition()
-        .attr("opacity", 0)
-        .attr("r", 0)
-        .duration(1000)
-        .remove();
+        // c.exit()
+        // .transition()
+        // .attr("opacity", 0)
+        // .attr("r", 0)
+        // .duration(1000)
+        // .remove();
 }
