@@ -17,9 +17,6 @@ export function createCities(g, data, tooltip, projection, className, fill, r, f
     let sx = tw / width;
     let sy = th / height;
 
-    console.log(tw)
-    console.log(th)
-
     points.on("mouseover", function(e, d) {
 
         let x = sx*(+d3.select(this).attr("cx")) + 20;
