@@ -269,7 +269,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         .attr("class", "timeline")
         .attr("width", xScaleTimeline.bandwidth())
         .attr("height", paramsTimeline.barHeight)
-        .attr("fill", "#000000")
+        .attr("fill", "#473F41")
 
     // Burn
     paramsBurn["min"] = d3.min(data, function(d) {return d.size;});

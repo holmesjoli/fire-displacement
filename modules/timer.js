@@ -26,20 +26,18 @@ export function setDate(params, callback) {
 
         if (params.i < params.limit + 1) {
 
-            
-
             let filteredDates = params.dates.filter(function(d) {
                 return d.i === params.i;
             });
 
-            dayId.innerHTML = `${filteredDates[0].day}`;
-            monthId.innerHTML =  `${filteredDates[0].month_name}`;
+            // dayId.innerHTML = `${filteredDates[0].day}`;
+            // monthId.innerHTML =  `${filteredDates[0].month_name}`;
 
             callback(`${filteredDates[0].date}`);
             
         } else {
-            clearInterval(monthId);
-            clearInterval(dayId);
+            // clearInterval(monthId);
+            // clearInterval(dayId);
             clearInterval(git);
         }
 
@@ -57,7 +55,7 @@ export function draw(svg, params, xScale, data) {
         .attr("class", "timeline")
         .attr("width", xScale.bandwidth())
         .attr("height", params.barHeight)
-        .attr("fill", "#000000");
+        .attr("fill", "#473F41");
 
     let b = svg.selectAll(".timeline")
             .data(data, function(d) { return d.date; });
@@ -68,5 +66,5 @@ export function draw(svg, params, xScale, data) {
         .attr("class", "timeline")
         .attr("width", xScale.bandwidth())
         .attr("height", params.barHeight)
-        .attr("fill", "#000000");
+        .attr("fill", "#473F41");
 }
