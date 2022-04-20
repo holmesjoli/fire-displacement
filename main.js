@@ -333,22 +333,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     Map.createHouses(g, countyHouses, projection, "houses", "#000000", 1, .5);
 
     let shelterArea = Map.createShelter(g, projection, shelters);
-    let firePoints = Map.createFire(g, projection, fires)
-
-    // let firePoints = g
-    //         .append("g")
-
-    // firePoints
-    //     .selectAll("circle")
-    //     .data(fires)
-    //     .enter()
-    //     .append("circle")
-    //         .attr("class", "shelters")
-    //         .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
-    //         .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-    //         .attr("r", 1)
-    //         .attr("fill", "#FFFFFF")
-    //         .attr("fill-opacity", 0)
+    let firePoints = Map.createFire(g, projection, fires);
 
     // Timer
     Timer.setDate(params, function (date) {
