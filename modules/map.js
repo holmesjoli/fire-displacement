@@ -62,19 +62,6 @@ export function drawPath(g, data, geoPathGenerator, stroke = "#D7D7D7", strokeWi
 }
 
 export function createHouses(g, projection, data, className, fill, r, fillOpacity = 1) {
-    // let houses = g
-    //     .append("g")
-    //     .selectAll("path")
-    //     .data(data)
-    //     .enter()
-    //     .append("path")
-    //         .attr("class", className)
-    //         .attr("transform", d => "translate(" + [
-    //             projection([d.long, d.lat])[0],
-    //             projection([d.long, d.lat])[1]] + ")")
-    //         .attr("d", d3.symbol().type(d3.symbolSquare).size(r))
-    //         .attr("fill", fill)
-    //         .attr("fill-opacity", fillOpacity);
 
     let houses = g
             .append("g")
