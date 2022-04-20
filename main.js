@@ -332,49 +332,23 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     Map.createCities(g, cities, tooltip, projection, "cities", "#382767", 15, .25, svgMap, paramsMap.width, paramsMap.height);
     Map.createHouses(g, countyHouses, projection, "houses", "#000000", 1, .5);
 
-    let shelterArea = Map.createShelter(g, shelters, projection)
-    // let shelterArea = g
-    //     .append("g")
+    let shelterArea = Map.createShelter(g, projection, shelters);
+    let firePoints = Map.createFire(g, projection, fires)
 
-    // shelterArea
-    //     .selectAll("path")
-    //     .data(shelters)
-    //     .enter()
-    //     .append("path")
-    //         .attr("class", "shelters")
-    //         .attr("transform", d => "translate(" + [
-    //         projection([d.long, d.lat])[0],
-    //         projection([d.long, d.lat])[1]] + ")")
-    //         .attr("d", d3.symbol().type(d3.symbolCross).size("200"))
-    //         .attr("fill", "#FFFFFF")
-    //         .attr("fill-opacity", 0)
+    // let firePoints = g
+    //         .append("g")
 
-    // shelterArea
+    // firePoints
     //     .selectAll("circle")
-    //     .data(shelters)
+    //     .data(fires)
     //     .enter()
     //     .append("circle")
     //         .attr("class", "shelters")
     //         .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
     //         .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-    //         .attr("r", 8)
+    //         .attr("r", 1)
     //         .attr("fill", "#FFFFFF")
     //         .attr("fill-opacity", 0)
-
-    let firePoints = g
-            .append("g")
-
-    firePoints
-        .selectAll("circle")
-        .data(fires)
-        .enter()
-        .append("circle")
-            .attr("class", "shelters")
-            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
-            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("r", 1)
-            .attr("fill", "#FFFFFF")
-            .attr("fill-opacity", 0)
 
     // Timer
     Timer.setDate(params, function (date) {

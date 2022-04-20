@@ -79,7 +79,11 @@ export function createHouses(g, data, projection, className, fill, r, fillOpacit
     return houses
 }
 
-export function createShelter(g, data, projection) {
+export function updateHouses(house, projection, data, fill, r, opacity) {
+
+}
+
+export function createShelter(g, projection, data) {
 
     let shelters = g
         .append("g")
@@ -164,16 +168,35 @@ export function updateShelter(shelter, projection, data, fill, r, opacity) {
         .remove();
 }
 
+export function createFire(g, projection, data) {
+    let fire = g
+            .append("g")
+
+    fire
+        .selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+            .attr("class", "shelters")
+            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
+            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
+            .attr("r", 1)
+            .attr("fill", "#FFFFFF")
+            .attr("fill-opacity", 0)
+
+    return fire
+}
+
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
-export function updateFire(circle, projection, data, r, opacity) {
+export function updateFire(fire, projection, data, r, opacity) {
 
     const colors = ["#E82B25", "#F6891F", "#F9C94A", "#F15523", "#B62025", "#FAA51A", "#F5841F", "#FCCC4D"]
 
-    let c = circle.selectAll("circle")
+    let c = fire.selectAll("circle")
         .data(data, function(d) {return d.id;});
 
         c
@@ -191,8 +214,4 @@ export function updateFire(circle, projection, data, r, opacity) {
             .attr("fill", function(d) {return colors[getRandomInt(colors.length - 1)]})
             .attr("r", r)
             .attr("opacity", opacity);
-}
-
-export function updateHouses(house, projection, data, fill, r, opacity) {
-
 }
