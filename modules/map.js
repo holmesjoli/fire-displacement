@@ -257,11 +257,4 @@ export function updateFire(fire, projection, data, r, opacity, date) {
             })
             .attr("r", r)
             .attr("opacity", opacity);
-    
-        // c.exit()
-        // .transition()
-        // .attr("opacity", 0)
-        // .attr("r", 0)
-        // .duration(1000)
-        // .remove();
 }
