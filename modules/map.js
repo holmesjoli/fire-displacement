@@ -1,4 +1,4 @@
-export function createCities(g, data, tooltip, projection, className, fill, r, fillOpacity = 1) {
+export function createCities(g, data, tooltip, projection, className, fill, r, fillOpacity = 1, svg, width, height) {
     let points = g
         .append("g")
         .selectAll("circle")
@@ -12,10 +12,18 @@ export function createCities(g, data, tooltip, projection, className, fill, r, f
         .attr("fill", fill)
         .attr("fill-opacity", fillOpacity);
 
+    let tw = svg.node().clientWidth;
+    let th = svg.node().clientHeight;
+    let sx = tw / width;
+    let sy = th / height;
+
+    console.log(tw)
+    console.log(th)
+
     points.on("mouseover", function(e, d) {
 
-        let x = +d3.select(this).attr("cx") + 20;
-        let y = +d3.select(this).attr("cy") - 10;
+        let x = sx*(+d3.select(this).attr("cx")) + 20;
+        let y = sy*(+d3.select(this).attr("cy")) - 10;
 
         tooltip.style("visibility", "visible")
             .style("top", `${y}px`)

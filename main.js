@@ -311,7 +311,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     Map.drawPath(g, okBigStreets.features, geoPathGenerator, "#000000", 1.5);
     Map.drawPath(g, okMedStreets.features, geoPathGenerator, "#000000", 1);
     Map.createHouses(g, countyHouses, projection, "houses", "#8B4B6A", 1, .2);
-    Map.createCities(g, cities, tooltip, projection, "cities", "#382767", 5, 1);
+    Map.createCities(g, cities, tooltip, projection, "cities", "#382767", 5, 1, svgMap, paramsMap.width, paramsMap.height);
 
     let shelterArea = g
         .append("g")
