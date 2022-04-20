@@ -105,7 +105,6 @@ export function updateHouses(house, projection, data) {
         .transition()
         .duration(1000)
         .remove();
-
 }
 
 export function createShelter(g, projection, data) {
@@ -159,11 +158,11 @@ export function updateShelter(shelter, projection, data, fill, r, opacity) {
             .duration(1000)
             .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("r", r)
-            .attr("opacity", opacity);
 
     c.exit()
         .transition()
+        .attr("r", 0)
+        .attr("opacity", 0)
         .duration(1000)
         .remove();
 
@@ -189,6 +188,7 @@ export function updateShelter(shelter, projection, data, fill, r, opacity) {
 
     s.exit()
         .transition()
+        .attr("opacity", 0)
         .duration(1000)
         .remove();
 }
