@@ -102,18 +102,11 @@ export function updateHouses(houses, projection, data) {
         c
         .enter()
         .append("circle")
-            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
-            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("r", 0)
-            .attr("opacity", 0)
         .merge(c)
             .transition()
             .duration(3000)
-            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
-            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("fill", "purple")
-            .attr("r", 5)
-            .attr("opacity", 1);
+            .attr("cx", function(d) {return projection([d.shelterLong, d.shelterLat])[0];})
+            .attr("cy", function(d) {return projection([d.shelterLong, d.shelterLat])[1];})
 }
 
 export function createShelter(g, projection, data) {

@@ -342,21 +342,20 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     let shelterArea = Map.createShelter(g, projection, shelters);
     let firePoints = Map.createFire(g, projection, fires);
 
-
     let housePoints = g
             .append("g")
 
     housePoints
         .selectAll("circle")
-        .data(data)
+        .data(houses)
         .enter()
         .append("circle")
             .attr("class", "shelters")
             .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
             .attr("r", 1)
-            .attr("fill", "#FFFFFF")
-            .attr("fill-opacity", 0)
+            .attr("fill", "green")
+            .attr("fill-opacity", 1)
 
     // Timer
     Timer.setDate(params, function (date) {
