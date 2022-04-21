@@ -22,6 +22,8 @@ export function effects(data) {
         document.getElementById("containment-container").style.borderColor = lightColor;
         document.querySelector("#burn svg").style.borderColor = lightColor;
         document.querySelector("#timeline svg rect").style.fill = lightColor;
+        document.querySelector("#burn svg rect").style.fill = lightColor;
+        document.querySelector("#containment svg rect").style.fill = lightColor;
         // document.querySelectorAll(".axis--label").style.color = lightColor;
     }
 
@@ -32,6 +34,8 @@ export function effects(data) {
         document.getElementById("containment-container").style.borderColor = darkColor;
         document.querySelector("#burn svg").style.borderColor = darkColor;
         document.querySelector("#timeline svg rect").style.fill = darkColor;
+        document.querySelector("#burn svg rect").style.fill = darkColor;
+        document.querySelector("#containment svg rect").style.fill = darkColor;
         // document.querySelectorAll(".axis--label").style.fill = darkColor;
     }
 

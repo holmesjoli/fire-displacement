@@ -381,7 +381,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         Map.updateFire(firePoints, projection, firesUpdate, 1, 1, date);
 
         if (date === 825) {
-            Map.drawPath(g, fireBoundary.features, geoPathGenerator, "#EE2C25", 1.5, 1);
+            Map.drawPath(g, fireBoundary.features, geoPathGenerator, "#473F41", 1.5, 1);
         }
 
     });
