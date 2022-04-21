@@ -367,7 +367,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         let sheltersUpdate = shelters.filter((d) => date >= d.openDate && date <= d.closeDate);
         let housesUpdate = houses.filter((d) => d.evacDate === date);
 
-        console.log(housesUpdate)
+        // console.log(housesUpdate)
 
         Burn.draw(svgBurn, paramsBurn, xScaleBurn, yScaleBurn, dataUpdate);
         Containment.draw(svgContainment, paramsContainment, xScaleContainment, dataUpdate);
