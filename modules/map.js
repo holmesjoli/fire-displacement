@@ -47,7 +47,7 @@ export function drawBasemap(g, data, geoPathGenerator, className, stroke = "#FFF
     .attr("fill-opacity", fillOpacity)
 }
 
-export function drawPath(g, data, geoPathGenerator, stroke = "#D7D7D7", strokeWidth = 1, opacity = .5) {
+export function drawPath(g, data, geoPathGenerator, stroke = "#D7D7D7", strokeWidth = 1, strokeOpacity = .5, fill ="none", fillOpacity) {
     let path = g
     .append("g")
     .selectAll("path")
@@ -58,8 +58,9 @@ export function drawPath(g, data, geoPathGenerator, stroke = "#D7D7D7", strokeWi
     .attr("d", geoPathGenerator)
     .attr("stroke", stroke)
     .attr("stroke-width", strokeWidth)
-    .attr("fill", "none")
-    .attr("opacity", opacity);
+    .attr("stroke-opacity", strokeOpacity)
+    .attr("fill-opacity", fillOpacity)
+    .attr("fill", fill);
 
     return path;
 }
