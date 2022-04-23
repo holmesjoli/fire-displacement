@@ -7,7 +7,7 @@ import * as Burn from "./modules/burn.js"
 
 const files = {
     stateBoundaries: {
-        pth: "./data/state_boundaries.geojson",
+        pth: "./data/state_boundaries2.geojson",
         parse: null
     },
 
@@ -120,6 +120,10 @@ const files = {
     cityBoundaries: {
         pth: "./data/city_poly.geojson",
         parse: null
+    },
+    routes: {
+        pth: "./data/route.geojson",
+        parse: null
     }
 };
 
@@ -133,7 +137,7 @@ for (var key of Object.keys(files)) {
 Promise.all(promises).then(function (values) {
     drawVis(values[0], values[1], values[2], values[3], values[4], 
         values[5],values[6], values[7], values[8], values[9], 
-        values[10], values[11])
+        values[10], values[11], values[12])
 });
 
 // Timeline
@@ -198,8 +202,6 @@ const svgMap = d3.select(`#${paramsMap.selector}`)
     .append("svg")
     .attr("viewBox", `0 0 ${paramsMap.width} ${paramsMap.height}`)
     .attr("preserveAspectRatio", "xMidYMid meet");
-    // .attr("id", "map-svg")
-    // .classed("svg-content", true);
 
 let g = svgMap.append("g");
 
@@ -218,7 +220,7 @@ let geoPathGenerator = d3.geoPath().projection(projection);
 // Helper.collapsibleTable();
 // let cntyCodes = ["53047", "53007", "53017"]
 
-function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, houses, data, cities, shelters, fires, fireBoundary, cityBoundaries) {
+function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, houses, data, cities, shelters, fires, fireBoundary, cityBoundaries, routes) {
 
     // console.log(stateBoundaries);
     // console.log(countyBoundaries);
@@ -232,6 +234,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     // console.log(fires)
     // console.log(fireBoundary)
     // console.log(cityBoundaries)
+    console.log(routes)
 
     let start = d3.min(data, function(d) {return +d.i});
     let limit = d3.max(data, function(d) {return +d.i});
@@ -333,29 +336,31 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     //Map
     Map.drawBasemap(g, stateBoundaries.features, geoPathGenerator, "state");
     Map.drawBasemap(g, countyBoundaries.features, geoPathGenerator, "county");
-    // Map.drawBasemap(g, cityBoundaries.features, geoPathGenerator, "city");
+    Map.drawBasemap(g, cityBoundaries.features, geoPathGenerator, "city", "#57276C", .5, "#57276C", .5);
     Map.drawPath(g, okBigStreets.features, geoPathGenerator, "#000000", 1.5);
     Map.drawPath(g, okMedStreets.features, geoPathGenerator, "#000000", 1);
-    Map.createCities(g, cities, tooltip, projection, "cities", "#382767", 15, .25, svgMap, paramsMap.width, paramsMap.height);
 
     // let housePoints = Map.createFire(g, projection, houses);
     let shelterArea = Map.createShelter(g, projection, shelters);
     let firePoints = Map.createFire(g, projection, fires);
+    // let housePoints = Map.createHouses(g, projection, routes, "shelter")
 
     let housePoints = g
             .append("g")
 
     housePoints
         .selectAll("circle")
-        .data(houses)
+        .data(routes.features)
         .enter()
         .append("circle")
             .attr("class", "shelters")
-            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
-            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("r", 1)
+            .attr("cx", function(d) {return projection([d.properties.x, d.properties.y])[0];})
+            .attr("cy", function(d) {return projection([d.properties.x, d.properties.y])[1];})
+            .attr("r", 2)
             .attr("fill", "green")
             .attr("fill-opacity", 1)
+
+    // Map.updateHouses(g, housePoints, geoPathGenerator, data)
 
     // Timer
     Timer.setDate(params, function (date) {
@@ -376,7 +381,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         Timer.draw(svgTimeline, paramsTimeline, xScaleTimeline, dataUpdate);
 
 
-        Map.updateHouses(housePoints, projection, housesUpdate);
+        // Map.updateHouses(housePoints, projection, housesUpdate);
         Map.updateShelter(shelterArea, projection, sheltersUpdate, "#EE2C25", 8, 1);
         Map.updateFire(firePoints, projection, firesUpdate, 1, 1, date);
 

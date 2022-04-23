@@ -32,7 +32,7 @@ export function createCities(g, data, tooltip, projection, className, fill, r, f
     });
 }
 
-export function drawBasemap(g, data, geoPathGenerator, className, stroke = "#FFFFFF", strokeWidth = 1, fill = "#E0E0E0") {
+export function drawBasemap(g, data, geoPathGenerator, className, stroke = "#FFFFFF", strokeWidth = 1, fill = "#E0E0E0", fillOpacity = 1) {
     g
     .append("g")
     .selectAll("path")
@@ -44,10 +44,11 @@ export function drawBasemap(g, data, geoPathGenerator, className, stroke = "#FFF
     .attr("stroke", stroke)
     .attr("stroke-width", strokeWidth)
     .attr("fill", fill)
+    .attr("fill-opacity", fillOpacity)
 }
 
 export function drawPath(g, data, geoPathGenerator, stroke = "#D7D7D7", strokeWidth = 1, opacity = .5) {
-    g
+    let path = g
     .append("g")
     .selectAll("path")
     .data(data)
@@ -59,14 +60,16 @@ export function drawPath(g, data, geoPathGenerator, stroke = "#D7D7D7", strokeWi
     .attr("stroke-width", strokeWidth)
     .attr("fill", "none")
     .attr("opacity", opacity);
+
+    return path;
 }
 
-export function createHouses(g, projection, data, className, fill, r, fillOpacity = 1) {
+export function createHouses(g, projection, data, className, fill = "green", r = 2, fillOpacity = 1) {
 
-    let houses = g
-            .append("g")
+    let housePoints = g
+    .append("g")
 
-    houses
+    housePoints
         .selectAll("circle")
         .data(data)
         .enter()
@@ -78,22 +81,24 @@ export function createHouses(g, projection, data, className, fill, r, fillOpacit
             .attr("fill", fill)
             .attr("fill-opacity", fillOpacity);
 
-    return houses
+    return housePoints;
 }
 
-export function updateHouses(houses, projection, data) {
+export function updateHouses(g, housePoints, geoPathGenerator, data) {
 
-    let c = houses.selectAll("circle")
-        .data(data, function(d) {return d.id;});
+    let path = drawPath(g, data.features, geoPathGenerator, "yellow", 1.5);
 
-        c
-        .enter()
-        .append("circle")
-        .merge(c)
-            .transition()
-            .duration(3000)
-            .attr("cx", function(d) {return projection([d.shelterLong, d.shelterLat])[0];})
-            .attr("cy", function(d) {return projection([d.shelterLong, d.shelterLat])[1];})
+    // let c = houses.selectAll("circle")
+    //     .data(data, function(d) {return d.id;});
+
+    //     c
+    //     .enter()
+    //     .append("circle")
+    //     .merge(c)
+    //         .transition()
+    //         .duration(3000)
+    //         .attr("cx", function(d) {return projection([d.shelterLong, d.shelterLat])[0];})
+    //         .attr("cy", function(d) {return projection([d.shelterLong, d.shelterLat])[1];})
 }
 
 export function createShelter(g, projection, data) {
