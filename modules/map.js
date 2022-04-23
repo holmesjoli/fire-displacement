@@ -36,7 +36,7 @@ export function drawBasemap(g, data, geoPathGenerator, className, stroke = "#FFF
     g
     .append("g")
     .selectAll("path")
-    .data(data)
+    .data(data.features)
     .enter()
     .append("path")
     .attr("class", className)
@@ -51,7 +51,7 @@ export function drawPath(g, data, geoPathGenerator, stroke = "#D7D7D7", strokeWi
     let path = g
     .append("g")
     .selectAll("path")
-    .data(data)
+    .data(data.features)
     .enter()
     .append("path")
     .attr("class", 'state')
@@ -87,7 +87,39 @@ export function createHouses(g, projection, data, className, fill = "green", r =
 
 export function updateHouses(g, geoPathGenerator, data) {
 
-    let path = drawPath(g, data.features, geoPathGenerator, "yellow", 1.5);
+    // let path = drawPath(g, data.features, geoPathGenerator, "#000000", 1);
+
+    // let r = g
+    //     .append("g")
+
+    // r
+    //     .selectAll("path")
+    //     .data(data)
+    //     .enter()
+    //     .append("path")
+
+    // g.append("circle")
+    //     .attr("cx", function(d) {return projection([d.properties.x, d.properties.y])[0];})
+    //     .attr("cy", function(d) {return projection([d.properties.x, d.properties.y])[1];})
+    //     .attr("r", 2)
+    //     .attr("fill", "green")
+    //     .attr("fill-opacity", 1)
+    //     .transition()
+    //     .delay(250)
+    //     .duration(1000)
+    //     .ease("linear")
+    //     .tween("pathTween", function(){return pathTween(path)})
+
+    // function pathTween(path) {
+    //         var length = path.node().getTotalLength(); // Get the length of the path
+    //         var r = d3.interpolate(0, length); //Set up interpolation from 0 to the path length
+    //         return function(t){
+    //             var point = path.node().getPointAtLength(r(t)); // Get the next point along the path
+    //             d3.select(this) // Select the circle
+    //                 .attr("cx", point.x) // Set the cx
+    //                 .attr("cy", point.y) // Set the cy
+    //         }
+    // }
 
     // let c = houses.selectAll("circle")
     //     .data(data, function(d) {return d.id;});

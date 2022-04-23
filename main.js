@@ -334,11 +334,11 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         .call(d3.axisBottom().scale(xScaleContainment).ticks(2));
 
     //Map
-    Map.drawBasemap(g, stateBoundaries.features, geoPathGenerator, "state");
-    Map.drawBasemap(g, countyBoundaries.features, geoPathGenerator, "county");
-    Map.drawBasemap(g, cityBoundaries.features, geoPathGenerator, "city", "#57276C", .5, "#57276C", .5);
-    Map.drawPath(g, okBigStreets.features, geoPathGenerator, "#000000", 1.5);
-    Map.drawPath(g, okMedStreets.features, geoPathGenerator, "#000000", 1);
+    Map.drawBasemap(g, stateBoundaries, geoPathGenerator, "state");
+    Map.drawBasemap(g, countyBoundaries, geoPathGenerator, "county");
+    Map.drawBasemap(g, cityBoundaries, geoPathGenerator, "city", "#57276C", .5, "#57276C", .5);
+    Map.drawPath(g, okBigStreets, geoPathGenerator, "#000000", 1.5);
+    Map.drawPath(g, okMedStreets, geoPathGenerator, "#000000", 1);
 
     let shelterArea = Map.createShelter(g, projection, shelters);
     let firePoints = Map.createFire(g, projection, fires);
@@ -358,7 +358,8 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
             .attr("fill", "green")
             .attr("fill-opacity", 1);
 
-    Map.drawPath(g, routes.features, geoPathGenerator, "#000000", 1);
+    Map.updateHouses(housePoints, projection, routes);
+
 
     // Timer
     Timer.setDate(params, function (date) {
@@ -378,8 +379,6 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         Story.effects(dataUpdate);
         Timer.draw(svgTimeline, paramsTimeline, xScaleTimeline, dataUpdate);
 
-
-        // Map.updateHouses(housePoints, projection, housesUpdate);
         Map.updateShelter(shelterArea, projection, sheltersUpdate, "#EE2C25", 8, 1);
         Map.updateFire(firePoints, projection, firesUpdate, 1, 1, date);
 
