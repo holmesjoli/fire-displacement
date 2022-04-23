@@ -340,10 +340,8 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     Map.drawPath(g, okBigStreets.features, geoPathGenerator, "#000000", 1.5);
     Map.drawPath(g, okMedStreets.features, geoPathGenerator, "#000000", 1);
 
-    // let housePoints = Map.createFire(g, projection, houses);
     let shelterArea = Map.createShelter(g, projection, shelters);
     let firePoints = Map.createFire(g, projection, fires);
-    // let housePoints = Map.createHouses(g, projection, routes, "shelter")
 
     let housePoints = g
             .append("g")
@@ -358,9 +356,9 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
             .attr("cy", function(d) {return projection([d.properties.x, d.properties.y])[1];})
             .attr("r", 2)
             .attr("fill", "green")
-            .attr("fill-opacity", 1)
+            .attr("fill-opacity", 1);
 
-    // Map.updateHouses(g, housePoints, geoPathGenerator, data)
+    Map.drawPath(g, routes.features, geoPathGenerator, "#000000", 1);
 
     // Timer
     Timer.setDate(params, function (date) {
@@ -386,7 +384,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         Map.updateFire(firePoints, projection, firesUpdate, 1, 1, date);
 
         if (date === 825) {
-            Map.drawPath(g, fireBoundary.features, geoPathGenerator, "#473F41", 1.5, 1, "#473F41", .5);
+            Map.drawPath(g, fireBoundary.features, geoPathGenerator, "#473F41", .5, 1, "#473F41", .5);
         }
 
     });

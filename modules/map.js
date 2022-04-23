@@ -85,7 +85,7 @@ export function createHouses(g, projection, data, className, fill = "green", r =
     return housePoints;
 }
 
-export function updateHouses(g, housePoints, geoPathGenerator, data) {
+export function updateHouses(g, geoPathGenerator, data) {
 
     let path = drawPath(g, data.features, geoPathGenerator, "yellow", 1.5);
 
