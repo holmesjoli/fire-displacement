@@ -340,8 +340,8 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     Map.drawPath(g, okBigStreets, geoPathGenerator, "#000000", 1.5);
     Map.drawPath(g, okMedStreets, geoPathGenerator, "#000000", 1);
 
-    let shelterArea = Map.createShelter(g, projection, shelters);
-    let firePoints = Map.createFire(g, projection, fires);
+    let shelterArea = Map.createShelter(g, shelters, projection);
+    let firePoints = Map.createFire(g, fires, projection,);
 
     let housePoints = g
             .append("g")
@@ -383,7 +383,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         Map.updateFire(firePoints, projection, firesUpdate, 1, 1, date);
 
         if (date === 825) {
-            Map.drawPath(g, fireBoundary.features, geoPathGenerator, "#473F41", .5, 1, "#473F41", .5);
+            Map.drawPath(g, fireBoundary, geoPathGenerator, "#473F41", .5, 1, "#473F41", .5);
         }
 
     });

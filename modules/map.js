@@ -134,7 +134,7 @@ export function updateHouses(g, geoPathGenerator, data) {
     //         .attr("cy", function(d) {return projection([d.shelterLong, d.shelterLat])[1];})
 }
 
-export function createShelter(g, projection, data) {
+export function createShelter(g, data, projection) {
 
     let shelters = g
         .append("g")
@@ -214,7 +214,7 @@ export function updateShelter(shelter, projection, data, fill, r, opacity) {
         .remove();
 }
 
-export function createFire(g, projection, data) {
+export function createFire(g, data, projection) {
     let fire = g
             .append("g")
 
