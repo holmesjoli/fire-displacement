@@ -113,7 +113,7 @@ export function updateHouses(g, projection, data, speed) {
         .delay(function(d, i) {return i*300})
         .duration(speed)
         .tween("pathTween", function(d, i) {
-            return pathTween(drawPath(g, projection, [d], "yellow", 1))
+            return pathTween(drawPath(g, projection, [d], "yellow", 0))
         });
 
     function pathTween(path) {
