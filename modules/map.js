@@ -106,10 +106,6 @@ function getNonZeroRandomNumber() {
 //Modified http://bl.ocks.org/JMStewart/6455921
 export function updateHouses(g, projection, data, speed) {
 
-    console.log(data)
-
-    // let path = drawPath(g, projection, data, "yellow", 1);
-
     let c = g.selectAll("circle")
     .data(data, function(d) {return d.properties.id;});
 
