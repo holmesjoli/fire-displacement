@@ -98,9 +98,9 @@ export function updateHouses(g, projection, data, speed) {
 
     let path = drawPath(g, projection, data, "yellow");
 
-    let points = g.selectAll("circle")
+    let c = g.selectAll("circle")
 
-    points
+    c
         .transition()
         .duration(speed)
         .tween("pathTween", function(){return pathTween(path)});
