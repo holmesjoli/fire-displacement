@@ -122,7 +122,7 @@ const files = {
         parse: null
     },
     routes: {
-        pth: "./data/route_sim.geojson",
+        pth: "./data/route_sim2.geojson",
         parse: null
     }
 };

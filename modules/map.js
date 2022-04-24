@@ -103,17 +103,15 @@ export function updateHouses(g, projection, data, speed) {
     // let path = drawPath(g, projection, data, "yellow", 1);
 
     let c = g.selectAll("circle")
-    .data(data, function(d) {return d.id;});
+    .data(data, function(d) {return d.properties.id;});
 
     c
     .enter()
     .append("circle")
     .merge(c)
         .transition()
-        // .delay(function(d, i) {return i*300})
+        .delay(function(d, i) {return i*300})
         .duration(speed)
-        // .attr("cx", function(d) {return projection([d.properties.shelterLong, d.properties.shelterLat])[0];})
-        // .attr("cy", function(d) {return projection([d.properties.shelterLong, d.properties.shelterLat])[1];})
         .tween("pathTween", function(d, i) {
             return pathTween(drawPath(g, projection, [d], "yellow", 1))
         });
