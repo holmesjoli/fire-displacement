@@ -96,26 +96,14 @@ export function createHouses(g, projection, data, className, fill = "green", r =
 //Modified http://bl.ocks.org/JMStewart/6455921
 export function updateHouses(g, projection, data, speed) {
 
-    let path = drawPath(g, projection, data, "yellow", 0);
+    let path = drawPath(g, projection, data, "yellow");
 
-    let points = g
-    .append("g")
+    let points = g.selectAll("circle")
 
     points
-    .selectAll("circle")
-    .data(data.features)
-    .enter()
-    .append("circle")
-        .attr("class", "household")
-        .attr("cx", function(d) {return projection([d.properties.x, d.properties.y])[0];})
-        .attr("cy", function(d) {return projection([d.properties.x, d.properties.y])[1];})
-        .attr("r", 2)
-        .attr("fill", "green")
-        .attr("fill-opacity", 1)
         .transition()
-			// .delay(250)
-			.duration(speed)
-			.tween("pathTween", function(){return pathTween(path)});
+        .duration(speed)
+        .tween("pathTween", function(){return pathTween(path)});
 
     function pathTween(path) {
             var length = path.node().getTotalLength(); // Get the length of the path
