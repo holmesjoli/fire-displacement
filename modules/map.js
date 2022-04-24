@@ -95,7 +95,7 @@ export function createHouses(g, projection, data, className, fill = "green", r =
 
 export function updateHouses(g, projection, data) {
 
-    // let path = drawPath(g, data.features, geoPathGenerator, "#000000", 1);
+    let path = drawPath(g, projection, data, "yellow", 1);
 
     // let r = g
     //     .append("g")
