@@ -344,6 +344,15 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     let firePoints = Map.createFire(g, projection, fires);
     let housePoints = Map.createHouses(g, projection, routesInitial, "shelters");
 
+    //https://gka.github.io/palettes/#/8|s|ffcc55,f68c1f,ea2c24|ffffe0,ff005e,93003a|1|1
+    const colorScale = d3.scaleOrdinal()
+        .domain([1, 22])
+        .range(['#ffcc55', '#fdb947', '#fba63b', '#f99332', '#f57e2b', '#f26826', '#ee4f24', '#ea2c24']);
+
+    const rScale = d3.scaleSqrt()
+        .domain([1, 22])
+        .range([1, 4]);
+
     // Timer
     Timer.setDate(params, function (date) {
 
@@ -363,7 +372,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
         Map.updateHouses(housePoints, projection, housesUpdate, params.speed);
         Map.updateShelter(shelterPoints, projection, sheltersUpdate, "#EE2C25", 8, 1);
-        Map.updateFire(firePoints, projection, firesUpdate, date);
+        Map.updateFire(firePoints, projection, firesUpdate, date, colorScale, rScale);
 
         if (date === 825) {
             Map.drawPath(g, projection, fireBoundary.features, "#473F41", .5, 1, "#473F41", .5);
