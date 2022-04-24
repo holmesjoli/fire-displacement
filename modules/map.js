@@ -73,7 +73,7 @@ export function drawPath(g, projection, data, stroke = "#D7D7D7", strokeWidth = 
     return path;
 }
 
-export function createHouses(g, projection, data, className, fill = "green", r = 2, fillOpacity = 1) {
+export function createHouses(g, projection, data, className) {
 
     let points = g
     .append("g")
@@ -86,9 +86,11 @@ export function createHouses(g, projection, data, className, fill = "green", r =
         .attr("class", className)
         .attr("cx", function(d) {return projection([d.properties.x, d.properties.y])[0];})
         .attr("cy", function(d) {return projection([d.properties.x, d.properties.y])[1];})
-        .attr("r", r)
-        .attr("fill", fill)
-        .attr("fill-opacity", fillOpacity);
+        .attr("r", 2)
+        .attr("fill", "#36479D")
+        .attr("fill-opacity", .6)
+        .attr("stroke", "#36479D")
+        .attr("stroke-opacity", 1);
 
     return points;
 }
@@ -109,7 +111,7 @@ export function updateHouses(g, projection, data, speed) {
     .merge(c)
         .transition()
         .duration(speed)
-        .tween("pathTween", function(){return pathTween(path)});
+        .tween("pathTween", function(d, i) {return pathTween(path)});
 
     function pathTween(path) {
             var length = path.node().getTotalLength(); // Get the length of the path
