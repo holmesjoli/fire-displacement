@@ -97,49 +97,35 @@ export function updateHouses(g, projection, data) {
 
     let path = drawPath(g, projection, data, "yellow", 1);
 
-    // let r = g
-    //     .append("g")
+    let points = g
+    .append("g")
 
-    // r
-    //     .selectAll("path")
-    //     .data(data)
-    //     .enter()
-    //     .append("path")
+    points
+    .selectAll("circle")
+    .data(data.features)
+    .enter()
+    .append("circle")
+        .attr("class", "household")
+        .attr("cx", function(d) {return projection([d.properties.x, d.properties.y])[0];})
+        .attr("cy", function(d) {return projection([d.properties.x, d.properties.y])[1];})
+        .attr("r", 2)
+        .attr("fill", "green")
+        .attr("fill-opacity", 1)
+        .transition()
+			.delay(250)
+			.duration(3000)
+			.tween("pathTween", function(){return pathTween(path)});
 
-    // g.append("circle")
-    //     .attr("cx", function(d) {return projection([d.properties.x, d.properties.y])[0];})
-    //     .attr("cy", function(d) {return projection([d.properties.x, d.properties.y])[1];})
-    //     .attr("r", 2)
-    //     .attr("fill", "green")
-    //     .attr("fill-opacity", 1)
-    //     .transition()
-    //     .delay(250)
-    //     .duration(1000)
-    //     .ease("linear")
-    //     .tween("pathTween", function(){return pathTween(path)})
-
-    // function pathTween(path) {
-    //         var length = path.node().getTotalLength(); // Get the length of the path
-    //         var r = d3.interpolate(0, length); //Set up interpolation from 0 to the path length
-    //         return function(t){
-    //             var point = path.node().getPointAtLength(r(t)); // Get the next point along the path
-    //             d3.select(this) // Select the circle
-    //                 .attr("cx", point.x) // Set the cx
-    //                 .attr("cy", point.y) // Set the cy
-    //         }
-    // }
-
-    // let c = houses.selectAll("circle")
-    //     .data(data, function(d) {return d.id;});
-
-    //     c
-    //     .enter()
-    //     .append("circle")
-    //     .merge(c)
-    //         .transition()
-    //         .duration(3000)
-    //         .attr("cx", function(d) {return projection([d.shelterLong, d.shelterLat])[0];})
-    //         .attr("cy", function(d) {return projection([d.shelterLong, d.shelterLat])[1];})
+    function pathTween(path) {
+            var length = path.node().getTotalLength(); // Get the length of the path
+            var r = d3.interpolate(0, length); //Set up interpolation from 0 to the path length
+            return function(t){
+                var point = path.node().getPointAtLength(r(t)); // Get the next point along the path
+                d3.select(this) // Select the circle
+                    .attr("cx", point.x) // Set the cx
+                    .attr("cy", point.y) // Set the cy
+            }
+    }
 }
 
 export function createShelter(g, projection, data) {
