@@ -146,7 +146,7 @@ export function createShelter(g, projection, data) {
             .attr("transform", d => "translate(" + [
             projection([d.long, d.lat])[0],
             projection([d.long, d.lat])[1]] + ")")
-            .attr("d", d3.symbol().type(d3.symbolCross).size("200"))
+            .attr("d", d3.symbol().type(d3.symbolCross).size("50"))
             .attr("fill", "#FFFFFF")
             .attr("fill-opacity", 0)
 
@@ -160,7 +160,10 @@ export function createShelter(g, projection, data) {
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
             .attr("r", 8)
             .attr("fill", "#FFFFFF")
-            .attr("fill-opacity", 0);
+            .attr("stroke", "#FFFFFF")
+            .attr("stroke-weight", 2)
+            .attr("fill-opacity", 0)
+            .attr("stroke-opacity", 0);
 
     return points;
 }
@@ -175,9 +178,11 @@ export function updateShelter(g, projection, data, fill, r, opacity) {
         .append("circle")
             .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("fill","#FFFFFF")
+            .attr("stroke", "#FFFFFF")
+            .attr("fill", "#FFFFFF")
             .attr("r", r)
-            .attr("opacity", opacity)
+            .attr("stroke-opacity", opacity)
+            .attr("fill-opacity", .2)
         .merge(c)
             .transition()
             .duration(1000)
@@ -198,7 +203,7 @@ export function updateShelter(g, projection, data, fill, r, opacity) {
         .attr("transform", d => "translate(" + [
         projection([d.long, d.lat])[0],
         projection([d.long, d.lat])[1]] + ")")
-        .attr("d", d3.symbol().type(d3.symbolCross).size("75"))
+        .attr("d", d3.symbol().type(d3.symbolCross).size("50"))
         .attr("fill", fill)
         .attr("opacity", opacity)
     .merge(s)
