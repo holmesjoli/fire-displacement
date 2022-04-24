@@ -334,14 +334,13 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     Map.drawBasemap(g, projection, stateBoundaries, "state");
     Map.drawBasemap(g, projection, countyBoundaries, "county");
     Map.drawBasemap(g, projection, cityBoundaries, "city", "#57276C", .5, "#57276C", .5);
-    Map.drawPath(g, projection, okBigStreets, "#000000", 1.5);
-    Map.drawPath(g, projection, okMedStreets, "#000000", 1);
+    Map.drawPath(g, projection, okBigStreets.features, "#000000", 1.5);
+    Map.drawPath(g, projection, okMedStreets.features, "#000000", 1);
 
     let shelterPoints = Map.createShelter(g, projection, shelters);
     let firePoints = Map.createFire(g, projection, fires);
     let housePoints = Map.createHouses(g, projection, routes, "shelters");
 
-    Map.updateHouses(housePoints, projection, routes, params.speed);
     // Timer
     Timer.setDate(params, function (date) {
 
@@ -352,19 +351,19 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         let sheltersUpdate = shelters.filter((d) => date >= d.openDate && date <= d.closeDate);
         let housesUpdate = routes.features.filter((d) => d.properties.evacDate === date);
 
-        console.log(housesUpdate)
-
         Burn.draw(svgBurn, paramsBurn, xScaleBurn, yScaleBurn, dataUpdate);
         Containment.draw(svgContainment, paramsContainment, xScaleContainment, dataUpdate);
         Story.update(paramsStory.selector, dataUpdate);
         Story.effects(dataUpdate);
         Timer.draw(svgTimeline, paramsTimeline, xScaleTimeline, dataUpdate);
 
+
+        Map.updateHouses(housePoints, projection, housesUpdate, params.speed);
         Map.updateShelter(shelterPoints, projection, sheltersUpdate, "#EE2C25", 8, 1);
         Map.updateFire(firePoints, projection, firesUpdate, 1, 1, date);
 
         if (date === 825) {
-            Map.drawPath(g, projection, fireBoundary, "#473F41", .5, 1, "#473F41", .5);
+            Map.drawPath(g, projection, fireBoundary.features, "#473F41", .5, 1, "#473F41", .5);
         }
 
     });

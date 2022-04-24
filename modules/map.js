@@ -59,7 +59,7 @@ export function drawPath(g, projection, data, stroke = "#D7D7D7", strokeWidth = 
     let path = g
         .append("g")
         .selectAll("path")
-        .data(data.features)
+        .data(data)
         .enter()
         .append("path")
         .attr("class", 'state')
@@ -96,11 +96,17 @@ export function createHouses(g, projection, data, className, fill = "green", r =
 //Modified http://bl.ocks.org/JMStewart/6455921
 export function updateHouses(g, projection, data, speed) {
 
-    let path = drawPath(g, projection, data, "yellow");
+    console.log(data)
+
+    let path = drawPath(g, projection, data, "yellow", 0);
 
     let c = g.selectAll("circle")
+    .data(data, function(d) {return d.id;});
 
     c
+    .enter()
+    .append("circle")
+    .merge(c)
         .transition()
         .duration(speed)
         .tween("pathTween", function(){return pathTween(path)});
