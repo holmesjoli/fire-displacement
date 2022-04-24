@@ -95,6 +95,14 @@ export function createHouses(g, projection, data, className) {
     return points;
 }
 
+// https://stackoverflow.com/questions/13455042/random-number-between-negative-and-positive-value
+function getNonZeroRandomNumber() {
+    var random = Math.floor(Math.random()*399) - 299;
+    if(random==0) return getNonZeroRandomNumber();
+    return random;
+}
+
+
 //Modified http://bl.ocks.org/JMStewart/6455921
 export function updateHouses(g, projection, data, speed) {
 
@@ -110,7 +118,7 @@ export function updateHouses(g, projection, data, speed) {
     .append("circle")
     .merge(c)
         .transition()
-        .delay(function(d, i) {return i*300})
+        .delay(function(d, i) {return 10*getNonZeroRandomNumber()})
         .duration(speed)
         .tween("pathTween", function(d, i) {
             return pathTween(drawPath(g, projection, [d], "yellow", 0))
