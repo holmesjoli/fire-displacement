@@ -80,13 +80,13 @@ export function createHouses(g, projection, data, className) {
 
     points
     .selectAll("circle")
-    .data(data.features)
+    .data(data)
     .enter()
     .append("circle")
         .attr("class", className)
         .attr("cx", function(d) {return projection([d.properties.x, d.properties.y])[0];})
         .attr("cy", function(d) {return projection([d.properties.x, d.properties.y])[1];})
-        .attr("r", 2)
+        .attr("r", 1)
         .attr("fill", "#36479D")
         .attr("fill-opacity", .6)
         .attr("stroke", "#36479D")
