@@ -337,26 +337,11 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     Map.drawPath(g, projection, okBigStreets, "#000000", 1.5);
     Map.drawPath(g, projection, okMedStreets, "#000000", 1);
 
-    let shelterArea = Map.createShelter(g, projection, shelters);
+    let shelterPoints = Map.createShelter(g, projection, shelters);
     let firePoints = Map.createFire(g, projection, fires);
-
-    let housePoints = g
-            .append("g")
-
-    housePoints
-        .selectAll("circle")
-        .data(routes.features)
-        .enter()
-        .append("circle")
-            .attr("class", "shelters")
-            .attr("cx", function(d) {return projection([d.properties.x, d.properties.y])[0];})
-            .attr("cy", function(d) {return projection([d.properties.x, d.properties.y])[1];})
-            .attr("r", 2)
-            .attr("fill", "green")
-            .attr("fill-opacity", 1);
+    let housePoints = Map.createHouses(g, projection, routes, "shelters")
 
     Map.updateHouses(housePoints, projection, routes);
-
 
     // Timer
     Timer.setDate(params, function (date) {
@@ -376,7 +361,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         Story.effects(dataUpdate);
         Timer.draw(svgTimeline, paramsTimeline, xScaleTimeline, dataUpdate);
 
-        Map.updateShelter(shelterArea, projection, sheltersUpdate, "#EE2C25", 8, 1);
+        Map.updateShelter(shelterPoints, projection, sheltersUpdate, "#EE2C25", 8, 1);
         Map.updateFire(firePoints, projection, firesUpdate, 1, 1, date);
 
         if (date === 825) {

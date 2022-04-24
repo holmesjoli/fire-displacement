@@ -79,16 +79,16 @@ export function createHouses(g, projection, data, className, fill = "green", r =
     .append("g")
 
     points
-        .selectAll("circle")
-        .data(data)
-        .enter()
-        .append("circle")
-            .attr("class", className)
-            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
-            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("r", r)
-            .attr("fill", fill)
-            .attr("fill-opacity", fillOpacity);
+    .selectAll("circle")
+    .data(data.features)
+    .enter()
+    .append("circle")
+        .attr("class", className)
+        .attr("cx", function(d) {return projection([d.properties.x, d.properties.y])[0];})
+        .attr("cy", function(d) {return projection([d.properties.x, d.properties.y])[1];})
+        .attr("r", r)
+        .attr("fill", fill)
+        .attr("fill-opacity", fillOpacity);
 
     return points;
 }
