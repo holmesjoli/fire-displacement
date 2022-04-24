@@ -101,7 +101,7 @@ const files = {
         }
     },
     fires: {
-        pth: "./data/fire_points2.csv",
+        pth: "./data/fire_points.csv",
         parse: function(j) {
             return {
                 date: +j.date,
@@ -363,7 +363,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
         Map.updateHouses(housePoints, projection, housesUpdate, params.speed);
         Map.updateShelter(shelterPoints, projection, sheltersUpdate, "#EE2C25", 8, 1);
-        Map.updateFire(firePoints, projection, firesUpdate, 1, 1, date);
+        Map.updateFire(firePoints, projection, firesUpdate, date);
 
         if (date === 825) {
             Map.drawPath(g, projection, fireBoundary.features, "#473F41", .5, 1, "#473F41", .5);

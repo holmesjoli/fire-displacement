@@ -218,6 +218,22 @@ export function updateShelter(g, projection, data, fill, r, opacity) {
 }
 
 export function createFire(g, projection, data) {
+
+    // var simulation = d3.forceSimulation(data)
+    //     .force('center', d3.forceCenter(width / 2, height / 2)) // pull nodes to a central point
+    //     // .force('x', d3.forceX().x(function (d) {
+    //     //     return xScale(d.Rating);
+    //     // }).strength(1))
+    //     // .force('y', d3.forceY().y(function (d) {
+    //     //     return height/2;
+    //     // }).strength(4))
+    //     .force('charge', d3.forceManyBody().strength(1)) // send nodes away from eachother
+    //     .force('collision', d3.forceCollide().radius(function (d) { // prevent circle overlap when collide
+    //         return rScale(d.Cocoa_Percent);
+    //     }).strength(1))
+    //     .on('tick', ticked);
+
+
     let points = g
             .append("g")
 
@@ -236,12 +252,16 @@ export function createFire(g, projection, data) {
     return points;
 }
 
-export function updateFire(g, projection, data, r, opacity, date) {
+export function updateFire(g, projection, data, date) {
 
     //https://gka.github.io/palettes/#/8|s|ffcc55,f68c1f,ea2c24|ffffe0,ff005e,93003a|1|1
     const colorScale = d3.scaleOrdinal()
-        .domain([1, 9])
+        .domain([1, 22])
         .range(['#ffcc55', '#fdb947', '#fba63b', '#f99332', '#f57e2b', '#f26826', '#ee4f24', '#ea2c24']);
+
+    const rScale = d3.scaleSqrt()
+        .domain([1, 22])
+        .range([1, 4])
 
     let c = g.selectAll("circle")
         .data(data, function(d) {return d.id;});
@@ -264,6 +284,13 @@ export function updateFire(g, projection, data, r, opacity, date) {
                     return colorScale(d.nDays)
                 }
             })
-            .attr("r", r)
-            .attr("opacity", opacity);
+            .attr("r", function(d) {
+                
+                if (d.endDate <= date) {
+                    return rScale(1);
+                } else {
+                    return rScale(d.nDays)
+                }
+            })
+            .attr("opacity", .6);
 }
