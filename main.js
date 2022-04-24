@@ -214,9 +214,6 @@ let projection = d3.geoAlbers()
     .scale(paramsMap.initialScale)
     .center([paramsMap.initialCenterX, paramsMap.initialCenterY]);
 
-let geoPathGenerator = d3.geoPath().projection(projection);
-
-
 // Helper.collapsibleTable();
 // let cntyCodes = ["53047", "53007", "53017"]
 
@@ -334,14 +331,14 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         .call(d3.axisBottom().scale(xScaleContainment).ticks(2));
 
     //Map
-    Map.drawBasemap(g, stateBoundaries, geoPathGenerator, "state");
-    Map.drawBasemap(g, countyBoundaries, geoPathGenerator, "county");
-    Map.drawBasemap(g, cityBoundaries, geoPathGenerator, "city", "#57276C", .5, "#57276C", .5);
-    Map.drawPath(g, okBigStreets, geoPathGenerator, "#000000", 1.5);
-    Map.drawPath(g, okMedStreets, geoPathGenerator, "#000000", 1);
+    Map.drawBasemap(g, projection, stateBoundaries, "state");
+    Map.drawBasemap(g, projection, countyBoundaries, "county");
+    Map.drawBasemap(g, projection, cityBoundaries, "city", "#57276C", .5, "#57276C", .5);
+    Map.drawPath(g, projection, okBigStreets, "#000000", 1.5);
+    Map.drawPath(g, projection, okMedStreets, "#000000", 1);
 
-    let shelterArea = Map.createShelter(g, shelters, projection);
-    let firePoints = Map.createFire(g, fires, projection,);
+    let shelterArea = Map.createShelter(g, projection, shelters);
+    let firePoints = Map.createFire(g, projection, fires);
 
     let housePoints = g
             .append("g")
@@ -383,7 +380,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         Map.updateFire(firePoints, projection, firesUpdate, 1, 1, date);
 
         if (date === 825) {
-            Map.drawPath(g, fireBoundary, geoPathGenerator, "#473F41", .5, 1, "#473F41", .5);
+            Map.drawPath(g, projection, fireBoundary, "#473F41", .5, 1, "#473F41", .5);
         }
 
     });

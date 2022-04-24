@@ -1,4 +1,4 @@
-export function createCities(g, data, tooltip, projection, className, fill, r, fillOpacity = 1, svg, width, height) {
+export function createCities(g, projection, data, className, tooltip, fill, r, fillOpacity = 1, svg, width, height) {
     let points = g
         .append("g")
         .selectAll("circle")
@@ -32,8 +32,11 @@ export function createCities(g, data, tooltip, projection, className, fill, r, f
     });
 }
 
-export function drawBasemap(g, data, geoPathGenerator, className, stroke = "#FFFFFF", strokeWidth = 1, fill = "#E0E0E0", fillOpacity = 1) {
-    g
+export function drawBasemap(g, projection, data, className, stroke = "#FFFFFF", strokeWidth = 1, fill = "#E0E0E0", fillOpacity = 1) {
+    
+    let geoPathGenerator = d3.geoPath().projection(projection);
+    
+    let path = g
     .append("g")
     .selectAll("path")
     .data(data.features)
@@ -44,33 +47,38 @@ export function drawBasemap(g, data, geoPathGenerator, className, stroke = "#FFF
     .attr("stroke", stroke)
     .attr("stroke-width", strokeWidth)
     .attr("fill", fill)
-    .attr("fill-opacity", fillOpacity)
+    .attr("fill-opacity", fillOpacity);
+
+    return path;
 }
 
-export function drawPath(g, data, geoPathGenerator, stroke = "#D7D7D7", strokeWidth = 1, strokeOpacity = .5, fill ="none", fillOpacity) {
+export function drawPath(g, projection, data, stroke = "#D7D7D7", strokeWidth = 1, strokeOpacity = .5, fill ="none", fillOpacity) {
+
+    let geoPathGenerator = d3.geoPath().projection(projection);
+
     let path = g
-    .append("g")
-    .selectAll("path")
-    .data(data.features)
-    .enter()
-    .append("path")
-    .attr("class", 'state')
-    .attr("d", geoPathGenerator)
-    .attr("stroke", stroke)
-    .attr("stroke-width", strokeWidth)
-    .attr("stroke-opacity", strokeOpacity)
-    .attr("fill-opacity", fillOpacity)
-    .attr("fill", fill);
+        .append("g")
+        .selectAll("path")
+        .data(data.features)
+        .enter()
+        .append("path")
+        .attr("class", 'state')
+        .attr("d", geoPathGenerator)
+        .attr("stroke", stroke)
+        .attr("stroke-width", strokeWidth)
+        .attr("stroke-opacity", strokeOpacity)
+        .attr("fill-opacity", fillOpacity)
+        .attr("fill", fill);
 
     return path;
 }
 
 export function createHouses(g, projection, data, className, fill = "green", r = 2, fillOpacity = 1) {
 
-    let housePoints = g
+    let points = g
     .append("g")
 
-    housePoints
+    points
         .selectAll("circle")
         .data(data)
         .enter()
@@ -82,10 +90,10 @@ export function createHouses(g, projection, data, className, fill = "green", r =
             .attr("fill", fill)
             .attr("fill-opacity", fillOpacity);
 
-    return housePoints;
+    return points;
 }
 
-export function updateHouses(g, geoPathGenerator, data) {
+export function updateHouses(g, projection, data) {
 
     // let path = drawPath(g, data.features, geoPathGenerator, "#000000", 1);
 
@@ -134,12 +142,12 @@ export function updateHouses(g, geoPathGenerator, data) {
     //         .attr("cy", function(d) {return projection([d.shelterLong, d.shelterLat])[1];})
 }
 
-export function createShelter(g, data, projection) {
+export function createShelter(g, projection, data) {
 
-    let shelters = g
+    let points = g
         .append("g")
 
-    shelters
+    points
         .selectAll("path")
         .data(data)
         .enter()
@@ -152,7 +160,7 @@ export function createShelter(g, data, projection) {
             .attr("fill", "#FFFFFF")
             .attr("fill-opacity", 0)
 
-    shelters
+    points
         .selectAll("circle")
         .data(data)
         .enter()
@@ -164,12 +172,12 @@ export function createShelter(g, data, projection) {
             .attr("fill", "#FFFFFF")
             .attr("fill-opacity", 0);
 
-    return shelters;
+    return points;
 }
 
-export function updateShelter(shelter, projection, data, fill, r, opacity) {
+export function updateShelter(g, projection, data, fill, r, opacity) {
 
-    let c = shelter.selectAll("circle")
+    let c = g.selectAll("circle")
         .data(data, function(d) {return d.id;});
 
         c
@@ -191,7 +199,7 @@ export function updateShelter(shelter, projection, data, fill, r, opacity) {
         .duration(1000)
         .remove();
 
-    let s = shelter.selectAll("path")
+    let s = g.selectAll("path")
         .data(data, function(d) {return d.id;});
 
     s
@@ -214,11 +222,11 @@ export function updateShelter(shelter, projection, data, fill, r, opacity) {
         .remove();
 }
 
-export function createFire(g, data, projection) {
-    let fire = g
+export function createFire(g, projection, data) {
+    let points = g
             .append("g")
 
-    fire
+    points
         .selectAll("circle")
         .data(data)
         .enter()
@@ -230,17 +238,17 @@ export function createFire(g, data, projection) {
             .attr("fill", "#FFFFFF")
             .attr("fill-opacity", 0)
 
-    return fire
+    return points;
 }
 
-export function updateFire(fire, projection, data, r, opacity, date) {
+export function updateFire(g, projection, data, r, opacity, date) {
 
     //https://gka.github.io/palettes/#/8|s|ffcc55,f68c1f,ea2c24|ffffe0,ff005e,93003a|1|1
     const colorScale = d3.scaleOrdinal()
         .domain([1, 9])
         .range(['#ffcc55', '#fdb947', '#fba63b', '#f99332', '#f57e2b', '#f26826', '#ee4f24', '#ea2c24']);
 
-    let c = fire.selectAll("circle")
+    let c = g.selectAll("circle")
         .data(data, function(d) {return d.id;});
 
         c
