@@ -93,9 +93,10 @@ export function createHouses(g, projection, data, className, fill = "green", r =
     return points;
 }
 
-export function updateHouses(g, projection, data) {
+//Modified http://bl.ocks.org/JMStewart/6455921
+export function updateHouses(g, projection, data, speed) {
 
-    let path = drawPath(g, projection, data, "yellow", 1);
+    let path = drawPath(g, projection, data, "yellow", 0);
 
     let points = g
     .append("g")
@@ -112,8 +113,8 @@ export function updateHouses(g, projection, data) {
         .attr("fill", "green")
         .attr("fill-opacity", 1)
         .transition()
-			.delay(250)
-			.duration(3000)
+			// .delay(250)
+			.duration(speed)
 			.tween("pathTween", function(){return pathTween(path)});
 
     function pathTween(path) {

@@ -341,7 +341,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     let firePoints = Map.createFire(g, projection, fires);
     // let housePoints = Map.createHouses(g, projection, routes, "shelters")
 
-    Map.updateHouses(g, projection, routes);
+    Map.updateHouses(g, projection, routes, params.speed);
 
     // Timer
     Timer.setDate(params, function (date) {
