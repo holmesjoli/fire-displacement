@@ -187,6 +187,19 @@ const paramsStory = {
     selector: "story"
 }
 
+// Legend
+const paramsLegend = {
+    selector: "legend",
+    margin: {top: 0, right: 10, bottom: 20, left: 10},
+    width: 40,
+    height: 15
+}
+
+const svgLegend = d3.select(`#${paramsLegend.selector}`)
+    .append("svg")
+    .attr("viewBox", `0 0 ${paramsLegend.width} ${paramsLegend.height}`)
+    .attr("preserveAspectRatio", "xMidYMid meet");
+
 //Map
 const paramsMap = {
     selector: "chart",
@@ -330,6 +343,20 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         .attr("transform",`translate(0, ${paramsContainment.height-paramsContainment.margin.bottom})`)
         .call(d3.axisBottom().scale(xScaleContainment).ticks(2));
 
+    //Legend
+
+    //https://gka.github.io/palettes/#/8|s|ffcc55,f68c1f,ea2c24|ffffe0,ff005e,93003a|1|1
+    const colorScale = d3.scaleOrdinal()
+        .domain([1, 22])
+        .range(['#ffcc55', '#fdb947', '#fba63b', '#f99332', '#f57e2b', '#f26826', '#ee4f24', '#ea2c24']);
+
+    const rScale = d3.scaleSqrt()
+        .domain([1, 22])
+        .range([1, 4]);
+
+    
+    Map.createLegend(svgLegend, rScale);
+
     //Map
     Map.drawBasemap(g, projection, stateBoundaries, "state");
     Map.drawBasemap(g, projection, countyBoundaries, "county");
@@ -343,15 +370,6 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     let shelterPoints = Map.createShelter(g, projection, shelters);
     let firePoints = Map.createFire(g, projection, fires);
     let housePoints = Map.createHouses(g, projection, routesInitial, "shelters");
-
-    //https://gka.github.io/palettes/#/8|s|ffcc55,f68c1f,ea2c24|ffffe0,ff005e,93003a|1|1
-    const colorScale = d3.scaleOrdinal()
-        .domain([1, 22])
-        .range(['#ffcc55', '#fdb947', '#fba63b', '#f99332', '#f57e2b', '#f26826', '#ee4f24', '#ea2c24']);
-
-    const rScale = d3.scaleSqrt()
-        .domain([1, 22])
-        .range([1, 4]);
 
     // Timer
     Timer.setDate(params, function (date) {

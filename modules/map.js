@@ -288,6 +288,31 @@ export function updateFire(g, projection, data, date, colorScale, rScale) {
 }
 
 // Create Legend
-export function createLegend() {
+export function createLegend(svg, rScale) {
 
+    var legend = svg.append("g")
+    .attr("transform", "translate(20,20)");
+
+    // legend.append("text")
+    //     .attr("x", 0)
+    //     .attr("y", 0)
+    //     .text("Fire")
+
+    console.log(rScale.domain())
+    for (var i = 1; i < 22; i = i + 5) {
+        console.log(i)
+        legend.append("circle")
+            .attr("cx", 20)
+            .attr("cy", 2 * (i + 1) + 20)
+            .attr("r", rScale((i)))
+            .attr("fill", "none")
+            .attr("stroke-weight", 0.5)
+            .attr("stroke", "gray");
+
+        legend.append("text")
+            .attr("x", 44)
+            .attr('y', 5 * (i + 1) + 15)
+            .attr("font-size", 12)
+            .text(i)
+    }
 }
