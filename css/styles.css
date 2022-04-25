@@ -10,7 +10,7 @@ html, body {
 }
 
 h1 {
-    font-style: italic;
+    /* font-style: italic; */
     margin: 10px;
     font-size: 60pt;
     font-weight: 300;
@@ -46,6 +46,11 @@ p {
     flex: 1 0 20%;
     display: flex;
     flex-direction: column;
+    padding-left: 10px;
+}
+
+#sidebar-right p {
+    margin-left: 0;
 }
 
 #main {
@@ -102,7 +107,7 @@ p {
 #containment-container {
     padding: 0 10px 10px 10px;
     margin: 10px;
-    border: 2px solid #473F41;
+    /* border: 2px solid #473F41; */
 }
 
 #burn svg {
