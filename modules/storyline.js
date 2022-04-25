@@ -22,7 +22,9 @@ export function effects(data) {
         document.querySelector("#timeline svg rect").style.fill = lightColor;
         document.querySelector("#burn svg rect").style.fill = lightColor;
         document.querySelector("#containment svg rect").style.fill = lightColor;
-        // document.querySelectorAll(".axis--label").style.color = lightColor;
+        d3.selectAll("text").attr("fill", lightColor)
+        // console.log(blah)
+        // .style.fill = lightColor;
     }
 
     if (date === 725) {
@@ -32,7 +34,7 @@ export function effects(data) {
         document.querySelector("#timeline svg rect").style.fill = darkColor;
         document.querySelector("#burn svg rect").style.fill = darkColor;
         document.querySelector("#containment svg rect").style.fill = darkColor;
-        // document.querySelectorAll(".axis--label").style.fill = darkColor;
+        d3.selectAll("text").attr("fill", darkColor);
     }
 
 //         if (date === 714) {

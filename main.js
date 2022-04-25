@@ -152,7 +152,8 @@ const paramsTimeline = {
 const svgTimeline = d3.select(`#${paramsTimeline.selector}`)
     .append("svg")
     .attr("viewBox", `0 0 ${paramsTimeline.width} ${paramsTimeline.height}`)
-    .attr("preserveAspectRatio", "xMidYMid meet");
+    .attr("preserveAspectRatio", "xMidYMid meet")
+    .classed("svg-content", true);
 
 // Burn
 const paramsBurn = {
@@ -164,7 +165,8 @@ const paramsBurn = {
 const svgBurn = d3.select(`#${paramsBurn.selector}`)
     .append("svg")
     .attr("viewBox", `0 0 ${paramsBurn.width} ${paramsBurn.width}`)
-    .attr("preserveAspectRatio", "xMidYMid meet");
+    .attr("preserveAspectRatio", "xMidYMid meet")
+    .classed("svg-content", true);
 
 // Containment
 const paramsContainment = {
@@ -180,7 +182,8 @@ const paramsContainment = {
 const svgContainment = d3.select(`#${paramsContainment.selector}`)
     .append("svg")
     .attr("viewBox", `0 0 ${paramsContainment.width} ${paramsContainment.height}`)
-    .attr("preserveAspectRatio", "xMidYMid meet");
+    .attr("preserveAspectRatio", "xMidYMid meet")
+    .classed("svg-content", true);
 
 // Story
 const paramsStory = {
@@ -191,14 +194,15 @@ const paramsStory = {
 const paramsLegend = {
     selector: "legend",
     margin: {top: 0, right: 10, bottom: 20, left: 10},
-    width: 40,
-    height: 15
+    width: 200,
+    height: 200,
 }
 
 const svgLegend = d3.select(`#${paramsLegend.selector}`)
     .append("svg")
     .attr("viewBox", `0 0 ${paramsLegend.width} ${paramsLegend.height}`)
-    .attr("preserveAspectRatio", "xMidYMid meet");
+    .attr("preserveAspectRatio", "xMidYMid meet")
+    .classed("svg-content", true);
 
 //Map
 const paramsMap = {
@@ -214,7 +218,8 @@ const paramsMap = {
 const svgMap = d3.select(`#${paramsMap.selector}`)
     .append("svg")
     .attr("viewBox", `0 0 ${paramsMap.width} ${paramsMap.height}`)
-    .attr("preserveAspectRatio", "xMidYMid meet");
+    .attr("preserveAspectRatio", "xMidYMid meet")
+    .classed("svg-content", true);
 
 let g = svgMap.append("g");
 
@@ -258,8 +263,8 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     }
 
     // Timeline
-    paramsTimeline["min"] = d3.min(data, function(d) {return d.date;});
-    paramsTimeline["max"] = d3.max(data, function(d) {return d.date});
+    paramsTimeline["min"] = d3.min(data, function(d) {return d.date; });
+    paramsTimeline["max"] = d3.max(data, function(d) {return d.date; });
     paramsTimeline["speed"] = params.speed
 
     let days = Helper.uniqueArray(data, "date").sort(function(a, b) {return a - b});
@@ -345,17 +350,51 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
     //Legend
 
-    //https://gka.github.io/palettes/#/8|s|ffcc55,f68c1f,ea2c24|ffffe0,ff005e,93003a|1|1
+    paramsLegend["min"] = d3.min(fires, function(d) {return d.nDays; });
+    paramsLegend["max"] = d3.max(fires, function(d) {return d.nDays; });
+    paramsLegend["nDaysUni"] = Helper.uniqueArray(fires, "nDays").sort(function(a, b) {return a - b});
+
+    // console.log()
+
+    //https://gka.github.io/palettes/#/22|s|ffcc55,f68c1f,ea2c24|ffffe0,ff005e,93003a|1|1
+
+    const colors = ['#ffcc55', '#ffc650', '#fec04b', '#fdb947', '#fdb343', '#fcad3f', '#fba63b', 
+                    '#faa038', '#f99935', '#f99332', '#f88c2f', '#f7852d', '#f57e2b', '#f47729', 
+                    '#f37028', '#f26826', '#f16026', '#ef5825', '#ee4f24', '#ed4524', '#eb3924', '#ea2c24']
+
     const colorScale = d3.scaleOrdinal()
-        .domain([1, 22])
-        .range(['#ffcc55', '#fdb947', '#fba63b', '#f99332', '#f57e2b', '#f26826', '#ee4f24', '#ea2c24']);
+        .domain(paramsLegend.nDaysUni)
+        .range(colors);
 
     const rScale = d3.scaleSqrt()
-        .domain([1, 22])
-        .range([1, 4]);
+        .domain([paramsLegend.min, paramsLegend.max])
+        .range([1, 5]);
+
+    svgLegend.append("text")
+        .attr("x", 10)
+        .attr("y", 10)
+        .attr("font-size", 10)
+        .text("# of days")
+
+    for (var j = 1; j < 25; j= j + 5) {
+        svgLegend.append("circle")
+            .attr("cx", 15)
+            .attr("cy", 20 + j*5)
+            .attr("r", rScale(j))
+            .attr("fill", colorScale(j))
+            .attr("opacity", .6);
+
+        svgLegend.append("text")
+            .attr("x", 30)
+            .attr("y", 20 + j*5 + 4)
+            .attr("font-size", 10)
+            .attr("text-anchor", "middle")
+            .attr("color", "#473F41")
+            .text(j)
+    }
 
     
-    Map.createLegend(svgLegend, rScale);
+    // Map.createLegend(svgLegend, rScale);
 
     //Map
     Map.drawBasemap(g, projection, stateBoundaries, "state");

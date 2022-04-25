@@ -291,7 +291,7 @@ export function updateFire(g, projection, data, date, colorScale, rScale) {
 export function createLegend(svg, rScale) {
 
     var legend = svg.append("g")
-    .attr("transform", "translate(20,20)");
+    // .attr("transform", "translate(20,20)");
 
     // legend.append("text")
     //     .attr("x", 0)
@@ -305,8 +305,8 @@ export function createLegend(svg, rScale) {
             .attr("cx", 20)
             .attr("cy", 2 * (i + 1) + 20)
             .attr("r", rScale((i)))
-            .attr("fill", "none")
-            .attr("stroke-weight", 0.5)
+            .attr("fill", "red")
+            .attr("stroke-weight", 10)
             .attr("stroke", "gray");
 
         legend.append("text")
