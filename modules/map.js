@@ -32,6 +32,7 @@ export function createCities(g, projection, data, className, tooltip, fill, r, f
     });
 }
 
+// Draw Basemap
 export function drawBasemap(g, projection, data, className, stroke = "#FFFFFF", strokeWidth = 1, fill = "#E0E0E0", fillOpacity = 1) {
     
     let geoPathGenerator = d3.geoPath().projection(projection);
@@ -52,6 +53,7 @@ export function drawBasemap(g, projection, data, className, stroke = "#FFFFFF", 
     return path;
 }
 
+// Draw path
 export function drawPath(g, projection, data, stroke = "#D7D7D7", strokeWidth = 1, strokeOpacity = .5, fill ="none", fillOpacity) {
 
     let geoPathGenerator = d3.geoPath().projection(projection);
@@ -73,6 +75,7 @@ export function drawPath(g, projection, data, stroke = "#D7D7D7", strokeWidth = 
     return path;
 }
 
+// Create households
 export function createHouses(g, projection, data, className) {
 
     let points = g
@@ -102,8 +105,8 @@ function getNonZeroRandomNumber() {
     return random;
 }
 
-
-//Modified http://bl.ocks.org/JMStewart/6455921
+// Updates the households
+//Adapted from http://bl.ocks.org/JMStewart/6455921
 export function updateHouses(g, projection, data, speed) {
 
     let c = g.selectAll("circle")
@@ -132,6 +135,8 @@ export function updateHouses(g, projection, data, speed) {
     }
 }
 
+// Create initial shelter points
+// Shelter points are initially not visible
 export function createShelter(g, projection, data) {
 
     let points = g
@@ -168,6 +173,7 @@ export function createShelter(g, projection, data) {
     return points;
 }
 
+// Update shelter points
 export function updateShelter(g, projection, data, fill, r, opacity) {
 
     let c = g.selectAll("circle")
@@ -217,6 +223,8 @@ export function updateShelter(g, projection, data, fill, r, opacity) {
         .remove();
 }
 
+
+// Create initial fire points
 export function createFire(g, projection, data) {
 
     let points = g
@@ -237,6 +245,7 @@ export function createFire(g, projection, data) {
     return points;
 }
 
+// Update fire points
 export function updateFire(g, projection, data, date, colorScale, rScale) {
 
     let c = g.selectAll("circle")
@@ -276,4 +285,9 @@ export function updateFire(g, projection, data, date, colorScale, rScale) {
     .attr("r", 0)
     .duration(3000)
     .remove();
+}
+
+// Create Legend
+export function createLegend() {
+
 }

@@ -224,14 +224,14 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     // console.log(okBigStreets)
     // console.log(okMedStreets)
     // console.log(okSmallStreets)
-    console.log(houses)
+    // console.log(houses)
     // console.log(data)
     // console.log(cities)
     // console.log(shelters)
     // console.log(fires)
     // console.log(fireBoundary)
     // console.log(cityBoundaries)
-    console.log(routes)
+    // console.log(routes)
 
     let start = d3.min(data, function(d) {return +d.i});
     let limit = d3.max(data, function(d) {return +d.i});
