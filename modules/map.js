@@ -1,112 +1,173 @@
-export function mouseoverPoints(points, tooltip) {
-
-    points.on("mouseover", function(e, d) {
-
-        let x = +d3.select(this).attr("cx") + 20;
-        let y = +d3.select(this).attr("cy") - 10;
-
-        tooltip.style("visibility", "visible")
-            .style("top", `${y}px`)
-            .style("left", `${x}px`)
-            .html(`${d.name}`);
-
-    }).on("mouseout", function() {
-        tooltip.style("visibility", "hidden");
-    });
-}
-
-export function createPoints(g, data, tooltip, projection, className, fill, r, fillOpacity = 1) {
-    let points = g
-        .append("g")
-        .selectAll("circle")
-        .data(data)
-        .enter()
-        .append("circle")
-        .attr("class", className)
-        .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
-        .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-        .attr("r", r)
-        .attr("fill", fill)
-        .attr("fill-opacity", fillOpacity);
-
-    mouseoverPoints(points, tooltip);
-}
-
-export function drawBasemap(g, data, geoPathGenerator, stroke = "#FFFFFF", strokeWidth = 1) {
-    g
+// Draw Basemap
+export function drawBasemap(g, projection, data, className, stroke = "#FFFFFF", strokeWidth = 1, fill = "#E0E0E0", fillOpacity = 1) {
+    
+    let geoPathGenerator = d3.geoPath().projection(projection);
+    
+    let path = g
     .append("g")
     .selectAll("path")
-    .data(data)
+    .data(data.features)
     .enter()
     .append("path")
-    .attr("class", 'state')
+    .attr("class", className)
     .attr("d", geoPathGenerator)
     .attr("stroke", stroke)
     .attr("stroke-width", strokeWidth)
-    .attr("fill", "#D7D7D7")
-    // .attr("opacity", .5);
+    .attr("fill", fill)
+    .attr("fill-opacity", fillOpacity);
+
+    return path;
 }
 
-export function drawRoad(g, data, geoPathGenerator, stroke = "#FFFFFF", strokeWidth = 1, opacity = .5) {
-    g
-    .append("g")
-    .selectAll("path")
-    .data(data)
-    .enter()
-    .append("path")
-    .attr("class", 'state')
-    .attr("d", geoPathGenerator)
-    .attr("stroke", stroke)
-    .attr("stroke-width", strokeWidth)
-    .attr("fill", "none")
-    .attr("opacity", opacity);
-}
+// Draw path
+export function drawPath(g, projection, data, stroke = "#D7D7D7", strokeWidth = 1, strokeOpacity = .5, fill ="none", fillOpacity) {
 
-export function draw(svg, g, tooltip, projection, geoPathGenerator, stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, countyHouses, cities, shelters) {
+    let geoPathGenerator = d3.geoPath().projection(projection);
 
-    drawBasemap(g, stateBoundaries.features, geoPathGenerator);
-    drawBasemap(g, countyBoundaries.features, geoPathGenerator);
-    drawRoad(g, okBigStreets.features, geoPathGenerator, "#000000", 1.5);
-    drawRoad(g, okMedStreets.features, geoPathGenerator, "#000000", 1);
-    // drawBasemap(g, okSmallStreets.features, geoPathGenerator, "#000000", .5);
-    createPoints(g, countyHouses, tooltip, projection, "houses", "#6CBE45", 1, .2);
-    createPoints(g, cities, tooltip, projection, "cities", "#00AEEF", 2.5);
-    // createPoints(g, shelters, tooltip, projection, "shelters", "#EE2724", 40, .3);
-
-    // create a zoom function
-    var zoom = d3.zoom()
-    .scaleExtent([0, 15])
-    .on("zoom", function(event) {
-        g
-        .attr("transform", `scale(${event.transform.k}) translate(${event.transform.x}, ${event.transform.y})`);
-    })
-
-    // call zoom so it is "listening" for an event on our SVG
-    svg.call(zoom);
-}
-
-export function createHouses(g, data, tooltip, projection, className, fill, r, fillOpacity = 1) {
-    let points = g
+    let path = g
         .append("g")
         .selectAll("path")
         .data(data)
         .enter()
         .append("path")
-            .attr("class", className)
-            .attr("transform", d => "translate(" + [
-                projection([d.long, d.lat])[0],
-                projection([d.long, d.lat])[1]] + ")")
-            .attr("d", d3.symbol().type(d3.symbolSquare).size("10"))
-            .attr("fill", fill)
-            .attr("fill-opacity", fillOpacity);
+        .attr("class", 'state')
+        .attr("d", geoPathGenerator)
+        .attr("stroke", stroke)
+        .attr("stroke-width", strokeWidth)
+        .attr("stroke-opacity", strokeOpacity)
+        .attr("fill-opacity", fillOpacity)
+        .attr("fill", fill);
 
-    mouseoverPoints(points, tooltip);
+    return path;
 }
 
+// Create households
+export function createHouses(g, projection, data, className, paramsMap) {
 
-export function updateShelter(symbol, projection, data, fill, r, opacity) {
+    // console.log(data)
+    let points = g
+    .append("g")
 
-    let c = symbol.selectAll("circle")
+    points
+    .selectAll("circle")
+    .data(data)
+    .enter()
+    .append("circle")
+        .attr("class", className)
+        .attr("cx", function(d) {return projection([d.properties.x, d.properties.y])[0];})
+        .attr("cy", function(d) {return projection([d.properties.x, d.properties.y])[1];})
+        .attr("r", 1)
+        .attr("fill", "#36479D")
+        .attr("fill-opacity", .6)
+        .attr("stroke", "#36479D")
+        .attr("stroke-opacity", 1);
+
+    // let tw = g.node().clientWidth;
+    // let th = g.node().clientHeight;
+    // let sx = tw / paramsMap.width;
+    // let sy = th / paramsMap.height;
+
+    // let tooltip = d3.select(`#tooltip`)
+    //     .append("div")
+    //     .attr("class", "tooltip");
+    
+    // points.on("mouseover", function(e, d) {
+
+    //     console.log(d)
+    //     let x = sx*(+d3.select(this).attr("cx")) + 20;
+    //     let y = sy*(+d3.select(this).attr("cy")) - 10;
+
+    //     tooltip.style("visibility", "visible")
+    //         .style("top", `${y}px`)
+    //         .style("left", `${x}px`)
+    //         // .html(`${d.properties.place}`);
+
+    // }).on("mouseout", function() {
+    //     tooltip.style("visibility", "hidden");
+    // });
+
+    return points;
+}
+
+// https://stackoverflow.com/questions/13455042/random-number-between-negative-and-positive-value
+function getNonZeroRandomNumber(min, max) {
+    var random = Math.floor(Math.random()*min) - max;
+    if(random==0) return getNonZeroRandomNumber();
+    return random;
+}
+
+// Updates the households
+//Adapted from http://bl.ocks.org/JMStewart/6455921
+export function updateHouses(g, projection, data, speed) {
+
+    let c = g.selectAll("circle")
+    .data(data, function(d) {return d.properties.id;});
+
+    c
+    .enter()
+    .append("circle")
+    .merge(c)
+        .transition()
+        .delay(function(d, i) {return 10*getNonZeroRandomNumber(399, 299)})
+        .duration(speed)
+        .tween("pathTween", function(d, i) {
+            return pathTween(drawPath(g, projection, [d], "yellow", 0))
+        });
+
+    function pathTween(path) {
+        var length = path.node().getTotalLength(); // Get the length of the path
+        var r = d3.interpolate(0, length); //Set up interpolation from 0 to the path length
+        return function(t){
+            var point = path.node().getPointAtLength(r(t)); // Get the next point along the path
+            d3.select(this) // Select the circle
+                .attr("cx", point.x) // Set the cx
+                .attr("cy", point.y) // Set the cy
+        }
+    }
+}
+
+// Create initial shelter points
+// Shelter points are initially not visible
+export function createShelter(g, projection, data) {
+
+    let points = g
+        .append("g")
+
+    points
+        .selectAll("path")
+        .data(data)
+        .enter()
+        .append("path")
+            .attr("class", "shelters")
+            .attr("transform", d => "translate(" + [
+            projection([d.long, d.lat])[0],
+            projection([d.long, d.lat])[1]] + ")")
+            .attr("d", d3.symbol().type(d3.symbolCross).size("50"))
+            .attr("fill", "#FFFFFF")
+            .attr("fill-opacity", 0)
+
+    points
+        .selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+            .attr("class", "shelters")
+            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
+            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
+            .attr("r", 8)
+            .attr("fill", "#FFFFFF")
+            .attr("stroke", "#FFFFFF")
+            .attr("stroke-weight", 2)
+            .attr("fill-opacity", 0)
+            .attr("stroke-opacity", 0);
+
+    return points;
+}
+
+// Update shelter points
+export function updateShelter(g, projection, data, fill, r, opacity) {
+
+    let c = g.selectAll("circle")
         .data(data, function(d) {return d.id;});
 
         c
@@ -114,23 +175,23 @@ export function updateShelter(symbol, projection, data, fill, r, opacity) {
         .append("circle")
             .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("fill","#FFFFFF")
+            .attr("stroke", "#FFFFFF")
+            .attr("fill", "#FFFFFF")
             .attr("r", r)
-            .attr("opacity", opacity)
+            .attr("stroke-opacity", opacity)
+            .attr("fill-opacity", .2)
         .merge(c)
             .transition()
             .duration(1000)
-            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
-            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("r", r)
-            .attr("opacity", opacity);
 
     c.exit()
         .transition()
+        .attr("r", 0)
+        .attr("opacity", 0)
         .duration(1000)
         .remove();
 
-    let s = symbol.selectAll("path")
+    let s = g.selectAll("path")
         .data(data, function(d) {return d.id;});
 
     s
@@ -139,36 +200,50 @@ export function updateShelter(symbol, projection, data, fill, r, opacity) {
         .attr("transform", d => "translate(" + [
         projection([d.long, d.lat])[0],
         projection([d.long, d.lat])[1]] + ")")
-        .attr("d", d3.symbol().type(d3.symbolCross).size("75"))
+        .attr("d", d3.symbol().type(d3.symbolCross).size("50"))
         .attr("fill", fill)
         .attr("opacity", opacity)
     .merge(s)
         .transition()
         .duration(1000)
-        .attr("transform", d => "translate(" + [
-            projection([d.long, d.lat])[0],
-            projection([d.long, d.lat])[1]] + ")")
-        .attr("d", d3.symbol().type(d3.symbolCross).size("75"))
 
     s.exit()
         .transition()
+        .attr("opacity", 0)
         .duration(1000)
         .remove();
-
 }
 
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
+// Create initial fire points
+export function createFire(g, data) {
+
+    let points = g
+            .append("g")
+
+    points
+        .selectAll("circle")
+        .data(data)
+        // .enter()
+        // .append("circle")
+
+    return points;
 }
 
-export function updateFire(circle, projection, data, r, opacity) {
+function fireBurnNDays(date, d) {
 
-    const colors = ["#E82B25", "#F6891F", "#F9C94A", "#F15523", "#B62025", "#FAA51A", "#F5841F", "#FCCC4D"]
+    let month = "0"+ date.toString().substr(0, 1);
+    let day = date.toString().substr(1, 3);
+    let newDate = new Date(`2014-${month}-${day}`)
+    var diff = new Date(newDate.getTime() - d.startDay.getTime());
 
-    console.log(getRandomInt(3));
+    return diff.getUTCDate() - 1;
+}
 
-    let c = circle.selectAll("circle")
+// Update fire points
+export function updateFire(g, projection, data, date, colorScale, rScale) {
+
+    let c = g.selectAll("circle")
         .data(data, function(d) {return d.id;});
 
         c
@@ -176,14 +251,121 @@ export function updateFire(circle, projection, data, r, opacity) {
         .append("circle")
             .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("r", 0)
-            .attr("opacity", 0)
+            .attr("r", function(d) {
+                if (date >= d.endDate) {
+                    return rScale(0);
+                } else {
+                    return rScale(fireBurnNDays(date, d));
+                }
+            })
+            .attr("fill", function(d) { 
+                if (date >= d.endDate) {
+                    return colorScale(d.nDays);
+                } else {
+                    return colorScale(fireBurnNDays(date, d));
+                }
+            })
+            .attr("stroke", function(d) {
+                colorScale(fireBurnNDays(date, d))
+            })
+            .attr("fill-opacity", 1)
+            .attr("stroke-opacity", 1)
+            .attr("stroke-width", .5)
         .merge(c)
             .transition()
-            .duration(3000)
-            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
-            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("fill", function(d) {return colors[getRandomInt(colors.length - 1)]})
-            .attr("r", r)
-            .attr("opacity", opacity);
+            .duration(500)
+            .ease(d3.easeCircleIn)
+            .attr("stroke", function(d) {
+                if (date >= d.endDate) {
+                    return "#473F41";
+                } else {
+                    return colorScale(fireBurnNDays(date, d));
+                }
+            });
+
+    c.exit()
+    .transition()
+    .duration(3000)
+    .ease(d3.easeCircleOut)
+    .remove();
+}
+
+// Create Legend
+export function createLegend(svg, rScale, colorScale, maxDays) {
+
+    svg.append("text")
+        .attr("x", 10)
+        .attr("y", 10)
+        .attr("font-size", 8)
+        .attr("color", "#473F41")
+        .text("# of days burning")
+
+    for (var j = 1; j < maxDays; j= j + 5) {
+        svg.append("circle")
+            .attr("cx", 15)
+            .attr("cy", 20 + j*4)
+            .attr("r", rScale(j))
+            .attr("fill", colorScale(j));
+
+            svg.append("text")
+            .attr("x", 30)
+            .attr("y", 20 + j*4 + 4)
+            .attr("font-size", 10)
+            .attr("text-anchor", "middle")
+            .attr("color", "#473F41")
+            .text(j)
+    }
+
+    svg.append("text")
+        .attr("x", 100)
+        .attr("y", 10)
+        .attr("font-size", 8)
+        .attr("color", "#473F41")
+        .text("contained fire")
+
+    svg.append("circle")
+        .attr("cx", 105)
+        .attr("cy", 20)
+        .attr("r", rScale(2))
+        .attr("fill", colorScale(2))
+        .attr("stroke", "#473F41")
+        .attr("stroke-width", .5);
+
+    svg.append("text")
+        .attr("x", 100)
+        .attr("y", 40)
+        .attr("font-size", 8)
+        .attr("color", "#473F41")
+        .text("shelter")
+
+    svg.append("circle")
+        .attr("cx", 110)
+        .attr("cy", 55)
+        .attr("r", 8)
+        .attr("fill", "#D7D7D7")
+        .attr("stroke", "#D7D7D7")
+        .attr("stroke-width", 2)
+        .attr("fill-opacity", .2);
+
+    svg.append("path")
+        .attr("transform", d => "translate(" + [110, 55] + ")")
+        .attr("d", d3.symbol().type(d3.symbolCross).size("50"))
+        .attr("fill", "#EE2C25");
+
+    svg.append("text")
+        .attr("x", 100)
+        .attr("y", 80)
+        .attr("font-size", 8)
+        .attr("color", "#473F41")
+        .text("household");
+
+    svg.append("circle")
+        .attr("cx", 105)
+        .attr("cy", 88)
+        .attr("r", 2)
+        .attr("fill", "#36479D")
+        .attr("fill-opacity", .6)
+        .attr("stroke", "#36479D")
+        .attr("stroke-opacity", 1);
+
 }

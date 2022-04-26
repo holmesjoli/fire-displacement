@@ -18,21 +18,23 @@ export function effects(data) {
     if (date === 718) {
         document.body.style.backgroundColor = darkColor;
         document.body.style.color = lightColor;
-        document.getElementById("timer").style.backgroundColor = lightColor;
-        document.getElementById("timer").style.color = darkColor;
-        document.getElementById("burn-container").style.borderColor = lightColor;
-        document.getElementById("containment-container").style.borderColor = lightColor;
         document.querySelector("#burn svg").style.borderColor = lightColor;
+        document.querySelector("#timeline svg rect").style.fill = lightColor;
+        document.querySelector("#burn svg rect").style.fill = lightColor;
+        document.querySelector("#containment svg rect").style.fill = lightColor;
+        d3.selectAll("text").attr("fill", lightColor)
+        // console.log(blah)
+        // .style.fill = lightColor;
     }
 
     if (date === 725) {
         document.body.style.backgroundColor = lightColor;
         document.body.style.color = darkColor;
-        document.getElementById("timer").style.backgroundColor = darkColor;
-        document.getElementById("timer").style.color = lightColor;
-        document.getElementById("burn-container").style.borderColor = darkColor;
-        document.getElementById("containment-container").style.borderColor = darkColor;
         document.querySelector("#burn svg").style.borderColor = darkColor;
+        document.querySelector("#timeline svg rect").style.fill = darkColor;
+        document.querySelector("#burn svg rect").style.fill = darkColor;
+        document.querySelector("#containment svg rect").style.fill = darkColor;
+        d3.selectAll("text").attr("fill", darkColor);
     }
 
 //         if (date === 714) {

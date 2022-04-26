@@ -19,27 +19,17 @@ export function daysLabel(days, dates) {
 // param callback
 export function setDate(params, callback) {
 
-    let monthId = document.getElementById('month');
-    let dayId = document.getElementById('days');
-
     var git = setInterval(function () {
 
         if (params.i < params.limit + 1) {
-
-            
 
             let filteredDates = params.dates.filter(function(d) {
                 return d.i === params.i;
             });
 
-            dayId.innerHTML = `${filteredDates[0].day}`;
-            monthId.innerHTML =  `${filteredDates[0].month_name}`;
-
             callback(`${filteredDates[0].date}`);
-            
+
         } else {
-            clearInterval(monthId);
-            clearInterval(dayId);
             clearInterval(git);
         }
 
@@ -55,19 +45,18 @@ export function draw(svg, params, xScale, data) {
         .attr("x", function(d) {return xScale(d.date)})
         .attr("y", 0)
         .attr("class", "timeline")
-        .attr("width", params.barWidth)
+        .attr("width", xScale.bandwidth())
         .attr("height", params.barHeight)
-        .attr("fill", "#E05926");
+        .attr("fill", "#473F41");
 
-    let b = svg.selectAll(".burn")
+    let b = svg.selectAll(".timeline")
             .data(data, function(d) { return d.date; });
 
     b.transition()
-        .duration(params.speed)
         .attr("x", function(d) {return xScale(d.date)})
         .attr("y", 0)
         .attr("class", "timeline")
-        .attr("width",  params.barWidth)
-        .attr("height",  params.barHeight)
-        .attr("fill", "#E05926");
+        .attr("width", xScale.bandwidth())
+        .attr("height", params.barHeight)
+        .attr("fill", "#473F41");
 }
