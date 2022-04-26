@@ -191,7 +191,7 @@ const paramsLegend = {
     selector: "legend",
     margin: {top: 0, right: 10, bottom: 20, left: 10},
     width: 200,
-    height: 225,
+    height: 200,
 }
 
 const svgLegend = d3.select(`#${paramsLegend.selector}`)
@@ -336,15 +336,11 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         .call(d3.axisBottom().scale(xScaleContainment).ticks(2));
 
     //Legend
-
     paramsLegend["min"] = d3.min(fires, function(d) {return d.nDays; });
     paramsLegend["max"] = d3.max(fires, function(d) {return d.nDays; });
     paramsLegend["nDaysUni"] = Helper.uniqueArray(fires, "nDays").sort(function(a, b) {return a - b});
 
-    // console.log()
-
     //https://gka.github.io/palettes/#/22|s|ffcc55,f68c1f,ea2c24|ffffe0,ff005e,93003a|1|1
-
     const colors = ['#ffcc55', '#ffc751', '#fec24d', '#febd4a', '#fdb846', '#fdb343', '#fcae3f',
                     '#fba93c', '#fba33a', '#fa9e37', '#f99934', '#f99432', '#f88e30', '#f7892e', 
                     '#f6832c', '#f57d2b', '#f47829', '#f47228', '#f36c27', '#f26526', '#f15f25', 
@@ -358,9 +354,8 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         .domain([paramsLegend.min, paramsLegend.max])
         .range([1, 5]);
 
-    Map.createLegend(svgLegend, rScale, colorScale, paramsLegend.max)
-
     //Map
+    Map.createLegend(svgLegend, rScale, colorScale, paramsLegend.max)
     Map.drawBasemap(g, projection, stateBoundaries, "state");
     Map.drawBasemap(g, projection, countyBoundaries, "county");
     Map.drawBasemap(g, projection, cityBoundaries, "city", "#57276C", .5, "#57276C", .5);
@@ -389,15 +384,13 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         Story.effects(dataUpdate);
         Timer.draw(svgTimeline, paramsTimeline, xScaleTimeline, dataUpdate);
 
-
         Map.updateHouses(housePoints, projection, housesUpdate, params.speed);
         Map.updateShelter(shelterPoints, projection, sheltersUpdate, "#EE2C25", 8, 1);
         Map.updateFire(firePoints, projection, firesUpdate, date, colorScale, rScale);
 
-        if (date === 825) {
+        if (date === 826) {
             Map.drawPath(g, projection, fireBoundary.features, "#473F41", .5, 1, "#473F41", .5);
         }
-
     });
 
     var zoom = d3.zoom()
