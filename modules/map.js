@@ -225,7 +225,7 @@ export function updateShelter(g, projection, data, fill, r, opacity) {
 
 
 // Create initial fire points
-export function createFire(g, projection, data, colorScale, rScale) {
+export function createFire(g, data) {
 
     let points = g
             .append("g")
@@ -233,14 +233,8 @@ export function createFire(g, projection, data, colorScale, rScale) {
     points
         .selectAll("circle")
         .data(data)
-        .enter()
-        .append("circle")
-            .attr("class", "shelters")
-            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
-            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("r", function(d) {return rScale(d.nDays); })
-            .attr("fill", function(d) {return colorScale(d.nDays); })
-            .attr("fill-opacity", 0)
+        // .enter()
+        // .append("circle")
 
     return points;
 }
@@ -254,13 +248,16 @@ export function updateFire(g, projection, data, date, colorScale, rScale) {
         c
         .enter()
         .append("circle")
-            .attr("cx", function(d) {return projection([d.long, d.lat])[0]+ getNonZeroRandomNumber(5, -5);})
-            .attr("cy", function(d) {return projection([d.long, d.lat])[1]+ getNonZeroRandomNumber(5, -5);})
+            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
+            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
+            .attr("r", function(d) {return rScale(d.nDays); })
+            .attr("fill", function(d) {return colorScale(d.nDays); })
+            .attr("fill-opacity", 1)
         .merge(c)
             .transition()
-            .duration(500)
+            .duration(1500)
+            .ease(d3.easeCircleOut)
             .attr("fill", function(d) {
-                
                 if (date >= d.endDate) {
                     return "#473F41";
                 } else {
@@ -268,7 +265,6 @@ export function updateFire(g, projection, data, date, colorScale, rScale) {
                 }
             })
             .attr("r", function(d) {
-                
                 if (date >= d.endDate) {
                     return rScale(1);
                 } else {
@@ -276,11 +272,10 @@ export function updateFire(g, projection, data, date, colorScale, rScale) {
                 }
             })
             .attr("opacity",   function(d) {
-                
                 if (date >= d.endDate) {
-                    return .2;
+                    return .3;
                 } else {
-                    return .6;
+                    return 1;
                 }
             });
 
@@ -288,7 +283,7 @@ export function updateFire(g, projection, data, date, colorScale, rScale) {
     .transition()
     .attr("opacity", 0)
     .attr("r", 0)
-    .duration(3000)
+    // .duration(3000)
     .remove();
 }
 

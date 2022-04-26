@@ -106,8 +106,8 @@ const files = {
 
             if (+j.nDays >= 0 & +j.endDate <= 826) {
                 return {
-                    lat: +j.Lat,
-                    long: +j.Lon,
+                    lat: +j.LatRand,
+                    long: +j.LonRand,
                     startDate: +j.startDate,
                     endDate: +j.endDate,
                     nDays: +j.nDays
@@ -410,7 +410,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     console.log(routesInitial);
 
     let shelterPoints = Map.createShelter(g, projection, shelters);
-    let firePoints = Map.createFire(g, projection, fires, colorScale, rScale);
+    let firePoints = Map.createFire(g, fires);
     let housePoints = Map.createHouses(g, projection, routesInitial, "shelters");
 
     // Timer
