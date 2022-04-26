@@ -199,7 +199,7 @@ const paramsLegend = {
     selector: "legend",
     margin: {top: 0, right: 10, bottom: 20, left: 10},
     width: 200,
-    height: 200,
+    height: 225,
 }
 
 const svgLegend = d3.select(`#${paramsLegend.selector}`)
