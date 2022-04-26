@@ -335,8 +335,8 @@ export function createLegend(svg, rScale, colorScale, maxDays) {
     svg.append("circle")
         .attr("cx", 105)
         .attr("cy", 20)
-        .attr("r", rScale(1))
-        .attr("fill", colorScale(1))
+        .attr("r", rScale(2))
+        .attr("fill", colorScale(2))
         .attr("stroke", "#473F41")
         .attr("stroke-width", .5);
 
@@ -371,7 +371,7 @@ export function createLegend(svg, rScale, colorScale, maxDays) {
     svg.append("circle")
         .attr("cx", 105)
         .attr("cy", 88)
-        .attr("r", 1)
+        .attr("r", 2)
         .attr("fill", "#36479D")
         .attr("fill-opacity", .6)
         .attr("stroke", "#36479D")
