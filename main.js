@@ -103,10 +103,38 @@ for (var key of Object.keys(files)) {
     Helper.read(fl.pth, fl.parse, promises);
 }
 
-Promise.all(promises).then(function (values) {
-    drawVis(values[0], values[1], values[2], values[3], values[4], 
-        values[5],values[6], values[7], values[8], values[9])
-});
+// Adapted from http://bl.ocks.org/eesur/cf81a5ea738f85732707
+// loader settings
+var opts = {
+    lines: 9, // The number of lines to draw
+    length: 9, // The length of each line
+    width: 5, // The line thickness
+    radius: 14, // The radius of the inner circle
+    color: '#473F41', // #rgb or #rrggbb or array of colors
+    speed: 1.9, // Rounds per second
+    trail: 40, // Afterglow percentage
+    className: 'spinner', // The CSS class to assign to the spinner
+};
+
+var target = document.getElementById("chart");
+
+function init() {
+
+    var spinner = new Spinner(opts).spin(target);
+
+    setTimeout(function() {
+
+        Promise.all(promises).then(function (values) {
+            spinner.stop();
+
+            drawVis(values[0], values[1], values[2], values[3], values[4], 
+                values[5],values[6], values[7], values[8], values[9])
+        });
+
+    }, 1500);
+}
+
+init();
 
 // Timeline
 const paramsTimeline = {
@@ -197,7 +225,6 @@ let projection = d3.geoAlbers()
     .center([paramsMap.initialCenterX, paramsMap.initialCenterY]);
 
 // Helper.collapsibleTable();
-// let cntyCodes = ["53047", "53007", "53017"]
 
 function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, data, shelters, fires, fireBoundary, cityBoundaries, routes) {
 
