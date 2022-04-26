@@ -290,14 +290,7 @@ export function updateFire(g, projection, data, date, colorScale, rScale) {
                 } else {
                     return colorScale(fireBurnNDays(date, d));
                 }
-            })
-            // .attr("fill-opacity",   function(d) {
-            //     if (date >= d.endDate) {
-            //         return .7;
-            //     } else {
-            //         return 1;
-            //     }
-            // });
+            });
 
     c.exit()
     .transition()
