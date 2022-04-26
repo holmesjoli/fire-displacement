@@ -326,30 +326,30 @@ export function createLegend(svg, rScale, colorScale, maxDays) {
     }
 
     svg.append("text")
-        .attr("x", 10)
-        .attr("y", 135)
+        .attr("x", 100)
+        .attr("y", 10)
         .attr("font-size", 8)
         .attr("color", "#473F41")
         .text("contained fire")
 
     svg.append("circle")
-        .attr("cx", 15)
-        .attr("cy", 145)
+        .attr("cx", 105)
+        .attr("cy", 20)
         .attr("r", rScale(1))
         .attr("fill", colorScale(1))
         .attr("stroke", "#473F41")
         .attr("stroke-width", .5);
 
     svg.append("text")
-        .attr("x", 10)
-        .attr("y", 170)
+        .attr("x", 100)
+        .attr("y", 40)
         .attr("font-size", 8)
         .attr("color", "#473F41")
         .text("shelter")
 
     svg.append("circle")
-        .attr("cx", 20)
-        .attr("cy", 185)
+        .attr("cx", 110)
+        .attr("cy", 55)
         .attr("r", 8)
         .attr("fill", "#D7D7D7")
         .attr("stroke", "#D7D7D7")
@@ -357,20 +357,20 @@ export function createLegend(svg, rScale, colorScale, maxDays) {
         .attr("fill-opacity", .2);
 
     svg.append("path")
-        .attr("transform", d => "translate(" + [20, 185] + ")")
+        .attr("transform", d => "translate(" + [110, 55] + ")")
         .attr("d", d3.symbol().type(d3.symbolCross).size("50"))
         .attr("fill", "#EE2C25");
 
     svg.append("text")
-        .attr("x", 10)
-        .attr("y", 210)
+        .attr("x", 100)
+        .attr("y", 80)
         .attr("font-size", 8)
         .attr("color", "#473F41")
         .text("household");
 
     svg.append("circle")
-        .attr("cx", 20)
-        .attr("cy", 220)
+        .attr("cx", 105)
+        .attr("cy", 88)
         .attr("r", 1)
         .attr("fill", "#36479D")
         .attr("fill-opacity", .6)
