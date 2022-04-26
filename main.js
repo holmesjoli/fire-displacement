@@ -31,22 +31,6 @@ const files = {
         parse: null
     },
 
-    houses: {
-        pth: "./data/houses.csv",
-        parse: function(j) {
-            return {
-                long: +j.X,
-                lat: +j.Y,
-                name: "household",
-                place: j.place,
-                shelterLat: +j.shelterLat,
-                shelterLong: +j.shelterLong,
-                id: +j.id,
-                evacDate: +j.evacDate
-            }
-        }
-    },
-
     complex: {
         pth: "./data/complex_data.csv",
         parse: function(j) {
@@ -69,20 +53,6 @@ const files = {
                 centerX: +j.centerX,
                 centerY: +j.centerY,
                 story: j.story
-            }
-        }
-    },
-
-    cities: {
-        pth: "./data/ok_places.csv",
-        parse: function(j) {
-            if (j.keep === "TRUE") {
-                return {
-                    name: "<b>Municipality: </b>" + j.name,
-                    population: +j.population,
-                    lat: +j.lat,
-                    long: +j.long
-                }
             }
         }
     },
@@ -141,7 +111,7 @@ for (var key of Object.keys(files)) {
 Promise.all(promises).then(function (values) {
     drawVis(values[0], values[1], values[2], values[3], values[4], 
         values[5],values[6], values[7], values[8], values[9], 
-        values[10], values[11], values[12])
+        values[10])
 });
 
 // Timeline
@@ -235,16 +205,13 @@ let projection = d3.geoAlbers()
 // Helper.collapsibleTable();
 // let cntyCodes = ["53047", "53007", "53017"]
 
-function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, houses, data, cities, shelters, fires, fireBoundary, cityBoundaries, routes) {
+function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, okSmallStreets, data, shelters, fires, fireBoundary, cityBoundaries, routes) {
 
     // console.log(stateBoundaries);
     // console.log(countyBoundaries);
     // console.log(okBigStreets)
     // console.log(okMedStreets)
     // console.log(okSmallStreets)
-    // console.log(houses)
-    // console.log(data)
-    // console.log(cities)
     // console.log(shelters)
     // console.log(fires)
     // console.log(fireBoundary)
