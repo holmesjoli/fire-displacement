@@ -375,31 +375,8 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         .domain([paramsLegend.min, paramsLegend.max])
         .range([1, 5]);
 
-    svgLegend.append("text")
-        .attr("x", 10)
-        .attr("y", 10)
-        .attr("font-size", 10)
-        .text("# of days")
 
-    for (var j = 1; j < 30; j= j + 5) {
-        svgLegend.append("circle")
-            .attr("cx", 15)
-            .attr("cy", 20 + j*5)
-            .attr("r", rScale(j))
-            .attr("fill", colorScale(j))
-            .attr("opacity", .6);
-
-        svgLegend.append("text")
-            .attr("x", 30)
-            .attr("y", 20 + j*5 + 4)
-            .attr("font-size", 10)
-            .attr("text-anchor", "middle")
-            .attr("color", "#473F41")
-            .text(j)
-    }
-
-    
-    // Map.createLegend(svgLegend, rScale);
+    Map.createLegend(svgLegend, rScale, colorScale, paramsLegend.max)
 
     //Map
     Map.drawBasemap(g, projection, stateBoundaries, "state");
