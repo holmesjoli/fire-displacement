@@ -254,14 +254,14 @@ export function updateFire(g, projection, data, date, colorScale, rScale) {
                 if (date >= d.endDate) {
                     return rScale(0);
                 } else {
-                    return rScale(nDays);
+                    return rScale(d.nDays);
                 }
             })
             .attr("fill", function(d) { 
                 if (date >= d.endDate) {
                     return "#473F41";
                 } else {
-                    return colorScale(nDays);
+                    return colorScale(d.nDays);
                 }
             })
             .attr("fill-opacity", 6)
@@ -270,20 +270,20 @@ export function updateFire(g, projection, data, date, colorScale, rScale) {
             .duration(500)
             .ease(d3.easeCircleIn)
             .attr("fill", function(d) {
-                return colorScale(nDays);
+                return colorScale(d.nDays);
             })
             .attr("r", function(d) {
                 if (date >= d.endDate) {
                     return rScale(0);
                 } else {
-                    return rScale(nDays);
+                    return rScale(d.nDays);
                 }
             })
             .attr("stroke", function(d) {
                 if (date >= d.endDate) {
                     return "#473F41"
                 } else {
-                    return colorScale(nDays);
+                    return colorScale(d.nDays);
                 }
             })
             .attr("stroke-weight", function(d) {
