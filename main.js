@@ -205,7 +205,6 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     // console.log(countyBoundaries);
     // console.log(okBigStreets)
     // console.log(okMedStreets)
-    // console.log(okSmallStreets)
     // console.log(shelters)
     // console.log(fires)
     // console.log(fireBoundary)
