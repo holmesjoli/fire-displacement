@@ -246,9 +246,7 @@ function fireBurnNDays(date, d) {
     let newDate = new Date(`2014-${month}-${day}`)
     var diff = new Date(newDate.getTime() - d.startDay.getTime());
 
-    var diff2 = diff.getUTCDate() - 1;
-    console.log(diff2) 
-    return diff2;
+    return diff.getUTCDate() - 1;
 }
 
 // Update fire points
@@ -270,10 +268,18 @@ export function updateFire(g, projection, data, date, colorScale, rScale) {
                 }
             })
             .attr("fill", function(d) { 
-                return colorScale(fireBurnNDays(date, d));
-
+                if (date >= d.endDate) {
+                    return colorScale(d.nDays);
+                } else {
+                    return colorScale(fireBurnNDays(date, d));
+                }
+            })
+            .attr("stroke", function(d) {
+                colorScale(fireBurnNDays(date, d))
             })
             .attr("fill-opacity", 1)
+            .attr("stroke-opacity", 1)
+            .attr("stroke-width", .5)
         .merge(c)
             .transition()
             .duration(500)
@@ -285,20 +291,13 @@ export function updateFire(g, projection, data, date, colorScale, rScale) {
                     return colorScale(fireBurnNDays(date, d));
                 }
             })
-            .attr("stroke-weight", function(d) {
-                if (date >= d.endDate) {
-                    return .3;
-                } else {
-                    return 0;
-                }
-            })
-            .attr("opacity",   function(d) {
-                if (date >= d.endDate) {
-                    return .5;
-                } else {
-                    return 1;
-                }
-            });
+            // .attr("fill-opacity",   function(d) {
+            //     if (date >= d.endDate) {
+            //         return .7;
+            //     } else {
+            //         return 1;
+            //     }
+            // });
 
     c.exit()
     .transition()
