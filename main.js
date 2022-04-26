@@ -110,7 +110,7 @@ var opts = {
     length: 9, // The length of each line
     width: 5, // The line thickness
     radius: 14, // The radius of the inner circle
-    color: '#473F41', // #rgb or #rrggbb or array of colors
+    color: '#f47228', // #rgb or #rrggbb or array of colors
     speed: 1.9, // Rounds per second
     trail: 40, // Afterglow percentage
     className: 'spinner', // The CSS class to assign to the spinner
