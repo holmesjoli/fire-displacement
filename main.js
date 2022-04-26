@@ -110,7 +110,9 @@ const files = {
                     long: +j.LonRand,
                     startDate: +j.startDate,
                     endDate: +j.endDate,
-                    nDays: +j.nDays
+                    nDays: +j.nDays,
+                    startDay: new Date(j.startDay),
+                    endDay: new Date(j.endDay),
                 }
             }
         }

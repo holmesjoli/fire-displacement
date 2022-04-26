@@ -250,40 +250,63 @@ export function updateFire(g, projection, data, date, colorScale, rScale) {
         .append("circle")
             .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("r", function(d) {return rScale(d.nDays); })
-            .attr("fill", function(d) {return colorScale(d.nDays); })
-            .attr("fill-opacity", 1)
-        .merge(c)
-            .transition()
-            .duration(1500)
-            .ease(d3.easeCircleOut)
-            .attr("fill", function(d) {
+            .attr("r", function(d) {
+                if (date >= d.endDate) {
+                    return rScale(0);
+                } else {
+                    return rScale(nDays);
+                }
+            })
+            .attr("fill", function(d) { 
                 if (date >= d.endDate) {
                     return "#473F41";
                 } else {
-                    return colorScale(d.nDays);
+                    return colorScale(nDays);
                 }
+            })
+            .attr("fill-opacity", 6)
+        .merge(c)
+            .transition()
+            .duration(500)
+            .ease(d3.easeCircleIn)
+            .attr("fill", function(d) {
+                return colorScale(nDays);
             })
             .attr("r", function(d) {
                 if (date >= d.endDate) {
-                    return rScale(1);
+                    return rScale(0);
                 } else {
-                    return rScale(d.nDays);
+                    return rScale(nDays);
+                }
+            })
+            .attr("stroke", function(d) {
+                if (date >= d.endDate) {
+                    return "#473F41"
+                } else {
+                    return colorScale(nDays);
+                }
+            })
+            .attr("stroke-weight", function(d) {
+                if (date >= d.endDate) {
+                    return .5;
+                } else {
+                    return 0;
                 }
             })
             .attr("opacity",   function(d) {
                 if (date >= d.endDate) {
                     return .3;
                 } else {
-                    return 1;
+                    return .6;
                 }
             });
 
     c.exit()
     .transition()
-    .attr("opacity", 0)
-    .attr("r", 0)
-    // .duration(3000)
+    .duration(3000)
+    .ease(d3.easeCircleOut)
+    // .attr("opacity", 0)
+    // .attr("r", 0)
     .remove();
 }
 
