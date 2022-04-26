@@ -239,6 +239,18 @@ export function createFire(g, data) {
     return points;
 }
 
+function fireBurnNDays(date, d) {
+
+    let month = "0"+ date.toString().substr(0, 1);
+    let day = date.toString().substr(1, 3);
+    let newDate = new Date(`2014-${month}-${day}`)
+    var diff = new Date(newDate.getTime() - d.startDay.getTime());
+
+    var diff2 = diff.getUTCDate() - 1;
+    console.log(diff2) 
+    return diff2;
+}
+
 // Update fire points
 export function updateFire(g, projection, data, date, colorScale, rScale) {
 
@@ -254,50 +266,37 @@ export function updateFire(g, projection, data, date, colorScale, rScale) {
                 if (date >= d.endDate) {
                     return rScale(0);
                 } else {
-                    return rScale(d.nDays);
+                    return rScale(fireBurnNDays(date, d));
                 }
             })
             .attr("fill", function(d) { 
-                if (date >= d.endDate) {
-                    return "#473F41";
-                } else {
-                    return colorScale(d.nDays);
-                }
+                return colorScale(fireBurnNDays(date, d));
+
             })
-            .attr("fill-opacity", 6)
+            .attr("fill-opacity", 1)
         .merge(c)
             .transition()
             .duration(500)
             .ease(d3.easeCircleIn)
-            .attr("fill", function(d) {
-                return colorScale(d.nDays);
-            })
-            .attr("r", function(d) {
-                if (date >= d.endDate) {
-                    return rScale(0);
-                } else {
-                    return rScale(d.nDays);
-                }
-            })
             .attr("stroke", function(d) {
                 if (date >= d.endDate) {
-                    return "#473F41"
+                    return "#473F41";
                 } else {
-                    return colorScale(d.nDays);
+                    return colorScale(fireBurnNDays(date, d));
                 }
             })
             .attr("stroke-weight", function(d) {
                 if (date >= d.endDate) {
-                    return .5;
+                    return .3;
                 } else {
                     return 0;
                 }
             })
             .attr("opacity",   function(d) {
                 if (date >= d.endDate) {
-                    return .3;
+                    return .5;
                 } else {
-                    return .6;
+                    return 1;
                 }
             });
 
@@ -305,37 +304,11 @@ export function updateFire(g, projection, data, date, colorScale, rScale) {
     .transition()
     .duration(3000)
     .ease(d3.easeCircleOut)
-    // .attr("opacity", 0)
-    // .attr("r", 0)
     .remove();
 }
 
 // Create Legend
 export function createLegend(svg, rScale) {
 
-    var legend = svg.append("g")
-    // .attr("transform", "translate(20,20)");
 
-    // legend.append("text")
-    //     .attr("x", 0)
-    //     .attr("y", 0)
-    //     .text("Fire")
-
-    console.log(rScale.domain())
-    for (var i = 1; i < 22; i = i + 5) {
-        console.log(i)
-        legend.append("circle")
-            .attr("cx", 20)
-            .attr("cy", 2 * (i + 1) + 20)
-            .attr("r", rScale((i)))
-            .attr("fill", "red")
-            .attr("stroke-weight", 10)
-            .attr("stroke", "gray");
-
-        legend.append("text")
-            .attr("x", 44)
-            .attr('y', 5 * (i + 1) + 15)
-            .attr("font-size", 12)
-            .text(i)
-    }
 }

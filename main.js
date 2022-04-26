@@ -409,7 +409,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     Map.drawPath(g, projection, okMedStreets.features, "#000000", 1);
 
     let routesInitial = routes.features.filter((d) => d.properties.type === "initial");
-    console.log(routesInitial);
+    // console.log(routesInitial);
 
     let shelterPoints = Map.createShelter(g, projection, shelters);
     let firePoints = Map.createFire(g, fires);
