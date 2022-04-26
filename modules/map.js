@@ -99,8 +99,8 @@ export function createHouses(g, projection, data, className) {
 }
 
 // https://stackoverflow.com/questions/13455042/random-number-between-negative-and-positive-value
-function getNonZeroRandomNumber() {
-    var random = Math.floor(Math.random()*399) - 299;
+function getNonZeroRandomNumber(min, max) {
+    var random = Math.floor(Math.random()*min) - max;
     if(random==0) return getNonZeroRandomNumber();
     return random;
 }
@@ -117,7 +117,7 @@ export function updateHouses(g, projection, data, speed) {
     .append("circle")
     .merge(c)
         .transition()
-        .delay(function(d, i) {return 10*getNonZeroRandomNumber()})
+        .delay(function(d, i) {return 10*getNonZeroRandomNumber(399, 299)})
         .duration(speed)
         .tween("pathTween", function(d, i) {
             return pathTween(drawPath(g, projection, [d], "yellow", 0))
@@ -225,7 +225,7 @@ export function updateShelter(g, projection, data, fill, r, opacity) {
 
 
 // Create initial fire points
-export function createFire(g, projection, data) {
+export function createFire(g, projection, data, colorScale, rScale) {
 
     let points = g
             .append("g")
@@ -238,8 +238,8 @@ export function createFire(g, projection, data) {
             .attr("class", "shelters")
             .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("r", 1)
-            .attr("fill", "#FFFFFF")
+            .attr("r", function(d) {return rScale(d.nDays); })
+            .attr("fill", function(d) {return colorScale(d.nDays); })
             .attr("fill-opacity", 0)
 
     return points;
@@ -254,10 +254,8 @@ export function updateFire(g, projection, data, date, colorScale, rScale) {
         c
         .enter()
         .append("circle")
-            .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
-            .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-            .attr("r", 0)
-            .attr("opacity", 0)
+            .attr("cx", function(d) {return projection([d.long, d.lat])[0]+ getNonZeroRandomNumber(5, -5);})
+            .attr("cy", function(d) {return projection([d.long, d.lat])[1]+ getNonZeroRandomNumber(5, -5);})
         .merge(c)
             .transition()
             .duration(500)
@@ -266,7 +264,7 @@ export function updateFire(g, projection, data, date, colorScale, rScale) {
                 if (date >= d.endDate) {
                     return "#473F41";
                 } else {
-                    return colorScale(d.nDays)
+                    return colorScale(d.nDays);
                 }
             })
             .attr("r", function(d) {
@@ -274,10 +272,17 @@ export function updateFire(g, projection, data, date, colorScale, rScale) {
                 if (date >= d.endDate) {
                     return rScale(1);
                 } else {
-                    return rScale(d.nDays)
+                    return rScale(d.nDays);
                 }
             })
-            .attr("opacity", .6);
+            .attr("opacity",   function(d) {
+                
+                if (date >= d.endDate) {
+                    return .2;
+                } else {
+                    return .6;
+                }
+            });
 
     c.exit()
     .transition()

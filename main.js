@@ -101,15 +101,17 @@ const files = {
         }
     },
     fires: {
-        pth: "./data/fire_points.csv",
+        pth: "./data/fire_points2.csv",
         parse: function(j) {
-            return {
-                date: +j.date,
-                lat: +j.Lat,
-                long: +j.Lon,
-                startDate: +j.startDate,
-                endDate: +j.endDate,
-                nDays: +j.nDays
+
+            if (+j.nDays >= 0 & +j.endDate <= 826) {
+                return {
+                    lat: +j.Lat,
+                    long: +j.Lon,
+                    startDate: +j.startDate,
+                    endDate: +j.endDate,
+                    nDays: +j.nDays
+                }
             }
         }
     },
@@ -246,7 +248,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     // console.log(data)
     // console.log(cities)
     // console.log(shelters)
-    // console.log(fires)
+    console.log(fires)
     // console.log(fireBoundary)
     // console.log(cityBoundaries)
     // console.log(routes)
@@ -358,9 +360,10 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
     //https://gka.github.io/palettes/#/22|s|ffcc55,f68c1f,ea2c24|ffffe0,ff005e,93003a|1|1
 
-    const colors = ['#ffcc55', '#ffc650', '#fec04b', '#fdb947', '#fdb343', '#fcad3f', '#fba63b', 
-                    '#faa038', '#f99935', '#f99332', '#f88c2f', '#f7852d', '#f57e2b', '#f47729', 
-                    '#f37028', '#f26826', '#f16026', '#ef5825', '#ee4f24', '#ed4524', '#eb3924', '#ea2c24']
+    const colors = ['#ffcc55', '#ffc751', '#fec24d', '#febd4a', '#fdb846', '#fdb343', '#fcae3f',
+                    '#fba93c', '#fba33a', '#fa9e37', '#f99934', '#f99432', '#f88e30', '#f7892e', 
+                    '#f6832c', '#f57d2b', '#f47829', '#f47228', '#f36c27', '#f26526', '#f15f25', 
+                    '#f05825', '#ee5124', '#ed4924', '#ec4124', '#eb3724', '#ea2c24']
 
     const colorScale = d3.scaleOrdinal()
         .domain(paramsLegend.nDaysUni)
@@ -376,7 +379,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         .attr("font-size", 10)
         .text("# of days")
 
-    for (var j = 1; j < 25; j= j + 5) {
+    for (var j = 1; j < 30; j= j + 5) {
         svgLegend.append("circle")
             .attr("cx", 15)
             .attr("cy", 20 + j*5)
@@ -407,7 +410,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     console.log(routesInitial);
 
     let shelterPoints = Map.createShelter(g, projection, shelters);
-    let firePoints = Map.createFire(g, projection, fires);
+    let firePoints = Map.createFire(g, projection, fires, colorScale, rScale);
     let housePoints = Map.createHouses(g, projection, routesInitial, "shelters");
 
     // Timer
