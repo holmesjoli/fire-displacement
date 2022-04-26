@@ -1,37 +1,3 @@
-export function createCities(g, projection, data, className, tooltip, fill, r, fillOpacity = 1, svg, width, height) {
-    let points = g
-        .append("g")
-        .selectAll("circle")
-        .data(data)
-        .enter()
-        .append("circle")
-        .attr("class", className)
-        .attr("cx", function(d) {return projection([d.long, d.lat])[0];})
-        .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
-        .attr("r", r)
-        .attr("fill", fill)
-        .attr("fill-opacity", fillOpacity);
-
-    let tw = svg.node().clientWidth;
-    let th = svg.node().clientHeight;
-    let sx = tw / width;
-    let sy = th / height;
-
-    points.on("mouseover", function(e, d) {
-
-        let x = sx*(+d3.select(this).attr("cx")) + 20;
-        let y = sy*(+d3.select(this).attr("cy")) - 10;
-
-        tooltip.style("visibility", "visible")
-            .style("top", `${y}px`)
-            .style("left", `${x}px`)
-            .html(`${d.name}`);
-
-    }).on("mouseout", function() {
-        tooltip.style("visibility", "hidden");
-    });
-}
-
 // Draw Basemap
 export function drawBasemap(g, projection, data, className, stroke = "#FFFFFF", strokeWidth = 1, fill = "#E0E0E0", fillOpacity = 1) {
     
@@ -76,8 +42,9 @@ export function drawPath(g, projection, data, stroke = "#D7D7D7", strokeWidth = 
 }
 
 // Create households
-export function createHouses(g, projection, data, className) {
+export function createHouses(g, projection, data, className, paramsMap) {
 
+    // console.log(data)
     let points = g
     .append("g")
 
@@ -94,6 +61,30 @@ export function createHouses(g, projection, data, className) {
         .attr("fill-opacity", .6)
         .attr("stroke", "#36479D")
         .attr("stroke-opacity", 1);
+
+    // let tw = g.node().clientWidth;
+    // let th = g.node().clientHeight;
+    // let sx = tw / paramsMap.width;
+    // let sy = th / paramsMap.height;
+
+    // let tooltip = d3.select(`#tooltip`)
+    //     .append("div")
+    //     .attr("class", "tooltip");
+    
+    // points.on("mouseover", function(e, d) {
+
+    //     console.log(d)
+    //     let x = sx*(+d3.select(this).attr("cx")) + 20;
+    //     let y = sy*(+d3.select(this).attr("cy")) - 10;
+
+    //     tooltip.style("visibility", "visible")
+    //         .style("top", `${y}px`)
+    //         .style("left", `${x}px`)
+    //         // .html(`${d.properties.place}`);
+
+    // }).on("mouseout", function() {
+    //     tooltip.style("visibility", "hidden");
+    // });
 
     return points;
 }
