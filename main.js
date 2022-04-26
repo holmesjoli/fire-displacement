@@ -227,10 +227,6 @@ const svgMap = d3.select(`#${paramsMap.selector}`)
 
 let g = svgMap.append("g");
 
-let tooltip = d3.select(`#${paramsMap.selector}`)
-            .append("div")
-            .attr("class", "tooltip");
-
 let projection = d3.geoAlbers()
     .translate([paramsMap.width / 2, paramsMap.height / 2])
     .scale(paramsMap.initialScale)
@@ -250,7 +246,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     // console.log(data)
     // console.log(cities)
     // console.log(shelters)
-    console.log(fires)
+    // console.log(fires)
     // console.log(fireBoundary)
     // console.log(cityBoundaries)
     // console.log(routes)
@@ -375,7 +371,6 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         .domain([paramsLegend.min, paramsLegend.max])
         .range([1, 5]);
 
-
     Map.createLegend(svgLegend, rScale, colorScale, paramsLegend.max)
 
     //Map
@@ -386,11 +381,10 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     Map.drawPath(g, projection, okMedStreets.features, "#000000", 1);
 
     let routesInitial = routes.features.filter((d) => d.properties.type === "initial");
-    // console.log(routesInitial);
 
     let shelterPoints = Map.createShelter(g, projection, shelters);
     let firePoints = Map.createFire(g, fires);
-    let housePoints = Map.createHouses(g, projection, routesInitial, "shelters");
+    let housePoints = Map.createHouses(g, projection, routesInitial, "households", paramsMap);
 
     // Timer
     Timer.setDate(params, function (date) {
