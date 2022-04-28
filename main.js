@@ -359,8 +359,8 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     Map.drawBasemap(g, projection, stateBoundaries, "state");
     Map.drawBasemap(g, projection, countyBoundaries, "county");
     Map.drawBasemap(g, projection, cityBoundaries, "city", "#57276C", .5, "#57276C", .5);
-    Map.drawPath(g, projection, okBigStreets.features, "#000000", 1.5);
-    Map.drawPath(g, projection, okMedStreets.features, "#000000", 1);
+    Map.drawPath(g, projection, okBigStreets.features, "big-streets", "#000000", 1.5);
+    Map.drawPath(g, projection, okMedStreets.features, "med-streets", "#000000", 1);
 
     let routesInitial = routes.features.filter((d) => d.properties.type === "initial");
 
@@ -379,16 +379,18 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
 
     svgMap.call(zoom);
 
+    // console.log(zoom)
+
     // Timer
     Timer.setDate(params, function (date) {
 
-        // if (date === 715) {
+        if (date === 715) {
         //     d3.select("svg")
         //     .call(zoom.transform, d3.zoomIdentity.translate(x, y).scale(scale)
         //     .call(zoom.on('zoom', (event) => {
         //         svg.attr('transform', event.transform);
         //      })))
-        // }
+        }
 
         date = parseInt(date);
         let dataUpdate = data.filter((d) => d.date === date);
@@ -416,7 +418,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         }
 
         if (date === 826) {
-            Map.drawPath(g, projection, fireBoundary.features, "#473F41", .5, 1, "#473F41", .5);
+            Map.drawPath(g, projection, fireBoundary.features, "fire-boundary", "#473F41", .5, 1, "#473F41", .5);
         }
     });
 }

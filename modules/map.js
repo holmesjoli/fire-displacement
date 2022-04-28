@@ -20,7 +20,7 @@ export function drawBasemap(g, projection, data, className, stroke = "#FFFFFF", 
 }
 
 // Draw path
-export function drawPath(g, projection, data, stroke = "#D7D7D7", strokeWidth = 1, strokeOpacity = .5, fill ="none", fillOpacity) {
+export function drawPath(g, projection, data, className, stroke = "#D7D7D7", strokeWidth = 1, strokeOpacity = .5, fill ="none", fillOpacity) {
 
     let geoPathGenerator = d3.geoPath().projection(projection);
 
@@ -30,7 +30,7 @@ export function drawPath(g, projection, data, stroke = "#D7D7D7", strokeWidth = 
         .data(data)
         .enter()
         .append("path")
-        .attr("class", 'state')
+        .attr("class", className)
         .attr("d", geoPathGenerator)
         .attr("stroke", stroke)
         .attr("stroke-width", strokeWidth)
