@@ -120,14 +120,14 @@ var target = document.getElementById("chart");
 
 function init() {
 
-    var spinner = new Spinner(opts).spin(target);
+    // var spinner = new Spinner(opts).spin(target);
 
     setTimeout(function() {
 
         Promise.all(promises).then(function (values) {
-            spinner.stop();
+            // spinner.stop();
 
-            Story.lightning(1500);
+            // Story.lightning(1500);
 
             drawVis(values[0], values[1], values[2], values[3], values[4], 
                 values[5],values[6], values[7], values[8], values[9])
