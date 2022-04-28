@@ -34,7 +34,6 @@ export function powerout(date) {
     }
 }
 
-
 //Lightning strike
 export function lightning(timeout = 1000) {
     var strike = document.createElement("img");
