@@ -14,7 +14,7 @@ export function powerout(date) {
     const darkColor = "#473F41";
 
     if (date === 718) {
-        document.body.style.backgroundColor = darkColor;
+        document.body.style.backgroundColor = "#141225";
         document.body.style.color = lightColor;
         document.querySelector("#burn svg").style.borderColor = lightColor;
         document.querySelector("#timeline svg rect").style.fill = lightColor;
