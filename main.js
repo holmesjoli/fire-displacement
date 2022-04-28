@@ -116,7 +116,7 @@ var opts = {
     className: 'spinner', // The CSS class to assign to the spinner
 };
 
-var target = document.getElementById("chart");
+// var target = document.getElementById("chart");
 
 function init() {
 
@@ -125,9 +125,6 @@ function init() {
     setTimeout(function() {
 
         Promise.all(promises).then(function (values) {
-            // spinner.stop();
-
-            // Story.lightning(1500);
 
             drawVis(values[0], values[1], values[2], values[3], values[4], 
                 values[5],values[6], values[7], values[8], values[9])
@@ -136,6 +133,7 @@ function init() {
     }, 1500);
 }
 
+Story.lightning(3500);
 init();
 
 // Timeline
