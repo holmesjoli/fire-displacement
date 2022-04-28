@@ -1,5 +1,4 @@
 date,i,month,day,date,story,scale,centerX,centerY,month_name,n_homes,n_structures,size,containment,total_personnel,type_1_crew,type_2_crew,type_2_attack_crew,engines,water tenders,overhead_personnel,type_1_heli,type_2_heli,type_3_heli,air_support,home_place
-7/14/2014,1,7,14,714,,7000,-23.5,48.25,July,0,0,0,0,0,,,,,,,,,,,
 7/15/2014,2,7,15,715,"Officially, the disastor event and state of emergency is declared. The fire started from a lightning strike on July 15th, 2014 and ended on August 14th, 2014. However, impacts from the fire were felt much longer than the timeline of the official event.",7000,-23.5,48.25,July,0,0,600,0,127,,,,,,,,,,,
 7/16/2014,3,7,16,716,"High temperatures of 100 degrees, winds and dry fuels fed the fires. Officials warned that the rapidly changing situation could result in evacuations, road closures, and potential power outages.",9000,-23.5,48.25,July,0,0,1500,0,127,,,,,,,2,,,,
 7/17/2014,4,7,17,717,Conditions were rapidly changing so much so that fire crews don't have complete information of who is under an evacuation order. Hot temperatures and high winds mean that the fire was expected to grow rapidly.,12000,-23.5,48.25,July,35,8,18000,0,500,,,,,,,6,,,3,Upper Beaver Creek Road & Highway 153 at Libby Creek
@@ -8,7 +7,7 @@ date,i,month,day,date,story,scale,centerX,centerY,month_name,n_homes,n_structure
 7/20/2014,7,7,20,720,,12000,-23.5,48.25,July,,,237890,2,1622,,,,,,,,,,,
 7/21/2014,8,7,21,721,,12000,-23.5,48.25,July,,,237890,16,1622,,,,,,,,,,,
 7/22/2014,9,7,22,722,"The fire reached 250,000 acres making it the largest fire in Washington State history.",12000,-23.5,48.25,July,,,243291,16,1622,,,,,,,,,,,
-7/23/2014,10,7,23,723,,12000,-23.5,48.25,July,,,243291,34,"2,110 ",,,,,,,,,,,
+7/23/2014,10,7,23,723,,12000,-23.5,48.25,July,,,243291,34,"2,110ï¿½",,,,,,,,,,,
 7/24/2014,11,7,24,724,,12000,-23.5,48.25,July,,,250258,52,2852,,,,,,,,,,,
 7/25/2014,12,7,25,725,Power was restored to part of the valley.,12000,-23.5,48.25,July,,,250258,55,"2,943",,,,,,,,,,,
 7/26/2014,13,7,26,726,,12000,-23.5,48.25,July,,,250514,59,3104,,,,,,,,,,,
