@@ -383,7 +383,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         Burn.draw(svgBurn, paramsBurn, xScaleBurn, yScaleBurn, dataUpdate);
         Containment.draw(svgContainment, paramsContainment, xScaleContainment, dataUpdate);
         Story.update(paramsStory.selector, dataUpdate);
-        Story.effects(date);
+        Story.powerout(date);
         Timer.draw(svgTimeline, paramsTimeline, xScaleTimeline, dataUpdate);
 
         Map.updateHouses(housePoints, projection, housesUpdate, params.speed);

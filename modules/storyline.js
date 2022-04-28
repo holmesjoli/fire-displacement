@@ -8,7 +8,7 @@ export function update(selector, data) {
 }
 
 // Changes the body to a dark color to show power blackout
-export function effects(date) {
+export function powerout(date) {
 
     const lightColor = "#FFFFFF";
     const darkColor = "#473F41";

@@ -39,7 +39,6 @@ p {
     background: linear-gradient(to right top, #141225, #302460, #4F3B97, #6257A5);
     width: 100vw;
     height: 100vh;
-    /* z-index: 2; */
     position: absolute;
     top: 0;
     left: 0;
