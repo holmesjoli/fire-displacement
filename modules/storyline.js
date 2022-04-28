@@ -46,7 +46,8 @@ export function lightning(timeout = 1000) {
     lightning.appendChild(strike);
 
     function func() {
-        strike.remove()
+        strike.remove();
+        lightning.remove();
     }
     setTimeout(func, timeout);
 }
