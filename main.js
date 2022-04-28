@@ -358,7 +358,7 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     Map.createLegend(svgLegend, rScale, colorScale, paramsLegend.max)
     Map.drawBasemap(g, projection, stateBoundaries, "state");
     Map.drawBasemap(g, projection, countyBoundaries, "county");
-    Map.drawBasemap(g, projection, cityBoundaries, "city", "#57276C", .5, "#57276C", .5);
+    Map.drawBasemap(g, projection, cityBoundaries, "city", "#141225", .5, "#141225", .5);
     Map.drawPath(g, projection, okBigStreets.features, "big-streets", "#000000", 1.5);
     Map.drawPath(g, projection, okMedStreets.features, "med-streets", "#000000", 1);
 

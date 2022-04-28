@@ -58,7 +58,7 @@ export function createHouses(g, projection, data, className, paramsMap) {
         .attr("cy", function(d) {return projection([d.properties.x, d.properties.y])[1];})
         .attr("r", 1)
         .attr("fill", "#36479D")
-        .attr("fill-opacity", .6)
+        .attr("fill-opacity", .5)
         .attr("stroke", "#36479D")
         .attr("stroke-opacity", 1);
 
