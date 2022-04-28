@@ -127,6 +127,8 @@ function init() {
         Promise.all(promises).then(function (values) {
             spinner.stop();
 
+            Story.lightning(1500);
+
             drawVis(values[0], values[1], values[2], values[3], values[4], 
                 values[5],values[6], values[7], values[8], values[9])
         });
@@ -381,16 +383,25 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         Burn.draw(svgBurn, paramsBurn, xScaleBurn, yScaleBurn, dataUpdate);
         Containment.draw(svgContainment, paramsContainment, xScaleContainment, dataUpdate);
         Story.update(paramsStory.selector, dataUpdate);
-        Story.effects(dataUpdate);
+        Story.powerout(date);
         Timer.draw(svgTimeline, paramsTimeline, xScaleTimeline, dataUpdate);
 
         Map.updateHouses(housePoints, projection, housesUpdate, params.speed);
         Map.updateShelter(shelterPoints, projection, sheltersUpdate, "#EE2C25", 8, 1);
         Map.updateFire(firePoints, projection, firesUpdate, date, colorScale, rScale);
 
+        if (date === 731) {
+            params.speed = 1500;
+        }
+
+        if (date === 805) {
+            params.speed = 500;
+        }
+
         if (date === 826) {
             Map.drawPath(g, projection, fireBoundary.features, "#473F41", .5, 1, "#473F41", .5);
         }
+
     });
 
     var zoom = d3.zoom()

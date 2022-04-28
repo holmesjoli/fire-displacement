@@ -8,9 +8,7 @@ export function update(selector, data) {
 }
 
 // Changes the body to a dark color to show power blackout
-export function effects(data) {
-
-    let date = data[0].date;
+export function powerout(date) {
 
     const lightColor = "#FFFFFF";
     const darkColor = "#473F41";
@@ -23,8 +21,6 @@ export function effects(data) {
         document.querySelector("#burn svg rect").style.fill = lightColor;
         document.querySelector("#containment svg rect").style.fill = lightColor;
         d3.selectAll("text").attr("fill", lightColor)
-        // console.log(blah)
-        // .style.fill = lightColor;
     }
 
     if (date === 725) {
@@ -36,13 +32,22 @@ export function effects(data) {
         document.querySelector("#containment svg rect").style.fill = darkColor;
         d3.selectAll("text").attr("fill", darkColor);
     }
-
-//         if (date === 714) {
-//             function func() {
-//                 var elem = document.createElement("img");
-//                 elem.src = 'assets/lightning.svg';
-//                 document.getElementById("effect").appendChild(elem);
-//             }
-//             setTimeout(func, 2000);
-//         }
 }
+
+//Lightning strike
+export function lightning(timeout = 1000) {
+    var strike = document.createElement("img");
+    strike.src = 'assets/lightning.svg';
+
+    let div = document.createElement('div');
+    div.setAttribute("id", "lightning");
+    document.body.appendChild(div);
+    let lightning = document.getElementById("lightning");
+    lightning.appendChild(strike);
+
+    function func() {
+        div.remove()
+    }
+    setTimeout(func, timeout);
+}
+

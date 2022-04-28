@@ -260,33 +260,37 @@ export function updateFire(g, projection, data, date, colorScale, rScale) {
             })
             .attr("fill", function(d) { 
                 if (date >= d.endDate) {
-                    return colorScale(d.nDays);
+                    return "#473F41";
                 } else {
                     return colorScale(fireBurnNDays(date, d));
                 }
             })
-            .attr("stroke", function(d) {
-                colorScale(fireBurnNDays(date, d))
-            })
-            .attr("fill-opacity", 1)
-            .attr("stroke-opacity", 1)
-            .attr("stroke-width", .5)
-        .merge(c)
-            .transition()
-            .duration(500)
-            .ease(d3.easeCircleIn)
             .attr("stroke", function(d) {
                 if (date >= d.endDate) {
                     return "#473F41";
                 } else {
                     return colorScale(fireBurnNDays(date, d));
                 }
-            });
+            })
+            .attr("fill-opacity", function(d) {
+                if (date >= d.endDate) {
+                    return .3;
+                } else {
+                    return 1;
+                }
+            })
+            .attr("stroke-opacity", 1)
+            .attr("stroke-width", .5)
+        .merge(c)
+            .transition()
+            .duration(500)
+            .ease(d3.easeCircleIn)
 
     c.exit()
     .transition()
     .duration(3000)
     .ease(d3.easeCircleOut)
+    .attr("r", 1)
     .remove();
 }
 
@@ -327,9 +331,10 @@ export function createLegend(svg, rScale, colorScale, maxDays) {
         .attr("cx", 105)
         .attr("cy", 20)
         .attr("r", rScale(2))
-        .attr("fill", colorScale(2))
+        .attr("fill", "#473F41")
         .attr("stroke", "#473F41")
-        .attr("stroke-width", .5);
+        .attr("stroke-width", .5)
+        .attr("fill-opacity", .3);
 
     svg.append("text")
         .attr("x", 100)
