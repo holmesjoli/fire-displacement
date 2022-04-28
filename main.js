@@ -7,7 +7,7 @@ import * as Burn from "./modules/burn.js"
 
 const files = {
     stateBoundaries: {
-        pth: "./data/state_boundaries2.geojson",
+        pth: "./data/state_boundaries.geojson",
         parse: null
     },
 
