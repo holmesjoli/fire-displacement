@@ -253,7 +253,7 @@ export function updateFire(g, projection, data, date, colorScale, rScale) {
             .attr("cy", function(d) {return projection([d.long, d.lat])[1];})
             .attr("r", function(d) {
                 if (date >= d.endDate) {
-                    return rScale(0);
+                    return .5;
                 } else {
                     return rScale(fireBurnNDays(date, d));
                 }
@@ -290,7 +290,7 @@ export function updateFire(g, projection, data, date, colorScale, rScale) {
     .transition()
     .duration(3000)
     .ease(d3.easeCircleOut)
-    .attr("r", 1)
+    .attr("r", .5)
     .remove();
 }
 
