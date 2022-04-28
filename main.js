@@ -223,7 +223,7 @@ let g = svgMap.append("g");
 
 let projection = d3.geoAlbers()
     .translate([paramsMap.width / 2, paramsMap.height / 2])
-    .scale(paramsMap.initialScale)
+    .scale(paramMaps.initialScale)
     .center([paramsMap.initialCenterX, paramsMap.initialCenterY]);
 
 // Helper.collapsibleTable();
@@ -373,6 +373,14 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
     // Timer
     Timer.setDate(params, function (date) {
 
+        // if (date === 715) {
+        //     d3.select("svg")
+        //     .call(zoom.transform, d3.zoomIdentity.translate(x, y).scale(scale)
+        //     .call(zoom.on('zoom', (event) => {
+        //         svg.attr('transform', event.transform);
+        //      })))
+        // }
+
         date = parseInt(date);
         let dataUpdate = data.filter((d) => d.date === date);
         let firesUpdate = fires.filter((d) => date >= d.startDate);
@@ -401,15 +409,16 @@ function drawVis(stateBoundaries, countyBoundaries, okBigStreets, okMedStreets, 
         if (date === 826) {
             Map.drawPath(g, projection, fireBoundary.features, "#473F41", .5, 1, "#473F41", .5);
         }
-
     });
+
+    let userZoom = function(event) {
+        g
+        .attr("transform", `scale(${event.transform.k}) translate(${event.transform.x}, ${event.transform.y})`);
+    }
 
     var zoom = d3.zoom()
     .scaleExtent([0, 15])
-    .on("zoom", function(event) {
-        g
-        .attr("transform", `scale(${event.transform.k}) translate(${event.transform.x}, ${event.transform.y})`);
-    })
+    .on("zoom", userZoom)
 
     svgMap.call(zoom);
 }
