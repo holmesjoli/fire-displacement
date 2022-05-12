@@ -35,20 +35,47 @@ export function powerout(date) {
 }
 
 //Lightning strike
-export function lightning(timeout = 1000) {
-    var strike = document.createElement("img");
-    strike.src = 'assets/lightning.svg';
+export function lightning() {
 
-    let div = document.createElement('div');
-    div.setAttribute("id", "lightning");
-    document.body.appendChild(div);
-    let lightning = document.getElementById("lightning");
-    lightning.appendChild(strike);
+    // Create intro
+    let intro = document.createElement("div");
+    intro.setAttribute("id", "intro");
+    document.body.appendChild(intro);
+
+    // Create container for titles
+    let header = document.createElement("div");
+    header.setAttribute("id", "header");
+
+    // Create h1 title tag
+    let title = document.createElement("h1");
+    let titleText = document.createTextNode("Flee");
+    title.appendChild(titleText);
+
+    // Create h2 title tag
+    let subtitle = document.createElement("h2");
+    let subtitleText = document.createTextNode("Local impacts from the Carlton Complex Fire in Okanogan County, Washington.");
+    subtitle.appendChild(subtitleText);
+    
+    // Append title to header div
+    header.appendChild(title);
+    header.appendChild(subtitle);
+
+    // Lightning strike
+    let strike = document.createElement("img");
+    strike.src = 'assets/lightning.svg';
+    strike.setAttribute("id", "lightning");
+
+    intro.appendChild(strike);
+    intro.appendChild(header);
 
     function func() {
         strike.remove();
-        lightning.remove();
     }
-    setTimeout(func, timeout);
+
+    // function func2() {
+    //     header.remove();
+    // }
+    setTimeout(func, 1000);
+    // setTimeout(func2, 6000);
 }
 

@@ -11,18 +11,28 @@ html, body {
     height: 100vh;
 }
 
+#header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    max-width: 350px;
+}
+
 h1 {
-    /* font-style: italic; */
+    font-style: italic;
     margin: 10px;
     font-size: 60pt;
     font-weight: 300;
     line-height: 1;
+    color: white;
 }
 
 h2 {
     font-size: 16pt;
     font-weight: 300;
     margin: 10px;
+    color: white;
 }
 
 h3 {
@@ -37,7 +47,7 @@ p {
     font-size: 10pt;
 }
 
-#lightning {
+#intro {
     background: linear-gradient(to right top, #141225, #302460, #4F3B97, #6257A5);
     width: 100vw;
     height: 100vh;
@@ -45,7 +55,13 @@ p {
     top: 0;
     left: 0;
     margin: 0;
-    animation: fadeout 3.5s forwards;
+    animation: fadeout 1000s forwards;
+}
+
+#lightning {
+    height: 90vh;
+    width: 90vw;
+    animation: fadeout 1000s forwards;
 }
 
 @keyframes fadeout {
@@ -53,9 +69,13 @@ p {
     100%   { opacity: 0; }
 }
 
-#lightning img {
-    height: 90vh;
-    width: 90vw;
+.delay {
+    animation: fadein 1.5s forwards;
+}
+
+@keyframes fadein {
+    0% { opacity: 0; }
+    100%   { opacity: 1; }
 }
 
 #chart--container {
