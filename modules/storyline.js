@@ -60,22 +60,23 @@ export function lightning() {
     header.appendChild(title);
     header.appendChild(subtitle);
 
+    intro.appendChild(header);
+
     // Lightning strike
     let strike = document.createElement("img");
     strike.src = 'assets/lightning.svg';
     strike.setAttribute("id", "lightning");
 
-    intro.appendChild(strike);
-    intro.appendChild(header);
+    function lightning() {
+        intro.appendChild(strike);
+    }
 
     function func() {
         strike.remove();
+        header.remove();
     }
 
-    // function func2() {
-    //     header.remove();
-    // }
-    setTimeout(func, 1000);
-    // setTimeout(func2, 6000);
+    setTimeout(lightning, 3500)
+    setTimeout(func, 5000);
 }
 
