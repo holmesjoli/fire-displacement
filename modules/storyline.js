@@ -73,7 +73,7 @@ export function lightning() {
 
     function func() {
         strike.remove();
-        header.remove();
+        intro.remove();
     }
 
     setTimeout(lightning, 3500)
