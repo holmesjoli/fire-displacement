@@ -35,7 +35,7 @@ export function powerout(date) {
 }
 
 //Lightning strike
-export function lightning() {
+export function intro() {
 
     // Create intro
     let intro = document.createElement("div");
@@ -66,17 +66,18 @@ export function lightning() {
     let strike = document.createElement("img");
     strike.src = 'assets/lightning.svg';
     strike.setAttribute("id", "lightning");
+    intro.appendChild(strike);
 
-    function lightning() {
-        intro.appendChild(strike);
-    }
+    // function lightning() {
+    //     intro.appendChild(strike);
+    // }
 
     function func() {
         strike.remove();
         intro.remove();
     }
 
-    setTimeout(lightning, 3500)
+    // setTimeout(lightning, 3500)
     setTimeout(func, 5000);
 }
 

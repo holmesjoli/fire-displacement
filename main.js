@@ -129,7 +129,7 @@ function init() {
     }, 4000);
 }
 
-Story.lightning();
+Story.intro();
 init();
 
 // Timeline
