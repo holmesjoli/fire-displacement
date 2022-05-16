@@ -47,12 +47,11 @@ p {
     top: 0;
     left: 0;
     margin: 0;
-    animation: fadeout 5s forwards;
+    animation: fadeout 10s forwards;
 }
 
 @keyframes fadeout {
     0% { opacity: 1; }
-    80% { opacity: 1; }
     100% { opacity: 0; background-color: #FFFFFF;}
 }
 
@@ -70,7 +69,7 @@ p {
 }
 
 .delay {
-    animation: fadein 1.5s forwards;
+    animation: fadein 10s forwards;
 }
 
 @keyframes fadein {
